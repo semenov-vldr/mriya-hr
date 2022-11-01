@@ -1,0 +1,57 @@
+// ---- Form ----------
+
+// Name
+mixin inputName
+  .feedback-form__input-container
+    input(placeholder="Иванов Иван Иванович*" name="name" pattern="^[A-Za-zА-Яа-яЁё\\s]+$" autocomplete='off' maxlength='40' required )
+    span.feedback-form__error
+
+// Tel
+mixin inputTel
+  .feedback-form__input-container
+    input(type='tel' name='phone' placeholder="+7(___)___-__-__*" data-tel-input='' pattern='.{18,}' maxlength='18'  autocomplete='off' required )
+    span.feedback-form__error
+
+// Email
+mixin inputEmail
+  .feedback-form__input-container
+    input(type='email' name="email" maxlength='40' placeholder="example@email.ru*" pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" required )
+    span.feedback-form__error
+
+// Text
+mixin inputText
+  .feedback-form__input-container
+    textarea( placeholder="Пожалуйста, введите запрос*" name="message" maxlength='200' rows="4" required)
+    span.feedback-form__error
+
+
+// Кнопка "отправить" и согласие
+mixin sending
+  .feedback-form__sending
+    label
+      input(type='checkbox' checked)
+      span.feedback-form__checkbox
+      span.feedback-form__agreement Даю согласие на обработку персональных данных
+    button.button.arrow.button--outline(type='submit') Отправить&nbsp;вопрос
+
+// шаблон прогресс-бара
+mixin upload-progress-template
+  template.upload-progress__template
+    .feedback-form__upload-progress.feedback-form-upload-progress
+      .feedback-form-upload-progress__line(data-progress)
+      .feedback-form-upload-progress__close(data-name)
+      span.feedback-form-upload-progress__name
+      span.feedback-form-upload-progress__size
+
+//--------------------------------
+
+  // breadcrumbs
+mixin breadcrumbs_icon
+  svg(width="7" height="6" fill='#fff')
+    use(href="./assets/img/sprite.svg#breadcrumbs")
+
+
+// карточка партнера
+mixin partnersItem(src)
+  li.partners__item
+    img.partners__logo(src=src)

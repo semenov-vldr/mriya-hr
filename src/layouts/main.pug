@@ -1,0 +1,41 @@
+include ../components/index
+include ../components/mixins
+block variables
+
+- var activePage = activePage
+
+doctype html
+html(lang="ru-RU")
+  head
+    meta(charset="utf-8")
+    title #{title}
+    <!--[if IE]>
+    meta(http-equiv='X-UA-Compatible' content="IE = edge")
+    <![endif]-->
+    meta(name="viewport" content="width=device-width,initial-scale=1")
+    meta(name="keywords" content="")
+
+    <!--favicon-->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!--favicon end-->
+
+    link(rel="stylesheet" type='text/css' href="assets/css/libs.min.css")
+    link(rel="stylesheet" type='text/css' href="assets/css/main.css")
+
+    <!--[if lt IE 9]>
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js")
+    <![endif]-->
+
+    <!-- Yandex map script -->
+    script(src="https://api-maps.yandex.ru/2.1/?apikey=dad86943-dfef-45bd-9c5e-c404323cb093&lang=ru_RU" type="text/javascript")
+
+  body(class=pageClass)
+    .page
+      include ../components/header/header
+      main
+        block content
+        include ../components/footer/footer
+    script(src="assets/js/libs.min.js")
+    script(src="assets/js/main.js" type="module")
+    block script
