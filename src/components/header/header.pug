@@ -1,0 +1,50 @@
+header.header
+  .header__container.container
+    a.header__logo(href="index.html")
+      svg(width="212" height="16" fill="#393737")
+        use(href='./assets/img/sprite.svg#logo')
+
+    svg.header__burger(width="24" height="24")
+      use(href='./assets/img/sprite.svg#burger')
+
+    nav.header__nav.header-nav
+
+      ul.header-nav__list
+        li.header-nav__item
+          a.header-nav__link(href="about.html")
+            svg(width="18" height="18" fill="#393737")
+              use(href='./assets/img/sprite.svg#icon-about')
+            | О нас
+
+        li.header-nav__item
+          a.header-nav__link(href="")
+            svg(width="20" height="17" fill="#121212")
+              use(href='./assets/img/sprite.svg#icon-student')
+            | Студентам
+
+        li.header-nav__item
+          a.header-nav__link(href="")
+            svg(width="16" height="16" stroke="#393737" stroke-width="1.5")
+              use(href='./assets/img/sprite.svg#header-vacansy')
+            | Вакансии
+
+        li.header-nav__item
+          a.header-nav__link(href="")
+            svg(width="16" height="16" fill="#393737")
+              use(href='./assets/img/sprite.svg#form')
+            | Заполнить анкету
+
+      ul.header-nav__bottom.header-bottom
+        li.header-bottom__item
+          button.fill-form Задать вопрос
+
+        li.header-bottom__item
+          a.header-bottom__email(href="mailoto:job@mriyaresort.com") job@mriyaresort.com
+
+        li.header-bottom__item
+          a.header-bottom__tel(href="tel:88005008964") 8 800 500-89-64
+
+        li.header-bottom__item
+          a.header-bottom__politics(href="") Политика конфиденциальности
+
+

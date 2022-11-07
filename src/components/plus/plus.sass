@@ -1,0 +1,129 @@
+.plus
+  background-color: $beige
+  padding: 156px 0
+
+  &__container
+    display: flex
+    flex-direction: column
+    gap: 64px
+    align-items: center
+    @media (max-width: 1000px)
+      gap: 32px
+
+  div.plus__content
+    display: none
+    &.js-plus-active
+      display: grid
+
+  &__tabs
+    display: inline-flex
+    padding: 8px
+    gap: 10px
+    align-items: center
+    border: 1px solid rgba(18, 18, 18, 0.1)
+    font-size: 18px
+    border-radius: 50px
+
+  &-tabs__item
+    padding: 8px 16px
+    cursor: pointer
+    @include fontSize(14, 18)
+    text-align: center
+    @media (max-width: 1000px)
+      padding: 4px 8px
+
+  &-tabs__item.js-tabs-active
+    background-color: #333333
+    color: #fff
+    border-radius: 30px
+
+
+  // Преимущества
+  .advantages
+    display: grid
+    grid-template-columns: 37% 55%
+    justify-content: space-between
+    gap: 50px
+    width: 100%
+    @media (max-width: 1000px)
+      grid-template-columns: 1fr
+      gap: 24px
+
+    .accordion
+      @media (max-width: 1000px)
+        order: 1
+
+      &__item
+        &.js-accordion-active .accordion__icon
+          opacity: 0
+
+      &__title
+        svg
+          transition: opacity 0.2s ease
+
+    &__images
+      @media (max-width: 1000px)
+        aspect-ratio: 1 / 1
+
+      &-item
+        display: none
+        width: 100%
+        height: 732px
+        object-fit: cover
+        &.js-advantages-active
+          display: block
+
+  // Бонусы и привелегии
+  .bonus
+
+    &__list
+      display: grid
+      grid-template-columns: repeat(3, 1fr)
+      @media (max-width: 1000px)
+        grid-template-columns: repeat(2, 1fr)
+      @media (max-width: 600px)
+        grid-template-columns: 1fr
+
+    &__item
+      padding: 48px
+      @media (max-width: 1600px)
+        padding: 24px
+      @media (max-width: 480px)
+        padding: 24px 0
+      @media (min-width: 1000.1px)
+        &:not(:nth-child(3n))
+          border-right: 1px solid #1212120D
+        &:not(:nth-last-child(-n+3))
+          border-bottom: 1px solid #1212120D
+      @media (min-width: 600.1px) and (max-width: 1000px)
+        &:nth-child(odd)
+          border-right: 1px solid #1212120D
+        &:not(:nth-last-child(-n+2))
+          border-bottom: 1px solid #1212120D
+      @media (max-width: 600px)
+        border-bottom: 1px solid #1212120D
+
+
+    &__icon
+      width: 40px
+      aspect-ratio: 1 / 1
+      margin-bottom: clamp(24px, calc(24px + (40 - 24) * ((100vw - 768px) / (1920 - 768))), 40px)
+
+    &__title
+      @include fontSize(16, 20)
+      font-weight: 500
+      line-height: 1.4
+      margin-bottom: 24px
+
+    &__description-list
+      display: flex
+      flex-direction: column
+      gap: 10px
+      list-style-type: disc
+      padding-left: 30px
+      @include fontSize(13, 16)
+
+
+
+
+

@@ -1,0 +1,93 @@
+.header
+  height: 88px
+  padding: 24px 0
+  @media (max-width: 1000px)
+    height: 64px
+
+  &.header--simple .header__container
+    justify-content: center
+
+  &__container
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+  &__logo svg
+    @media (max-width: 1000px)
+      width: 170px
+
+  &-nav
+    padding: 8px 0
+    @media (max-width: 1000px)
+      position: fixed
+      display: none
+      grid-template-columns: auto
+      height: 100vh
+      max-height: calc(100vh - 40px)
+      min-height: 480px
+      top: 64px
+      left: 0
+      right: 0
+      background-color: #fff
+      overflow-y: auto
+      overscroll-behavior: contain
+      z-index: 1
+      &::-webkit-scrollbar
+        width: 0
+    &.js-active-menu
+      display: grid
+
+
+    &__list
+      display: flex
+      gap: 32px
+      @media (max-width: 1000px)
+        flex-direction: column
+        text-align: center
+        gap: 40px
+
+    &__link
+      display: flex
+      align-items: center
+      gap: 8px
+      @media (max-width: 1000px)
+        justify-content: center
+
+  &__burger
+    display: none
+    @media (max-width: 1000px)
+      display: block
+      cursor: pointer
+
+
+  &-bottom
+    display: none
+    @media (max-width: 1000px)
+      position: absolute
+      margin: 0 auto
+      padding: 0 20px
+      bottom: 40px
+      display: grid
+      grid-template-columns: auto auto
+      grid-auto-rows: max-content
+      height: fit-content
+      gap: 20px 12px
+      text-align: center
+      @media (max-width: 480px)
+        grid-template-columns: 1fr
+
+
+    &__item
+      height: min-content
+
+      &:nth-child(1),
+      &:nth-child(4)
+        grid-column: 1 / -1
+
+      button
+        margin: 0 auto
+
+
+
+
+

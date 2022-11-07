@@ -1,0 +1,52 @@
+.footer
+  min-height: 165px
+  padding: 40px 0
+
+  &__container
+    display: flex
+    justify-content: space-between
+    gap: 40px
+    align-items: center
+    padding-top: 48px
+    border-top: 1px solid #EAECF0
+    @include fontSize(14, 16)
+    @media (max-width: 1600px)
+      justify-content: center
+      flex-wrap: wrap
+      row-gap: 24px
+    @media (max-width: 768px)
+      flex-direction: column-reverse
+      align-items: flex-start
+
+
+  &__other-info
+    display: flex
+    gap: 32px
+    & *
+      white-space: nowrap
+    @media (max-width: 768px)
+      flex-direction: column-reverse
+      gap: 24px
+
+  &__copyright
+    color: #B8B8B8
+
+  &__contact-list
+    display: flex
+    gap: 32px
+    & *
+      white-space: nowrap
+    @media (max-width: 768px)
+      display: grid
+      grid-template-columns: auto auto
+      gap: 24px
+
+
+  &__contact-item
+    @media (max-width: 768px)
+      &:nth-child(3)
+        order: -1
+        grid-column: 1 / -1
+
+
+

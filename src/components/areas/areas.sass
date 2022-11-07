@@ -1,0 +1,71 @@
+.areas
+
+  &__container
+    display: grid
+    grid-template-columns: auto 40%
+    gap: 50px
+    justify-content: space-between
+    align-items: center
+    @media (max-width: 1000px)
+      grid-template-columns: 1fr
+
+  &__title
+    text-align: left
+    margin-bottom: clamp(16px, calc(16px + (32 - 16) * ((100vw - 768px) / (1920 - 768))), 32px)
+
+  &__description
+    display: none
+    @include fontSize(14, 18)
+    margin-bottom: clamp(32px, calc(32px + (48 - 32) * ((100vw - 768px) / (1920 - 768))), 48px)
+    &.js-area-active
+      display: block
+
+  &__subtitle
+    display: inline-block
+    font-size: 20px
+    margin-bottom: clamp(16px, calc(16px + (32 - 16) * ((100vw - 768px) / (1920 - 768))), 32px)
+
+
+  &__list
+    display: flex
+    flex-wrap: wrap
+    gap: 16px 8px
+
+  &__item,
+  .areas__item--more
+    border: 1px solid #EBEBEB
+    padding: 6px 16px
+    cursor: pointer
+    @include fontSize(13, 16)
+    @media (max-width: 1000px)
+      padding: 10px 16px
+    &:hover,
+    &.js-area-active
+      background-color: $black
+      border-color: $black
+      color: #fff
+
+  &__item
+    &:nth-child(n+9)
+      display: none
+
+
+  &__item.js-visible
+    display: block
+
+
+
+  &__images
+    height: 640px
+    @media (max-width: 1000px)
+      order: -1
+      height: auto
+      aspect-ratio: 11 / 9
+    img
+      display: none
+      width: 100%
+      height: 100%
+      object-fit: cover
+      &.js-area-active
+        display: block
+

@@ -1,0 +1,33 @@
+.mass-media
+  background-color: $black
+  min-height: 260px
+  padding: 60px 0
+
+  &__container
+    flex-direction: column
+    gap: 40px
+    @extend .flex-center
+
+  &__title
+    font-size: 20px
+    color: #fff
+
+  &__list
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    gap: 50px
+    @media (max-width: 480px)
+      gap: 24px
+
+  &__item
+    height: 35px
+    img
+      width: auto
+      height: 100%
+      object-fit: cover
+    @media (max-width: 480px)
+      height: 24px
+
+
+

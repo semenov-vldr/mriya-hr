@@ -1,0 +1,32 @@
+.faq
+
+  &__container
+    display: grid
+    grid-template-columns: auto 57%
+    gap: 96px
+    justify-content: space-between
+    @media (max-width: 1000px)
+      grid-template-columns: 1fr
+      gap: 48px
+
+
+    .accordion
+
+      &__item.js-accordion-active .accordion__icon
+        fill: $black
+        transform: rotate(45deg)
+      &__item.js-accordion-active .accordion__icon path
+        fill: #fff
+
+
+
+  &-feedback
+    padding: 64px
+    text-align: center
+    background-color: $beige
+    grid-column: 1 / -1
+    @extend .flex-center
+    flex-direction: column
+    gap: 32px
+
+
