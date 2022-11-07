@@ -10,6 +10,10 @@
   &__container
     display: flex
     gap: 50px
+    height: 100%
+    align-items: center
+    @media (max-width: 1000px)
+      flex-direction: column
 
   &__content
     display: flex
@@ -17,6 +21,8 @@
     gap: 32px
     max-width: 530px
     padding-top: 50px
+    @media (max-width: 1000px)
+      gap: 20px
 
   &__text
     max-width: 400px
@@ -25,6 +31,9 @@
     display: flex
     align-items: center
     gap: 30px
+    @media (max-width: 1000px)
+      flex-wrap: wrap
+      justify-content: center
 
   &__employees
     display: flex
@@ -38,3 +47,7 @@
     &__item:nth-child(2)
       margin-left: -70px
       margin-top: -20px
+    &__item
+      img
+        width: clamp(160px, calc(160px + (390 - 160) * ((100vw - 320px) / (1920 - 320))), 390px)
+

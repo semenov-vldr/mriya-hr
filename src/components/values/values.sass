@@ -1,0 +1,61 @@
+.values
+
+  &__container
+    display: flex
+    flex-direction: column
+    gap: 96px
+    @media (max-width: 1000px)
+      gap: 48px
+
+  &__list
+    display: flex
+    flex-direction: column
+    gap: 96px
+    @media (max-width: 1000px)
+      gap: 56px
+
+
+  &-item
+    display: grid
+    grid-template-columns: 1fr 1fr
+    gap: 50px
+    align-items: center
+    justify-content: space-between
+    @media (min-width: 1000.1px)
+      &:nth-child(even) .values-item__image
+        order: 1
+    @media (max-width: 1000px)
+      grid-template-columns: 1fr
+      gap: 16px
+      justify-content: center
+
+
+    &__image
+      img
+        width: 100%
+        max-width: 600px
+        height: 100%
+        object-fit: cover
+        aspect-ratio: 15 / 16
+
+    &__content
+      display: flex
+      flex-direction: column
+      gap: 32px
+      @media (max-width: 1000px)
+        gap: 16px
+
+    &__note
+      color: #D99D56
+      text-transform: uppercase
+      @include fontSize(14, 16)
+
+    &__title
+      font-weight: 500
+      @include fontSize(24, 48)
+      line-height: 1.1
+
+    &__text
+      @include fontSize(14, 18)
+
+
