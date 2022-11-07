@@ -1,0 +1,550 @@
+
+<!-- ---- Form ------------><!DOCTYPE html>
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+    <title>Главная</title><!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE = edge"><![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content=""><!--favicon-->
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<!--favicon end-->
+    <link rel="stylesheet" type="text/css" href="assets/css/libs.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css"><!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script><![endif]-->
+<!-- Yandex map script -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=dad86943-dfef-45bd-9c5e-c404323cb093&amp;lang=ru_RU" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <div class="header__container container"><a class="header__logo" href="index.html">
+            <svg width="212" height="16" fill="#393737">
+              <use href="./assets/img/sprite.svg#logo"></use>
+            </svg></a>
+          <svg class="header__burger" width="24" height="24">
+            <use href="./assets/img/sprite.svg#burger"></use>
+          </svg>
+          <nav class="header__nav header-nav">
+            <ul class="header-nav__list">
+              <li class="header-nav__item"><a class="header-nav__link" href="about.html">
+                  <svg width="18" height="18" fill="#393737">
+                    <use href="./assets/img/sprite.svg#icon-about"></use>
+                  </svg>О нас</a></li>
+              <li class="header-nav__item"><a class="header-nav__link" href="">
+                  <svg width="20" height="17" fill="#121212">
+                    <use href="./assets/img/sprite.svg#icon-student"></use>
+                  </svg>Студентам</a></li>
+              <li class="header-nav__item"><a class="header-nav__link" href="">
+                  <svg width="16" height="16" stroke="#393737" stroke-width="1.5">
+                    <use href="./assets/img/sprite.svg#header-vacansy"></use>
+                  </svg>Вакансии</a></li>
+              <li class="header-nav__item"><a class="header-nav__link" href="">
+                  <svg width="16" height="16" fill="#393737">
+                    <use href="./assets/img/sprite.svg#form"></use>
+                  </svg>Заполнить анкету</a></li>
+            </ul>
+            <ul class="header-nav__bottom header-bottom">
+              <li class="header-bottom__item">
+                <button class="fill-form">Задать вопрос</button>
+              </li>
+              <li class="header-bottom__item"><a class="header-bottom__email" href="mailoto:job@mriyaresort.com">job@mriyaresort.com</a></li>
+              <li class="header-bottom__item"><a class="header-bottom__tel" href="tel:88005008964">8 800 500-89-64</a></li>
+              <li class="header-bottom__item"><a class="header-bottom__politics" href="">Политика конфиденциальности</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main>
+        <section class="section-column">
+          <div class="hero-index">
+            <div class="hero-index__container container">
+              <div class="hero-index__content">
+                <h1 class="hero-index__title">Построй карьеру в одном из лучших курортов в мире</h1>
+                <p class="hero-index__text">Вы можете развиваться в своей профессии или попробовать поменять квалификацию и начать осваивать что-то новое</p>
+                <div class="hero-index__buttons">
+                  <div class="button button--accent">Вакансии</div>
+                  <button class="fill-form">Заполнить анкету</button>
+                </div>
+                <div class="hero-index__employees"><img src="../assets/img/index-hero/employees.png">
+                  <p class="hero-index__employees-text"><b>3000+ сотрудников</b>&nbsp развиваются вместе с нами</p>
+                </div>
+              </div>
+              <div class="hero-index__stories">
+                <div class="hero-index__stories__item"><img src="../assets/img/index-hero/hero-stories-1.png"></div>
+                <div class="hero-index__stories__item"><img src="../assets/img/index-hero/hero-stories-2.png"></div>
+              </div>
+            </div>
+          </div>
+          <div class="vacansy">
+            <div class="container vacansy__container">
+              <h2 class="title-section vacansy__title">Актуальные и популярные вакансии</h2>
+              <div class="vacansy__content">
+                <div class="vacansy__slider swiper">
+                  <div class="vacansy__list swiper-wrapper">
+                    <div class="vacansy__item swiper-slide"><img class="vacansy__image" src="../assets/img/vacansy/01.jpg">
+                      <div class="vacansy__info"><span class="vacansy__name">Водитель клаб-кара</span><span class="vacansy__salary">от 50 000 Р</span></div>
+                    </div>
+                    <div class="vacansy__item swiper-slide"><img class="vacansy__image" src="../assets/img/vacansy/02.jpg">
+                      <div class="vacansy__info"><span class="vacansy__name">Горничная</span><span class="vacansy__salary">от 40 000 Р</span></div>
+                    </div>
+                    <div class="vacansy__item swiper-slide"><img class="vacansy__image" src="../assets/img/vacansy/03.jpg">
+                      <div class="vacansy__info"><span class="vacansy__name">Агент по бронированию</span><span class="vacansy__salary">от 80 000 Р</span></div>
+                    </div>
+                    <div class="vacansy__item swiper-slide"><img class="vacansy__image" src="../assets/img/vacansy/04.jpg">
+                      <div class="vacansy__info"><span class="vacansy__name">Садовник</span><span class="vacansy__salary">от 70 000 Р</span></div>
+                    </div>
+                    <div class="vacansy__item swiper-slide"><img class="vacansy__image" src="../assets/img/vacansy/01.jpg">
+                      <div class="vacansy__info"><span class="vacansy__name">Водитель клаб-кара</span><span class="vacansy__salary">от 50 000 Р</span></div>
+                    </div>
+                    <div class="vacansy__item swiper-slide"><img class="vacansy__image" src="../assets/img/vacansy/02.jpg">
+                      <div class="vacansy__info"><span class="vacansy__name">Горничная</span><span class="vacansy__salary">от 40 000 Р</span></div>
+                    </div>
+                  </div>
+                  <div class="slider-nav__prev">
+                    <svg width="8" height="12" stroke="#393737">
+                      <use href="./assets/img/sprite.svg#arrow-nav-left"></use>
+                    </svg>
+                  </div>
+                  <div class="slider-nav__next">
+                    <svg width="8" height="12" stroke="#393737">
+                      <use href="./assets/img/sprite.svg#arrow-nav-left"></use>
+                    </svg>
+                  </div>
+                  <div class="swiper-scrollbar"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="review" style="background-image: url('./assets/img/review.gif')">
+            <div class="review__container container">
+              <h2 class="review__title">Ведущий курорт в Крыму<br>и один из лучших в мире</h2>
+              <div class="review__buttons"><a class="button button--accent" href="">О нас</a><a class="button">Видео-обзор курорта</a></div>
+            </div>
+          </div>
+          <div class="areas">
+            <div class="areas__container container">
+              <div class="areas__content">
+                <h2 class="title-section areas__title">Вместе мы создаем мир, в который хочется вернуться</h2>
+                <p class="areas__description" data-description="1">Наши гости любят Mriya Resort за премиальный сервис и уникальную инфраструктуру, а мы — за увлеченный, дружный коллектив и добрую атмосферу</p>
+                <p class="areas__description" data-description="2">Наши 2 гости любят Mriya Resort за премиальный сервис и уникальную инфраструктуру, а мы — за увлеченный, дружный коллектив и добрую атмосферу</p>
+                <p class="areas__description" data-description="3">Наши 3 гости любят Mriya Resort за премиальный сервис и уникальную инфраструктуру, а мы — за увлеченный, дружный коллектив и добрую атмосферу</p>
+                <p class="areas__description" data-description="4">Наши 4 гости любят Mriya Resort за премиальный сервис и уникальную инфраструктуру, а мы — за увлеченный, дружный коллектив и добрую атмосферу</p>
+                <p class="areas__description" data-description="5">Наши 5 гости любят Mriya Resort за премиальный сервис и уникальную инфраструктуру, а мы — за увлеченный, дружный коллектив и добрую атмосферу</p>
+                <p class="areas__description" data-description="6">Наши 6 гости любят Mriya Resort за премиальный сервис и уникальную инфраструктуру, а мы — за увлеченный, дружный коллектив и добрую атмосферу</p>
+                <p class="areas__description" data-description="7">Наши 7 гости любят Mriya Resort за премиальный сервис и уникальную инфраструктуру, а мы — за увлеченный, дружный коллектив и добрую атмосферу</p>
+                <p class="areas__description" data-description="8">Наши 8 гости любят Mriya Resort за премиальный сервис и уникальную инфраструктуру, а мы — за увлеченный, дружный коллектив и добрую атмосферу</p>
+                <p class="areas__description" data-description="9">Наши 9 гости любят Mriya Resort за премиальный сервис и уникальную инфраструктуру, а мы — за увлеченный, дружный коллектив и добрую атмосферу</p>
+                <p class="areas__description" data-description="10">Наши 10 гости любят Mriya Resort за премиальный сервис и уникальную инфраструктуру, а мы — за увлеченный, дружный коллектив и добрую атмосферу</p>
+                <p class="areas__description" data-description="11">Наши 11 гости любят Mriya Resort за премиальный сервис и уникальную инфраструктуру, а мы — за увлеченный, дружный коллектив и добрую атмосферу</p>
+                <p class="areas__description" data-description="12">Наши 12 гости любят Mriya Resort за премиальный сервис и уникальную инфраструктуру, а мы — за увлеченный, дружный коллектив и добрую атмосферу</p>
+                <p class="areas__description" data-description="13">Наши 13 гости любят Mriya Resort за премиальный сервис и уникальную инфраструктуру, а мы — за увлеченный, дружный коллектив и добрую атмосферу</p>
+                <p class="areas__description" data-description="14">Наши 14 гости любят Mriya Resort за премиальный сервис и уникальную инфраструктуру, а мы — за увлеченный, дружный коллектив и добрую атмосферу</p><b class="areas__subtitle">Направления работы</b>
+                <ul class="areas__list">
+                  <li class="areas__item" data-area="1">Благоустройство</li>
+                  <li class="areas__item" data-area="2">Дримвуд</li>
+                  <li class="areas__item" data-area="3">Инженерно-технические объекты</li>
+                  <li class="areas__item" data-area="4">Медицина</li>
+                  <li class="areas__item" data-area="5">Отель</li>
+                  <li class="areas__item" data-area="6">Офис</li>
+                  <li class="areas__item" data-area="7">Пляж</li>
+                  <li class="areas__item" data-area="8">Рестораны</li>
+                  <li class="areas__item" data-area="10">Благоустройство</li>
+                  <li class="areas__item" data-area="11">Дримвуд</li>
+                  <li class="areas__item" data-area="12">Медицина</li>
+                  <li class="areas__item" data-area="13">Рестораны</li>
+                  <li class="areas__item" data-area="14">Пляж</li>
+                  <li class="areas__item--more"></li>
+                </ul>
+              </div>
+              <div class="areas__images"><img src="./assets/img/advantages/01.jpg" data-image="1"><img src="./assets/img/advantages/02.jpg" data-image="2"><img src="./assets/img/advantages/03.jpg" data-image="3"><img src="./assets/img/advantages/04.jpg" data-image="4"><img src="./assets/img/advantages/05.jpg" data-image="5"><img src="./assets/img/advantages/06.jpg" data-image="6"><img src="./assets/img/advantages/07.jpg" data-image="7"><img src="./assets/img/advantages/04.jpg" data-image="8"><img src="./assets/img/advantages/03.jpg" data-image="9"><img src="./assets/img/advantages/04.jpg" data-image="10"><img src="./assets/img/advantages/05.jpg" data-image="11"><img src="./assets/img/advantages/06.jpg" data-image="12"><img src="./assets/img/advantages/07.jpg" data-image="13"><img src="./assets/img/advantages/02.jpg" data-image="14"></div>
+            </div>
+          </div>
+          <div class="plus">
+            <div class="plus__container container">
+              <div class="plus__header">
+                <h2 class="title-section">Плюсы работы в Mriya Resort</h2>
+                <p class="plus__subtitle">Возможность развиваться и строить карьеру у моря, в компании, где ценят и уважают труд каждого человека</p>
+              </div>
+              <div class="plus__tabs plus-tabs">
+                <div class="plus-tabs__item" data-tab="1">Преимущества</div>
+                <div class="plus-tabs__item" data-tab="2">Бонусы и привилегии</div>
+              </div>
+              <div class="plus__advantages advantages plus__content" data-content="1">
+                <div class="accordion">
+                  <ul class="accordion__list">
+                    <li class="accordion__item" data-advant="1">
+                      <p class="accordion__title">Официальное трудоустройство<svg class="accordion__icon" width="32" height="32" viewBox="0 0 32 32" fill="#FFF6E0">
+<rect width="32" height="32" rx="16"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 10C16.5523 10 17 10.4477 17 11V15H21C21.5523 15 22 15.4477 22 16C22 16.5523 21.5523 17 21 17H17V21C17 21.5523 16.5523 22 16 22C15.4477 22 15 21.5523 15 21V17H11C10.4477 17 10 16.5523 10 16C10 15.4477 10.4477 15 11 15H15V11C15 10.4477 15.4477 10 16 10Z" fill="#D99D56"/>
+</svg>
+                      </p>
+                      <div class="accordion__content">
+                        <p>Конкурентная белая зарплата согласно ТК РФ. Регулярные бонусы и премии</p>
+                      </div>
+                    </li>
+                    <li class="accordion__item" data-advant="2">
+                      <p class="accordion__title">Питание на территории отеля<svg class="accordion__icon" width="32" height="32" viewBox="0 0 32 32" fill="#FFF6E0">
+<rect width="32" height="32" rx="16"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 10C16.5523 10 17 10.4477 17 11V15H21C21.5523 15 22 15.4477 22 16C22 16.5523 21.5523 17 21 17H17V21C17 21.5523 16.5523 22 16 22C15.4477 22 15 21.5523 15 21V17H11C10.4477 17 10 16.5523 10 16C10 15.4477 10.4477 15 11 15H15V11C15 10.4477 15.4477 10 16 10Z" fill="#D99D56"/>
+</svg>
+                      </p>
+                      <div class="accordion__content">
+                        <p>В отеле есть бесплатная столовая для персонала, а за отдельную плату вы можете пользоваться услугами ресторанов и кафе</p>
+                      </div>
+                    </li>
+                    <li class="accordion__item" data-advant="3">
+                      <p class="accordion__title">Трансфер до места работы<svg class="accordion__icon" width="32" height="32" viewBox="0 0 32 32" fill="#FFF6E0">
+<rect width="32" height="32" rx="16"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 10C16.5523 10 17 10.4477 17 11V15H21C21.5523 15 22 15.4477 22 16C22 16.5523 21.5523 17 21 17H17V21C17 21.5523 16.5523 22 16 22C15.4477 22 15 21.5523 15 21V17H11C10.4477 17 10 16.5523 10 16C10 15.4477 10.4477 15 11 15H15V11C15 10.4477 15.4477 10 16 10Z" fill="#D99D56"/>
+</svg>
+                      </p>
+                      <div class="accordion__content">
+                        <p>Гибкий график корпоративного транспорта из Большой Ялты и Севастополя до отеля и обратно до дома</p>
+                      </div>
+                    </li>
+                    <li class="accordion__item" data-advant="4">
+                      <p class="accordion__title">Компенсация аренды жилья<svg class="accordion__icon" width="32" height="32" viewBox="0 0 32 32" fill="#FFF6E0">
+<rect width="32" height="32" rx="16"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 10C16.5523 10 17 10.4477 17 11V15H21C21.5523 15 22 15.4477 22 16C22 16.5523 21.5523 17 21 17H17V21C17 21.5523 16.5523 22 16 22C15.4477 22 15 21.5523 15 21V17H11C10.4477 17 10 16.5523 10 16C10 15.4477 10.4477 15 11 15H15V11C15 10.4477 15.4477 10 16 10Z" fill="#D99D56"/>
+</svg>
+                      </p>
+                      <div class="accordion__content">
+                        <p>В зависимости от должности 🛈 для сотрудников, не имеющих постоянной регистрации на территории Большой Ялты. Бесплатное размещение в корпоративных общежитиях.</p>
+                      </div>
+                    </li>
+                    <li class="accordion__item" data-advant="5">
+                      <p class="accordion__title">Помощь с переездом в Крым<svg class="accordion__icon" width="32" height="32" viewBox="0 0 32 32" fill="#FFF6E0">
+<rect width="32" height="32" rx="16"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 10C16.5523 10 17 10.4477 17 11V15H21C21.5523 15 22 15.4477 22 16C22 16.5523 21.5523 17 21 17H17V21C17 21.5523 16.5523 22 16 22C15.4477 22 15 21.5523 15 21V17H11C10.4477 17 10 16.5523 10 16C10 15.4477 10.4477 15 11 15H15V11C15 10.4477 15.4477 10 16 10Z" fill="#D99D56"/>
+</svg>
+                      </p>
+                      <div class="accordion__content">
+                        <p>Рассказываем, как проще переехать в Крым. Помогаем с размещением и адаптацией на новом месте. После прохождения испытательного срока, в зависимости от должности, — частично или полностью компенсируем расходы на переезд.</p>
+                      </div>
+                    </li>
+                    <li class="accordion__item" data-advant="6">
+                      <p class="accordion__title">Забота о психологическом здоровье<svg class="accordion__icon" width="32" height="32" viewBox="0 0 32 32" fill="#FFF6E0">
+<rect width="32" height="32" rx="16"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 10C16.5523 10 17 10.4477 17 11V15H21C21.5523 15 22 15.4477 22 16C22 16.5523 21.5523 17 21 17H17V21C17 21.5523 16.5523 22 16 22C15.4477 22 15 21.5523 15 21V17H11C10.4477 17 10 16.5523 10 16C10 15.4477 10.4477 15 11 15H15V11C15 10.4477 15.4477 10 16 10Z" fill="#D99D56"/>
+</svg>
+                      </p>
+                      <div class="accordion__content">
+                        <p>Сотрудники могут получить индивидуальную, квалифицированную помощь корпаративного психолога</p>
+                      </div>
+                    </li>
+                    <li class="accordion__item" data-advant="7">
+                      <p class="accordion__title">Регистрация для иностранцев<svg class="accordion__icon" width="32" height="32" viewBox="0 0 32 32" fill="#FFF6E0">
+<rect width="32" height="32" rx="16"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 10C16.5523 10 17 10.4477 17 11V15H21C21.5523 15 22 15.4477 22 16C22 16.5523 21.5523 17 21 17H17V21C17 21.5523 16.5523 22 16 22C15.4477 22 15 21.5523 15 21V17H11C10.4477 17 10 16.5523 10 16C10 15.4477 10.4477 15 11 15H15V11C15 10.4477 15.4477 10 16 10Z" fill="#D99D56"/>
+</svg>
+                      </p>
+                      <div class="accordion__content">
+                        <p>Регистрируем иностранных граждан в корпоративном общежитии по месту пребывания, помогаем оформить патент, компенсируем НДС после оплаты госпошлины (нужно сохранить чеки об оплате) и проводим обязательную бесплатную вакцинацию от COVID-19 для всех сотрудников</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="advantages__images"><img class="advantages__images-item" src="./assets/img/advantages/01.jpg" data-image="1"><img class="advantages__images-item" src="./assets/img/advantages/02.jpg" data-image="2"><img class="advantages__images-item" src="./assets/img/advantages/03.jpg" data-image="3"><img class="advantages__images-item" src="./assets/img/advantages/04.jpg" data-image="4"><img class="advantages__images-item" src="./assets/img/advantages/05.jpg" data-image="5"><img class="advantages__images-item" src="./assets/img/advantages/06.jpg" data-image="6"><img class="advantages__images-item" src="./assets/img/advantages/07.jpg" data-image="7"></div>
+              </div>
+              <div class="plus__bonus bonus plus__content" data-content="2">
+                <ul class="bonus__list">
+                  <li class="bonus__item"><img class="bonus__icon" src="./assets/img/icons/bonus/01.svg">
+                    <div class="bonus__title">Спорт и клубы по интересам</div>
+                    <ul class="bonus__description-list">
+                      <li class="bonus__description-item">Корпоративные тренировки по плаванию, футболу, волейболу, кроссфиту, большому и настольному теннису и другим направлениям</li>
+                      <li class="bonus__description-item">Ежемесячные экскурсии и походы по Крыму</li>
+                    </ul>
+                  </li>
+                  <li class="bonus__item"><img class="bonus__icon" src="./assets/img/icons/bonus/02.svg">
+                    <div class="bonus__title">Обучение</div>
+                    <ul class="bonus__description-list">
+                      <li class="bonus__description-item">Корпоративная библиотека</li>
+                      <li class="bonus__description-item">Изучение английского языка со скидкой</li>
+                      <li class="bonus__description-item">Большой выбор бесплатных образовательных программ</li>
+                      <li class="bonus__description-item">Профессиональные тренинги от Академии Гостеприимства</li>
+                    </ul>
+                  </li>
+                  <li class="bonus__item"><img class="bonus__icon" src="./assets/img/icons/bonus/03.svg">
+                    <div class="bonus__title">Корпоративные путешествия</div>
+                    <ul class="bonus__description-list">
+                      <li class="bonus__description-item">Purus in tristique sed ante. Id congue ut interdum libero, ut. Urna et amet sem viverra. Et sodales varius venenatis nibh amet.</li>
+                    </ul>
+                  </li>
+                  <li class="bonus__item"><img class="bonus__icon" src="./assets/img/icons/bonus/04.svg">
+                    <div class="bonus__title">Мероприятия для сотрудников</div>
+                    <ul class="bonus__description-list">
+                      <li class="bonus__description-item">«Клуб лидеров»</li>
+                      <li class="bonus__description-item">Премия «Лучший работник года»</li>
+                      <li class="bonus__description-item">Семейные выходные</li>
+                      <li class="bonus__description-item">Просветительские и волонтерские программы</li>
+                    </ul>
+                  </li>
+                  <li class="bonus__item"><img class="bonus__icon" src="./assets/img/icons/bonus/05.svg">
+                    <div class="bonus__title">Бонусы и скидки</div>
+                    <ul class="bonus__description-list">
+                      <li class="bonus__description-item">Специальные программы лояльности для сотрудников</li>
+                      <li class="bonus__description-item">Скидки на проживание в номерном фонде для сотрудников или их родственников</li>
+                      <li class="bonus__description-item">Возможность пользоваться услугами Mriya Resort и посещать тематические парки по специальной цене</li>
+                    </ul>
+                  </li>
+                  <li class="bonus__item"><img class="bonus__icon" src="./assets/img/icons/bonus/06.svg">
+                    <div class="bonus__title">Профессиональная адаптация, наставничество</div>
+                    <ul class="bonus__description-list">
+                      <li class="bonus__description-item">Система адаптации, упрощающая вхождение в должность</li>
+                      <li class="bonus__description-item">Работа с наставником и поддержка коллег</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="about">
+            <div class="about__container container">
+              <div class="about__images"><img class="about__image" src="./assets/img/about/01.jpg"><img class="about__image" src="./assets/img/about/02.jpg"></div>
+              <div class="about__content">
+                <div class="about__rewards"><img src="./assets/img/about/reward.png"><img src="./assets/img/about/reward.png"><img src="./assets/img/about/reward.png"><img src="./assets/img/about/reward.png"></div>
+                <h2 class="about__title title-section">Работайте и живите в одном из живописнейших мест России</h2>
+                <p class="about__text">Mriya Resort — ведущий мировой курорт, расположенный на южном берегу Крыма между живописным горным массивом и бескрайним морским простором.</p>
+                <p class="about__text">За годы работы отель получил признание международного туристического сообщества и удостоился 25 международных, 26 европейских и 15 российских наград в сфере индустрии гостеприимства.</p>
+                <ul class="about__social-list">
+                  <li class="about__social-item"><a class="about__social-link" href="">Вконтакте</a></li>
+                  <li class="about__social-item"><a class="about__social-link" href="">Instagram</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="success">
+            <div class="container success__container">
+              <h2 class="title-section success__title">Истории успеха наших сотрудников</h2>
+              <p class="success__subtitle">Вы можете развиваться в своей профессии или попробовать поменять квалификацию и начать осваивать что-то новое</p>
+              <div class="success__content">
+                <div class="success__slider swiper">
+                  <div class="success__list swiper-wrapper">
+                    <div class="success__item swiper-slide"><img class="success__image" src="../assets/img/success/01.png">
+                      <div class="success__info">Я работаю в Мрии садовником уже 2,5 месяца</div>
+                      <div class="success__stories success-stories">
+                        <div class="success-stories__play"><img></div><b class="success-stories__title">Название категории<span class="success-stories__amount">18 историй</span></b>
+                      </div>
+                    </div>
+                    <div class="success__item swiper-slide"><img class="success__image" src="../assets/img/success/02.png">
+                      <div class="success__info">Супервайзер в отделе клининга в Мрии</div>
+                      <div class="success__stories success-stories">
+                        <div class="success-stories__play"><img></div><b class="success-stories__title">Название категории<span class="success-stories__amount">18 историй</span></b>
+                      </div>
+                    </div>
+                    <div class="success__item swiper-slide"><img class="success__image" src="../assets/img/success/01.png">
+                      <div class="success__info">Я работаю в Мрии садовником уже 2,5 месяца</div>
+                      <div class="success__stories success-stories">
+                        <div class="success-stories__play"><img></div><b class="success-stories__title">Название категории<span class="success-stories__amount">18 историй</span></b>
+                      </div>
+                    </div>
+                    <div class="success__item swiper-slide"><img class="success__image" src="../assets/img/success/02.png">
+                      <div class="success__info">Супервайзер в отделе клининга в Мрии</div>
+                      <div class="success__stories success-stories">
+                        <div class="success-stories__play"><img></div><b class="success-stories__title">Название категории<span class="success-stories__amount">18 историй</span></b>
+                      </div>
+                    </div>
+                    <div class="success__item swiper-slide"><img class="success__image" src="../assets/img/success/01.png">
+                      <div class="success__info">Я работаю в Мрии садовником уже 2,5 месяца</div>
+                      <div class="success__stories success-stories">
+                        <div class="success-stories__play"><img></div><b class="success-stories__title">Название категории<span class="success-stories__amount">18 историй</span></b>
+                      </div>
+                    </div>
+                    <div class="success__item swiper-slide"><img class="success__image" src="../assets/img/success/02.png">
+                      <div class="success__info">Супервайзер в отделе клининга в Мрии</div>
+                      <div class="success__stories success-stories">
+                        <div class="success-stories__play"><img></div><b class="success-stories__title">Название категории<span class="success-stories__amount">18 историй</span></b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slider-nav__prev">
+                    <svg width="8" height="12" stroke="#393737">
+                      <use href="./assets/img/sprite.svg#arrow-nav-left"></use>
+                    </svg>
+                  </div>
+                  <div class="slider-nav__next">
+                    <svg width="8" height="12" stroke="#393737">
+                      <use href="./assets/img/sprite.svg#arrow-nav-left"></use>
+                    </svg>
+                  </div>
+                  <div class="swiper-scrollbar"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="faq">
+            <div class="faq__container container">
+              <h2 class="title-section">Ответы на часто-задаваемые вопросы</h2>
+              <div class="accordion">
+                <ul class="accordion__list">
+                  <li class="accordion__item">
+                    <p class="accordion__title">Где я буду жить?<svg class="accordion__icon" width="32" height="32" viewBox="0 0 32 32" fill="#FFF6E0">
+<rect width="32" height="32" rx="16"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 10C16.5523 10 17 10.4477 17 11V15H21C21.5523 15 22 15.4477 22 16C22 16.5523 21.5523 17 21 17H17V21C17 21.5523 16.5523 22 16 22C15.4477 22 15 21.5523 15 21V17H11C10.4477 17 10 16.5523 10 16C10 15.4477 10.4477 15 11 15H15V11C15 10.4477 15.4477 10 16 10Z" fill="#D99D56"/>
+</svg>
+                    </p>
+                    <div class="accordion__content">
+                      <p>Мы предоставляем место для проживания в корпоративных общежитиях, которые находятся в Ялте и Большой Ялте. Размещение по 2–4 человека в комнате. Для того, чтобы вам и вашим соседям было комфортно, обязательно соблюдайте правила проживания в корпоративном общежитии.</p>
+                    </div>
+                  </li>
+                  <li class="accordion__item">
+                    <p class="accordion__title">Как добраться до места будущего проживания в Крыму?<svg class="accordion__icon" width="32" height="32" viewBox="0 0 32 32" fill="#FFF6E0">
+<rect width="32" height="32" rx="16"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 10C16.5523 10 17 10.4477 17 11V15H21C21.5523 15 22 15.4477 22 16C22 16.5523 21.5523 17 21 17H17V21C17 21.5523 16.5523 22 16 22C15.4477 22 15 21.5523 15 21V17H11C10.4477 17 10 16.5523 10 16C10 15.4477 10.4477 15 11 15H15V11C15 10.4477 15.4477 10 16 10Z" fill="#D99D56"/>
+</svg>
+                    </p>
+                    <div class="accordion__content">
+                      <p>Конкурентная белая зарплата согласно ТК РФ. Регулярные бонусы и премии</p>
+                    </div>
+                  </li>
+                  <li class="accordion__item">
+                    <p class="accordion__title">Нужна ли прививка от COVID-19 для трудоустройства?<svg class="accordion__icon" width="32" height="32" viewBox="0 0 32 32" fill="#FFF6E0">
+<rect width="32" height="32" rx="16"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 10C16.5523 10 17 10.4477 17 11V15H21C21.5523 15 22 15.4477 22 16C22 16.5523 21.5523 17 21 17H17V21C17 21.5523 16.5523 22 16 22C15.4477 22 15 21.5523 15 21V17H11C10.4477 17 10 16.5523 10 16C10 15.4477 10.4477 15 11 15H15V11C15 10.4477 15.4477 10 16 10Z" fill="#D99D56"/>
+</svg>
+                    </p>
+                    <div class="accordion__content">
+                      <p>Конкурентная белая зарплата согласно ТК РФ. Регулярные бонусы и премии</p>
+                    </div>
+                  </li>
+                  <li class="accordion__item">
+                    <p class="accordion__title">Сколько раз кормят во время работы?<svg class="accordion__icon" width="32" height="32" viewBox="0 0 32 32" fill="#FFF6E0">
+<rect width="32" height="32" rx="16"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 10C16.5523 10 17 10.4477 17 11V15H21C21.5523 15 22 15.4477 22 16C22 16.5523 21.5523 17 21 17H17V21C17 21.5523 16.5523 22 16 22C15.4477 22 15 21.5523 15 21V17H11C10.4477 17 10 16.5523 10 16C10 15.4477 10.4477 15 11 15H15V11C15 10.4477 15.4477 10 16 10Z" fill="#D99D56"/>
+</svg>
+                    </p>
+                    <div class="accordion__content">
+                      <p>Конкурентная белая зарплата согласно ТК РФ. Регулярные бонусы и премии</p>
+                    </div>
+                  </li>
+                  <li class="accordion__item">
+                    <p class="accordion__title">Вы предоставляете униформу?<svg class="accordion__icon" width="32" height="32" viewBox="0 0 32 32" fill="#FFF6E0">
+<rect width="32" height="32" rx="16"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 10C16.5523 10 17 10.4477 17 11V15H21C21.5523 15 22 15.4477 22 16C22 16.5523 21.5523 17 21 17H17V21C17 21.5523 16.5523 22 16 22C15.4477 22 15 21.5523 15 21V17H11C10.4477 17 10 16.5523 10 16C10 15.4477 10.4477 15 11 15H15V11C15 10.4477 15.4477 10 16 10Z" fill="#D99D56"/>
+</svg>
+                    </p>
+                    <div class="accordion__content">
+                      <p>Конкурентная белая зарплата согласно ТК РФ. Регулярные бонусы и премии</p>
+                    </div>
+                  </li>
+                  <li class="accordion__item">
+                    <p class="accordion__title">Есть ли семейные номера для проживания сотрудников?<svg class="accordion__icon" width="32" height="32" viewBox="0 0 32 32" fill="#FFF6E0">
+<rect width="32" height="32" rx="16"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 10C16.5523 10 17 10.4477 17 11V15H21C21.5523 15 22 15.4477 22 16C22 16.5523 21.5523 17 21 17H17V21C17 21.5523 16.5523 22 16 22C15.4477 22 15 21.5523 15 21V17H11C10.4477 17 10 16.5523 10 16C10 15.4477 10.4477 15 11 15H15V11C15 10.4477 15.4477 10 16 10Z" fill="#D99D56"/>
+</svg>
+                    </p>
+                    <div class="accordion__content">
+                      <p>Конкурентная белая зарплата согласно ТК РФ. Регулярные бонусы и премии</p>
+                    </div>
+                  </li>
+                  <li class="accordion__item">
+                    <p class="accordion__title">Я еду на мед осмотр и стажировку за свой счет?<svg class="accordion__icon" width="32" height="32" viewBox="0 0 32 32" fill="#FFF6E0">
+<rect width="32" height="32" rx="16"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 10C16.5523 10 17 10.4477 17 11V15H21C21.5523 15 22 15.4477 22 16C22 16.5523 21.5523 17 21 17H17V21C17 21.5523 16.5523 22 16 22C15.4477 22 15 21.5523 15 21V17H11C10.4477 17 10 16.5523 10 16C10 15.4477 10.4477 15 11 15H15V11C15 10.4477 15.4477 10 16 10Z" fill="#D99D56"/>
+</svg>
+                    </p>
+                    <div class="accordion__content">
+                      <p>Конкурентная белая зарплата согласно ТК РФ. Регулярные бонусы и премии</p>
+                    </div>
+                  </li>
+                  <li class="accordion__item">
+                    <p class="accordion__title">За чей счет проводится мед.осмотр?<svg class="accordion__icon" width="32" height="32" viewBox="0 0 32 32" fill="#FFF6E0">
+<rect width="32" height="32" rx="16"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 10C16.5523 10 17 10.4477 17 11V15H21C21.5523 15 22 15.4477 22 16C22 16.5523 21.5523 17 21 17H17V21C17 21.5523 16.5523 22 16 22C15.4477 22 15 21.5523 15 21V17H11C10.4477 17 10 16.5523 10 16C10 15.4477 10.4477 15 11 15H15V11C15 10.4477 15.4477 10 16 10Z" fill="#D99D56"/>
+</svg>
+                    </p>
+                    <div class="accordion__content">
+                      <p>Конкурентная белая зарплата согласно ТК РФ. Регулярные бонусы и премии</p>
+                    </div>
+                  </li>
+                  <li class="accordion__item">
+                    <p class="accordion__title">Можно ли к вам трудоустроиться неофициально?<svg class="accordion__icon" width="32" height="32" viewBox="0 0 32 32" fill="#FFF6E0">
+<rect width="32" height="32" rx="16"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 10C16.5523 10 17 10.4477 17 11V15H21C21.5523 15 22 15.4477 22 16C22 16.5523 21.5523 17 21 17H17V21C17 21.5523 16.5523 22 16 22C15.4477 22 15 21.5523 15 21V17H11C10.4477 17 10 16.5523 10 16C10 15.4477 10.4477 15 11 15H15V11C15 10.4477 15.4477 10 16 10Z" fill="#D99D56"/>
+</svg>
+                    </p>
+                    <div class="accordion__content">
+                      <p>Конкурентная белая зарплата согласно ТК РФ. Регулярные бонусы и премии</p>
+                    </div>
+                  </li>
+                  <li class="accordion__item">
+                    <p class="accordion__title">Компенсации точно не вычитаются из заработной платы?<svg class="accordion__icon" width="32" height="32" viewBox="0 0 32 32" fill="#FFF6E0">
+<rect width="32" height="32" rx="16"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 10C16.5523 10 17 10.4477 17 11V15H21C21.5523 15 22 15.4477 22 16C22 16.5523 21.5523 17 21 17H17V21C17 21.5523 16.5523 22 16 22C15.4477 22 15 21.5523 15 21V17H11C10.4477 17 10 16.5523 10 16C10 15.4477 10.4477 15 11 15H15V11C15 10.4477 15.4477 10 16 10Z" fill="#D99D56"/>
+</svg>
+                    </p>
+                    <div class="accordion__content">
+                      <p>Конкурентная белая зарплата согласно ТК РФ. Регулярные бонусы и премии</p>
+                    </div>
+                  </li>
+                  <li class="accordion__item">
+                    <p class="accordion__title">Возможно ли заселиться в общежитие с ребенком и кошкой?<svg class="accordion__icon" width="32" height="32" viewBox="0 0 32 32" fill="#FFF6E0">
+<rect width="32" height="32" rx="16"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 10C16.5523 10 17 10.4477 17 11V15H21C21.5523 15 22 15.4477 22 16C22 16.5523 21.5523 17 21 17H17V21C17 21.5523 16.5523 22 16 22C15.4477 22 15 21.5523 15 21V17H11C10.4477 17 10 16.5523 10 16C10 15.4477 10.4477 15 11 15H15V11C15 10.4477 15.4477 10 16 10Z" fill="#D99D56"/>
+</svg>
+                    </p>
+                    <div class="accordion__content">
+                      <p>Конкурентная белая зарплата согласно ТК РФ. Регулярные бонусы и премии</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="faq__feedback faq-feedback"><img src="./assets/img/faq-feedback.png">
+                <div class="faq-feedback__text"><b>Не можете найти ответ на свой вопрос?</b>
+                  <p>Пожалуйста напишите нам, ответим как можно быстрее</p>
+                </div>
+                <button class="button button--accent">Задать вопрос</button>
+              </div>
+            </div>
+          </div>
+          <div class="mass-media">
+            <div class="mass-media__container container">
+              <p class="mass-media__title">О нас пишут</p>
+              <ul class="mass-media__list">
+                <li class="mass-media__item"><a class="mass-media__link" href=""><img src="./assets/img/mass-media/01.svg"></a></li>
+                <li class="mass-media__item"><a class="mass-media__link" href=""><img src="./assets/img/mass-media/02.svg"></a></li>
+                <li class="mass-media__item"><a class="mass-media__link" href=""><img src="./assets/img/mass-media/03.svg"></a></li>
+                <li class="mass-media__item"><a class="mass-media__link" href=""><img src="./assets/img/mass-media/04.svg"></a></li>
+                <li class="mass-media__item"><a class="mass-media__link" href=""><img src="./assets/img/mass-media/05.svg"></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="contacts">
+            <div class="contacts__container container">
+              <h2 class="title-section contacts__title">Развивайтесь и стройте карьеру у моря</h2>
+              <p class="contacts__subtitle">Мы всегда готовы ответить на ваши вопросы</p>
+              <div class="contacts__map contacts-map"><img class="contacts-map__image" src="./assets/img/contacts/map-contacts.svg">
+                <div class="contacts-map__point"></div>
+                <div class="contacts-map__label contacts-map-label"><img class="contacts-map-label__icon" src="./assets/img/contacts/ru.svg"><b class="contacts-map-label__title">Крым, Россия</b>
+                  <p class="contacts-map-label__address">Ceло Оползневое, Генерала Острякова 9</p>
+                </div>
+              </div>
+              <ul class="contacts__list">
+                <li class="contacts__item contacts-item"><b class="contacts-item__title">Адрес</b><span class="contacts-item__description">С нетерпением ждём в гости</span><a class="contacts-item__link" href="">Крым, село Оползневое, улица Генерала Острякова 9</a></li>
+                <li class="contacts__item contacts-item"><b class="contacts-item__title">По вопросам вакансий</b><span class="contacts-item__description">Ежедневно с 9:00 до 18:00</span><a class="contacts-item__link" href="mailto:job@mriyaresort.com">job@mriyaresort.com</a></li>
+                <li class="contacts__item contacts-item"><b class="contacts-item__title">По общим вопросам</b><span class="contacts-item__description">Круглосуточно</span><a class="contacts-item__link" href="mailto:info@mriyaresort.com">info@mriyaresort.com</a></li>
+                <li class="contacts__item contacts-item"><b class="contacts-item__title">Отдел кадров</b><span class="contacts-item__description">Ежедневно с 9:00 до 18:00</span><a class="contacts-item__link" href="tel:+78005008964">8 800 500 89 64</a></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <footer class="footer">
+          <div class="footer__container container">
+            <div class="footer__other-info"><span class="footer__copyright">© 2022 Mriya Resort & Spa</span><a class="footer__politics" href="">Политика конфиденциальности</a></div>
+            <ul class="footer__contact-list">
+              <li class="footer__contact-item"><a class="footer__contact-email" href="mailoto:job@mriyaresort.com">job@mriyaresort.com</a></li>
+              <li class="footer__contact-item"><a class="footer__contact-tel" href="tel:88005008964">8 800 500-89-64</a></li>
+              <li class="footer__contact-item">
+                <button class="ask">Задать вопрос</button>
+              </li>
+            </ul>
+          </div>
+        </footer>
+      </main>
+    </div>
+    <script src="assets/js/libs.min.js"></script>
+    <script src="assets/js/main.js" type="module"></script>
+  </body>
+</html>
