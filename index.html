@@ -23,9 +23,14 @@
             <svg width="212" height="16" fill="#393737">
               <use href="./assets/img/sprite.svg#logo"></use>
             </svg></a>
-          <svg class="header__burger" width="24" height="24">
-            <use href="./assets/img/sprite.svg#burger"></use>
-          </svg>
+          <div class="header__burger">
+            <svg class="burger" width="24" height="24">
+              <use href="./assets/img/sprite.svg#burger"></use>
+            </svg>
+            <svg class="close" width="14" height="14">
+              <use href="./assets/img/sprite.svg#close-menu"></use>
+            </svg>
+          </div>
           <nav class="header__nav header-nav">
             <ul class="header-nav__list">
               <li class="header-nav__item"><a class="header-nav__link" href="about.html">
@@ -315,6 +320,45 @@
               </div>
             </div>
           </div>
+          <div class="employment">
+            <div class="employment__container container">
+              <h2 class="title-section employment__title">Процесс трудоустройства</h2>
+              <ul class="employment__advantages employment-advantages">
+                <li class="employment-advantages__item">Все резюме, которые мы получаем, мы сохраняем с вашего согласия</li>
+                <li class="employment-advantages__item">Если вы не нашли подходящую вакансию, следите за обновлениями</li>
+                <li class="employment-advantages__item">Cтараемся предоставить обратную связь как можно быстрее</li>
+                <li class="employment-advantages__item">Если желаемая вакансия вам не подойдёт, предложим другой вариант</li>
+              </ul>
+              <div class="employment__content">
+                <div class="employment__image"><img src="./assets/img/employment.jpg"></div>
+                <div class="employment__steps employment-steps">
+                  <ul class="employment-steps__list"><span class="employment-steps__line employment-steps__line--light"></span><span class="employment-steps__line employment-steps__line--dark"></span>
+                    <li class="employment-steps__item employment-steps-item"><span class="employment-steps-item__number">1</span><b class="employment-steps-item__title">Найти подходящую заявку и откликнуться</b>
+                      <p class="employment-steps-item__text">Мы рассматрим заявку (не волнуйтесь, это не долго) и пригласим вас на следующий этап</p>
+                    </li>
+                    <li class="employment-steps__item employment-steps-item"><span class="employment-steps-item__number">2</span><b class="employment-steps-item__title">Собеседование со специалистом по подбору</b>
+                      <p class="employment-steps-item__text">Познакомимся, подробнее расскажем про вакансию и условия работы, обсудим ваши ожидания, ответим на вопросы, уточним компетенции и сведения в анкете.</p>
+                      <div class="employment__connection employment-connection"><span>Где</span>
+                        <div class="employment-connection__list"><img src="./assets/img/icons/social/skype.svg" title="skype"><img src="./assets/img/icons/social/telegram.svg" title="telegram"><img src="./assets/img/icons/social/whatsapp.svg" title="whatsapp"><img src="./assets/img/icons/social/tel.svg" title="phone"></div>
+                      </div>
+                    </li>
+                    <li class="employment-steps__item employment-steps-item"><span class="employment-steps-item__number">3</span><b class="employment-steps-item__title">Интервью с вашим будущим руководителем</b>
+                      <p class="employment-steps-item__text">Познакомимся, подробнее расскажем про вакансию и условия работы, обсудим ваши ожидания, ответим на вопросы, уточним компетенции и сведения в анкете.</p>
+                      <div class="employment__connection employment-connection"><span>Где</span>
+                        <div class="employment-connection__list"><img src="./assets/img/icons/social/skype.svg" title="skype"><img src="./assets/img/icons/social/telegram.svg" title="telegram"><img src="./assets/img/icons/social/whatsapp.svg" title="whatsapp"><img src="./assets/img/icons/social/tel.svg" title="phone"></div>
+                      </div>
+                    </li>
+                    <li class="employment-steps__item employment-steps-item"><span class="employment-steps-item__number">4</span><b class="employment-steps-item__title">Решение о соответствии</b>
+                      <p class="employment-steps-item__text">Успешным кандидатам поступает предложение о работе и предложение о переезде</p>
+                    </li>
+                    <li class="employment-steps__item employment-steps-item"><span class="employment-steps-item__number">5</span><b class="employment-steps-item__title">Поздравляем, вы приняты на работу в Mriya Resort & SPA!</b>
+                      <p class="employment-steps-item__text">Вас знакомят с командой и рабочими процессами, обучают функционалу. Добро пожаловать в команду мечты!</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="success">
             <div class="container success__container">
               <h2 class="title-section success__title">Истории успеха наших сотрудников</h2>
@@ -334,25 +378,25 @@
                         <div class="success-stories__play"><img></div><b class="success-stories__title">Название категории<span class="success-stories__amount">18 историй</span></b>
                       </div>
                     </div>
-                    <div class="success__item swiper-slide"><img class="success__image" src="./assets/img/success/01.png">
+                    <div class="success__item swiper-slide"><img class="success__image" src="./assets/img/success/01.jpg">
                       <div class="success__info">Я работаю в Мрии садовником уже 2,5 месяца</div>
                       <div class="success__stories success-stories">
                         <div class="success-stories__play"><img></div><b class="success-stories__title">Название категории<span class="success-stories__amount">18 историй</span></b>
                       </div>
                     </div>
-                    <div class="success__item swiper-slide"><img class="success__image" src="./assets/img/success/02.png">
+                    <div class="success__item swiper-slide"><img class="success__image" src="./assets/img/success/02.jpg">
                       <div class="success__info">Супервайзер в отделе клининга в Мрии</div>
                       <div class="success__stories success-stories">
                         <div class="success-stories__play"><img></div><b class="success-stories__title">Название категории<span class="success-stories__amount">18 историй</span></b>
                       </div>
                     </div>
-                    <div class="success__item swiper-slide"><img class="success__image" src="./assets/img/success/01.png">
+                    <div class="success__item swiper-slide"><img class="success__image" src="./assets/img/success/01.jpg">
                       <div class="success__info">Я работаю в Мрии садовником уже 2,5 месяца</div>
                       <div class="success__stories success-stories">
                         <div class="success-stories__play"><img></div><b class="success-stories__title">Название категории<span class="success-stories__amount">18 историй</span></b>
                       </div>
                     </div>
-                    <div class="success__item swiper-slide"><img class="success__image" src="./assets/img/success/02.png">
+                    <div class="success__item swiper-slide"><img class="success__image" src="./assets/img/success/02.jpg">
                       <div class="success__info">Супервайзер в отделе клининга в Мрии</div>
                       <div class="success__stories success-stories">
                         <div class="success-stories__play"><img></div><b class="success-stories__title">Название категории<span class="success-stories__amount">18 историй</span></b>
