@@ -21,9 +21,8 @@
     @media (max-width: 1000px)
       position: fixed
       display: none
-      grid-template-columns: auto
       height: 100vh
-      max-height: calc(100vh - 40px)
+      max-height: calc(100vh - 64px)
       min-height: 480px
       top: 64px
       left: 0
@@ -31,11 +30,13 @@
       background-color: #fff
       overflow-y: auto
       overscroll-behavior: contain
-      z-index: 1
+      z-index: 60
+      flex-direction: column
+      gap: 50px
       &::-webkit-scrollbar
         width: 0
     &.js-active-menu
-      display: grid
+      display: flex
 
 
     &__list
@@ -45,6 +46,7 @@
         flex-direction: column
         text-align: center
         gap: 40px
+        padding-top: 100px
 
     &__link
       display: flex
@@ -56,21 +58,29 @@
   &__burger
     display: none
     @media (max-width: 1000px)
-      display: block
+      display: flex
+      align-items: center
+      justify-content: center
       cursor: pointer
+    .close
+      display: none
+    &.js-active-menu .burger
+      display: none
+    &.js-active-menu .close
+      display: block
 
 
   &-bottom
     display: none
     @media (max-width: 1000px)
-      position: absolute
-      margin: 0 auto
+      margin: auto auto 40px
       padding: 0 20px
       bottom: 40px
       display: grid
       grid-template-columns: auto auto
       grid-auto-rows: max-content
       height: fit-content
+      width: fit-content
       gap: 20px 12px
       text-align: center
       @media (max-width: 480px)

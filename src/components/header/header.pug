@@ -4,8 +4,11 @@ header.header
       svg(width="212" height="16" fill="#393737")
         use(href='./assets/img/sprite.svg#logo')
 
-    svg.header__burger(width="24" height="24")
-      use(href='./assets/img/sprite.svg#burger')
+    .header__burger
+      svg.burger(width="24" height="24")
+        use(href='./assets/img/sprite.svg#burger')
+      svg.close(width="14" height="14")
+        use(href='./assets/img/sprite.svg#close-menu')
 
     nav.header__nav.header-nav
 
