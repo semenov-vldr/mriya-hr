@@ -779,20 +779,37 @@ if (stories) {
   close.addEventListener('click', closeStories);
 
   function closeStories () {
-    stories.classList.remove('js-stories-active')
-  }
+    stories.classList.remove('js-stories-active');
+    resetStories();
+  };
 
   function openStories () {
     stories.classList.add('js-stories-active');
     runInterval(5, 1);
-  }
+  };
 
+
+  const activeTimeline = (timeline) => timeline.classList.add('js-timeline-active');
+  const activeStoriesContent = (storiesContent) => storiesContent.classList.add('js-stories-content-active');
+  const inActiveStoriesContent = (storiesContent) => storiesContent.classList.remove('js-stories-content-active');
 
   const timelineItems = stories.querySelectorAll('.stories-timeline__item');
-  timelineItems[0].classList.add('js-timeline-active');
+  activeTimeline(timelineItems[0]);
 
   const storiesContentItems = stories.querySelectorAll('.stories-content__item');
-  storiesContentItems[0].classList.add('js-stories-content-active');
+  activeStoriesContent(storiesContentItems[0]);
+
+  function resetStories () {
+    timelineItems.forEach(activeTimeline);
+    activeTimeline(timelineItems[0]);
+
+    timelineItems.forEach(timeline => {
+      let timelineInner = timeline.querySelector('.stories-timeline__item-inner');
+      timelineInner.style.width = '';
+    })
+    storiesContentItems.forEach(inActiveStoriesContent);
+    activeStoriesContent(storiesContentItems[0]);
+  };
 
 
   function moveClass(activeClass, method, predicate) {
@@ -853,6 +870,10 @@ if (stories) {
       }
 
       activeEl.style.width = String(width + step) + '%';
+
+      if (!stories.classList.contains('js-stories-active')) {
+        clearInterval(timer);
+      }
 
     },time * 1000 * step / 100);
   };
