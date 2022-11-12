@@ -13,16 +13,14 @@ const employment = document.querySelector('.employment');
 
 if (employment) {
 
-  let options = {
+  const stepNumbers = employment.querySelectorAll('.employment-steps-item__number');
+  const line = employment.querySelector('.employment-steps__line--dark');
+
+  const options = {
     rootMargin: '0px 0px -20%',
     threshold: 1
   };
 
-  const stepNumbers = employment.querySelectorAll('.employment-steps-item__number');
-
-  const line = employment.querySelector('.employment-steps__line--dark');
-  const lineRect = line.getBoundingClientRect();
-  console.log(lineRect)
 
   const observerStep = new IntersectionObserver(callbackStep, options)
   const observerLine = new IntersectionObserver(callbackLine, options)
@@ -36,32 +34,34 @@ if (employment) {
         entry.target.classList.remove('scroll-center')
       }
     })
-  }
+  };
+
+
+
 
   function callbackLine (entries) {
     entries.forEach((entry) => {
-      console.log(entry)
-      let i = 20;
+      const el = entry.target;
+
       if (entry.isIntersecting) {
-        console.log(employment.scrollHeight)
-      }
-      else {
-        entry.target.style.height = `5%`
-      }
-    })
-  }
+        const startPosition = window.scrollY;
+
+        function setHeightLine () {
+          let value = window.scrollY - startPosition;
+          el.style.height = `${value}px`;
+        };
+
+        window.addEventListener('scroll', setHeightLine)
+    }
+  })
+  };
 
   stepNumbers.forEach(stepNum => observerStep.observe(stepNum));
-  observerLine.observe(line)
+  observerLine.observe(line);
 
 
 
 
-
-
-
-
-//-----------------------
 }
 
 

@@ -1,0 +1,60 @@
+template#form-popup
+  .form-popup
+
+    .form-popup__content
+      .form-popup__buttons-change
+        button.form-popup__button-change(data-type="small") Сокращенная форма
+        button.form-popup__button-change(data-type="full") Полная форма
+      span.form-popup__close
+        svg(width="14" height="14" fill="#000")
+          use(href='./assets/img/sprite.svg#close-menu')
+      header.form-popup__header
+        h2.form-popup__title Оставьте заявку
+        p.form-popup__subtitle Менеджер свяжется с вами в ближайшее время
+
+      form.form-popup__item.form-popup__item--full(method='POST' action='' enctype="multipart/form-data" autocomplete="off" data-popup="full")
+
+        +inputSurame
+        +inputName
+        +inputPatronymic
+        +inputDate
+        +inputTel
+        +inputCity
+
+        .form__input-container
+          label Желаемая вакансия
+          select
+            option(disabled selected value="") Выберите вакансию из списка
+            option Вакансия 1
+            option Вакансия 2
+            option Вакансия 1
+
+        +inputText
+
+        .form__input-container
+          label Добавить резюме
+          .form__upload.form-upload
+            input#inputfilepopup.form-upload__input.visually-hidden(type="file" name="file" accept=".pdf, .doc, .docx, .txt")
+            label.form-upload__label(for="inputfilepopup") Выберите файл
+            span &#32; с резюме или перетащите его в поле (pdf, docx, txt до 15мб)
+
+        .form-popup__sending.form-popup-sending
+          p.form-popup-sending__agreement Нажимая кнопку, вы соглашаетесь с
+            b политикой конфиденциальности
+
+          button.button.button--accent(type='submit') Отправить
+
+      form.form-popup__item.form-popup__item--small(method='POST' action='' enctype="multipart/form-data" autocomplete="off" data-popup="small")
+
+        +inputName
+        +inputTel
+        +inputText
+
+        .form-popup__sending.form-popup-sending
+          p.form-popup-sending__agreement Нажимая кнопку, вы соглашаетесь с
+            b политикой конфиденциальности
+
+          button.button.button--accent(type='submit') Отправить
+
+
+

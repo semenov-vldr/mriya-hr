@@ -1,8 +1,67 @@
-// ---- Form ----------
-
 
 mixin iconPlus
   <svg class="accordion__icon" width="32" height="32" viewBox="0 0 32 32" fill="#FFF6E0">
   <rect width="32" height="32" rx="16"/>
   <path fill-rule="evenodd" clip-rule="evenodd" d="M16 10C16.5523 10 17 10.4477 17 11V15H21C21.5523 15 22 15.4477 22 16C22 16.5523 21.5523 17 21 17H17V21C17 21.5523 16.5523 22 16 22C15.4477 22 15 21.5523 15 21V17H11C10.4477 17 10 16.5523 10 16C10 15.4477 10.4477 15 11 15H15V11C15 10.4477 15.4477 10 16 10Z" fill="#D99D56"/>
   </svg>
+
+
+// ---- Form ----------
+
+// Name
+mixin inputName
+  .form__input-container
+    label Имя
+      input(placeholder="Константин" name="name" pattern="^[A-Za-zА-Яа-яЁё\\s]+$" autocomplete='off' maxlength='40' required )
+      span.form__error.form__error--inputName Ошибка
+
+// Surname
+mixin inputSurame
+  .form__input-container
+    label Фамилия
+      input(placeholder="Константинопольский" name="surname" pattern="^[A-Za-zА-Яа-яЁё\\s]+$" autocomplete='off' maxlength='40'  )
+      span.form__error.form__error--inputName
+
+// Patronymic
+mixin inputPatronymic
+  .form__input-container
+    label Отчество
+      input(placeholder="Константинович" name="patronymic" pattern="^[A-Za-zА-Яа-яЁё\\s]+$" autocomplete='off' maxlength='40'  )
+      span.form__error.form__error--inputName
+
+// Date
+mixin inputDate
+  .form__input-container
+    label Дата рождения
+      input(placeholder="дд.мм.гггг" name="name" pattern="\\d{2}\\.\\d{2}\\.\\d{4}" autocomplete='off' maxlength='10'  )
+      span.form__error.form__error--inputDate
+
+// Tel
+mixin inputTel
+  .form__input-container
+    label Телефон
+      input(type='tel' name='phone' placeholder="+0 000 000 00 00" data-tel-input='' pattern='.{18,}' maxlength='18'  autocomplete='off'  )
+      span.form__error.form__error--inputTel
+
+// City
+mixin inputCity
+  .form__input-container
+    label Город проживания
+      input(placeholder="Москва" name="city" pattern="^[A-Za-zА-Яа-яЁё\\s]+$" autocomplete='off'  )
+      span.form__error.form__error--inputCity
+
+// Email
+mixin inputEmail
+  .form__input-container
+    label Почта
+      input(type='email' name="email" maxlength='40' placeholder="example@email.ru*" pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"  )
+      span.form__error.form__error--inputEmail
+
+// Text
+mixin inputText
+  .form__input-container
+    label Комментарий
+      textarea( placeholder="Введите ваше сообщение..." name="message" maxlength='200' rows="4")
+      span.form__error.form__error--inputText
+
+
