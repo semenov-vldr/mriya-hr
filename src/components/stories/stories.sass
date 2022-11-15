@@ -1,6 +1,6 @@
 .stories
   position: fixed
-  background-color: rgba(#000, 0.2)
+  background-color: rgba(#121212, 0.65)
   top: 0
   left: 0
   width: 100%
@@ -12,11 +12,11 @@
   transition: all 0.5s ease 0s
   overscroll-behavior: contain
   display: none
+  //display: flex
   align-items: center
   justify-content: center
   &.js-stories-active
     display: flex
-
 
   &__body
     position: relative
@@ -38,7 +38,6 @@
     &:hover
       opacity: 0.9
 
-
   &-timeline
     position: absolute
     top: 32px
@@ -53,7 +52,6 @@
       width: 100%
       background-color: rgba(#fff, 0.35)
       border-radius: 2px
-
       &.js-timeline-active > .stories-timeline__item-inner,
       &.js-timeline-active ~ .stories-timeline__item > .stories-timeline__item-inner
         width: 0
@@ -82,6 +80,8 @@
         left: 0
       &--next
         right: 0
+
+
 
   &-content-item
     height: 100%

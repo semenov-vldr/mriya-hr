@@ -1,0 +1,201 @@
+.vacancies
+  .vacancies__container.container
+    h1.vacancies__title Вакансии
+
+    .vacancies__inner
+      // Фильтр
+      aside.vacancies__filters.filters
+        .filters__body
+          button.filters__close
+          .filters__header
+            span.filters__title Фильтры
+            .filters__count
+              span.filters__count-value 000
+              | найдено
+
+          ul.filters__list
+            //---Объекты---
+            li.filters__item.filter
+              span.filter__title Объекты
+              .filter__content
+                fieldset.filter__list
+
+                  label.filter__item Винный Парк
+                    input.filter__item-checkbox(type="checkbox" name="Объекты" value="Винный Парк")
+                    .filter__item-checkbox
+                  label.filter__item Японский Сад
+                    input.filter__item-checkbox(type="checkbox" name="Объекты" value="Японский Сад")
+                    .filter__item-checkbox
+                  label.filter__item Дримвуд
+                    input.filter__item-checkbox(type="checkbox" name="Объекты" value="Дримвуд")
+                    .filter__item-checkbox
+                  label.filter__item Пляж и бассейн
+                    input.filter__item-checkbox(type="checkbox" name="Объекты" value="Пляж и бассейн")
+                    .filter__item-checkbox
+                  label.filter__item Рестораны
+                    input.filter__item-checkbox(type="checkbox" name="Объекты" value="Рестораны")
+                    .filter__item-checkbox
+                  label.filter__item Test hidden
+                    input.filter__item-checkbox(type="checkbox" name="Объекты" value="Test hidden")
+                    .filter__item-checkbox
+                  label.filter__item Test hidden
+                    input.filter__item-checkbox(type="checkbox" name="Объекты" value="Test hidden")
+                    .filter__item-checkbox
+                button.filter__button-more Показать ещё
+
+
+            //Деятельность
+            li.filters__item.filter
+              span.filter__title Деятельность
+              .filter__content
+                fieldset.filter__list
+
+                  label.filter__item Бухгалтерия
+                    input.filter__item-checkbox(type="checkbox" name="activity" value="Accounting")
+                    .filter__item-checkbox
+                  label.filter__item Административно-хозяйственное направление
+                    input.filter__item-checkbox(type="checkbox" name="activity" value="Administrative direction")
+                    .filter__item-checkbox
+                  label.filter__item Уборка помещений, объектов и территории
+                    input.filter__item-checkbox(type="checkbox" name="activity" value="Cleaning")
+                    .filter__item-checkbox
+                  label.filter__item Информационные технологии
+                    input.filter__item-checkbox(type="checkbox" name="activity" value="IT")
+                    .filter__item-checkbox
+                  label.filter__item Благоустройство и озеленение
+                    input.filter__item-checkbox(type="checkbox" name="activity" value="landscaping")
+                    .filter__item-checkbox
+                  label.filter__item Test hidden
+                    input.filter__item-checkbox(type="checkbox" name="activity" value="Test")
+                    .filter__item-checkbox
+                button.filter__button-more Показать ещё
+
+            //График
+            li.filters__item.filter
+              span.filter__title График
+              .filter__content
+                fieldset.filter__list
+
+                  label.filter__item Сменный
+                    input.filter__item-checkbox(type="checkbox" name="schedule" value="shift work")
+                    .filter__item-checkbox
+                  label.filter__item 5/2
+                    input.filter__item-checkbox(type="checkbox" name="schedule" value="5/2")
+                    .filter__item-checkbox
+
+            // Сезонность
+            li.filters__item.filter
+              span.filter__title Сезонность
+              .filter__content
+                fieldset.filter__list
+
+                  label.filter__item Постоянные вакансии
+                    input.filter__item-checkbox(type="checkbox" name="seasonality" value="permanent vacancies")
+                    .filter__item-checkbox
+                  label.filter__item Сезонные вакансии
+                    input.filter__item-checkbox(type="checkbox" name="seasonality" value="Seasonal vacancies")
+                    .filter__item-checkbox
+
+            // Резюме
+            li.filters__item.filter
+              span.filter__title Резюме
+              .filter__content
+                fieldset.filter__list
+
+                  label.filter__item Необходимо резюме
+                    input.filter__item-checkbox(type="checkbox" name="resume" value="Resume needed")
+                    .filter__item-checkbox
+                  label.filter__item Без резюме
+                    input.filter__item-checkbox(type="checkbox" name="resume" value="No resume")
+                    .filter__item-checkbox
+
+          .filters__actions
+            button.vacancies-button.vacancies-button--white.filters__actions-reset Сбросить
+            button.vacancies-button.vacancies-button--black.filters__actions-apply Сбросить
+
+
+
+      // Строка поиска
+      .vacancies__search.vacancies-search
+        input.vacancies-search__input(type="search" placeholder="Поиск по вакансиям")
+        button.vacancies-button.vacancies-button--black.vacancies-search__button Найти
+        button.vacancies-button.vacancies__filter-setting
+
+      .vacancies__filter-content.vacancies-filter-content
+        button.vacancies-filter-content__reset Cбросить фильтр
+        ul.vacancies-filter-content__list
+
+
+      // Все вакансии
+      ul.vacancies__list
+
+        li.vacancies__item.vacancies-item
+          .vacancies-item__content
+            a.vacancies-item__title(href="vacancy.html") Водитель клаб-кара (на сезон)
+            .vacancies-item__info.vacancies-item-info
+              span.vacancies-item-info__item от 100 000 до 200 000 ₽
+              span.vacancies-item-info__item Сменный график работы
+          .vacancies-item__actions
+            button.vacancies-button.vacancies-button--black Откликнуться
+            a.vacancies-button.vacancies-button--white(href="vacancy.html") Подробнее
+          ul.vacancies-item__tags.vacancies-item-tags
+            li.vacancies-item-tags__item Отель
+            li.vacancies-item-tags__item Сезонные вакансии
+
+
+        li.vacancies__item.vacancies-item
+          .vacancies-item__content
+            a.vacancies-item__title(href="vacancy.html") Горничная
+            .vacancies-item__info.vacancies-item-info
+              span.vacancies-item-info__item от 100 000 до 200 000 ₽
+              span.vacancies-item-info__item Сменный график работы
+          .vacancies-item__actions
+            button.vacancies-button.vacancies-button--black Откликнуться
+            a.vacancies-button.vacancies-button--white(href="vacancy.html") Подробнее
+          ul.vacancies-item__tags.vacancies-item-tags
+            li.vacancies-item-tags__item Отель
+            li.vacancies-item-tags__item Сезонные вакансии
+
+
+        li.vacancies__item.vacancies-item
+          .vacancies-item__content
+            a.vacancies-item__title(href="vacancy.html") Агент по бронированию
+            .vacancies-item__info.vacancies-item-info
+              span.vacancies-item-info__item от 100 000 до 200 000 ₽
+              span.vacancies-item-info__item Сменный график работы
+          .vacancies-item__actions
+            button.vacancies-button.vacancies-button--black Откликнуться
+            a.vacancies-button.vacancies-button--white(href="vacancy.html") Подробнее
+          ul.vacancies-item__tags.vacancies-item-tags
+            li.vacancies-item-tags__item Отель
+            li.vacancies-item-tags__item Постоянные вакансии
+
+
+        li.vacancies__item.vacancies-item
+          .vacancies-item__content
+            a.vacancies-item__title(href="vacancy.html") Батлер
+            .vacancies-item__info.vacancies-item-info
+              span.vacancies-item-info__item от 100 000 до 200 000 ₽
+              span.vacancies-item-info__item Сменный график работы
+          .vacancies-item__actions
+            button.vacancies-button.vacancies-button--black Откликнуться
+            a.vacancies-button.vacancies-button--white(href="vacancy.html") Подробнее
+          ul.vacancies-item__tags.vacancies-item-tags
+            li.vacancies-item-tags__item Отель
+            li.vacancies-item-tags__item Сезонные вакансии
+
+        li.vacancies__item.vacancies-item
+          .vacancies-item__content
+            a.vacancies-item__title(href="vacancy.html") Парковщик
+            .vacancies-item__info.vacancies-item-info
+              span.vacancies-item-info__item от 100 000 до 200 000 ₽
+              span.vacancies-item-info__item Сменный график работы
+          .vacancies-item__actions
+            button.vacancies-button.vacancies-button--black Откликнуться
+            a.vacancies-button.vacancies-button--white(href="vacancy.html") Подробнее
+          ul.vacancies-item__tags.vacancies-item-tags
+            li.vacancies-item-tags__item Отель
+            li.vacancies-item-tags__item Сезонные вакансии
+
+
+

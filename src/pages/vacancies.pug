@@ -1,0 +1,14 @@
+extends ../layouts/main
+
+block variables
+  - var title = "Вакансии"
+  - var pageClass = ''
+  - var activePage = 'index'
+
+block content
+
+  section.section-column
+
+    include ../components/vacancies/vacancies
+
+

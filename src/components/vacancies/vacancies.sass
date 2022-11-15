@@ -1,0 +1,387 @@
+.vacancies
+  @media (max-width: 1000px)
+    padding-top: 56px
+
+  &__title
+    @include fontSize(36, 52)
+    font-weight: 500
+    margin-bottom: 40px
+
+  &__inner
+    display: grid
+    grid-template-columns: 300px auto
+    grid-template-rows: min-content min-content 1fr
+    gap: 34px 24px
+    @media (max-width: 1300px)
+      grid-template-columns: 200px auto
+    @media (max-width: 1000px)
+      grid-template-columns: 1fr
+      gap: 0
+
+  // Список фильтров
+  .filters
+    width: 100%
+    grid-row: span 3
+    @media (max-width: 1000px)
+      display: none
+      position: fixed
+      z-index: 1
+      background-color: #fff
+      top: 0
+      right: 0
+      height: 100vh
+      min-height: 480px
+      overflow-y: auto
+      overscroll-behavior: contain
+    &.js-filter-open
+      display: block
+    &__body
+      width: 100%
+      display: flex
+      flex-direction: column
+      gap: 32px
+      @media (max-width: 1000px)
+        padding: 30px 20px 16px
+
+    &__close
+      display: none
+      background-image: url('../img/icons/close.svg')
+      width: 14px
+      height: 14px
+      background-position: center
+      background-repeat: no-repeat
+      background-size: cover
+      @media (max-width: 1000px)
+        display: block
+    &__header
+      display: flex
+      gap: 8px
+      align-items: center
+    &__title
+      font-weight: 500
+      font-size: 22px
+    &__count
+      color: $grey
+      display: flex
+      gap: 4px
+
+    &__list
+      display: flex
+      flex-direction: column
+      gap: 32px
+      @media (max-width: 1000px)
+        padding-bottom: 16px
+
+    &__actions
+      position: fixed
+      display: none
+      flex-wrap: wrap
+      gap: 8px
+      align-items: center
+      border-top: 1px solid #E8E8E8
+      width: 100%
+      left: 0
+      bottom: 0
+      padding: 16px 20px
+      background-color: #fff
+      z-index: 1
+      @media (max-width: 1000px)
+        &.js-filter-active
+          display: flex
+
+      .filters__actions-reset,
+      .filters__actions-apply
+        flex: 1 1 45%
+
+
+
+
+  // Элемент фильтра
+  .filter
+    display: flex
+    flex-direction: column
+    gap: 16px
+
+    &__title
+      position: relative
+      font-weight: 500
+      font-size: 18px
+      display: flex
+      align-items: center
+      justify-content: space-between
+      cursor: pointer
+      &::after
+        content: ""
+        display: inline-block
+        background-image: url('../img/icons/filter/arrow-down-grey.svg')
+        width: 10px
+        height: 7px
+        background-position: center
+        background-repeat: no-repeat
+        background-size: cover
+        transition: 0.3s ease
+        transform: rotate(180deg)
+      &.js-filter-active + .filter__content
+        display: flex
+      &.js-filter-active::after
+        transform: rotate(0)
+
+    &__content
+      display: none
+      flex-direction: column
+      overflow: hidden
+      transition: 0.3s ease
+      padding-right: 15px
+
+    &__list
+      display: flex
+      flex-direction: column
+      gap: 16px
+      border: none
+
+    &__item
+      display: inline-flex
+      align-items: center
+      user-select: none
+      padding-left: 28px
+      cursor: pointer
+      &:nth-child(n+6)
+        display: none
+      &.js-visible
+        display: inline-flex
+
+    &__item input[type="checkbox"]
+      position: absolute
+      display: inline-block
+      border: none
+      appearance: none
+      -webkit-appearance: none
+      -moz-appearance: none
+      &:checked + .filter__item-checkbox
+        background-color: #000
+        border-color: #000
+        &::after
+          position: absolute
+          content: ""
+          width: 12px
+          height: 12px
+          background-image: url('../img/icons/check.svg')
+          background-repeat: no-repeat
+          background-position: center
+
+    &__item-checkbox
+      position: absolute
+      width: 16px
+      aspect-ratio: 1 / 1
+      border: 2px solid #12121252
+      border-radius: 2px
+      cursor: pointer
+      vertical-align: middle
+      transform: translateX(-28px)
+      transition: 0.3s ease
+
+
+    &__button-more
+      position: relative
+      font-size: 14px
+      text-align: left
+      display: flex
+      align-items: center
+      cursor: pointer
+      gap: 8px
+      margin-top: 16px
+      &::after
+        content: ""
+        display: inline-block
+        background-image: url('../img/icons/filter/arrow-down-black.svg')
+        width: 10px
+        height: 6px
+        background-position: center
+        background-repeat: no-repeat
+        background-size: cover
+        transition: 0.3s ease
+
+
+
+  // Строка поиска
+  &-search
+    position: relative
+    grid-column: 2 / span 1
+    display: flex
+    gap: 8px
+    @media (max-width: 1000px)
+      grid-column: 1 / -1
+      grid-row: span 1
+    &__input
+      height: 45px
+      width: 100%
+      padding: 10px 10px 10px 60px
+      border-radius: 2px
+      border: 1px solid #E8E8E8
+      &:focus
+        outline: 1px solid #E8E8E8
+      &::placeholder
+        color: #969696
+        @include fontSize(13, 16)
+    &::before
+      position: absolute
+      content: ""
+      background-image: url('../img/icons/filter/search.svg')
+      width: 20px
+      height: 20px
+      left: 18px
+      top: 50%
+      transform: translateY(-50%)
+      background-position: center
+      background-repeat: no-repeat
+      background-size: cover
+      @media (max-width: 1000px)
+        width: 16px
+        height: 16px
+    &__button
+      @media (max-width: 1000px)
+        display: none
+  &__filter-setting
+    display: none
+    border-color: $black
+    border-width: 1px
+    width: 48px
+    height: 45px
+    background-image: url('../img/icons/filter/filter-setting.svg')
+    background-position: center
+    background-repeat: no-repeat
+    background-size: 12px 12px
+    @media (max-width: 1000px)
+      display: block
+
+
+
+
+  // Теги фильтра (сброс фильтра)
+  &-filter-content
+    display: none
+    flex-wrap: wrap
+    gap: 8px
+    height: fit-content
+    &.js-filter-visible
+      display: flex
+    &__reset
+      min-height: 40px
+      padding: 5px 16px
+      border-radius: 4px
+      border: 1px solid #EBEBEB
+      cursor: pointer
+      &:hover
+        background-color: $black
+        color: #fff
+        border-color: $black
+    @media (max-width: 1000px)
+      display: none
+
+    &__list
+      display: flex
+      flex-wrap: wrap
+      gap: 8px
+
+    &__item
+      @extend .flex-center
+      gap: 8px
+      min-height: 40px
+      padding: 5px 16px
+      background-color: #F2F2F2
+      border-radius: 4px
+      &:hover
+        background-color: #e5e5e5
+
+    &__delete
+      background-image: url('../img/icons/filter/filter-delete.svg')
+      width: 12px
+      height: 12px
+      background-position: center
+      background-repeat: no-repeat
+      background-size: cover
+      cursor: pointer
+
+
+
+
+  // Список вакансий
+  &__list
+    grid-column: 2 / span 1
+    @media (max-width: 1000px)
+      grid-column: 1 / -1
+      grid-row: 2 / span 1
+
+  // Вакансия
+  &-item
+    display: grid
+    grid-template-columns: 1fr min-content
+    grid-template-rows: 1fr min-content
+    justify-content: space-between
+    padding: 40px 12px
+    gap: 20px
+    border-bottom: 1px solid #EBEBEB
+    min-height: 230px
+    @media (max-width: 1000px)
+      grid-template-columns: 1fr
+      padding: 32px 0
+    &__content
+      display: flex
+      flex-direction: column
+      gap: 16px
+    &__title
+      @include fontSize(18, 24)
+      font-weight: 500
+      line-height: 1.3
+      transition: $transition
+      &:hover
+        text-decoration: underline
+
+    &-info
+      display: flex
+      gap: 8px 20px
+      color: #686868
+      @include fontSize(13, 16)
+
+    &__actions
+      display: flex
+      flex-direction: column
+      gap: 8px
+      flex-wrap: wrap
+      @media (max-width: 1000px)
+        order: 1
+        flex-direction: row
+        & *
+          width: fit-content
+
+    &-tags
+      display: flex
+      color: #686868
+      gap: 8px
+      flex-wrap: wrap
+      height: fit-content
+      &__item
+        @include fontSize(13, 16)
+        background-color: #F9F9F9
+        padding: 4px 8px
+        border-radius: 4px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

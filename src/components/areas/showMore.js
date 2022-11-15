@@ -17,5 +17,4 @@ if (areas) {
 
   if (areasItemsLength < startItems + 1) showMore.classList.add('hidden');
 
-
 }
