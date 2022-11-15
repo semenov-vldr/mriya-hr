@@ -1,0 +1,418 @@
+
+<!-- ---- Form ------------>
+<!-- Name-->
+<!-- Surname-->
+<!-- Patronymic-->
+<!-- Date-->
+<!-- Tel-->
+<!-- City-->
+<!-- Email-->
+<!-- Text--><!DOCTYPE html>
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+    <title>Вакансии</title><!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE = edge"><![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content=""><!--favicon-->
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<!--favicon end-->
+    <link rel="stylesheet" type="text/css" href="assets/css/libs.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css"><!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script><![endif]-->
+<!-- Yandex map script -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=dad86943-dfef-45bd-9c5e-c404323cb093&amp;lang=ru_RU" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <div class="header__container container"><a class="header__logo" href="index.html">
+            <svg width="212" height="16" fill="#393737">
+              <use href="./assets/img/sprite.svg#logo"></use>
+            </svg></a>
+          <div class="header__burger">
+            <svg class="burger" width="24" height="24">
+              <use href="./assets/img/sprite.svg#burger"></use>
+            </svg>
+            <svg class="close" width="14" height="14">
+              <use href="./assets/img/sprite.svg#close-menu"></use>
+            </svg>
+          </div>
+          <nav class="header__nav header-nav">
+            <ul class="header-nav__list">
+              <li class="header-nav__item"><a class="header-nav__link" href="about.html">
+                  <svg width="18" height="18" fill="#393737">
+                    <use href="./assets/img/sprite.svg#icon-about"></use>
+                  </svg>О нас</a></li>
+              <li class="header-nav__item"><a class="header-nav__link" href="">
+                  <svg width="20" height="17" fill="#121212">
+                    <use href="./assets/img/sprite.svg#icon-student"></use>
+                  </svg>Студентам</a></li>
+              <li class="header-nav__item"><a class="header-nav__link" href="vacancies.html">
+                  <svg width="16" height="16" stroke="#393737" stroke-width="1.5">
+                    <use href="./assets/img/sprite.svg#header-vacansy"></use>
+                  </svg>Вакансии</a></li>
+              <li class="header-nav__item"><a class="header-nav__link" href="">
+                  <svg width="16" height="16" fill="#393737">
+                    <use href="./assets/img/sprite.svg#form"></use>
+                  </svg>Заполнить анкету</a></li>
+            </ul>
+            <ul class="header-nav__bottom header-bottom">
+              <li class="header-bottom__item">
+                <button class="fill-form">Задать вопрос</button>
+              </li>
+              <li class="header-bottom__item"><a class="header-bottom__email" href="mailoto:job@mriyaresort.com">job@mriyaresort.com</a></li>
+              <li class="header-bottom__item"><a class="header-bottom__tel" href="tel:88005008964">8 800 500-89-64</a></li>
+              <li class="header-bottom__item"><a class="header-bottom__politics" href="">Политика конфиденциальности</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main>
+        <section class="section-column">
+          <div class="vacancies">
+            <div class="vacancies__container container">
+              <h1 class="vacancies__title">Вакансии</h1>
+              <div class="vacancies__inner">
+                <!-- Фильтр-->
+                <aside class="vacancies__filters filters">
+                  <div class="filters__body">
+                    <button class="filters__close"></button>
+                    <div class="filters__header"><span class="filters__title">Фильтры</span>
+                      <div class="filters__count"><span class="filters__count-value">000</span>найдено</div>
+                    </div>
+                    <ul class="filters__list">
+                      <li class="filters__item filter"><span class="filter__title">Объекты</span>
+                        <div class="filter__content">
+                          <fieldset class="filter__list">
+                            <label class="filter__item">Винный Парк
+                              <input class="filter__item-checkbox" type="checkbox" name="Объекты" value="Винный Парк">
+                              <div class="filter__item-checkbox"></div>
+                            </label>
+                            <label class="filter__item">Японский Сад
+                              <input class="filter__item-checkbox" type="checkbox" name="Объекты" value="Японский Сад">
+                              <div class="filter__item-checkbox"></div>
+                            </label>
+                            <label class="filter__item">Дримвуд
+                              <input class="filter__item-checkbox" type="checkbox" name="Объекты" value="Дримвуд">
+                              <div class="filter__item-checkbox"></div>
+                            </label>
+                            <label class="filter__item">Пляж и бассейн
+                              <input class="filter__item-checkbox" type="checkbox" name="Объекты" value="Пляж и бассейн">
+                              <div class="filter__item-checkbox"></div>
+                            </label>
+                            <label class="filter__item">Рестораны
+                              <input class="filter__item-checkbox" type="checkbox" name="Объекты" value="Рестораны">
+                              <div class="filter__item-checkbox"></div>
+                            </label>
+                            <label class="filter__item">Test hidden
+                              <input class="filter__item-checkbox" type="checkbox" name="Объекты" value="Test hidden">
+                              <div class="filter__item-checkbox"></div>
+                            </label>
+                            <label class="filter__item">Test hidden
+                              <input class="filter__item-checkbox" type="checkbox" name="Объекты" value="Test hidden">
+                              <div class="filter__item-checkbox"></div>
+                            </label>
+                          </fieldset>
+                          <button class="filter__button-more">Показать ещё</button>
+                        </div>
+                      </li>
+                      <!--Деятельность-->
+                      <li class="filters__item filter"><span class="filter__title">Деятельность</span>
+                        <div class="filter__content">
+                          <fieldset class="filter__list">
+                            <label class="filter__item">Бухгалтерия
+                              <input class="filter__item-checkbox" type="checkbox" name="activity" value="Accounting">
+                              <div class="filter__item-checkbox"></div>
+                            </label>
+                            <label class="filter__item">Административно-хозяйственное направление
+                              <input class="filter__item-checkbox" type="checkbox" name="activity" value="Administrative direction">
+                              <div class="filter__item-checkbox"></div>
+                            </label>
+                            <label class="filter__item">Уборка помещений, объектов и территории
+                              <input class="filter__item-checkbox" type="checkbox" name="activity" value="Cleaning">
+                              <div class="filter__item-checkbox"></div>
+                            </label>
+                            <label class="filter__item">Информационные технологии
+                              <input class="filter__item-checkbox" type="checkbox" name="activity" value="IT">
+                              <div class="filter__item-checkbox"></div>
+                            </label>
+                            <label class="filter__item">Благоустройство и озеленение
+                              <input class="filter__item-checkbox" type="checkbox" name="activity" value="landscaping">
+                              <div class="filter__item-checkbox"></div>
+                            </label>
+                            <label class="filter__item">Test hidden
+                              <input class="filter__item-checkbox" type="checkbox" name="activity" value="Test">
+                              <div class="filter__item-checkbox"></div>
+                            </label>
+                          </fieldset>
+                          <button class="filter__button-more">Показать ещё</button>
+                        </div>
+                      </li>
+                      <!--График-->
+                      <li class="filters__item filter"><span class="filter__title">График</span>
+                        <div class="filter__content">
+                          <fieldset class="filter__list">
+                            <label class="filter__item">Сменный
+                              <input class="filter__item-checkbox" type="checkbox" name="schedule" value="shift work">
+                              <div class="filter__item-checkbox"></div>
+                            </label>
+                            <label class="filter__item">5/2
+                              <input class="filter__item-checkbox" type="checkbox" name="schedule" value="5/2">
+                              <div class="filter__item-checkbox"></div>
+                            </label>
+                          </fieldset>
+                        </div>
+                      </li>
+                      <!-- Сезонность-->
+                      <li class="filters__item filter"><span class="filter__title">Сезонность</span>
+                        <div class="filter__content">
+                          <fieldset class="filter__list">
+                            <label class="filter__item">Постоянные вакансии
+                              <input class="filter__item-checkbox" type="checkbox" name="seasonality" value="permanent vacancies">
+                              <div class="filter__item-checkbox"></div>
+                            </label>
+                            <label class="filter__item">Сезонные вакансии
+                              <input class="filter__item-checkbox" type="checkbox" name="seasonality" value="Seasonal vacancies">
+                              <div class="filter__item-checkbox"></div>
+                            </label>
+                          </fieldset>
+                        </div>
+                      </li>
+                      <!-- Резюме-->
+                      <li class="filters__item filter"><span class="filter__title">Резюме</span>
+                        <div class="filter__content">
+                          <fieldset class="filter__list">
+                            <label class="filter__item">Необходимо резюме
+                              <input class="filter__item-checkbox" type="checkbox" name="resume" value="Resume needed">
+                              <div class="filter__item-checkbox"></div>
+                            </label>
+                            <label class="filter__item">Без резюме
+                              <input class="filter__item-checkbox" type="checkbox" name="resume" value="No resume">
+                              <div class="filter__item-checkbox"></div>
+                            </label>
+                          </fieldset>
+                        </div>
+                      </li>
+                    </ul>
+                    <div class="filters__actions">
+                      <button class="vacancies-button vacancies-button--white filters__actions-reset">Сбросить</button>
+                      <button class="vacancies-button vacancies-button--black filters__actions-apply">Сбросить</button>
+                    </div>
+                  </div>
+                </aside>
+                <!-- Строка поиска-->
+                <div class="vacancies__search vacancies-search">
+                  <input class="vacancies-search__input" type="search" placeholder="Поиск по вакансиям">
+                  <button class="vacancies-button vacancies-button--black vacancies-search__button">Найти</button>
+                  <button class="vacancies-button vacancies__filter-setting"></button>
+                </div>
+                <div class="vacancies__filter-content vacancies-filter-content">
+                  <button class="vacancies-filter-content__reset">Cбросить фильтр</button>
+                  <ul class="vacancies-filter-content__list"></ul>
+                </div>
+                <!-- Все вакансии-->
+                <ul class="vacancies__list">
+                  <li class="vacancies__item vacancies-item">
+                    <div class="vacancies-item__content"><a class="vacancies-item__title" href="vacancy.html">Водитель клаб-кара (на сезон)</a>
+                      <div class="vacancies-item__info vacancies-item-info"><span class="vacancies-item-info__item">от 100 000 до 200 000 ₽</span><span class="vacancies-item-info__item">Сменный график работы</span></div>
+                    </div>
+                    <div class="vacancies-item__actions">
+                      <button class="vacancies-button vacancies-button--black">Откликнуться</button><a class="vacancies-button vacancies-button--white" href="vacancy.html">Подробнее</a>
+                    </div>
+                    <ul class="vacancies-item__tags vacancies-item-tags">
+                      <li class="vacancies-item-tags__item">Отель</li>
+                      <li class="vacancies-item-tags__item">Сезонные вакансии</li>
+                    </ul>
+                  </li>
+                  <li class="vacancies__item vacancies-item">
+                    <div class="vacancies-item__content"><a class="vacancies-item__title" href="vacancy.html">Горничная</a>
+                      <div class="vacancies-item__info vacancies-item-info"><span class="vacancies-item-info__item">от 100 000 до 200 000 ₽</span><span class="vacancies-item-info__item">Сменный график работы</span></div>
+                    </div>
+                    <div class="vacancies-item__actions">
+                      <button class="vacancies-button vacancies-button--black">Откликнуться</button><a class="vacancies-button vacancies-button--white" href="vacancy.html">Подробнее</a>
+                    </div>
+                    <ul class="vacancies-item__tags vacancies-item-tags">
+                      <li class="vacancies-item-tags__item">Отель</li>
+                      <li class="vacancies-item-tags__item">Сезонные вакансии</li>
+                    </ul>
+                  </li>
+                  <li class="vacancies__item vacancies-item">
+                    <div class="vacancies-item__content"><a class="vacancies-item__title" href="vacancy.html">Агент по бронированию</a>
+                      <div class="vacancies-item__info vacancies-item-info"><span class="vacancies-item-info__item">от 100 000 до 200 000 ₽</span><span class="vacancies-item-info__item">Сменный график работы</span></div>
+                    </div>
+                    <div class="vacancies-item__actions">
+                      <button class="vacancies-button vacancies-button--black">Откликнуться</button><a class="vacancies-button vacancies-button--white" href="vacancy.html">Подробнее</a>
+                    </div>
+                    <ul class="vacancies-item__tags vacancies-item-tags">
+                      <li class="vacancies-item-tags__item">Отель</li>
+                      <li class="vacancies-item-tags__item">Постоянные вакансии</li>
+                    </ul>
+                  </li>
+                  <li class="vacancies__item vacancies-item">
+                    <div class="vacancies-item__content"><a class="vacancies-item__title" href="vacancy.html">Батлер</a>
+                      <div class="vacancies-item__info vacancies-item-info"><span class="vacancies-item-info__item">от 100 000 до 200 000 ₽</span><span class="vacancies-item-info__item">Сменный график работы</span></div>
+                    </div>
+                    <div class="vacancies-item__actions">
+                      <button class="vacancies-button vacancies-button--black">Откликнуться</button><a class="vacancies-button vacancies-button--white" href="vacancy.html">Подробнее</a>
+                    </div>
+                    <ul class="vacancies-item__tags vacancies-item-tags">
+                      <li class="vacancies-item-tags__item">Отель</li>
+                      <li class="vacancies-item-tags__item">Сезонные вакансии</li>
+                    </ul>
+                  </li>
+                  <li class="vacancies__item vacancies-item">
+                    <div class="vacancies-item__content"><a class="vacancies-item__title" href="vacancy.html">Парковщик</a>
+                      <div class="vacancies-item__info vacancies-item-info"><span class="vacancies-item-info__item">от 100 000 до 200 000 ₽</span><span class="vacancies-item-info__item">Сменный график работы</span></div>
+                    </div>
+                    <div class="vacancies-item__actions">
+                      <button class="vacancies-button vacancies-button--black">Откликнуться</button><a class="vacancies-button vacancies-button--white" href="vacancy.html">Подробнее</a>
+                    </div>
+                    <ul class="vacancies-item__tags vacancies-item-tags">
+                      <li class="vacancies-item-tags__item">Отель</li>
+                      <li class="vacancies-item-tags__item">Сезонные вакансии</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="footer__container container">
+          <div class="footer__other-info"><span class="footer__copyright">© 2022 Mriya Resort & Spa</span><a class="footer__politics" href="">Политика конфиденциальности</a></div>
+          <ul class="footer__contact-list">
+            <li class="footer__contact-item"><a class="footer__contact-email" href="mailoto:job@mriyaresort.com">job@mriyaresort.com</a></li>
+            <li class="footer__contact-item"><a class="footer__contact-tel" href="tel:88005008964">8 800 500-89-64</a></li>
+            <li class="footer__contact-item">
+              <button class="ask">Задать вопрос</button>
+            </li>
+          </ul>
+        </div>
+      </footer>
+      <template id="form-popup">
+        <div class="form-popup">
+          <div class="form-popup__content">
+            <div class="form-popup__buttons-change">
+              <button class="form-popup__button-change" data-type="small">Сокращенная форма</button>
+              <button class="form-popup__button-change" data-type="full">Полная форма</button>
+            </div><span class="form-popup__close">
+              <svg width="14" height="14" fill="#000">
+                <use href="./assets/img/sprite.svg#close-menu"></use>
+              </svg></span>
+            <header class="form-popup__header">
+              <h2 class="form-popup__title">Оставьте заявку</h2>
+              <p class="form-popup__subtitle">Менеджер свяжется с вами в ближайшее время</p>
+            </header>
+            <form class="form-popup__item form-popup__item--full" method="POST" action="" enctype="multipart/form-data" autocomplete="off" data-popup="full">
+              <div class="form__input-container">
+                <label>Фамилия
+                  <input placeholder="Константинопольский" name="surname" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40"/><span class="form__error form__error--inputName"></span>
+                </label>
+              </div>
+              <div class="form__input-container">
+                <label>Имя
+                  <input placeholder="Константин" name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" required="required"/><span class="form__error form__error--inputName">Ошибка</span>
+                </label>
+              </div>
+              <div class="form__input-container">
+                <label>Отчество
+                  <input placeholder="Константинович" name="patronymic" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40"/><span class="form__error form__error--inputName"></span>
+                </label>
+              </div>
+              <div class="form__input-container">
+                <label>Дата рождения
+                  <input placeholder="дд.мм.гггг" name="name" pattern="\d{2}\.\d{2}\.\d{4}" autocomplete="off" maxlength="10"/><span class="form__error form__error--inputDate"></span>
+                </label>
+              </div>
+              <div class="form__input-container">
+                <label>Телефон
+                  <input type="tel" name="phone" placeholder="+0 000 000 00 00" data-tel-input="" pattern=".{18,}" maxlength="18" autocomplete="off"/><span class="form__error form__error--inputTel"></span>
+                </label>
+              </div>
+              <div class="form__input-container">
+                <label>Город проживания
+                  <input placeholder="Москва" name="city" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off"/><span class="form__error form__error--inputCity"></span>
+                </label>
+              </div>
+              <div class="form__input-container">
+                <label>Желаемая вакансия</label>
+                <select>
+                  <option disabled selected value="">Выберите вакансию из списка</option>
+                  <option>Вакансия 1</option>
+                  <option>Вакансия 2</option>
+                  <option>Вакансия 1</option>
+                </select>
+              </div>
+              <div class="form__input-container">
+                <label>Комментарий
+                  <textarea placeholder="Введите ваше сообщение..." name="message" maxlength="200" rows="4"></textarea><span class="form__error form__error--inputText"></span>
+                </label>
+              </div>
+              <div class="form__input-container">
+                <label>Добавить резюме</label>
+                <div class="form__upload form-upload">
+                  <input class="form-upload__input visually-hidden" id="inputfilepopup" type="file" name="file" accept=".pdf, .doc, .docx, .txt">
+                  <label class="form-upload__label" for="inputfilepopup">Выберите файл</label><span>&#32; с резюме или перетащите его в поле (pdf, docx, txt до 15мб)</span>
+                </div>
+              </div>
+              <div class="form-popup__sending form-popup-sending">
+                <p class="form-popup-sending__agreement">Нажимая кнопку, вы соглашаетесь с<b>политикой конфиденциальности</b></p>
+                <button class="button button--accent" type="submit">Отправить</button>
+              </div>
+            </form>
+            <form class="form-popup__item form-popup__item--small" method="POST" action="" enctype="multipart/form-data" autocomplete="off" data-popup="small">
+              <div class="form__input-container">
+                <label>Имя
+                  <input placeholder="Константин" name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" required="required"/><span class="form__error form__error--inputName">Ошибка</span>
+                </label>
+              </div>
+              <div class="form__input-container">
+                <label>Телефон
+                  <input type="tel" name="phone" placeholder="+0 000 000 00 00" data-tel-input="" pattern=".{18,}" maxlength="18" autocomplete="off"/><span class="form__error form__error--inputTel"></span>
+                </label>
+              </div>
+              <div class="form__input-container">
+                <label>Комментарий
+                  <textarea placeholder="Введите ваше сообщение..." name="message" maxlength="200" rows="4"></textarea><span class="form__error form__error--inputText"></span>
+                </label>
+              </div>
+              <div class="form-popup__sending form-popup-sending">
+                <p class="form-popup-sending__agreement">Нажимая кнопку, вы соглашаетесь с<b>политикой конфиденциальности</b></p>
+                <button class="button button--accent" type="submit">Отправить</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </template>
+      <template id="success">
+        <div class="reply-popup">
+          <div class="reply-popup__body">
+            <svg class="reply-popup__close" width="14" height="14" fill="#000">
+              <use href="./assets/img/sprite.svg#close-menu"></use>
+            </svg>
+            <p class="reply-popup__title">Спасибо, ваша заявка принята</p>
+            <p class="reply-popup__text">Менеджер свяжется с вами в ближайшее время</p>
+            <button class="button button--accent reply-popup__button">Хорошо</button>
+          </div>
+        </div>
+      </template>
+      <template id="error">
+        <div class="reply-popup">
+          <div class="reply-popup__body">
+            <svg class="reply-popup__close" width="14" height="14" fill="#000">
+              <use href="./assets/img/sprite.svg#close-menu"></use>
+            </svg>
+            <p class="reply-popup__title">Ошибка!</p>
+            <p class="reply-popup__text">Во время обработки запроса что-то пошло не так! Пожалуйста, попытайтесь еще раз.</p>
+            <button class="button button--accent reply-popup__button">Хорошо</button>
+          </div>
+        </div>
+      </template>
+    </div>
+    <script src="assets/js/libs.min.js"></script>
+    <script src="assets/js/main.js" type="module"></script>
+  </body>
+</html>
