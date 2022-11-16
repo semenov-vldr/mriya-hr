@@ -33,7 +33,7 @@
     position: absolute
     top: 10%
     right: 8%
-    z-index: 1
+    z-index: 10
     cursor: pointer
     &:hover
       opacity: 0.9
@@ -41,7 +41,7 @@
   &-timeline
     position: absolute
     top: 32px
-    z-index: 1
+    z-index: 10
     width: 100%
     padding: 0 24px
     display: flex
@@ -72,60 +72,126 @@
       position: absolute
       height: 100%
       width: 30%
-      z-index: 1
+      z-index: 10
       cursor: pointer
       top: 15%
       user-select: none
+
       &--prev
         left: 0
       &--next
         right: 0
 
 
-
+  // ---КОНТЕНТ---
   &-content-item
+    display: none
     height: 100%
     position: relative
-    display: none
-    flex-direction: column
-    justify-content: flex-end
-    align-items: center
-    &::after
-      content: ""
-      position: absolute
-      width: 100%
-      height: 100%
-      top: 0
-      left: 0
-      background: linear-gradient(180deg, transparent 75%, rgba(18,18,18,1) 100%)
-      opacity: 0.7
     &.js-stories-content-active
       display: flex
     & > *:not(img)
       position: relative
       z-index: 1
 
-    &__image
-      position: absolute
-      height: 100%
-      width: 100%
-      object-fit: cover
+  &-content-item.stories-content-item--video
+    flex-direction: column
+    justify-content: flex-end
+    align-items: center
+    .stories-content-item
+      &::after
+        content: ""
+        position: absolute
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+        background: linear-gradient(180deg, transparent 75%, rgba(18,18,18,1) 100%)
+        opacity: 0.7
 
-    &__name
-      font-size: 20px
-      font-weight: 600
-      color: #fff
+      &__image
+        position: absolute
+        height: 100%
+        width: 100%
+        object-fit: cover
 
-    &__post
-      font-size: 18px
-      color: rgba(#fff, 0.8)
+      &__video
+        position: absolute
+        width: 100%
+        height: 100%
+        left: 0
+        top: 0
+        object-fit: cover
 
-    &__button
-      border-radius: 4px
-      margin-top: 20px
-      margin-bottom: 32px
-      @media (max-width: 768px)
-        margin-bottom: 24px
+      &__name
+        font-size: 20px
+        font-weight: 600
+        color: #fff
+
+      &__post
+        font-size: 18px
+        color: rgba(#fff, 0.8)
+
+      &__button
+        border-radius: 4px
+        margin-top: 20px
+        margin-bottom: 32px
+        @media (max-width: 768px)
+          margin-bottom: 24px
+
+  &-content-item.stories-content-item--image-text
+    background-color: #333333
+    background-image: url('../img/index-hero/stories-decor.svg')
+    background-repeat: no-repeat
+    background-position: center -70px
+    .stories-content-item
+      &__wrapper
+        position: relative
+        padding: 115px 64px 40px
+        z-index: 1
+        color: #fff
+      &__image
+        position: relative
+        width: 300px
+        height: 300px
+        border-radius: 50%
+        border-bottom-left-radius: 0
+        overflow: hidden
+        margin-bottom: 10px
+        img
+          width: 100%
+          height: 100%
+          object-fit: cover
+      &__name
+        @include fontSize(18, 24)
+        font-weight: 500
+
+      &__info
+        @include fontSize(13, 16)
+        margin-bottom: 40px
+        margin-top: 16px
+
+      &__quote
+        position: relative
+        @include fontSize(16, 20)
+        padding: 0 30px
+        &::before
+          position: absolute
+          content: ""
+          left: 0
+          top: 0
+          color: $primary
+          font-size: 20px
+          background-image: url('../img/icons/quote.svg')
+          width: 16px
+          height: 12px
+          background-size: cover
+          background-repeat: no-repeat
+          background-position: center
+
+
+
+
 
 
 

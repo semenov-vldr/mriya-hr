@@ -32,8 +32,6 @@ if (vacancies) {
 
 
 
-
-
   // Показать фильтр на моб. версии по нажатию на кнопку
 
   const filterSettingBtn = vacancies.querySelector('.vacancies__filter-setting');
@@ -45,8 +43,6 @@ if (vacancies) {
 
   filterSettingBtn.addEventListener('click', addClassFilterOpen);
   filtersClose.addEventListener('click', removeClassFilterOpen);
-
-
 
 
 
@@ -100,13 +96,27 @@ if (vacancies) {
             vacanciesFilterContent.classList.remove('js-filter-visible');
             vacanciesFilterContent.querySelector('.vacancies-filter-content__list').replaceChildren();
           })
-        })
+        });
+
+
+        const checkboxInnerWrappers = vacancies.querySelectorAll('.filter__item-inner');
+        checkboxInnerWrappers.forEach(checkboxInnerWrapper => {
+          const checkboxInnerList = checkboxInnerWrapper.querySelectorAll('input[type="checkbox"]');
+          const titleCheckbox = checkboxInnerWrapper.closest('.filter__item')
+                                                    .querySelector('input[type="checkbox"]');
+
+
+
+
+
+        });
+
 
 
       });
-
-
     })
+
+
   }
 
 
