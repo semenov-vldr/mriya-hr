@@ -6,6 +6,8 @@
   background-position: right
   display: flex
   align-items: center
+  @media (max-width: 1000px)
+    height: auto
 
   &__container
     display: flex
@@ -14,6 +16,7 @@
     align-items: center
     @media (max-width: 1000px)
       flex-direction: column
+      padding-bottom: 60px
 
   &__content
     display: flex
@@ -27,7 +30,7 @@
   &__text
     max-width: 400px
 
-  &__buttons
+  &__actions
     display: flex
     align-items: center
     gap: 30px
@@ -41,13 +44,16 @@
     max-width: 450px
     gap: 20px
 
-  &__stories
+  &-stories
     display: flex
+    @media (max-width: 480px)
+      transform: translateX(20px)
 
-    &__item:nth-child(2)
-      margin-left: -70px
-      margin-top: -20px
     &__item
-      img
-        width: clamp(160px, calc(160px + (390 - 160) * ((100vw - 320px) / (1920 - 320))), 390px)
+      &:nth-child(1)
+        transform: rotate(-2deg) translateY(20px)
+      &:nth-child(2)
+        transform: rotate(2deg) translateX(-50px)
+
+
 

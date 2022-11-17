@@ -1,26 +1,25 @@
-// document.addEventListener('DOMContentLoaded', animationSteps);
-//
-//
-// function animationSteps () {
-//   const employment = document.querySelector('.employment');
-//   if (employment) {
-//     const stepNumbers = employment.querySelectorAll('.employment-steps-item__number');
-//
-//   }
-// }
-
 const employment = document.querySelector('.employment');
+
+const widthDesktop = window.matchMedia('(min-width: 1000.1px)').matches;
 
 if (employment) {
 
+  if (widthDesktop) lineAnimation(employment)
+
+    window.addEventListener('resize', () => {
+      if (widthDesktop) lineAnimation(employment)
+    });
+
+}
+
+function lineAnimation (employment) {
   const stepNumbers = employment.querySelectorAll('.employment-steps-item__number');
   const line = employment.querySelector('.employment-steps__line--dark');
 
   const options = {
     rootMargin: '0px 0px -20%',
-    threshold: 1
+    threshold: 1,
   };
-
 
   const observerStep = new IntersectionObserver(callbackStep, options)
   const observerLine = new IntersectionObserver(callbackLine, options)
@@ -37,8 +36,6 @@ if (employment) {
   };
 
 
-
-
   function callbackLine (entries) {
     entries.forEach((entry) => {
       const el = entry.target;
@@ -52,16 +49,13 @@ if (employment) {
         };
 
         window.addEventListener('scroll', setHeightLine)
-    }
-  })
+      }
+    })
   };
 
   stepNumbers.forEach(stepNum => observerStep.observe(stepNum));
   observerLine.observe(line);
+};
 
-
-
-
-}
 
 

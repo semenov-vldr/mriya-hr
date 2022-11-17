@@ -1,6 +1,6 @@
 .plus
   background-color: $beige
-  padding: 156px 0
+  padding: clamp(48px, calc(48px + (156 - 48) * ((100vw - 768px) / (1920 - 768))), 156px) 0
 
   &__container
     display: flex
@@ -57,13 +57,14 @@
         &.js-accordion-active .accordion__icon
           opacity: 0
 
-      &__title
-        svg
-          transition: opacity 0.2s ease
+      &__title svg
+        transition: opacity 0.2s ease
 
     &__images
       @media (max-width: 1000px)
-        aspect-ratio: 1 / 1
+        aspect-ratio: 3 / 2
+      @media (max-width: 480px)
+          aspect-ratio: 1 / 1
 
       &-item
         display: none
@@ -72,6 +73,8 @@
         object-fit: cover
         &.js-advantages-active
           display: block
+        @media (max-width: 1000px)
+          height: 100%
 
   // Бонусы и привелегии
   .bonus

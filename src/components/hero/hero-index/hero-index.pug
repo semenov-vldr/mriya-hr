@@ -4,7 +4,7 @@
     .hero-index__content
       h1.hero-index__title Построй карьеру в одном из лучших курортов в мире
       p.hero-index__text Вы можете развиваться в своей профессии или попробовать поменять квалификацию и начать осваивать что-то новое
-      .hero-index__buttons
+      .hero-index__actions
         a.button.button--accent(href="vacancies.html") Вакансии
         button.fill-form.button-popup Заполнить анкету
       .hero-index__employees
@@ -13,12 +13,32 @@
           b 3000+ сотрудников
           |&nbsp развиваются вместе с нами
 
-    .hero-index__stories
-      .hero-index__stories__item.open-stories(data-open-stories="1")
-        img(src="./assets/img/index-hero/hero-stories-1.png")
 
-      .hero-index__stories__item.open-stories(data-open-stories="2")
-        img(src="./assets/img/index-hero/hero-stories-2.png")
+    .hero-index__stories.hero-index-stories
+
+      .stories-card.hero-index-stories__item
+        img.stories-card__logo(src="./assets/img/icons/mriya-logo.svg")
+        img.stories-card__image(src="./assets/img/stories/01.jpg")
+        .stories-card__info Супервайзер в отделе клининга в Мрии
+        .stories-card__stories
+          button.stories-card__stories-play(data-open-stories="1")
+          .stories-card__stories-data
+            span.stories-card__stories-title Елена
+            span.stories-card__stories-info шеф-повар
+
+      .stories-card.hero-index-stories__item
+        img.stories-card__logo(src="./assets/img/icons/mriya-logo.svg")
+        img.stories-card__image(src="./assets/img/stories/02.jpg")
+        .stories-card__info Супервайзер в отделе клининга в Мрии
+        .stories-card__stories
+          button.stories-card__stories-play(data-open-stories="2")
+          .stories-card__stories-data
+            span.stories-card__stories-title Александр
+            span.stories-card__stories-info менеджер зала
+
+
+
+
 
 
 

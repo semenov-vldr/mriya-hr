@@ -1,6 +1,6 @@
 .employment
   background-color: #F9FBFD
-  padding: 160px 0
+  padding: clamp(48px, calc(48px + (156 - 48) * ((100vw - 768px) / (1920 - 768))), 156px) 0
 
   &__title
     margin-bottom: 64px
@@ -13,6 +13,8 @@
     width: fit-content
     justify-content: center
     margin-bottom: 96px
+    @media (max-width: 768px)
+      margin-bottom: 48px
 
     &__item
       padding: 40px
@@ -25,6 +27,9 @@
     display: grid
     grid-template-columns: 45% auto
     gap: 128px
+    @media (max-width: 1000px)
+      grid-template-columns: 1fr
+      gap: 48px
 
   &__image
     img
@@ -32,6 +37,8 @@
       height: 100%
       max-height: 750px
       object-fit: cover
+    @media (max-width: 1000px)
+      aspect-ratio: 5 / 6
 
 
   &-steps
@@ -42,11 +49,12 @@
       flex-direction: column
       gap: 40px
       padding: 20px 0
+      @media (max-width: 1000px)
+        padding: 0
 
     &__line
       position: absolute
       width: 1px
-
       left: -64px
       top: 0
       &--light
@@ -56,6 +64,10 @@
         background-color: $black
         height: 1%
         max-height: 742px
+        @media (max-width: 1000px)
+          display: none
+      @media (max-width: 1000px)
+        left: 6px
 
 
     &-item
@@ -63,6 +75,8 @@
       display: flex
       flex-direction: column
       gap: 8px
+      @media (max-width: 1000px)
+        padding-left: 28px
 
       &__number
         position: absolute
@@ -81,6 +95,8 @@
           background-color: $black
           border-color: $black
           color: #fff
+        @media (max-width: 1000px)
+          left: 20px
 
 
       &__title

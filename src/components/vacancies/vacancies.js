@@ -89,7 +89,7 @@ if (vacancies) {
           vacanciesFilterContent.classList.remove('js-filter-visible');
         }
 
-      const resetFilterBtns = vacancies.querySelectorAll('.vacancies-filter-content__reset');
+      const resetFilterBtns = vacancies.querySelectorAll('.vacancies-filter-content__reset, .filters__actions-reset');
         resetFilterBtns.forEach(btn => {
           btn.addEventListener('click', () => {
             checkboxList.forEach(checkbox => checkbox.checked = false);

@@ -12,7 +12,7 @@ if (storiesList) {
   const body = document.querySelector('body');
 
   const dataStories = stories.dataset.stories; // Значение 'data-stories' у блока stories
-   const openStoriesBtn = document.querySelector(`.open-stories[data-open-stories="${dataStories}"]`);
+   const openStoriesBtn = document.querySelector(`[data-open-stories="${dataStories}"]`);
 
    openStoriesBtn.addEventListener('click', openStories);
 
