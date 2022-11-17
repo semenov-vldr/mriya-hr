@@ -86,29 +86,28 @@ if (areas) {
 
 }
 
-// document.addEventListener('DOMContentLoaded', animationSteps);
-//
-//
-// function animationSteps () {
-//   const employment = document.querySelector('.employment');
-//   if (employment) {
-//     const stepNumbers = employment.querySelectorAll('.employment-steps-item__number');
-//
-//   }
-// }
-
 const employment = document.querySelector('.employment');
+
+const widthDesktop = window.matchMedia('(min-width: 1000.1px)').matches;
 
 if (employment) {
 
+  if (widthDesktop) lineAnimation(employment)
+
+    window.addEventListener('resize', () => {
+      if (widthDesktop) lineAnimation(employment)
+    });
+
+}
+
+function lineAnimation (employment) {
   const stepNumbers = employment.querySelectorAll('.employment-steps-item__number');
   const line = employment.querySelector('.employment-steps__line--dark');
 
   const options = {
     rootMargin: '0px 0px -20%',
-    threshold: 1
+    threshold: 1,
   };
-
 
   const observerStep = new IntersectionObserver(callbackStep, options)
   const observerLine = new IntersectionObserver(callbackLine, options)
@@ -125,8 +124,6 @@ if (employment) {
   };
 
 
-
-
   function callbackLine (entries) {
     entries.forEach((entry) => {
       const el = entry.target;
@@ -140,17 +137,14 @@ if (employment) {
         };
 
         window.addEventListener('scroll', setHeightLine)
-    }
-  })
+      }
+    })
   };
 
   stepNumbers.forEach(stepNum => observerStep.observe(stepNum));
   observerLine.observe(line);
+};
 
-
-
-
-}
 
 
 
@@ -746,7 +740,7 @@ if (plus) {
       // Ширина экрана
       breakpoints: {
         320: {
-          slidesPerView: 1,
+          slidesPerView: 1.4,
           spaceBetween: 16,
         },
 
@@ -790,7 +784,7 @@ if (storiesList) {
   const body = document.querySelector('body');
 
   const dataStories = stories.dataset.stories; // Значение 'data-stories' у блока stories
-   const openStoriesBtn = document.querySelector(`.open-stories[data-open-stories="${dataStories}"]`);
+   const openStoriesBtn = document.querySelector(`[data-open-stories="${dataStories}"]`);
 
    openStoriesBtn.addEventListener('click', openStories);
 
@@ -1037,7 +1031,7 @@ if (vacancies) {
           vacanciesFilterContent.classList.remove('js-filter-visible');
         }
 
-      const resetFilterBtns = vacancies.querySelectorAll('.vacancies-filter-content__reset');
+      const resetFilterBtns = vacancies.querySelectorAll('.vacancies-filter-content__reset, .filters__actions-reset');
         resetFilterBtns.forEach(btn => {
           btn.addEventListener('click', () => {
             checkboxList.forEach(checkbox => checkbox.checked = false);
