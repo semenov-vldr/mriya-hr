@@ -35,7 +35,7 @@
     position: absolute
     top: 10%
     right: 8%
-    z-index: 10
+    z-index: 12
     cursor: pointer
     &:hover
       opacity: 0.9
@@ -76,13 +76,27 @@
       width: 30%
       z-index: 10
       cursor: pointer
-      top: 15%
       user-select: none
+      box-shadow: inset 0 -5px 5px -5px #333
+      &::before
+        position: absolute
+        content: ""
+        height: 100%
+        width: 30%
+        top: 0
+        filter: blur(100px)
+      &:hover::before
+        background-color: rgba(#fff, 0.5)
 
       &--prev
         left: 0
+        &::before
+          left: 0
+
       &--next
         right: 0
+        &::before
+          right: 0
 
 
   // ---КОНТЕНТ---
