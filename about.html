@@ -132,7 +132,7 @@
             <li class="footer__contact-item"><a class="footer__contact-email" href="mailoto:job@mriyaresort.com">job@mriyaresort.com</a></li>
             <li class="footer__contact-item"><a class="footer__contact-tel" href="tel:88005008964">8 800 500-89-64</a></li>
             <li class="footer__contact-item">
-              <button class="ask">Задать вопрос</button>
+              <button class="ask button-popup">Задать вопрос</button>
             </li>
           </ul>
         </div>
@@ -151,10 +151,31 @@
               <h2 class="form-popup__title">Оставьте заявку</h2>
               <p class="form-popup__subtitle">Менеджер свяжется с вами в ближайшее время</p>
             </header>
+            <form class="form-popup__item form-popup__item--small" method="POST" action="" enctype="multipart/form-data" autocomplete="off" data-popup="small">
+              <div class="form__input-container">
+                <label>Имя
+                  <input placeholder="Константин" name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" required="required"/><span class="form__error form__error--inputName">Ошибка</span>
+                </label>
+              </div>
+              <div class="form__input-container">
+                <label>Телефон
+                  <input type="tel" name="phone" placeholder="+0 000 000 00 00" data-tel-input="" pattern=".{18,}" maxlength="18" autocomplete="off" required="required"/><span class="form__error form__error--inputTel"></span>
+                </label>
+              </div>
+              <div class="form__input-container">
+                <label>Комментарий
+                  <textarea placeholder="Введите ваше сообщение..." name="message" maxlength="200" rows="4"></textarea><span class="form__error form__error--inputText"></span>
+                </label>
+              </div>
+              <div class="form-popup__sending form-popup-sending">
+                <p class="form-popup-sending__agreement">Нажимая кнопку, вы соглашаетесь с<a href="">&#160; политикой конфиденциальности</a></p>
+                <button class="button button--accent" type="submit">Отправить</button>
+              </div>
+            </form>
             <form class="form-popup__item form-popup__item--full" method="POST" action="" enctype="multipart/form-data" autocomplete="off" data-popup="full">
               <div class="form__input-container">
                 <label>Фамилия
-                  <input placeholder="Константинопольский" name="surname" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40"/><span class="form__error form__error--inputName"></span>
+                  <input placeholder="Иванов" name="surname" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40"/><span class="form__error form__error--inputName"></span>
                 </label>
               </div>
               <div class="form__input-container">
@@ -164,7 +185,7 @@
               </div>
               <div class="form__input-container">
                 <label>Отчество
-                  <input placeholder="Константинович" name="patronymic" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40"/><span class="form__error form__error--inputName"></span>
+                  <input placeholder="Александрович" name="patronymic" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40"/><span class="form__error form__error--inputName"></span>
                 </label>
               </div>
               <div class="form__input-container">
@@ -174,7 +195,7 @@
               </div>
               <div class="form__input-container">
                 <label>Телефон
-                  <input type="tel" name="phone" placeholder="+0 000 000 00 00" data-tel-input="" pattern=".{18,}" maxlength="18" autocomplete="off"/><span class="form__error form__error--inputTel"></span>
+                  <input type="tel" name="phone" placeholder="+0 000 000 00 00" data-tel-input="" pattern=".{18,}" maxlength="18" autocomplete="off" required="required"/><span class="form__error form__error--inputTel"></span>
                 </label>
               </div>
               <div class="form__input-container">
@@ -184,11 +205,13 @@
               </div>
               <div class="form__input-container">
                 <label>Желаемая вакансия</label>
-                <select>
-                  <option disabled selected value="">Выберите вакансию из списка</option>
-                  <option>Вакансия 1</option>
-                  <option>Вакансия 2</option>
-                  <option>Вакансия 1</option>
+                <select class="form__input-vacancy">
+                  <option selected value="">Выберите вакансию из списка</option>
+                  <option>Водитель клаб-кара (на сезон)</option>
+                  <option>Горничная</option>
+                  <option>Агент по бронированию</option>
+                  <option>Батлер</option>
+                  <option>Парковщик</option>
                 </select>
               </div>
               <div class="form__input-container">
@@ -204,28 +227,7 @@
                 </div>
               </div>
               <div class="form-popup__sending form-popup-sending">
-                <p class="form-popup-sending__agreement">Нажимая кнопку, вы соглашаетесь с<b>политикой конфиденциальности</b></p>
-                <button class="button button--accent" type="submit">Отправить</button>
-              </div>
-            </form>
-            <form class="form-popup__item form-popup__item--small" method="POST" action="" enctype="multipart/form-data" autocomplete="off" data-popup="small">
-              <div class="form__input-container">
-                <label>Имя
-                  <input placeholder="Константин" name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" required="required"/><span class="form__error form__error--inputName">Ошибка</span>
-                </label>
-              </div>
-              <div class="form__input-container">
-                <label>Телефон
-                  <input type="tel" name="phone" placeholder="+0 000 000 00 00" data-tel-input="" pattern=".{18,}" maxlength="18" autocomplete="off"/><span class="form__error form__error--inputTel"></span>
-                </label>
-              </div>
-              <div class="form__input-container">
-                <label>Комментарий
-                  <textarea placeholder="Введите ваше сообщение..." name="message" maxlength="200" rows="4"></textarea><span class="form__error form__error--inputText"></span>
-                </label>
-              </div>
-              <div class="form-popup__sending form-popup-sending">
-                <p class="form-popup-sending__agreement">Нажимая кнопку, вы соглашаетесь с<b>политикой конфиденциальности</b></p>
+                <p class="form-popup-sending__agreement">Нажимая кнопку, вы соглашаетесь с<a href="">&#160; политикой конфиденциальности</a></p>
                 <button class="button button--accent" type="submit">Отправить</button>
               </div>
             </form>

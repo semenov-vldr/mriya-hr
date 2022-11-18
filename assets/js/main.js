@@ -103,23 +103,26 @@ if (employment) {
 function lineAnimation (employment) {
   const stepNumbers = employment.querySelectorAll('.employment-steps-item__number');
   const line = employment.querySelector('.employment-steps__line--dark');
+  const images = employment.querySelectorAll('.employment__image img');
+
+  console.log(images)
+  images[3].classList.add('js-photo-active');
+  console.log(images[3])
+
 
   const options = {
     rootMargin: '0px 0px -20%',
     threshold: 1,
   };
 
-  const observerStep = new IntersectionObserver(callbackStep, options)
-  const observerLine = new IntersectionObserver(callbackLine, options)
+  const observerStep = new IntersectionObserver(callbackStep, options);
+  const observerLine = new IntersectionObserver(callbackLine, options);
+  const observerImages = new IntersectionObserver(callbackImages, options);
 
   function callbackStep (entries) {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('scroll-center')
-      }
-      else {
-        entry.target.classList.remove('scroll-center')
-      }
+      if (entry.isIntersecting) entry.target.classList.add('scroll-center');
+      else entry.target.classList.remove('scroll-center')
     })
   };
 
@@ -127,7 +130,6 @@ function lineAnimation (employment) {
   function callbackLine (entries) {
     entries.forEach((entry) => {
       const el = entry.target;
-
       if (entry.isIntersecting) {
         const startPosition = window.scrollY;
 
@@ -135,14 +137,25 @@ function lineAnimation (employment) {
           let value = window.scrollY - startPosition;
           el.style.height = `${value}px`;
         };
-
-        window.addEventListener('scroll', setHeightLine)
+        window.addEventListener('scroll', setHeightLine);
       }
     })
   };
 
+
+  function callbackImages (entries) {
+    entries.forEach((entry) => {
+      const el = entry.target;
+      if (entry.isIntersecting) el.classList.add('js-photo-active');
+      else el.classList.remove('js-photo-active');
+    })
+  };
+
+
   stepNumbers.forEach(stepNum => observerStep.observe(stepNum));
   observerLine.observe(line);
+  images.forEach(image => observerImages.observe(image));
+
 };
 
 
@@ -229,11 +242,52 @@ function lineAnimation (employment) {
             }
           };
 
-          tabsForm.forEach(tab => {
-            tab.addEventListener('click', (evt) => switchTypeForm(evt))
-          });
-        }
 
+          tabsForm.forEach(tab => tab.classList.remove('js-type-active'));
+          tabsForm[0].classList.add('js-type-active');
+
+          tabsForm.forEach(tab => {
+
+            const forms = tab.closest('.form-popup__content').querySelectorAll('.form-popup__item');
+            forms.forEach( (form) => {
+              if (form.dataset.popup === tab.dataset.popup) {
+                tab.classList.add('js-type-active');
+              }
+            });
+
+            tab.addEventListener('click', (evt) => {
+              tabsForm.forEach(item => item.classList.remove('js-type-active'));
+              evt.target.classList.add('js-type-active');
+              switchTypeForm(evt);
+            } );
+          });
+
+
+          // Функция выбора вакансии в поп-апе при клике на вакансию
+          function selectedVacancy () {
+            activeForm(fullForm);
+            inActiveForm(smallForm);
+
+            tabsForm.forEach(tab => tab.classList.remove('js-type-active'));
+            tabsForm[1].classList.add('js-type-active');
+
+            const titleVacancy = btn.closest('.vacancies-item')
+              .querySelector('.vacancies-item__title').textContent;
+
+            const vacancyListForm = fullForm.querySelectorAll('.form__input-vacancy option');
+            vacancyListForm.forEach(vacancyItem => {
+              if (vacancyItem.textContent === titleVacancy) {
+                vacancyItem.selected = true;
+                vacancyListForm.forEach(vacancy => {
+                  if (vacancy !== vacancyItem) vacancy.disabled = true;
+                })
+              }
+            })
+          };
+
+          if (btn.classList.contains('vacancies-button')) selectedVacancy();
+
+        }
 
       });
     });
@@ -512,19 +566,25 @@ function showFileName (file) {
 
 
 function addFileInput () {
-
+  const formUpload = document.querySelector('.form-upload');
   const inputFile = document.querySelector('.form-upload__input');
   if (inputFile) {
 
     const changeHandler = (evt) => {
       if (!evt.target.files.length) return
       const files = Array.from(evt.target.files);
-      files.forEach(file => showFileName(file, inputFile));
+      files.forEach(showFileName);
     };
+
 
     inputFile.addEventListener('change', (evt) => {
       changeHandler(evt);
     });
+
+    formUpload.addEventListener('click', () => {
+      inputFile.nextElementSibling.click();
+    })
+
   }
 }
 
@@ -607,23 +667,22 @@ if (forms) validForm(forms)
 const desktopWidth = window.matchMedia('(min-width: 1000.1px)');
 
 const header = document.querySelector('.header');
+const burger = header.querySelector('.header__burger');
 const headerNav = header.querySelector('.header__nav');
-const body = document.querySelector('body');
 
 if (headerNav) {
-  const burger = header.querySelector('.header__burger');
   burger.addEventListener('click', () => {
     headerNav.classList.toggle('js-active-menu');
-    body.classList.toggle('js-block-scroll');
     burger.classList.toggle('js-active-menu');
+    toggleScrollBody()
   })
 
 
   window.addEventListener('resize', () => {
     if (desktopWidth.matches) {
       headerNav.classList.remove('js-active-menu');
-      body.classList.remove('js-block-scroll');
       burger.classList.remove('js-active-menu');
+      unblockScrollBody()
     }
   })
 
@@ -1103,13 +1162,24 @@ if (accordionList) {
 
 
 
+const body = document.querySelector('body');
+const html = document.querySelector('html');
+
+
 function blockScrollBody () {
-  document.body.classList.add('js-block-scroll');
+  html.classList.add('js-block-scroll');
+  body.classList.add('js-block-scroll');
 
 }
 
 function unblockScrollBody () {
-  document.body.classList.remove('js-block-scroll');
+  html.classList.remove('js-block-scroll');
+  body.classList.remove('js-block-scroll');
+}
+
+function toggleScrollBody () {
+  html.classList.toggle('js-block-scroll');
+  body.classList.toggle('js-block-scroll');
 }
 
 function tabsSlides ( { classWrapper, classSlide, classNav, activeClass,  dataNameNav, dataNameSlide} ) {
