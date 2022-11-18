@@ -5,12 +5,14 @@ html
   scroll-behavior: smooth
   //background-color: var(--bg-black)
   color: $black
+  &.js-block-scroll
+    overflow: hidden
 
 
 body
   height: 100%
   &.js-block-scroll
-    overflow: hidden
+    //overflow: hidden
     padding-right: 17px
 
 
@@ -48,7 +50,7 @@ main
     padding: 0 20px
 
 h1
-  @include fontSize(36, 56)
+  @include fontSize(32, 56)
   line-height: 1.1
   font-weight: 500
 

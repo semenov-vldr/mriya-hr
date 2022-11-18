@@ -31,22 +31,26 @@
     display: inline-flex
     flex-wrap: wrap
     align-items: center
-    overflow: hidden
-    border-radius: 4px
+    gap: 8px
     margin-bottom: 24px
 
   &__button-change
-    background-color: $orange
-    color: #fff
+    background-color: #fff
+    color: #333333
     padding: 12px
     font-size: 14px
     cursor: pointer
-    border-right: 1px solid #fff
-    border-bottom: 1px solid #fff
+    border: 1px solid #EBEBEB
+    border-radius: 4px
     &:hover
-      background-color: rgba($orange, 0.9)
+      background-color: #333333
+      color: #fff
     &:active
-      background-color: rgba($orange, 0.8)
+      background-color: rgba(#333333, 0.9)
+      color: #fff
+    &.js-type-active
+      background-color: #333333
+      color: #fff
 
 
   &__title
@@ -110,17 +114,17 @@
       border-radius: 2px
       border: 1px solid #E8E8E8
       margin-top: 8px
-
-    input
       &:focus
         outline: none
-        border: 1px solid #818181
-      &:required:valid
-        border-color: rgba(green, 0.15)
-      &:required:invalid
-        border-color: rgba(#FF2929, 0.15)
-      &:required:invalid:placeholder-shown
-        border-color: #E8E8E8
+        border-color: $black
+      //&:valid
+      //  border-color: rgba(green, 0.15)
+      //&:invalid
+      //  border-color: rgba(#FF2929, 0.15)
+      &:focus-visible
+        border-color: $black
+      //&:placeholder-shown
+        //border-color: $black
 
     .form__input-container
       label
@@ -138,6 +142,7 @@
         border-radius: 2px
         min-height: 72px
         padding: 12px 16px
+        cursor: pointer
         &__label
           color: $primary
           cursor: pointer
@@ -145,16 +150,16 @@
           color: #969696
         &.highlight
           box-shadow: 4px 4px 8px 0 rgba($primary, 0.2)
-
-
-
-
+        &:hover
+          box-shadow: 4px 4px 8px 0 rgba($primary, 0.2)
 
 
   &-sending
     display: flex
     flex-direction: column
     gap: 32px
+    a
+      font-weight: 600
 
 
 

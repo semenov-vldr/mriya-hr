@@ -10,22 +10,26 @@
     height: auto
 
   &__container
-    display: flex
+    display: grid
+    grid-template-columns: 45% 55%
     gap: 50px
     height: 100%
     align-items: center
     @media (max-width: 1000px)
-      flex-direction: column
+      grid-template-columns: 1fr
       padding-bottom: 60px
 
   &__content
     display: flex
     flex-direction: column
     gap: 32px
-    max-width: 530px
     padding-top: 50px
     @media (max-width: 1000px)
       gap: 20px
+      max-width: 550px
+      & > *
+        text-align: center
+        margin: 0 auto
 
   &__text
     max-width: 400px
@@ -36,16 +40,21 @@
     gap: 30px
     @media (max-width: 1000px)
       flex-wrap: wrap
-      justify-content: center
 
   &__employees
     display: flex
     align-items: center
     max-width: 450px
     gap: 20px
+    @media (max-width: 380px)
+      flex-wrap: wrap
+
+    &-text
+      text-align: left
 
   &-stories
     display: flex
+    justify-content: center
     @media (max-width: 480px)
       transform: translateX(20px)
 

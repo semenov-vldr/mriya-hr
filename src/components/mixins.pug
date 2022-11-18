@@ -19,14 +19,14 @@ mixin inputName
 mixin inputSurame
   .form__input-container
     label Фамилия
-      input(placeholder="Константинопольский" name="surname" pattern="^[A-Za-zА-Яа-яЁё\\s]+$" autocomplete='off' maxlength='40'  )
+      input(placeholder="Иванов" name="surname" pattern="^[A-Za-zА-Яа-яЁё\\s]+$" autocomplete='off' maxlength='40'  )
       span.form__error.form__error--inputName
 
 // Patronymic
 mixin inputPatronymic
   .form__input-container
     label Отчество
-      input(placeholder="Константинович" name="patronymic" pattern="^[A-Za-zА-Яа-яЁё\\s]+$" autocomplete='off' maxlength='40'  )
+      input(placeholder="Александрович" name="patronymic" pattern="^[A-Za-zА-Яа-яЁё\\s]+$" autocomplete='off' maxlength='40'  )
       span.form__error.form__error--inputName
 
 // Date
@@ -40,7 +40,7 @@ mixin inputDate
 mixin inputTel
   .form__input-container
     label Телефон
-      input(type='tel' name='phone' placeholder="+0 000 000 00 00" data-tel-input='' pattern='.{18,}' maxlength='18'  autocomplete='off'  )
+      input(type='tel' name='phone' placeholder="+0 000 000 00 00" data-tel-input='' pattern='.{18,}' maxlength='18'  autocomplete='off'  required)
       span.form__error.form__error--inputTel
 
 // City

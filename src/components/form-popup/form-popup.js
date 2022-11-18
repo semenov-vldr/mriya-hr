@@ -79,11 +79,52 @@
             }
           };
 
-          tabsForm.forEach(tab => {
-            tab.addEventListener('click', (evt) => switchTypeForm(evt))
-          });
-        }
 
+          tabsForm.forEach(tab => tab.classList.remove('js-type-active'));
+          tabsForm[0].classList.add('js-type-active');
+
+          tabsForm.forEach(tab => {
+
+            const forms = tab.closest('.form-popup__content').querySelectorAll('.form-popup__item');
+            forms.forEach( (form) => {
+              if (form.dataset.popup === tab.dataset.popup) {
+                tab.classList.add('js-type-active');
+              }
+            });
+
+            tab.addEventListener('click', (evt) => {
+              tabsForm.forEach(item => item.classList.remove('js-type-active'));
+              evt.target.classList.add('js-type-active');
+              switchTypeForm(evt);
+            } );
+          });
+
+
+          // Функция выбора вакансии в поп-апе при клике на вакансию
+          function selectedVacancy () {
+            activeForm(fullForm);
+            inActiveForm(smallForm);
+
+            tabsForm.forEach(tab => tab.classList.remove('js-type-active'));
+            tabsForm[1].classList.add('js-type-active');
+
+            const titleVacancy = btn.closest('.vacancies-item')
+              .querySelector('.vacancies-item__title').textContent;
+
+            const vacancyListForm = fullForm.querySelectorAll('.form__input-vacancy option');
+            vacancyListForm.forEach(vacancyItem => {
+              if (vacancyItem.textContent === titleVacancy) {
+                vacancyItem.selected = true;
+                vacancyListForm.forEach(vacancy => {
+                  if (vacancy !== vacancyItem) vacancy.disabled = true;
+                })
+              }
+            })
+          };
+
+          if (btn.classList.contains('vacancies-button')) selectedVacancy();
+
+        }
 
       });
     });

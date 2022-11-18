@@ -91,19 +91,25 @@ function showFileName (file) {
 
 
 function addFileInput () {
-
+  const formUpload = document.querySelector('.form-upload');
   const inputFile = document.querySelector('.form-upload__input');
   if (inputFile) {
 
     const changeHandler = (evt) => {
       if (!evt.target.files.length) return
       const files = Array.from(evt.target.files);
-      files.forEach(file => showFileName(file, inputFile));
+      files.forEach(showFileName);
     };
+
 
     inputFile.addEventListener('change', (evt) => {
       changeHandler(evt);
     });
+
+    formUpload.addEventListener('click', () => {
+      inputFile.nextElementSibling.click();
+    })
+
   }
 }
 

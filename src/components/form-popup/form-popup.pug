@@ -12,6 +12,20 @@ template#form-popup
         h2.form-popup__title Оставьте заявку
         p.form-popup__subtitle Менеджер свяжется с вами в ближайшее время
 
+
+      form.form-popup__item.form-popup__item--small(method='POST' action='' enctype="multipart/form-data" autocomplete="off" data-popup="small")
+
+        +inputName
+        +inputTel
+        +inputText
+
+        .form-popup__sending.form-popup-sending
+          p.form-popup-sending__agreement Нажимая кнопку, вы соглашаетесь с
+            a(href="") &#160; политикой конфиденциальности
+
+          button.button.button--accent(type='submit') Отправить
+
+
       form.form-popup__item.form-popup__item--full(method='POST' action='' enctype="multipart/form-data" autocomplete="off" data-popup="full")
 
         +inputSurame
@@ -23,11 +37,13 @@ template#form-popup
 
         .form__input-container
           label Желаемая вакансия
-          select
-            option(disabled selected value="") Выберите вакансию из списка
-            option Вакансия 1
-            option Вакансия 2
-            option Вакансия 1
+          select.form__input-vacancy
+            option(selected value="") Выберите вакансию из списка
+            option Водитель клаб-кара (на сезон)
+            option Горничная
+            option Агент по бронированию
+            option Батлер
+            option Парковщик
 
         +inputText
 
@@ -40,19 +56,7 @@ template#form-popup
 
         .form-popup__sending.form-popup-sending
           p.form-popup-sending__agreement Нажимая кнопку, вы соглашаетесь с
-            b политикой конфиденциальности
-
-          button.button.button--accent(type='submit') Отправить
-
-      form.form-popup__item.form-popup__item--small(method='POST' action='' enctype="multipart/form-data" autocomplete="off" data-popup="small")
-
-        +inputName
-        +inputTel
-        +inputText
-
-        .form-popup__sending.form-popup-sending
-          p.form-popup-sending__agreement Нажимая кнопку, вы соглашаетесь с
-            b политикой конфиденциальности
+            a(href="") &#160; политикой конфиденциальности
 
           button.button.button--accent(type='submit') Отправить
 

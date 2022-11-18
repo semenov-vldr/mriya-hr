@@ -6,4 +6,4 @@
 
 
 @mixin changeSize($property, $min, $max)
-  #{$property}: clamp(#{$min}px, calc(#{$min}px + (#{$max} - #{$min}) * ((100vw - 320px) / (1920 - 320))), #{$max}px)
+  #{$property}: clamp(#{$min}px, calc(#{$min}px + (#{$max} - #{$min}) * ((100vw - 768px) / (1920 - 768))), #{$max}px)
