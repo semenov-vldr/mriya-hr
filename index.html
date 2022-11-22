@@ -87,17 +87,17 @@
                 </div>
               </div>
               <div class="hero-index__stories hero-index-stories">
-                <div class="stories-card hero-index-stories__item"><img class="stories-card__logo" src="./assets/img/icons/mriya-logo.svg"><img class="stories-card__image" src="./assets/img/stories/01.jpg">
+                <div class="stories-card hero-index-stories__item" data-open-stories="1"><img class="stories-card__logo" src="./assets/img/icons/mriya-logo.svg"><img class="stories-card__image" src="./assets/img/stories/01.jpg">
                   <div class="stories-card__info">Супервайзер в отделе клининга в Мрии</div>
                   <div class="stories-card__stories">
-                    <button class="stories-card__stories-play" data-open-stories="1"></button>
+                    <button class="stories-card__stories-play"></button>
                     <div class="stories-card__stories-data"><span class="stories-card__stories-title">Елена</span><span class="stories-card__stories-info">шеф-повар</span></div>
                   </div>
                 </div>
-                <div class="stories-card hero-index-stories__item"><img class="stories-card__logo" src="./assets/img/icons/mriya-logo.svg"><img class="stories-card__image" src="./assets/img/stories/02.jpg">
+                <div class="stories-card hero-index-stories__item" data-open-stories="2"><img class="stories-card__logo" src="./assets/img/icons/mriya-logo.svg"><img class="stories-card__image" src="./assets/img/stories/02.jpg">
                   <div class="stories-card__info">Супервайзер в отделе клининга в Мрии</div>
                   <div class="stories-card__stories">
-                    <button class="stories-card__stories-play" data-open-stories="2"></button>
+                    <button class="stories-card__stories-play"></button>
                     <div class="stories-card__stories-data"><span class="stories-card__stories-title">Александр</span><span class="stories-card__stories-info">менеджер зала</span></div>
                   </div>
                 </div>
@@ -594,7 +594,7 @@
               <h2 class="title-section contacts__title">Развивайтесь и стройте карьеру у моря</h2>
               <p class="contacts__subtitle">Мы всегда готовы ответить на ваши вопросы</p>
               <div class="contacts__map contacts-map"><img class="contacts-map__image" src="./assets/img/contacts/map-contacts.svg">
-                <div class="contacts-map__point"></div>
+                <!--.contacts-map__point-->
                 <div class="contacts-map__label contacts-map-label"><img class="contacts-map-label__icon" src="./assets/img/contacts/ru.svg"><b class="contacts-map-label__title">Крым, Россия</b>
                   <p class="contacts-map-label__address">Ceло Оползневое, Генерала Острякова 9</p>
                 </div>
@@ -622,6 +622,12 @@
                 <button class="stories-content__switcher stories-content__switcher--prev" tabindex="-1"></button>
                 <button class="stories-content__switcher stories-content__switcher--next" tabindex="-1"></button>
                 <div class="stories-content">
+                  <div class="stories-content__item stories-content-item stories-content-item--video">
+                    <video class="stories-content-item__video">
+                      <source src="./assets/video/video-2.mp4" type="video/mp4">
+                    </video><b class="stories-content-item__name">Александр</b><span class="stories-content-item__post">менеджер зала</span>
+                    <button class="button button--accent stories-content-item__button">Вакансии офиса</button>
+                  </div>
                   <div class="stories-content__item stories-content-item stories-content-item--image-text">
                     <div class="stories-content-item__wrapper">
                       <div class="stories-content-item__image"><img src="./assets/img/stories/03.jpg" alt="photo"></div><span class="stories-content-item__name">Чалая Екатерина</span>
@@ -681,6 +687,127 @@
             </div>
           </div>
         </section>
+        <template id="form-popup">
+          <div class="form-popup">
+            <div class="form-popup__content">
+              <div class="form-popup__buttons-change">
+                <button class="form-popup__button-change" data-type="small">Сокращенная форма</button>
+                <button class="form-popup__button-change" data-type="full">Полная форма</button>
+              </div><span class="form-popup__close">
+                <svg width="14" height="14" fill="#000">
+                  <use href="./assets/img/sprite.svg#close-menu"></use>
+                </svg></span>
+              <header class="form-popup__header">
+                <h2 class="form-popup__title">Оставьте заявку</h2>
+                <p class="form-popup__subtitle">Менеджер свяжется с вами в ближайшее время</p>
+              </header>
+              <form class="form-popup__item form-popup__item--small" method="POST" action="" enctype="multipart/form-data" autocomplete="off" data-popup="small">
+                <div class="form__input-container">
+                  <label>Имя
+                    <input placeholder="Константин" name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" required="required"/><span class="form__error form__error--inputName">Ошибка</span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Телефон
+                    <input type="tel" name="phone" placeholder="+0 000 000 00 00" data-tel-input="" pattern=".{18,}" maxlength="18" autocomplete="off" required="required"/><span class="form__error form__error--inputTel"></span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Комментарий
+                    <textarea placeholder="Введите ваше сообщение..." name="message" maxlength="200" rows="4"></textarea><span class="form__error form__error--inputText"></span>
+                  </label>
+                </div>
+                <div class="form-popup__sending form-popup-sending">
+                  <p class="form-popup-sending__agreement">Нажимая кнопку, вы соглашаетесь с<a href="">&#160; политикой конфиденциальности</a></p>
+                  <button class="button button--accent" type="submit">Отправить</button>
+                </div>
+              </form>
+              <form class="form-popup__item form-popup__item--full" method="POST" action="" enctype="multipart/form-data" autocomplete="off" data-popup="full">
+                <div class="form__input-container">
+                  <label>Фамилия
+                    <input placeholder="Иванов" name="surname" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40"/><span class="form__error form__error--inputName"></span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Имя
+                    <input placeholder="Константин" name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" required="required"/><span class="form__error form__error--inputName">Ошибка</span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Отчество
+                    <input placeholder="Александрович" name="patronymic" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40"/><span class="form__error form__error--inputName"></span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Дата рождения
+                    <input placeholder="дд.мм.гггг" name="name" pattern="\d{2}\.\d{2}\.\d{4}" autocomplete="off" maxlength="10"/><span class="form__error form__error--inputDate"></span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Телефон
+                    <input type="tel" name="phone" placeholder="+0 000 000 00 00" data-tel-input="" pattern=".{18,}" maxlength="18" autocomplete="off" required="required"/><span class="form__error form__error--inputTel"></span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Город проживания
+                    <input placeholder="Москва" name="city" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off"/><span class="form__error form__error--inputCity"></span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Желаемая вакансия</label>
+                  <select class="form__input-vacancy">
+                    <option selected value="">Выберите вакансию из списка</option>
+                    <option>Водитель клаб-кара (на сезон)</option>
+                    <option>Горничная</option>
+                    <option>Агент по бронированию</option>
+                    <option>Батлер</option>
+                    <option>Парковщик</option>
+                  </select>
+                </div>
+                <div class="form__input-container">
+                  <label>Комментарий
+                    <textarea placeholder="Введите ваше сообщение..." name="message" maxlength="200" rows="4"></textarea><span class="form__error form__error--inputText"></span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Добавить резюме</label>
+                  <div class="form__upload form-upload">
+                    <input class="form-upload__input visually-hidden" id="inputfilepopup" type="file" name="file" accept=".pdf, .doc, .docx, .txt">
+                    <label class="form-upload__label" for="inputfilepopup">Выберите файл</label><span>&#32; с резюме или перетащите его в поле (pdf, docx, txt до 15мб)</span><span class="form-upload__spinner"></span>
+                  </div>
+                </div>
+                <div class="form-popup__sending form-popup-sending">
+                  <p class="form-popup-sending__agreement">Нажимая кнопку, вы соглашаетесь с<a href="">&#160; политикой конфиденциальности</a></p>
+                  <button class="button button--accent" type="submit">Отправить</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </template>
+        <template id="success">
+          <div class="reply-popup">
+            <div class="reply-popup__body">
+              <svg class="reply-popup__close" width="14" height="14" fill="#000">
+                <use href="./assets/img/sprite.svg#close-menu"></use>
+              </svg>
+              <p class="reply-popup__title">Спасибо, ваша заявка принята</p>
+              <p class="reply-popup__text">Менеджер свяжется с вами в ближайшее время</p>
+              <button class="button button--accent reply-popup__button">Хорошо</button>
+            </div>
+          </div>
+        </template>
+        <template id="error">
+          <div class="reply-popup">
+            <div class="reply-popup__body">
+              <svg class="reply-popup__close" width="14" height="14" fill="#000">
+                <use href="./assets/img/sprite.svg#close-menu"></use>
+              </svg>
+              <p class="reply-popup__title">Ошибка!</p>
+              <p class="reply-popup__text">Во время обработки запроса что-то пошло не так! Пожалуйста, попытайтесь еще раз.</p>
+              <button class="button button--accent reply-popup__button">Хорошо</button>
+            </div>
+          </div>
+        </template>
       </main>
       <footer class="footer">
         <div class="footer__container container">
@@ -694,127 +821,6 @@
           </ul>
         </div>
       </footer>
-      <template id="form-popup">
-        <div class="form-popup">
-          <div class="form-popup__content">
-            <div class="form-popup__buttons-change">
-              <button class="form-popup__button-change" data-type="small">Сокращенная форма</button>
-              <button class="form-popup__button-change" data-type="full">Полная форма</button>
-            </div><span class="form-popup__close">
-              <svg width="14" height="14" fill="#000">
-                <use href="./assets/img/sprite.svg#close-menu"></use>
-              </svg></span>
-            <header class="form-popup__header">
-              <h2 class="form-popup__title">Оставьте заявку</h2>
-              <p class="form-popup__subtitle">Менеджер свяжется с вами в ближайшее время</p>
-            </header>
-            <form class="form-popup__item form-popup__item--small" method="POST" action="" enctype="multipart/form-data" autocomplete="off" data-popup="small">
-              <div class="form__input-container">
-                <label>Имя
-                  <input placeholder="Константин" name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" required="required"/><span class="form__error form__error--inputName">Ошибка</span>
-                </label>
-              </div>
-              <div class="form__input-container">
-                <label>Телефон
-                  <input type="tel" name="phone" placeholder="+0 000 000 00 00" data-tel-input="" pattern=".{18,}" maxlength="18" autocomplete="off" required="required"/><span class="form__error form__error--inputTel"></span>
-                </label>
-              </div>
-              <div class="form__input-container">
-                <label>Комментарий
-                  <textarea placeholder="Введите ваше сообщение..." name="message" maxlength="200" rows="4"></textarea><span class="form__error form__error--inputText"></span>
-                </label>
-              </div>
-              <div class="form-popup__sending form-popup-sending">
-                <p class="form-popup-sending__agreement">Нажимая кнопку, вы соглашаетесь с<a href="">&#160; политикой конфиденциальности</a></p>
-                <button class="button button--accent" type="submit">Отправить</button>
-              </div>
-            </form>
-            <form class="form-popup__item form-popup__item--full" method="POST" action="" enctype="multipart/form-data" autocomplete="off" data-popup="full">
-              <div class="form__input-container">
-                <label>Фамилия
-                  <input placeholder="Иванов" name="surname" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40"/><span class="form__error form__error--inputName"></span>
-                </label>
-              </div>
-              <div class="form__input-container">
-                <label>Имя
-                  <input placeholder="Константин" name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" required="required"/><span class="form__error form__error--inputName">Ошибка</span>
-                </label>
-              </div>
-              <div class="form__input-container">
-                <label>Отчество
-                  <input placeholder="Александрович" name="patronymic" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40"/><span class="form__error form__error--inputName"></span>
-                </label>
-              </div>
-              <div class="form__input-container">
-                <label>Дата рождения
-                  <input placeholder="дд.мм.гггг" name="name" pattern="\d{2}\.\d{2}\.\d{4}" autocomplete="off" maxlength="10"/><span class="form__error form__error--inputDate"></span>
-                </label>
-              </div>
-              <div class="form__input-container">
-                <label>Телефон
-                  <input type="tel" name="phone" placeholder="+0 000 000 00 00" data-tel-input="" pattern=".{18,}" maxlength="18" autocomplete="off" required="required"/><span class="form__error form__error--inputTel"></span>
-                </label>
-              </div>
-              <div class="form__input-container">
-                <label>Город проживания
-                  <input placeholder="Москва" name="city" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off"/><span class="form__error form__error--inputCity"></span>
-                </label>
-              </div>
-              <div class="form__input-container">
-                <label>Желаемая вакансия</label>
-                <select class="form__input-vacancy">
-                  <option selected value="">Выберите вакансию из списка</option>
-                  <option>Водитель клаб-кара (на сезон)</option>
-                  <option>Горничная</option>
-                  <option>Агент по бронированию</option>
-                  <option>Батлер</option>
-                  <option>Парковщик</option>
-                </select>
-              </div>
-              <div class="form__input-container">
-                <label>Комментарий
-                  <textarea placeholder="Введите ваше сообщение..." name="message" maxlength="200" rows="4"></textarea><span class="form__error form__error--inputText"></span>
-                </label>
-              </div>
-              <div class="form__input-container">
-                <label>Добавить резюме</label>
-                <div class="form__upload form-upload">
-                  <input class="form-upload__input visually-hidden" id="inputfilepopup" type="file" name="file" accept=".pdf, .doc, .docx, .txt">
-                  <label class="form-upload__label" for="inputfilepopup">Выберите файл</label><span>&#32; с резюме или перетащите его в поле (pdf, docx, txt до 15мб)</span>
-                </div>
-              </div>
-              <div class="form-popup__sending form-popup-sending">
-                <p class="form-popup-sending__agreement">Нажимая кнопку, вы соглашаетесь с<a href="">&#160; политикой конфиденциальности</a></p>
-                <button class="button button--accent" type="submit">Отправить</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </template>
-      <template id="success">
-        <div class="reply-popup">
-          <div class="reply-popup__body">
-            <svg class="reply-popup__close" width="14" height="14" fill="#000">
-              <use href="./assets/img/sprite.svg#close-menu"></use>
-            </svg>
-            <p class="reply-popup__title">Спасибо, ваша заявка принята</p>
-            <p class="reply-popup__text">Менеджер свяжется с вами в ближайшее время</p>
-            <button class="button button--accent reply-popup__button">Хорошо</button>
-          </div>
-        </div>
-      </template>
-      <template id="error">
-        <div class="reply-popup">
-          <div class="reply-popup__body">
-            <svg class="reply-popup__close" width="14" height="14" fill="#000">
-              <use href="./assets/img/sprite.svg#close-menu"></use>
-            </svg>
-            <p class="reply-popup__title">Ошибка!</p>
-            <p class="reply-popup__text">Во время обработки запроса что-то пошло не так! Пожалуйста, попытайтесь еще раз.</p>
-            <button class="button button--accent reply-popup__button">Хорошо</button>
-          </div>
-        </div>
-      </template>
     </div>
     <script src="assets/js/libs.min.js"></script>
     <script src="assets/js/main.js" type="module"></script>

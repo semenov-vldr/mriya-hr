@@ -91,23 +91,18 @@ const employment = document.querySelector('.employment');
 const widthDesktop = window.matchMedia('(min-width: 1000.1px)').matches;
 
 if (employment) {
-
   if (widthDesktop) lineAnimation(employment)
-
     window.addEventListener('resize', () => {
-      if (widthDesktop) lineAnimation(employment)
+      if (widthDesktop) lineAnimation(employment);
     });
-
 }
+
+
 
 function lineAnimation (employment) {
   const stepNumbers = employment.querySelectorAll('.employment-steps-item__number');
   const line = employment.querySelector('.employment-steps__line--dark');
   const images = employment.querySelectorAll('.employment__image img');
-
-  console.log(images)
-  images[3].classList.add('js-photo-active');
-  console.log(images[3])
 
 
   const options = {
@@ -115,14 +110,32 @@ function lineAnimation (employment) {
     threshold: 1,
   };
 
-  const observerStep = new IntersectionObserver(callbackStep, options);
-  const observerLine = new IntersectionObserver(callbackLine, options);
-  const observerImages = new IntersectionObserver(callbackImages, options);
 
   function callbackStep (entries) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) entry.target.classList.add('scroll-center');
-      else entry.target.classList.remove('scroll-center')
+    entries.forEach((entry, indexEntry) => {
+      const el = entry.target;
+      if (entry.isIntersecting) {
+        el.classList.add('scroll-center');
+
+        images.forEach(image => image.classList.remove('js-photo-active'));
+
+        images[0].classList.add('js-photo-active');
+
+        //console.log(`index: ${indexEntry} + el: ${el.textContent}`)
+
+
+        // images.forEach((image, indexImage) => {
+        //   if (indexEntry === indexImage) {
+        //     image.classList.add('js-photo-active');
+        //   }
+        // })
+
+      }
+      else {
+        el.classList.remove('scroll-center');
+        //console.log(`index: ${indexEntry} + el: ${el.textContent}`)
+      }
+
     })
   };
 
@@ -143,18 +156,13 @@ function lineAnimation (employment) {
   };
 
 
-  function callbackImages (entries) {
-    entries.forEach((entry) => {
-      const el = entry.target;
-      if (entry.isIntersecting) el.classList.add('js-photo-active');
-      else el.classList.remove('js-photo-active');
-    })
-  };
+
+  const observerStep = new IntersectionObserver(callbackStep, options);
+  const observerLine = new IntersectionObserver(callbackLine, options);
 
 
   stepNumbers.forEach(stepNum => observerStep.observe(stepNum));
   observerLine.observe(line);
-  images.forEach(image => observerImages.observe(image));
 
 };
 
@@ -225,7 +233,25 @@ function lineAnimation (employment) {
           const activeForm = (form) => form.classList.add('js-active-form');
           const inActiveForm = (form) => form.classList.remove('js-active-form');
 
-          activeForm(smallForm);
+
+          // Сделать активной изначально сокращенную форму
+          function formSmallActive () {
+            activeForm(smallForm);
+            inActiveForm(fullForm);
+            tabsForm.forEach(tab => tab.classList.remove('js-type-active'));
+            tabsForm[0].classList.add('js-type-active');
+          };
+
+          // Сделать активной изначально полую форму
+          function formFullActive () {
+            activeForm(fullForm);
+            inActiveForm(smallForm);
+            tabsForm.forEach(tab => tab.classList.remove('js-type-active'));
+            tabsForm[1].classList.add('js-type-active');
+          };
+
+          formSmallActive();
+
 
           function switchTypeForm (evt) {
             inActiveForm(smallForm);
@@ -243,16 +269,11 @@ function lineAnimation (employment) {
           };
 
 
-          tabsForm.forEach(tab => tab.classList.remove('js-type-active'));
-          tabsForm[0].classList.add('js-type-active');
-
           tabsForm.forEach(tab => {
 
             const forms = tab.closest('.form-popup__content').querySelectorAll('.form-popup__item');
             forms.forEach( (form) => {
-              if (form.dataset.popup === tab.dataset.popup) {
-                tab.classList.add('js-type-active');
-              }
+              if (form.dataset.popup === tab.dataset.popup) tab.classList.add('js-type-active');
             });
 
             tab.addEventListener('click', (evt) => {
@@ -264,16 +285,8 @@ function lineAnimation (employment) {
 
 
           // Функция выбора вакансии в поп-апе при клике на вакансию
-          function selectedVacancy () {
-            activeForm(fullForm);
-            inActiveForm(smallForm);
-
-            tabsForm.forEach(tab => tab.classList.remove('js-type-active'));
-            tabsForm[1].classList.add('js-type-active');
-
-            const titleVacancy = btn.closest('.vacancies-item')
-              .querySelector('.vacancies-item__title').textContent;
-
+          function selectedVacancy (titleVacancy) {
+            formFullActive();
             const vacancyListForm = fullForm.querySelectorAll('.form__input-vacancy option');
             vacancyListForm.forEach(vacancyItem => {
               if (vacancyItem.textContent === titleVacancy) {
@@ -282,10 +295,21 @@ function lineAnimation (employment) {
                   if (vacancy !== vacancyItem) vacancy.disabled = true;
                 })
               }
-            })
+            });
+          };
+          // Выбор вакансии в поп-апе на странице вакансий
+          if (btn.classList.contains('vacancies-button')) {
+            const titleVacancy = btn.closest('.vacancies-item')
+              .querySelector('.vacancies-item__title').textContent;
+            selectedVacancy(titleVacancy);
           };
 
-          if (btn.classList.contains('vacancies-button')) selectedVacancy();
+
+          // Выбор вакансии в поп-апе на внутренней странице вакансии
+          if (btn.classList.contains('vacancy-hr__button')) {
+            const titleVacancy = document.querySelector('.vacancy__title').textContent;
+            selectedVacancy(titleVacancy);
+          };
 
         }
 
@@ -333,8 +357,8 @@ function lineAnimation (employment) {
         method: 'POST',
         body,
       },
-    ).then((responce) => {
-      responce.ok ? onSuccess() : onError();
+    ).then((response) => {
+      response.ok ? onSuccess() : onError();
     }).catch(() => onError());
   };
 
@@ -366,9 +390,6 @@ function lineAnimation (employment) {
 
 
   userFormSubmit();
-
-
-
 
 
 
@@ -473,10 +494,12 @@ function validInputTel (phoneInputs) {
 if (phoneInputs) validInputTel(phoneInputs);
 
 
+const MAXSIZEFILE = 1024*1024*15;
 
 function InputDrop () {
 
   const dropZoneList = document.querySelectorAll('.form-upload');
+
 
 if (dropZoneList) {
   dropZoneList.forEach(dropZone => {
@@ -491,38 +514,30 @@ if (dropZoneList) {
   };
 
   // сброс стилей для всех событий в dropZone
-  events.forEach(event => {
-    dropZone.addEventListener(event, preventDefaults);
-  });
+  events.forEach(event => dropZone.addEventListener(event, preventDefaults));
 
   // Подсветка dropZone
-  function highLight() {
-    dropZone.classList.add('highlight');
-  };
-
+  const highLight = () => dropZone.classList.add('highlight');
   // Снять подсветку dropZone
-  function unHighLight() {
-    dropZone.classList.remove('highlight');
-  };
+  const unHighLight = () => dropZone.classList.remove('highlight');
 
   // Добавить подсветку при событиях 'dragenter', 'dragover'
-  ['dragenter', 'dragover'].forEach(event => {
-    dropZone.addEventListener(event, highLight);
-  });
+  ['dragenter', 'dragover'].forEach(event => dropZone.addEventListener(event, highLight));
 
   // Убрать подсветку при событиях 'dragleave', 'drop'
-  ['dragleave', 'drop'].forEach(event => {
-    dropZone.addEventListener(event, unHighLight);
-  });
+  ['dragleave', 'drop'].forEach(event => dropZone.addEventListener(event, unHighLight));
 
 
-  // Обработчик файлов, добавленных через проводник
   function handleFiles(files) {
     files = [...files];
     console.log(files)
-    const names = new Set(files)
-    files.forEach(uploadFile);
-    files.forEach(showFileName);
+    files.forEach(file => {
+      if (file.size <= MAXSIZEFILE) {
+        uploadFile(file);
+        preloaderActive(dropZone, file);
+        showFileName(file);
+      } else alert('Размер файла превышен');
+    })
   };
 
 
@@ -543,14 +558,10 @@ if (dropZoneList) {
         method: 'POST',
         body: formData
       })
-        .then(() => {
-          console.log('отправка успешна');
-        })
+        .then(() => console.log('Файл успшно добавлен'))
         .catch(() => console.log('Ошибка'))
     };
-
     dropZone.addEventListener('drop', handleDrop);
-
   })
   }
 };
@@ -565,6 +576,22 @@ function showFileName (file) {
 };
 
 
+function preloaderActive (dropZone, file) {
+  const reader = new FileReader();
+  const spinner = dropZone.querySelector('.form-upload__spinner');
+
+  reader.addEventListener('progress', (evt) => {
+    if (evt.loaded && evt.total) {
+      const percent = (evt.loaded / evt.total) * 100;
+      spinner.classList.add('js-spinner-active');
+      if (percent === 100) spinner.classList.remove('js-spinner-active');
+    }
+  });
+  reader.readAsDataURL(file);
+};
+
+
+// Обработчик файлов, добавленных через проводник
 function addFileInput () {
   const formUpload = document.querySelector('.form-upload');
   const inputFile = document.querySelector('.form-upload__input');
@@ -573,18 +600,20 @@ function addFileInput () {
     const changeHandler = (evt) => {
       if (!evt.target.files.length) return
       const files = Array.from(evt.target.files);
-      files.forEach(showFileName);
+
+      if (files) {
+        files.forEach(file => {
+          if (file.size <= MAXSIZEFILE) {
+            preloaderActive(formUpload, file);
+            showFileName(file);
+          } else alert('Размер файла превышен');
+
+        });
+      }
     };
 
-
-    inputFile.addEventListener('change', (evt) => {
-      changeHandler(evt);
-    });
-
-    formUpload.addEventListener('click', () => {
-      inputFile.nextElementSibling.click();
-    })
-
+    inputFile.addEventListener('change', (evt) => changeHandler(evt));
+    formUpload.addEventListener('click', () => inputFile.nextElementSibling.click());
   }
 }
 
@@ -829,21 +858,15 @@ if (plus) {
 
 }
 
-
 const storiesList = document.querySelectorAll('.stories');
 
-if (storiesList) {
-  storiesList.forEach(stories => storiesActive (stories));
-}
-
+if (storiesList) storiesList.forEach(stories => storiesActive (stories));
 
 
  function storiesActive (stories) {
 
-  const body = document.querySelector('body');
-
   const dataStories = stories.dataset.stories; // Значение 'data-stories' у блока stories
-   const openStoriesBtn = document.querySelector(`[data-open-stories="${dataStories}"]`);
+  const openStoriesBtn = document.querySelector(`[data-open-stories="${dataStories}"]`);
 
    openStoriesBtn.addEventListener('click', openStories);
 
@@ -861,14 +884,28 @@ if (storiesList) {
        timeline.appendChild(timelineInner);
        timelineList.appendChild(timeline);
      }
-   }
+   };
    createTimeline();
+
+   function setIntervalContent() {
+     const videoActive = stories.querySelector('.js-stories-content-active video');
+     if (videoActive) {
+       const duration = videoActive.duration;
+       runInterval(duration, 1);
+     } else {
+       runInterval(3, 1);
+     }
+   };
 
 
    function openStories () {
      stories.classList.add('js-stories-active');
-     runInterval(5, 1);
-     body.classList.add('js-block-scroll');
+     blockScrollBody();
+
+     const videoActive = stories.querySelector('.js-stories-content-active video');
+     if (videoActive) videoActive.play();
+
+     setIntervalContent();
    };
 
    const close = stories.querySelector('.stories__close');
@@ -882,14 +919,13 @@ if (storiesList) {
      })
      stories.classList.remove('js-stories-active');
      resetStories();
-     body.classList.remove('js-block-scroll');
+     unblockScrollBody();
    };
 
    // Закрытие по клику вне блока
    document.body.addEventListener('click', (evt) => {
      if (evt.target.classList.contains('stories')) closeStories();
    });
-
 
    const activeTimeline = (timeline) => timeline.classList.add('js-timeline-active');
    const activeStoriesContent = (storiesContent) => storiesContent.classList.add('js-stories-content-active');
@@ -920,9 +956,8 @@ if (storiesList) {
 
      // Воспроизведение видео при активном слайде
      let videoActive = switchEl.querySelector('.stories-content-item__video');
-     if (videoActive) {
-       videoActive.play();
-     }
+     if (videoActive) videoActive.play();
+     setIntervalContent();
 
      let videoPrev = activeEl.querySelector('.stories-content-item__video');
      if (videoPrev) {
@@ -935,10 +970,12 @@ if (storiesList) {
      if (switchEl) {
        activeEl.classList.remove(activeClass);
        switchEl.classList.add(activeClass);
+       setIntervalContent();
        return activeEl;
      }
      return null;
    };
+
 
    function storiesSwitchPrev () {
      const prev = moveClass('js-timeline-active', 'previousElementSibling', (el) => {
@@ -946,6 +983,10 @@ if (storiesList) {
        const width = parseFloat(inner.style.width) || 0;
 
        el.querySelector('.stories-timeline__item-inner').style.width = '';
+
+       const videoPrev = stories.querySelector('.js-stories-content-active video');
+       if (videoPrev) videoPrev.currentTime = 0;
+
        return width <= 20;
      });
 
@@ -957,9 +998,17 @@ if (storiesList) {
      moveClass('js-stories-content-active', 'nextElementSibling');
      const el = moveClass('js-timeline-active', 'nextElementSibling');
 
-     if (el) el.querySelector('.stories-timeline__item-inner').style.width = '';
-   };
+     if (el) {
+       el.querySelector('.stories-timeline__item-inner').style.width = '';
+     }
 
+     // const lastContentItem = stories.querySelector('.js-stories-content-active');
+     // console.log(lastContentItem.nextSibling)
+     // if (typeof lastContentItem.nextSibling === 'undefined') {
+     //   console.log('последний элемент')
+     // }
+
+   };
 
    const storiesPrev = stories.querySelector('.stories-content__switcher--prev');
    const storiesNext = stories.querySelector('.stories-content__switcher--next');
@@ -973,21 +1022,17 @@ if (storiesList) {
    function runInterval (time, step) {
      clearInterval(timer);
 
+     console.log(time)
+
      timer = setInterval(() => {
-       const activeEl = stories.querySelector('.js-timeline-active')
-         .querySelector('.stories-timeline__item-inner');
+       const activeEl = stories.querySelector('.js-timeline-active .stories-timeline__item-inner');
        const width = parseFloat(activeEl.style.width) || 0; // преобразование строки в число
 
-       if(width === 100 ) {
-         storiesSwitchNext();
-         return;
-       }
+       if(width === 100 ) {storiesSwitchNext(); return;}
        activeEl.style.width = String(width + step) + '%';
-
        if (!stories.classList.contains('js-stories-active')) clearInterval(timer);
 
-
-     },time * 1000 * step / 100);
+     }, time * 1000 * step / 100);
    };
 
  };
@@ -1013,7 +1058,6 @@ if (vacancies) {
 
   const filterTitles = vacancies.querySelectorAll('.filter__title');
   addClassFilterActive(filterTitles);
-
 
 
   // Показать больше
@@ -1046,9 +1090,7 @@ if (vacancies) {
   filtersClose.addEventListener('click', removeClassFilterOpen);
 
 
-
   // Отображение тегов фильтра
-
   const mobileWidth = window.matchMedia('(max-width: 1000px)');
 
   const checkboxList = Array.from(filters.querySelectorAll('input[type="checkbox"]'));
@@ -1056,60 +1098,93 @@ if (vacancies) {
   const vacanciesFilterContent = vacancies.querySelector('.vacancies-filter-content');
   const vacanciesFilterContentList = vacanciesFilterContent.querySelector('.vacancies-filter-content__list');
 
+  const addClassFilterVisible = () => vacanciesFilterContent.classList.add('js-filter-visible');
+  const removeClassFilterVisible = () => vacanciesFilterContent.classList.remove('js-filter-visible');
+
+  function addTagFilter (checkbox) {
+    const li = document.createElement('li');
+    li.classList.add('vacancies-filter-content__item');
+    const filterDelete = document.createElement('button');
+    li.textContent = checkbox.value;
+    filterDelete.classList.add('vacancies-filter-content__delete');
+    li.appendChild(filterDelete);
+    vacanciesFilterContentList.appendChild(li);
+
+    filterDelete.addEventListener('click', () => {
+      li.remove();
+      checkbox.checked = false;
+
+      const isEmptyFilter = vacanciesFilterContent.querySelector('.vacancies-filter-content__list').children.length === 0;
+      if (isEmptyFilter) removeClassFilterVisible();
+    });
+  };
+
+  const checkboxInnerWrappers = vacancies.querySelectorAll('.filter__item-inner');
+  checkboxInnerWrappers.forEach(checkboxInnerWrapper => {
+    const checkboxInnerList = checkboxInnerWrapper.querySelectorAll('input[type="checkbox"]');
+
+    // Действия с каждый чекбоксом
     checkboxList.forEach(checkbox => {
       checkbox.addEventListener('change', () => {
-        const isChecked = checkboxList.some(item => item.checked);
+        const isSomeChecked = checkboxList.some(item => item.checked);
         const checkedItems = vacanciesFilterContentList.querySelectorAll('li');
 
-        if (isChecked && mobileWidth.matches) {
+        const isCheckedInner = Array.from(checkboxInnerList).some(checkboxInner => checkboxInner.checked === true);
+
+        if (isSomeChecked && mobileWidth.matches) {
           filtersActions.classList.add('js-filter-active');
         } else filtersActions.classList.remove('js-filter-active');
 
-        if (checkbox.checked) {
-          const li = document.createElement('li');
-          li.classList.add('vacancies-filter-content__item');
-          const filterDelete = document.createElement('button');
-          li.textContent = checkbox.value;
-          filterDelete.classList.add('vacancies-filter-content__delete');
-          li.appendChild(filterDelete);
-          vacanciesFilterContentList.appendChild(li);
+        const mainCheckbox =  checkbox.closest('.filter__item-inner')?.closest('.filter__item').querySelector('input[type="checkbox"]')
+        const checkboxesInner = checkbox.parentNode.querySelectorAll('.filter__item-inner input[type="checkbox"]');
 
-          filterDelete.addEventListener('click', () => {
-            li.remove();
-            checkbox.checked = false;
-          });
+        if (checkbox.checked) {
+          addTagFilter(checkbox);
+          if (mainCheckbox && isCheckedInner) {
+            mainCheckbox.checked = true;
+            addTagFilter(mainCheckbox)
+          }
+          if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = true);
+
         } else {
           checkedItems.forEach(checkedItem => {
             if (checkedItem.textContent === checkbox.value) checkedItem.remove();
           })
+          if (mainCheckbox && !isCheckedInner) mainCheckbox.checked = false;
+          if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = false);
         }
+        isSomeChecked ? addClassFilterVisible() : removeClassFilterVisible();
 
-        if (isChecked) {
-          vacanciesFilterContent.classList.add('js-filter-visible');
-        } else {
-          vacanciesFilterContent.classList.remove('js-filter-visible');
-        }
+        // if (checkboxInnerList && mainCheckbox.checked) {
+        //   checkboxInnerList.forEach(checkboxInner => checkboxInner.checked = true);
+        // } else {
+        //   checkboxInnerList.forEach(checkboxInner => checkboxInner.checked = false);
+        //   removeClassFilterVisible();
+        // }
 
+
+      // Reset filter
       const resetFilterBtns = vacancies.querySelectorAll('.vacancies-filter-content__reset, .filters__actions-reset');
         resetFilterBtns.forEach(btn => {
           btn.addEventListener('click', () => {
             checkboxList.forEach(checkbox => checkbox.checked = false);
-            vacanciesFilterContent.classList.remove('js-filter-visible');
+            removeClassFilterVisible();
             vacanciesFilterContent.querySelector('.vacancies-filter-content__list').replaceChildren();
           })
         });
 
 
-        const checkboxInnerWrappers = vacancies.querySelectorAll('.filter__item-inner');
-        checkboxInnerWrappers.forEach(checkboxInnerWrapper => {
-          const checkboxInnerList = checkboxInnerWrapper.querySelectorAll('input[type="checkbox"]');
-          const titleCheckbox = checkboxInnerWrapper.closest('.filter__item')
-                                                    .querySelector('input[type="checkbox"]');
-
-
-
-
-
+        // const checkboxInnerWrappers = vacancies.querySelectorAll('.filter__item-inner');
+        // checkboxInnerWrappers.forEach(checkboxInnerWrapper => {
+        //   const checkboxInnerList = checkboxInnerWrapper.querySelectorAll('input[type="checkbox"]');
+        //   const mainCheckbox = checkboxInnerWrapper.closest('.filter__item')
+        //                                             .querySelector('input[type="checkbox"]');
+        //
+        //   const isCheckedInner = Array.from(checkboxInnerList).some(checkboxInner => checkboxInner.checked === true);
+          //isCheckedInner ? mainCheckbox.checked = true : mainCheckbox.checked = false;
+          // if (mainCheckbox.checked) {
+          //   checkboxInnerList.forEach(checkboxInner => checkboxInner.checked = true);
+          // }
         });
 
 
@@ -1181,6 +1256,11 @@ function toggleScrollBody () {
   html.classList.toggle('js-block-scroll');
   body.classList.toggle('js-block-scroll');
 }
+
+const images = document.querySelectorAll('img');
+
+if (images) images.forEach(image => image.setAttribute("loading", "lazy"));
+
 
 function tabsSlides ( { classWrapper, classSlide, classNav, activeClass,  dataNameNav, dataNameSlide} ) {
 
