@@ -1,6 +1,6 @@
 .accordion
   position: relative
-  overflow: hidden
+  //overflow: hidden
 
   &__list
     width: 100%
@@ -8,9 +8,11 @@
     flex-direction: column
 
   &__item
+    overflow: hidden
     padding: 24px 0
     border-bottom: 1px solid #1212121A
     cursor: pointer
+    min-height: 80px
     &.js-accordion-active .accordion__content
       max-height: 1000px
 
@@ -19,12 +21,14 @@
     @include fontSize(16, 20)
     font-weight: 500
     line-height: 1.4
+    min-height: 32px
     display: flex
     align-items: center
     justify-content: space-between
     gap: 20px
     svg
       transition: 0.2s linear
+      flex: 0 0 32px
 
   &__content
     width: 90%

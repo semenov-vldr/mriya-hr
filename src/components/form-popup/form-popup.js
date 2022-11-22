@@ -62,7 +62,25 @@
           const activeForm = (form) => form.classList.add('js-active-form');
           const inActiveForm = (form) => form.classList.remove('js-active-form');
 
-          activeForm(smallForm);
+
+          // Сделать активной изначально сокращенную форму
+          function formSmallActive () {
+            activeForm(smallForm);
+            inActiveForm(fullForm);
+            tabsForm.forEach(tab => tab.classList.remove('js-type-active'));
+            tabsForm[0].classList.add('js-type-active');
+          };
+
+          // Сделать активной изначально полую форму
+          function formFullActive () {
+            activeForm(fullForm);
+            inActiveForm(smallForm);
+            tabsForm.forEach(tab => tab.classList.remove('js-type-active'));
+            tabsForm[1].classList.add('js-type-active');
+          };
+
+          formSmallActive();
+
 
           function switchTypeForm (evt) {
             inActiveForm(smallForm);
@@ -80,16 +98,11 @@
           };
 
 
-          tabsForm.forEach(tab => tab.classList.remove('js-type-active'));
-          tabsForm[0].classList.add('js-type-active');
-
           tabsForm.forEach(tab => {
 
             const forms = tab.closest('.form-popup__content').querySelectorAll('.form-popup__item');
             forms.forEach( (form) => {
-              if (form.dataset.popup === tab.dataset.popup) {
-                tab.classList.add('js-type-active');
-              }
+              if (form.dataset.popup === tab.dataset.popup) tab.classList.add('js-type-active');
             });
 
             tab.addEventListener('click', (evt) => {
@@ -101,16 +114,8 @@
 
 
           // Функция выбора вакансии в поп-апе при клике на вакансию
-          function selectedVacancy () {
-            activeForm(fullForm);
-            inActiveForm(smallForm);
-
-            tabsForm.forEach(tab => tab.classList.remove('js-type-active'));
-            tabsForm[1].classList.add('js-type-active');
-
-            const titleVacancy = btn.closest('.vacancies-item')
-              .querySelector('.vacancies-item__title').textContent;
-
+          function selectedVacancy (titleVacancy) {
+            formFullActive();
             const vacancyListForm = fullForm.querySelectorAll('.form__input-vacancy option');
             vacancyListForm.forEach(vacancyItem => {
               if (vacancyItem.textContent === titleVacancy) {
@@ -119,10 +124,21 @@
                   if (vacancy !== vacancyItem) vacancy.disabled = true;
                 })
               }
-            })
+            });
+          };
+          // Выбор вакансии в поп-апе на странице вакансий
+          if (btn.classList.contains('vacancies-button')) {
+            const titleVacancy = btn.closest('.vacancies-item')
+              .querySelector('.vacancies-item__title').textContent;
+            selectedVacancy(titleVacancy);
           };
 
-          if (btn.classList.contains('vacancies-button')) selectedVacancy();
+
+          // Выбор вакансии в поп-апе на внутренней странице вакансии
+          if (btn.classList.contains('vacancy-hr__button')) {
+            const titleVacancy = document.querySelector('.vacancy__title').textContent;
+            selectedVacancy(titleVacancy);
+          };
 
         }
 
@@ -170,8 +186,8 @@
         method: 'POST',
         body,
       },
-    ).then((responce) => {
-      responce.ok ? onSuccess() : onError();
+    ).then((response) => {
+      response.ok ? onSuccess() : onError();
     }).catch(() => onError());
   };
 
@@ -203,9 +219,6 @@
 
 
   userFormSubmit();
-
-
-
 
 
 

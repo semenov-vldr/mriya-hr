@@ -120,11 +120,11 @@
         background-repeat: no-repeat
         background-size: cover
         transition: 0.3s ease
-        transform: rotate(180deg)
+        transform: rotate(0deg)
       &.js-filter-active + .filter__content
         display: flex
       &.js-filter-active::after
-        transform: rotate(0)
+        transform: rotate(180deg)
 
     &__content
       display: none
@@ -170,6 +170,7 @@
           background-image: url('../img/icons/check.svg')
           background-repeat: no-repeat
           background-position: center
+
 
     &__item-checkbox
       position: absolute

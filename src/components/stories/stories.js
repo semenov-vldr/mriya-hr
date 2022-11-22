@@ -1,18 +1,12 @@
-
 const storiesList = document.querySelectorAll('.stories');
 
-if (storiesList) {
-  storiesList.forEach(stories => storiesActive (stories));
-}
-
+if (storiesList) storiesList.forEach(stories => storiesActive (stories));
 
 
  function storiesActive (stories) {
 
-  const body = document.querySelector('body');
-
   const dataStories = stories.dataset.stories; // Значение 'data-stories' у блока stories
-   const openStoriesBtn = document.querySelector(`[data-open-stories="${dataStories}"]`);
+  const openStoriesBtn = document.querySelector(`[data-open-stories="${dataStories}"]`);
 
    openStoriesBtn.addEventListener('click', openStories);
 
@@ -30,14 +24,28 @@ if (storiesList) {
        timeline.appendChild(timelineInner);
        timelineList.appendChild(timeline);
      }
-   }
+   };
    createTimeline();
+
+   function setIntervalContent() {
+     const videoActive = stories.querySelector('.js-stories-content-active video');
+     if (videoActive) {
+       const duration = videoActive.duration;
+       runInterval(duration, 1);
+     } else {
+       runInterval(3, 1);
+     }
+   };
 
 
    function openStories () {
      stories.classList.add('js-stories-active');
-     runInterval(5, 1);
-     body.classList.add('js-block-scroll');
+     blockScrollBody();
+
+     const videoActive = stories.querySelector('.js-stories-content-active video');
+     if (videoActive) videoActive.play();
+
+     setIntervalContent();
    };
 
    const close = stories.querySelector('.stories__close');
@@ -51,14 +59,13 @@ if (storiesList) {
      })
      stories.classList.remove('js-stories-active');
      resetStories();
-     body.classList.remove('js-block-scroll');
+     unblockScrollBody();
    };
 
    // Закрытие по клику вне блока
    document.body.addEventListener('click', (evt) => {
      if (evt.target.classList.contains('stories')) closeStories();
    });
-
 
    const activeTimeline = (timeline) => timeline.classList.add('js-timeline-active');
    const activeStoriesContent = (storiesContent) => storiesContent.classList.add('js-stories-content-active');
@@ -89,9 +96,8 @@ if (storiesList) {
 
      // Воспроизведение видео при активном слайде
      let videoActive = switchEl.querySelector('.stories-content-item__video');
-     if (videoActive) {
-       videoActive.play();
-     }
+     if (videoActive) videoActive.play();
+     setIntervalContent();
 
      let videoPrev = activeEl.querySelector('.stories-content-item__video');
      if (videoPrev) {
@@ -104,10 +110,12 @@ if (storiesList) {
      if (switchEl) {
        activeEl.classList.remove(activeClass);
        switchEl.classList.add(activeClass);
+       setIntervalContent();
        return activeEl;
      }
      return null;
    };
+
 
    function storiesSwitchPrev () {
      const prev = moveClass('js-timeline-active', 'previousElementSibling', (el) => {
@@ -115,6 +123,10 @@ if (storiesList) {
        const width = parseFloat(inner.style.width) || 0;
 
        el.querySelector('.stories-timeline__item-inner').style.width = '';
+
+       const videoPrev = stories.querySelector('.js-stories-content-active video');
+       if (videoPrev) videoPrev.currentTime = 0;
+
        return width <= 20;
      });
 
@@ -126,9 +138,17 @@ if (storiesList) {
      moveClass('js-stories-content-active', 'nextElementSibling');
      const el = moveClass('js-timeline-active', 'nextElementSibling');
 
-     if (el) el.querySelector('.stories-timeline__item-inner').style.width = '';
-   };
+     if (el) {
+       el.querySelector('.stories-timeline__item-inner').style.width = '';
+     }
 
+     // const lastContentItem = stories.querySelector('.js-stories-content-active');
+     // console.log(lastContentItem.nextSibling)
+     // if (typeof lastContentItem.nextSibling === 'undefined') {
+     //   console.log('последний элемент')
+     // }
+
+   };
 
    const storiesPrev = stories.querySelector('.stories-content__switcher--prev');
    const storiesNext = stories.querySelector('.stories-content__switcher--next');
@@ -142,21 +162,17 @@ if (storiesList) {
    function runInterval (time, step) {
      clearInterval(timer);
 
+     console.log(time)
+
      timer = setInterval(() => {
-       const activeEl = stories.querySelector('.js-timeline-active')
-         .querySelector('.stories-timeline__item-inner');
+       const activeEl = stories.querySelector('.js-timeline-active .stories-timeline__item-inner');
        const width = parseFloat(activeEl.style.width) || 0; // преобразование строки в число
 
-       if(width === 100 ) {
-         storiesSwitchNext();
-         return;
-       }
+       if(width === 100 ) {storiesSwitchNext(); return;}
        activeEl.style.width = String(width + step) + '%';
-
        if (!stories.classList.contains('js-stories-active')) clearInterval(timer);
 
-
-     },time * 1000 * step / 100);
+     }, time * 1000 * step / 100);
    };
 
  };

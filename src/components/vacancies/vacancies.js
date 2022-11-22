@@ -14,7 +14,6 @@ if (vacancies) {
   addClassFilterActive(filterTitles);
 
 
-
   // Показать больше
   const showMoreList = vacancies.querySelectorAll('.filter__button-more');
   showMoreList.forEach(showMore => {
@@ -45,9 +44,7 @@ if (vacancies) {
   filtersClose.addEventListener('click', removeClassFilterOpen);
 
 
-
   // Отображение тегов фильтра
-
   const mobileWidth = window.matchMedia('(max-width: 1000px)');
 
   const checkboxList = Array.from(filters.querySelectorAll('input[type="checkbox"]'));
@@ -55,60 +52,93 @@ if (vacancies) {
   const vacanciesFilterContent = vacancies.querySelector('.vacancies-filter-content');
   const vacanciesFilterContentList = vacanciesFilterContent.querySelector('.vacancies-filter-content__list');
 
+  const addClassFilterVisible = () => vacanciesFilterContent.classList.add('js-filter-visible');
+  const removeClassFilterVisible = () => vacanciesFilterContent.classList.remove('js-filter-visible');
+
+  function addTagFilter (checkbox) {
+    const li = document.createElement('li');
+    li.classList.add('vacancies-filter-content__item');
+    const filterDelete = document.createElement('button');
+    li.textContent = checkbox.value;
+    filterDelete.classList.add('vacancies-filter-content__delete');
+    li.appendChild(filterDelete);
+    vacanciesFilterContentList.appendChild(li);
+
+    filterDelete.addEventListener('click', () => {
+      li.remove();
+      checkbox.checked = false;
+
+      const isEmptyFilter = vacanciesFilterContent.querySelector('.vacancies-filter-content__list').children.length === 0;
+      if (isEmptyFilter) removeClassFilterVisible();
+    });
+  };
+
+  const checkboxInnerWrappers = vacancies.querySelectorAll('.filter__item-inner');
+  checkboxInnerWrappers.forEach(checkboxInnerWrapper => {
+    const checkboxInnerList = checkboxInnerWrapper.querySelectorAll('input[type="checkbox"]');
+
+    // Действия с каждый чекбоксом
     checkboxList.forEach(checkbox => {
       checkbox.addEventListener('change', () => {
-        const isChecked = checkboxList.some(item => item.checked);
+        const isSomeChecked = checkboxList.some(item => item.checked);
         const checkedItems = vacanciesFilterContentList.querySelectorAll('li');
 
-        if (isChecked && mobileWidth.matches) {
+        const isCheckedInner = Array.from(checkboxInnerList).some(checkboxInner => checkboxInner.checked === true);
+
+        if (isSomeChecked && mobileWidth.matches) {
           filtersActions.classList.add('js-filter-active');
         } else filtersActions.classList.remove('js-filter-active');
 
-        if (checkbox.checked) {
-          const li = document.createElement('li');
-          li.classList.add('vacancies-filter-content__item');
-          const filterDelete = document.createElement('button');
-          li.textContent = checkbox.value;
-          filterDelete.classList.add('vacancies-filter-content__delete');
-          li.appendChild(filterDelete);
-          vacanciesFilterContentList.appendChild(li);
+        const mainCheckbox =  checkbox.closest('.filter__item-inner')?.closest('.filter__item').querySelector('input[type="checkbox"]')
+        const checkboxesInner = checkbox.parentNode.querySelectorAll('.filter__item-inner input[type="checkbox"]');
 
-          filterDelete.addEventListener('click', () => {
-            li.remove();
-            checkbox.checked = false;
-          });
+        if (checkbox.checked) {
+          addTagFilter(checkbox);
+          if (mainCheckbox && isCheckedInner) {
+            mainCheckbox.checked = true;
+            addTagFilter(mainCheckbox)
+          }
+          if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = true);
+
         } else {
           checkedItems.forEach(checkedItem => {
             if (checkedItem.textContent === checkbox.value) checkedItem.remove();
           })
+          if (mainCheckbox && !isCheckedInner) mainCheckbox.checked = false;
+          if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = false);
         }
+        isSomeChecked ? addClassFilterVisible() : removeClassFilterVisible();
 
-        if (isChecked) {
-          vacanciesFilterContent.classList.add('js-filter-visible');
-        } else {
-          vacanciesFilterContent.classList.remove('js-filter-visible');
-        }
+        // if (checkboxInnerList && mainCheckbox.checked) {
+        //   checkboxInnerList.forEach(checkboxInner => checkboxInner.checked = true);
+        // } else {
+        //   checkboxInnerList.forEach(checkboxInner => checkboxInner.checked = false);
+        //   removeClassFilterVisible();
+        // }
 
+
+      // Reset filter
       const resetFilterBtns = vacancies.querySelectorAll('.vacancies-filter-content__reset, .filters__actions-reset');
         resetFilterBtns.forEach(btn => {
           btn.addEventListener('click', () => {
             checkboxList.forEach(checkbox => checkbox.checked = false);
-            vacanciesFilterContent.classList.remove('js-filter-visible');
+            removeClassFilterVisible();
             vacanciesFilterContent.querySelector('.vacancies-filter-content__list').replaceChildren();
           })
         });
 
 
-        const checkboxInnerWrappers = vacancies.querySelectorAll('.filter__item-inner');
-        checkboxInnerWrappers.forEach(checkboxInnerWrapper => {
-          const checkboxInnerList = checkboxInnerWrapper.querySelectorAll('input[type="checkbox"]');
-          const titleCheckbox = checkboxInnerWrapper.closest('.filter__item')
-                                                    .querySelector('input[type="checkbox"]');
-
-
-
-
-
+        // const checkboxInnerWrappers = vacancies.querySelectorAll('.filter__item-inner');
+        // checkboxInnerWrappers.forEach(checkboxInnerWrapper => {
+        //   const checkboxInnerList = checkboxInnerWrapper.querySelectorAll('input[type="checkbox"]');
+        //   const mainCheckbox = checkboxInnerWrapper.closest('.filter__item')
+        //                                             .querySelector('input[type="checkbox"]');
+        //
+        //   const isCheckedInner = Array.from(checkboxInnerList).some(checkboxInner => checkboxInner.checked === true);
+          //isCheckedInner ? mainCheckbox.checked = true : mainCheckbox.checked = false;
+          // if (mainCheckbox.checked) {
+          //   checkboxInnerList.forEach(checkboxInner => checkboxInner.checked = true);
+          // }
         });
 
 

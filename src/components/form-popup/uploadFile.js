@@ -1,7 +1,9 @@
+const MAXSIZEFILE = 1024*1024*15;
 
 function InputDrop () {
 
   const dropZoneList = document.querySelectorAll('.form-upload');
+
 
 if (dropZoneList) {
   dropZoneList.forEach(dropZone => {
@@ -16,38 +18,30 @@ if (dropZoneList) {
   };
 
   // сброс стилей для всех событий в dropZone
-  events.forEach(event => {
-    dropZone.addEventListener(event, preventDefaults);
-  });
+  events.forEach(event => dropZone.addEventListener(event, preventDefaults));
 
   // Подсветка dropZone
-  function highLight() {
-    dropZone.classList.add('highlight');
-  };
-
+  const highLight = () => dropZone.classList.add('highlight');
   // Снять подсветку dropZone
-  function unHighLight() {
-    dropZone.classList.remove('highlight');
-  };
+  const unHighLight = () => dropZone.classList.remove('highlight');
 
   // Добавить подсветку при событиях 'dragenter', 'dragover'
-  ['dragenter', 'dragover'].forEach(event => {
-    dropZone.addEventListener(event, highLight);
-  });
+  ['dragenter', 'dragover'].forEach(event => dropZone.addEventListener(event, highLight));
 
   // Убрать подсветку при событиях 'dragleave', 'drop'
-  ['dragleave', 'drop'].forEach(event => {
-    dropZone.addEventListener(event, unHighLight);
-  });
+  ['dragleave', 'drop'].forEach(event => dropZone.addEventListener(event, unHighLight));
 
 
-  // Обработчик файлов, добавленных через проводник
   function handleFiles(files) {
     files = [...files];
     console.log(files)
-    const names = new Set(files)
-    files.forEach(uploadFile);
-    files.forEach(showFileName);
+    files.forEach(file => {
+      if (file.size <= MAXSIZEFILE) {
+        uploadFile(file);
+        preloaderActive(dropZone, file);
+        showFileName(file);
+      } else alert('Размер файла превышен');
+    })
   };
 
 
@@ -68,14 +62,10 @@ if (dropZoneList) {
         method: 'POST',
         body: formData
       })
-        .then(() => {
-          console.log('отправка успешна');
-        })
+        .then(() => console.log('Файл успшно добавлен'))
         .catch(() => console.log('Ошибка'))
     };
-
     dropZone.addEventListener('drop', handleDrop);
-
   })
   }
 };
@@ -90,6 +80,22 @@ function showFileName (file) {
 };
 
 
+function preloaderActive (dropZone, file) {
+  const reader = new FileReader();
+  const spinner = dropZone.querySelector('.form-upload__spinner');
+
+  reader.addEventListener('progress', (evt) => {
+    if (evt.loaded && evt.total) {
+      const percent = (evt.loaded / evt.total) * 100;
+      spinner.classList.add('js-spinner-active');
+      if (percent === 100) spinner.classList.remove('js-spinner-active');
+    }
+  });
+  reader.readAsDataURL(file);
+};
+
+
+// Обработчик файлов, добавленных через проводник
 function addFileInput () {
   const formUpload = document.querySelector('.form-upload');
   const inputFile = document.querySelector('.form-upload__input');
@@ -98,18 +104,20 @@ function addFileInput () {
     const changeHandler = (evt) => {
       if (!evt.target.files.length) return
       const files = Array.from(evt.target.files);
-      files.forEach(showFileName);
+
+      if (files) {
+        files.forEach(file => {
+          if (file.size <= MAXSIZEFILE) {
+            preloaderActive(formUpload, file);
+            showFileName(file);
+          } else alert('Размер файла превышен');
+
+        });
+      }
     };
 
-
-    inputFile.addEventListener('change', (evt) => {
-      changeHandler(evt);
-    });
-
-    formUpload.addEventListener('click', () => {
-      inputFile.nextElementSibling.click();
-    })
-
+    inputFile.addEventListener('change', (evt) => changeHandler(evt));
+    formUpload.addEventListener('click', () => inputFile.nextElementSibling.click());
   }
 }
 
