@@ -73,7 +73,6 @@ if (dropZoneList) {
 function showFileName (file) {
   const name = document.createElement('p');
   name.classList.add('form-upload__file-name')
-  name.style.color = "#969696";
   name.textContent = `Файл "${file.name}" добавлен`;
   const parent = document.querySelector('.form-upload');
   parent.appendChild(name);

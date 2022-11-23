@@ -6,6 +6,33 @@
   &__content
     position: relative
 
+  &.popular-vacancies--student .popular-vacancies__content
+    &::after
+      position: absolute
+      content: ""
+      background-image: url('../img/icons/vacancy-student-decor.svg')
+      background-position: center
+      background-size: cover
+      background-repeat: no-repeat
+      width: clamp(120px, calc(120px + (395 - 120) * ((100vw - 768px) / (1920 - 768))), 395px)
+      height: clamp(120px, calc(120px + (395 - 120) * ((100vw - 768px) / (1920 - 768))), 395px)
+      left: -20%
+      top: -46%
+      @media (max-width: 1500px)
+        left: -15%
+        //top: -35%
+      @media (max-width: 1200px)
+        left: -10%
+      @media (max-width: 1200px)
+        top: -25%
+      @media (max-width: 768px)
+        top: -20%
+      @media (max-width: 480px)
+        left: -22%
+        top: -23%
+
+
+
   &__slider
     overflow: hidden
 

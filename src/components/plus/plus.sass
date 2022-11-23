@@ -1,8 +1,35 @@
 .plus
   background-color: $beige
   padding: clamp(48px, calc(48px + (156 - 48) * ((100vw - 768px) / (1920 - 768))), 156px) 0
+  &.plus--student
+    background-color: #fff
+    padding: 0
+    div.plus__content
+      position: relative
+      &::before
+        position: absolute
+        content: ""
+        background-image: url('../img/student/plus-decor.svg')
+        background-size: cover
+        background-position: center
+        background-repeat: no-repeat
+        @include changeSize(width, 130, 395)
+        @include changeSize(height, 130, 395)
+        top: 0
+        right: 0
+        transform: translate(60%, -60%)
+        @media (max-width: 1200px)
+          transform: translate(30%, -60%)
+        @media (max-width: 600px)
+          //transform: translate(30%, -30%)
+          display: none
+
+    .bonus__list
+      background-color: #fff
 
   &__container
+    position: relative
+    z-index: 1
     display: flex
     flex-direction: column
     gap: 64px
@@ -14,6 +41,7 @@
     display: none
     &.js-plus-active
       display: grid
+
 
   &__tabs
     display: inline-flex
@@ -62,6 +90,7 @@
         transition: opacity 0.2s ease
 
     &__images
+      position: relative
       @media (max-width: 1000px)
         aspect-ratio: 3 / 2
       @media (max-width: 480px)
@@ -81,6 +110,7 @@
   .bonus
 
     &__list
+      position: relative
       display: grid
       grid-template-columns: repeat(3, 1fr)
       @media (max-width: 1000px)
@@ -126,6 +156,7 @@
       list-style-type: disc
       padding-left: 30px
       @include fontSize(13, 16)
+
 
 
 

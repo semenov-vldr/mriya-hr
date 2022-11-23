@@ -13,7 +13,7 @@ if (employment) {
 
 function lineAnimation (employment) {
   const stepNumbers = employment.querySelectorAll('.employment-steps-item__number');
-  const line = employment.querySelector('.employment-steps__line--dark');
+  const line = employment.querySelector('.employment-steps__line--change');
   const images = employment.querySelectorAll('.employment__image img');
 
 
@@ -27,7 +27,7 @@ function lineAnimation (employment) {
     entries.forEach((entry, indexEntry) => {
       const el = entry.target;
       if (entry.isIntersecting) {
-        el.classList.add('scroll-center');
+        el.classList.add('js-scroll-animate');
 
         images.forEach(image => image.classList.remove('js-photo-active'));
 
@@ -44,7 +44,7 @@ function lineAnimation (employment) {
 
       }
       else {
-        el.classList.remove('scroll-center');
+        el.classList.remove('js-scroll-animate');
         //console.log(`index: ${indexEntry} + el: ${el.textContent}`)
       }
 

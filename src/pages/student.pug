@@ -1,0 +1,34 @@
+extends ../layouts/main
+
+block variables
+  - var title = "Студентам"
+  - var pageClass = ''
+  - var activePage = 'index'
+
+block content
+
+  section.section-column
+
+    include ../components/hero/hero-student/hero-student
+
+    include ../components/popular-vacancies/popular-vacancies-student
+
+    include ../components/areas/areas-student
+    include ../components/plus/plus-student
+
+    // красочный слайдрер
+    include ../components/student-career/student-career
+
+    include ../components/employment/employment-student
+
+    include ../components/success/success
+
+    include ../components/faq/faq-student
+
+    include ../components/contacts/contacts
+
+    include ../components/stories/stories
+
+
+
+

@@ -5,9 +5,8 @@
 
   let mySwiper;
 
-  const swiperList = document.querySelectorAll('.swiper');
+  const swiperList = document.querySelectorAll('.student-career-images__container');
 
-if (swiperList) {
   swiperList.forEach(swiper => {
 
     mySwiper = new Swiper(swiper, {
@@ -15,22 +14,22 @@ if (swiperList) {
       //   el: '.swiper-pagination',
       //   clickable: true,
       // },
-      navigation: {
-        nextEl: '.slider-nav__next',
-        prevEl: '.slider-nav__prev',
-      },
+      // navigation: {
+      //   nextEl: '.slider-nav__next',
+      //   prevEl: '.slider-nav__prev',
+      // },
 
-      scrollbar: {
-        el: '.swiper-scrollbar',
-        draggable: true,
-      },
+      // scrollbar: {
+      //   el: '.swiper-scrollbar',
+      //   draggable: true,
+      // },
 
       uniqueNavElements: true,
 
       slidesPerView: 4,
 
       // Бесконечная прокрутка
-      //loop: true,
+      loop: true,
 
       // Откл функционала, если слайдов меньше, чем нужно
       watchOverflow: true,
@@ -52,23 +51,22 @@ if (swiperList) {
         },
 
         480: {
-          slidesPerView: 2,
+          slidesPerView: 2.2,
           spaceBetween: 20,
         },
 
         768: {
-          slidesPerView: 3
+          slidesPerView: 3.2
         },
 
         1100: {
-          slidesPerView: 4
+          slidesPerView: 3.2
         },
 
       }
     });
 
   })
-}
 
 
 
