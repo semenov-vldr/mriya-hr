@@ -101,7 +101,7 @@ if (employment) {
 
 function lineAnimation (employment) {
   const stepNumbers = employment.querySelectorAll('.employment-steps-item__number');
-  const line = employment.querySelector('.employment-steps__line--dark');
+  const line = employment.querySelector('.employment-steps__line--change');
   const images = employment.querySelectorAll('.employment__image img');
 
 
@@ -115,7 +115,7 @@ function lineAnimation (employment) {
     entries.forEach((entry, indexEntry) => {
       const el = entry.target;
       if (entry.isIntersecting) {
-        el.classList.add('scroll-center');
+        el.classList.add('js-scroll-animate');
 
         images.forEach(image => image.classList.remove('js-photo-active'));
 
@@ -132,7 +132,7 @@ function lineAnimation (employment) {
 
       }
       else {
-        el.classList.remove('scroll-center');
+        el.classList.remove('js-scroll-animate');
         //console.log(`index: ${indexEntry} + el: ${el.textContent}`)
       }
 
@@ -569,7 +569,6 @@ if (dropZoneList) {
 function showFileName (file) {
   const name = document.createElement('p');
   name.classList.add('form-upload__file-name')
-  name.style.color = "#969696";
   name.textContent = `Файл "${file.name}" добавлен`;
   const parent = document.querySelector('.form-upload');
   parent.appendChild(name);
@@ -703,18 +702,36 @@ if (headerNav) {
   burger.addEventListener('click', () => {
     headerNav.classList.toggle('js-active-menu');
     burger.classList.toggle('js-active-menu');
-    toggleScrollBody()
-  })
+    toggleScrollBody();
+  });
 
 
   window.addEventListener('resize', () => {
     if (desktopWidth.matches) {
       headerNav.classList.remove('js-active-menu');
       burger.classList.remove('js-active-menu');
-      unblockScrollBody()
+      unblockScrollBody();
     }
-  })
+  });
 
+
+  const headerLinks = headerNav.querySelectorAll('.header-nav__link');
+  headerLinks.forEach(link => {
+    const location = window.location.href;
+    if (location === link.href) {
+      link.classList.add('js-link-active');
+      if (link.classList.contains('student-link')) {
+        header.classList.add('js-student-page');
+
+        burger.addEventListener('click', () => {
+            header.classList.toggle('js-student-page');
+        });
+
+      } else header.classList.remove('js-student-page');
+
+    }
+
+  })
 }
 
 
@@ -789,6 +806,7 @@ if (plus) {
 
   const swiperList = document.querySelectorAll('.swiper');
 
+if (swiperList) {
   swiperList.forEach(swiper => {
 
     mySwiper = new Swiper(swiper, {
@@ -849,6 +867,7 @@ if (plus) {
     });
 
   })
+}
 
 
 
@@ -1043,6 +1062,84 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
 
 
 
+
+
+{
+
+  //const mobileWidth = window.matchMedia('(max-width: 768px)').matches;
+
+  let mySwiper;
+
+  const swiperList = document.querySelectorAll('.student-career-images__container');
+
+  swiperList.forEach(swiper => {
+
+    mySwiper = new Swiper(swiper, {
+      // pagination: {
+      //   el: '.swiper-pagination',
+      //   clickable: true,
+      // },
+      // navigation: {
+      //   nextEl: '.slider-nav__next',
+      //   prevEl: '.slider-nav__prev',
+      // },
+
+      // scrollbar: {
+      //   el: '.swiper-scrollbar',
+      //   draggable: true,
+      // },
+
+      uniqueNavElements: true,
+
+      slidesPerView: 4,
+
+      // Бесконечная прокрутка
+      loop: true,
+
+      // Откл функционала, если слайдов меньше, чем нужно
+      watchOverflow: true,
+
+      //centeredSlides: true,
+
+      // Отступ между слайдами
+      spaceBetween: 24,
+
+      // Стартовый слайд
+      initialSlide: 0,
+
+      // Брейк поинты (адаптив)
+      // Ширина экрана
+      breakpoints: {
+        320: {
+          slidesPerView: 1.4,
+          spaceBetween: 16,
+        },
+
+        480: {
+          slidesPerView: 2.2,
+          spaceBetween: 20,
+        },
+
+        768: {
+          slidesPerView: 3.2
+        },
+
+        1100: {
+          slidesPerView: 3.2
+        },
+
+      }
+    });
+
+  })
+
+
+
+
+
+
+
+}
 
 const vacancies = document.querySelector('.vacancies');
 
