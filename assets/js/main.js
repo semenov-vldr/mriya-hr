@@ -86,9 +86,11 @@ if (areas) {
 
 }
 
+let previousPosition = window.scrollTop || document.documentElement.scrollTop;
+
 const employment = document.querySelector('.employment');
 
-const widthDesktop = window.matchMedia('(min-width: 1000.1px)').matches;
+const widthDesktop = window.matchMedia('(min-width: 0.1px)').matches;
 
 if (employment) {
   if (widthDesktop) lineAnimation(employment)
@@ -106,36 +108,39 @@ function lineAnimation (employment) {
 
 
   const options = {
-    rootMargin: '0px 0px -20%',
+    rootMargin: '100% 0px -20%',
     threshold: 1,
   };
 
 
+
+  function inActiveAllImages () {
+    images.forEach(image => image.classList.remove('js-photo-active'));
+  };
+
+  function addClassPhotoActive (el) {
+    el.classList.add('js-photo-active');
+  };
+
+
   function callbackStep (entries) {
-    entries.forEach((entry, indexEntry) => {
+    entries.forEach((entry) => {
+      let currentPosition = window.scrollTop || document.documentElement.scrollTop;
       const el = entry.target;
+      const number = el.dataset.number - 1;
       if (entry.isIntersecting) {
         el.classList.add('js-scroll-animate');
 
-        images.forEach(image => image.classList.remove('js-photo-active'));
-
-        images[0].classList.add('js-photo-active');
-
-        //console.log(`index: ${indexEntry} + el: ${el.textContent}`)
-
-
-        // images.forEach((image, indexImage) => {
-        //   if (indexEntry === indexImage) {
-        //     image.classList.add('js-photo-active');
-        //   }
-        // })
-
+        if ( previousPosition < currentPosition) {
+          inActiveAllImages();
+          addClassPhotoActive(images[number]);
+        }
       }
       else {
         el.classList.remove('js-scroll-animate');
-        //console.log(`index: ${indexEntry} + el: ${el.textContent}`)
+        inActiveAllImages();
+        (number-1 >=0) ? addClassPhotoActive( images[number-1] ) : addClassPhotoActive( images[0] );
       }
-
     })
   };
 
@@ -147,19 +152,16 @@ function lineAnimation (employment) {
         const startPosition = window.scrollY;
 
         function setHeightLine () {
-          let value = window.scrollY - startPosition;
-          el.style.height = `${value}px`;
+          let heightValue = window.scrollY - startPosition;
+          el.style.height = `${heightValue}px`;
         };
         window.addEventListener('scroll', setHeightLine);
       }
     })
   };
 
-
-
   const observerStep = new IntersectionObserver(callbackStep, options);
   const observerLine = new IntersectionObserver(callbackLine, options);
-
 
   stepNumbers.forEach(stepNum => observerStep.observe(stepNum));
   observerLine.observe(line);
@@ -530,14 +532,10 @@ if (dropZoneList) {
 
   function handleFiles(files) {
     files = [...files];
-    console.log(files)
     files.forEach(file => {
-      if (file.size <= MAXSIZEFILE) {
-        uploadFile(file);
-        preloaderActive(dropZone, file);
-        showFileName(file);
-      } else alert('Размер файла превышен');
-    })
+      preloaderActive(dropZone, file);
+      uploadFile(file);
+    });
   };
 
 
@@ -566,6 +564,7 @@ if (dropZoneList) {
   }
 };
 
+
 function showFileName (file) {
   const name = document.createElement('p');
   name.classList.add('form-upload__file-name')
@@ -579,14 +578,20 @@ function preloaderActive (dropZone, file) {
   const reader = new FileReader();
   const spinner = dropZone.querySelector('.form-upload__spinner');
 
-  reader.addEventListener('progress', (evt) => {
-    if (evt.loaded && evt.total) {
-      const percent = (evt.loaded / evt.total) * 100;
-      spinner.classList.add('js-spinner-active');
-      if (percent === 100) spinner.classList.remove('js-spinner-active');
-    }
-  });
-  reader.readAsDataURL(file);
+  if (file.size <= MAXSIZEFILE) {
+    reader.addEventListener('progress', (evt) => {
+      if (evt.loaded && evt.total) {
+        const percent = (evt.loaded / evt.total) * 100;
+        spinner.classList.add('js-spinner-active');
+        if (percent === 100) spinner.classList.remove('js-spinner-active');
+      }
+    });
+    reader.readAsDataURL(file);
+    showFileName(file);
+
+  } else alert('Размер файла превышен');
+
+
 };
 
 
@@ -600,15 +605,8 @@ function addFileInput () {
       if (!evt.target.files.length) return
       const files = Array.from(evt.target.files);
 
-      if (files) {
-        files.forEach(file => {
-          if (file.size <= MAXSIZEFILE) {
-            preloaderActive(formUpload, file);
-            showFileName(file);
-          } else alert('Размер файла превышен');
+      if (files) files.forEach(file => preloaderActive(formUpload, file));
 
-        });
-      }
     };
 
     inputFile.addEventListener('change', (evt) => changeHandler(evt));
@@ -887,7 +885,7 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
   const dataStories = stories.dataset.stories; // Значение 'data-stories' у блока stories
   const openStoriesBtn = document.querySelector(`[data-open-stories="${dataStories}"]`);
 
-   openStoriesBtn.addEventListener('click', openStories);
+  openStoriesBtn.addEventListener('click', openStories);
 
 
    // Timeline
@@ -923,7 +921,6 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
 
      const videoActive = stories.querySelector('.js-stories-content-active video');
      if (videoActive) videoActive.play();
-
      setIntervalContent();
    };
 
@@ -935,7 +932,7 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
      videoList.forEach(video => {
        video.pause();
        video.currentTime = 0;
-     })
+     });
      stories.classList.remove('js-stories-active');
      resetStories();
      unblockScrollBody();
@@ -973,11 +970,12 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
      const activeEl = stories.querySelector('.' + activeClass);
      const switchEl = activeEl[method];
 
-     // Воспроизведение видео при активном слайде
+     // Воспроизведение видео на активном слайде
      let videoActive = switchEl.querySelector('.stories-content-item__video');
      if (videoActive) videoActive.play();
      setIntervalContent();
 
+     // Остановка предыдущего видео
      let videoPrev = activeEl.querySelector('.stories-content-item__video');
      if (videoPrev) {
        videoPrev.pause();
@@ -1005,10 +1003,8 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
 
        const videoPrev = stories.querySelector('.js-stories-content-active video');
        if (videoPrev) videoPrev.currentTime = 0;
-
        return width <= 20;
      });
-
      if (prev) moveClass( 'js-stories-content-active', 'previousElementSibling');
    };
 
@@ -1023,7 +1019,7 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
 
      // const lastContentItem = stories.querySelector('.js-stories-content-active');
      // console.log(lastContentItem.nextSibling)
-     // if (typeof lastContentItem.nextSibling === 'undefined') {
+     // if (lastContentItem.nextSibling === 'undefined') {
      //   console.log('последний элемент')
      // }
 
@@ -1040,8 +1036,6 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
 
    function runInterval (time, step) {
      clearInterval(timer);
-
-     console.log(time)
 
      timer = setInterval(() => {
        const activeEl = stories.querySelector('.js-timeline-active .stories-timeline__item-inner');
@@ -1220,76 +1214,63 @@ if (vacancies) {
   checkboxInnerWrappers.forEach(checkboxInnerWrapper => {
     const checkboxInnerList = checkboxInnerWrapper.querySelectorAll('input[type="checkbox"]');
 
-    // Действия с каждый чекбоксом
-    checkboxList.forEach(checkbox => {
-      checkbox.addEventListener('change', () => {
-        const isSomeChecked = checkboxList.some(item => item.checked);
-        const checkedItems = vacanciesFilterContentList.querySelectorAll('li');
 
-        const isCheckedInner = Array.from(checkboxInnerList).some(checkboxInner => checkboxInner.checked === true);
-
-        if (isSomeChecked && mobileWidth.matches) {
-          filtersActions.classList.add('js-filter-active');
-        } else filtersActions.classList.remove('js-filter-active');
-
-        const mainCheckbox =  checkbox.closest('.filter__item-inner')?.closest('.filter__item').querySelector('input[type="checkbox"]')
-        const checkboxesInner = checkbox.parentNode.querySelectorAll('.filter__item-inner input[type="checkbox"]');
-
-        if (checkbox.checked) {
-          addTagFilter(checkbox);
-          if (mainCheckbox && isCheckedInner) {
-            mainCheckbox.checked = true;
-            addTagFilter(mainCheckbox)
-          }
-          if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = true);
-
-        } else {
-          checkedItems.forEach(checkedItem => {
-            if (checkedItem.textContent === checkbox.value) checkedItem.remove();
-          })
-          if (mainCheckbox && !isCheckedInner) mainCheckbox.checked = false;
-          if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = false);
-        }
-        isSomeChecked ? addClassFilterVisible() : removeClassFilterVisible();
-
-        // if (checkboxInnerList && mainCheckbox.checked) {
-        //   checkboxInnerList.forEach(checkboxInner => checkboxInner.checked = true);
-        // } else {
-        //   checkboxInnerList.forEach(checkboxInner => checkboxInner.checked = false);
-        //   removeClassFilterVisible();
-        // }
-
-
-      // Reset filter
+    // Сброс фильтра и удаление тегов фильтра по нажатию на кнопку
+    function doResetFilter () {
       const resetFilterBtns = vacancies.querySelectorAll('.vacancies-filter-content__reset, .filters__actions-reset');
-        resetFilterBtns.forEach(btn => {
-          btn.addEventListener('click', () => {
-            checkboxList.forEach(checkbox => checkbox.checked = false);
-            removeClassFilterVisible();
-            vacanciesFilterContent.querySelector('.vacancies-filter-content__list').replaceChildren();
-          })
-        });
-
-
-        // const checkboxInnerWrappers = vacancies.querySelectorAll('.filter__item-inner');
-        // checkboxInnerWrappers.forEach(checkboxInnerWrapper => {
-        //   const checkboxInnerList = checkboxInnerWrapper.querySelectorAll('input[type="checkbox"]');
-        //   const mainCheckbox = checkboxInnerWrapper.closest('.filter__item')
-        //                                             .querySelector('input[type="checkbox"]');
-        //
-        //   const isCheckedInner = Array.from(checkboxInnerList).some(checkboxInner => checkboxInner.checked === true);
-          //isCheckedInner ? mainCheckbox.checked = true : mainCheckbox.checked = false;
-          // if (mainCheckbox.checked) {
-          //   checkboxInnerList.forEach(checkboxInner => checkboxInner.checked = true);
-          // }
-        });
-
-
-
+      resetFilterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          checkboxList.forEach(checkbox => checkbox.checked = false);
+          removeClassFilterVisible();
+          vacanciesFilterContent.querySelector('.vacancies-filter-content__list').replaceChildren();
+        })
       });
+    };
+
+
+    // Действия с каждый чекбоксом
+    function checkboxActions (checkbox) {
+
+      // Отмечен ли хотя бы один чекбокс
+      const isSomeChecked = checkboxList.some(item => item.checked);
+      const checkedItems = vacanciesFilterContentList.querySelectorAll('li');
+
+      const isCheckedInner = Array.from(checkboxInnerList).some(checkboxInner => checkboxInner.checked === true);
+
+      if (isSomeChecked && mobileWidth.matches) {
+        filtersActions.classList.add('js-filter-active');
+      } else filtersActions.classList.remove('js-filter-active');
+
+      const mainCheckbox =  checkbox.closest('.filter__item-inner')?.closest('.filter__item').querySelector('input[type="checkbox"]')
+      const checkboxesInner = checkbox.parentNode.querySelectorAll('.filter__item-inner input[type="checkbox"]');
+
+      if (checkbox.checked) {
+        addTagFilter(checkbox);
+        if (mainCheckbox && isCheckedInner) {
+          mainCheckbox.checked = true;
+          addTagFilter(mainCheckbox);
+        }
+        if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = true);
+
+      } else {
+        checkedItems.forEach(checkedItem => {
+          if (checkedItem.textContent === checkbox.value) checkedItem.remove();
+        })
+        if (mainCheckbox && !isCheckedInner) mainCheckbox.checked = false;
+        if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = false);
+      }
+      isSomeChecked ? addClassFilterVisible() : removeClassFilterVisible();
+
+      doResetFilter();
+
+    };
+
+
+    checkboxList.forEach(checkbox => checkbox.addEventListener('change', () => {
+      checkboxActions(checkbox);
+    } ));
+
     })
-
-
   }
 
 
@@ -1340,18 +1321,18 @@ const html = document.querySelector('html');
 
 function blockScrollBody () {
   html.classList.add('js-block-scroll');
-  body.classList.add('js-block-scroll');
+  //body.classList.add('js-block-scroll');
 
 }
 
 function unblockScrollBody () {
   html.classList.remove('js-block-scroll');
-  body.classList.remove('js-block-scroll');
+  //body.classList.remove('js-block-scroll');
 }
 
 function toggleScrollBody () {
   html.classList.toggle('js-block-scroll');
-  body.classList.toggle('js-block-scroll');
+  //body.classList.toggle('js-block-scroll');
 }
 
 const images = document.querySelectorAll('img');
