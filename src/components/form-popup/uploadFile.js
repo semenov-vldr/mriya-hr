@@ -34,14 +34,10 @@ if (dropZoneList) {
 
   function handleFiles(files) {
     files = [...files];
-    console.log(files)
     files.forEach(file => {
-      if (file.size <= MAXSIZEFILE) {
-        uploadFile(file);
-        preloaderActive(dropZone, file);
-        showFileName(file);
-      } else alert('Размер файла превышен');
-    })
+      preloaderActive(dropZone, file);
+      uploadFile(file);
+    });
   };
 
 
@@ -70,6 +66,7 @@ if (dropZoneList) {
   }
 };
 
+
 function showFileName (file) {
   const name = document.createElement('p');
   name.classList.add('form-upload__file-name')
@@ -83,14 +80,20 @@ function preloaderActive (dropZone, file) {
   const reader = new FileReader();
   const spinner = dropZone.querySelector('.form-upload__spinner');
 
-  reader.addEventListener('progress', (evt) => {
-    if (evt.loaded && evt.total) {
-      const percent = (evt.loaded / evt.total) * 100;
-      spinner.classList.add('js-spinner-active');
-      if (percent === 100) spinner.classList.remove('js-spinner-active');
-    }
-  });
-  reader.readAsDataURL(file);
+  if (file.size <= MAXSIZEFILE) {
+    reader.addEventListener('progress', (evt) => {
+      if (evt.loaded && evt.total) {
+        const percent = (evt.loaded / evt.total) * 100;
+        spinner.classList.add('js-spinner-active');
+        if (percent === 100) spinner.classList.remove('js-spinner-active');
+      }
+    });
+    reader.readAsDataURL(file);
+    showFileName(file);
+
+  } else alert('Размер файла превышен');
+
+
 };
 
 
@@ -104,15 +107,8 @@ function addFileInput () {
       if (!evt.target.files.length) return
       const files = Array.from(evt.target.files);
 
-      if (files) {
-        files.forEach(file => {
-          if (file.size <= MAXSIZEFILE) {
-            preloaderActive(formUpload, file);
-            showFileName(file);
-          } else alert('Размер файла превышен');
+      if (files) files.forEach(file => preloaderActive(formUpload, file));
 
-        });
-      }
     };
 
     inputFile.addEventListener('change', (evt) => changeHandler(evt));

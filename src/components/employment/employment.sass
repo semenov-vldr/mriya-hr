@@ -108,7 +108,7 @@
         height: 100%
       &--change
         background-color: $black
-        height: 1%
+        height: 0%
         max-height: 742px
         @media (max-width: 1000px)
           display: none
@@ -137,6 +137,7 @@
         left: -50px
         transform: translateX(-100%)
         transition: $transition
+        user-select: none
         &.js-scroll-animate
           background-color: $black
           border-color: $black

@@ -77,76 +77,63 @@ if (vacancies) {
   checkboxInnerWrappers.forEach(checkboxInnerWrapper => {
     const checkboxInnerList = checkboxInnerWrapper.querySelectorAll('input[type="checkbox"]');
 
-    // Действия с каждый чекбоксом
-    checkboxList.forEach(checkbox => {
-      checkbox.addEventListener('change', () => {
-        const isSomeChecked = checkboxList.some(item => item.checked);
-        const checkedItems = vacanciesFilterContentList.querySelectorAll('li');
 
-        const isCheckedInner = Array.from(checkboxInnerList).some(checkboxInner => checkboxInner.checked === true);
-
-        if (isSomeChecked && mobileWidth.matches) {
-          filtersActions.classList.add('js-filter-active');
-        } else filtersActions.classList.remove('js-filter-active');
-
-        const mainCheckbox =  checkbox.closest('.filter__item-inner')?.closest('.filter__item').querySelector('input[type="checkbox"]')
-        const checkboxesInner = checkbox.parentNode.querySelectorAll('.filter__item-inner input[type="checkbox"]');
-
-        if (checkbox.checked) {
-          addTagFilter(checkbox);
-          if (mainCheckbox && isCheckedInner) {
-            mainCheckbox.checked = true;
-            addTagFilter(mainCheckbox)
-          }
-          if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = true);
-
-        } else {
-          checkedItems.forEach(checkedItem => {
-            if (checkedItem.textContent === checkbox.value) checkedItem.remove();
-          })
-          if (mainCheckbox && !isCheckedInner) mainCheckbox.checked = false;
-          if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = false);
-        }
-        isSomeChecked ? addClassFilterVisible() : removeClassFilterVisible();
-
-        // if (checkboxInnerList && mainCheckbox.checked) {
-        //   checkboxInnerList.forEach(checkboxInner => checkboxInner.checked = true);
-        // } else {
-        //   checkboxInnerList.forEach(checkboxInner => checkboxInner.checked = false);
-        //   removeClassFilterVisible();
-        // }
-
-
-      // Reset filter
+    // Сброс фильтра и удаление тегов фильтра по нажатию на кнопку
+    function doResetFilter () {
       const resetFilterBtns = vacancies.querySelectorAll('.vacancies-filter-content__reset, .filters__actions-reset');
-        resetFilterBtns.forEach(btn => {
-          btn.addEventListener('click', () => {
-            checkboxList.forEach(checkbox => checkbox.checked = false);
-            removeClassFilterVisible();
-            vacanciesFilterContent.querySelector('.vacancies-filter-content__list').replaceChildren();
-          })
-        });
-
-
-        // const checkboxInnerWrappers = vacancies.querySelectorAll('.filter__item-inner');
-        // checkboxInnerWrappers.forEach(checkboxInnerWrapper => {
-        //   const checkboxInnerList = checkboxInnerWrapper.querySelectorAll('input[type="checkbox"]');
-        //   const mainCheckbox = checkboxInnerWrapper.closest('.filter__item')
-        //                                             .querySelector('input[type="checkbox"]');
-        //
-        //   const isCheckedInner = Array.from(checkboxInnerList).some(checkboxInner => checkboxInner.checked === true);
-          //isCheckedInner ? mainCheckbox.checked = true : mainCheckbox.checked = false;
-          // if (mainCheckbox.checked) {
-          //   checkboxInnerList.forEach(checkboxInner => checkboxInner.checked = true);
-          // }
-        });
-
-
-
+      resetFilterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          checkboxList.forEach(checkbox => checkbox.checked = false);
+          removeClassFilterVisible();
+          vacanciesFilterContent.querySelector('.vacancies-filter-content__list').replaceChildren();
+        })
       });
+    };
+
+
+    // Действия с каждый чекбоксом
+    function checkboxActions (checkbox) {
+
+      // Отмечен ли хотя бы один чекбокс
+      const isSomeChecked = checkboxList.some(item => item.checked);
+      const checkedItems = vacanciesFilterContentList.querySelectorAll('li');
+
+      const isCheckedInner = Array.from(checkboxInnerList).some(checkboxInner => checkboxInner.checked === true);
+
+      if (isSomeChecked && mobileWidth.matches) {
+        filtersActions.classList.add('js-filter-active');
+      } else filtersActions.classList.remove('js-filter-active');
+
+      const mainCheckbox =  checkbox.closest('.filter__item-inner')?.closest('.filter__item').querySelector('input[type="checkbox"]')
+      const checkboxesInner = checkbox.parentNode.querySelectorAll('.filter__item-inner input[type="checkbox"]');
+
+      if (checkbox.checked) {
+        addTagFilter(checkbox);
+        if (mainCheckbox && isCheckedInner) {
+          mainCheckbox.checked = true;
+          addTagFilter(mainCheckbox);
+        }
+        if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = true);
+
+      } else {
+        checkedItems.forEach(checkedItem => {
+          if (checkedItem.textContent === checkbox.value) checkedItem.remove();
+        })
+        if (mainCheckbox && !isCheckedInner) mainCheckbox.checked = false;
+        if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = false);
+      }
+      isSomeChecked ? addClassFilterVisible() : removeClassFilterVisible();
+
+      doResetFilter();
+
+    };
+
+
+    checkboxList.forEach(checkbox => checkbox.addEventListener('change', () => {
+      checkboxActions(checkbox);
+    } ));
+
     })
-
-
   }
 
 
