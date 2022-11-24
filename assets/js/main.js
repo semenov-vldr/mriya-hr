@@ -1250,7 +1250,7 @@ if (vacancies) {
           mainCheckbox.checked = true;
           addTagFilter(mainCheckbox);
         }
-        //if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = true);
+        if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = true);
 
       } else {
         checkedItems.forEach(checkedItem => {
