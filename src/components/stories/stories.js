@@ -33,7 +33,7 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
        const duration = videoActive.duration;
        runInterval(duration, 1);
      } else {
-       runInterval(3, 1);
+       runInterval(6, 1);
      }
    };
 
