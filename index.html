@@ -150,7 +150,7 @@
             </video>
             <div class="review__container container">
               <h2 class="review__title">Ведущий курорт в Крыму<br>и один из лучших в мире</h2>
-              <div class="review__buttons"><a class="button button--accent" href="about.html">О нас</a><a class="button">Видео-обзор курорта</a></div>
+              <div class="review__buttons"><a class="button button--accent" href="about.html">О нас</a><a class="button" data-src="./assets/video/review.mp4" data-fancybox>Видео-обзор курорта</a></div>
             </div>
           </div>
           <div class="areas">
@@ -358,7 +358,9 @@
                 <li class="employment-advantages__item">Если желаемая вакансия вам не подойдёт, предложим другой вариант</li>
               </ul>
               <div class="employment__content">
-                <div class="employment__image"><img src="./assets/img/employment.jpg"><img src="./assets/img/advantages/01.jpg"><img src="./assets/img/advantages/04.jpg"><img src="./assets/img/advantages/05.jpg"><img src="./assets/img/advantages/06.jpg"></div>
+                <div class="employment-swiper swiper">
+                  <div class="employment__images swiper-wrapper"><img class="employment__image-item" src="./assets/img/employment.jpg"><img class="employment__image-item" src="./assets/img/advantages/01.jpg"><img class="employment__image-item" src="./assets/img/advantages/04.jpg"><img class="employment__image-item" src="./assets/img/advantages/05.jpg"><img class="employment__image-item" src="./assets/img/advantages/06.jpg"></div>
+                </div>
                 <div class="employment__steps employment-steps">
                   <ul class="employment-steps__list"><span class="employment-steps__line employment-steps__line--static"></span><span class="employment-steps__line employment-steps__line--change"></span>
                     <li class="employment-steps__item employment-steps-item"><span class="employment-steps-item__number" data-number="1">1</span><b class="employment-steps-item__title">Найти подходящую заявку и откликнуться</b>
@@ -622,8 +624,16 @@
                 <!--  .stories-timeline__item-inner-->
               </ul>
               <div class="stories__content-wrapper stories-content-wrapper">
-                <button class="stories-content__switcher stories-content__switcher--prev" tabindex="-1"></button>
-                <button class="stories-content__switcher stories-content__switcher--next" tabindex="-1"></button>
+                <button class="stories-content__switcher stories-content__switcher--prev" tabindex="-1">
+                  <svg width="8" height="12" stroke="#121212">
+                    <use href="./assets/img/sprite.svg#arrow-left"></use>
+                  </svg>
+                </button>
+                <button class="stories-content__switcher stories-content__switcher--next" tabindex="-1">
+                  <svg width="8" height="12" stroke="#121212">
+                    <use href="./assets/img/sprite.svg#arrow-left"></use>
+                  </svg>
+                </button>
                 <div class="stories-content">
                   <div class="stories-content__item stories-content-item stories-content-item--video">
                     <video class="stories-content-item__video">
@@ -663,8 +673,16 @@
               </div>
               <ul class="stories__timeline stories-timeline"></ul>
               <div class="stories__content-wrapper stories-content-wrapper">
-                <button class="stories-content__switcher stories-content__switcher--prev" tabindex="-1"></button>
-                <button class="stories-content__switcher stories-content__switcher--next" tabindex="-1"></button>
+                <button class="stories-content__switcher stories-content__switcher--prev" tabindex="-1">
+                  <svg width="8" height="12" stroke="#121212">
+                    <use href="./assets/img/sprite.svg#arrow-left"></use>
+                  </svg>
+                </button>
+                <button class="stories-content__switcher stories-content__switcher--next" tabindex="-1">
+                  <svg width="8" height="12" stroke="#121212">
+                    <use href="./assets/img/sprite.svg#arrow-left"></use>
+                  </svg>
+                </button>
                 <div class="stories-content">
                   <div class="stories-content__item stories-content-item stories-content-item--image-text">
                     <div class="stories-content-item__wrapper">

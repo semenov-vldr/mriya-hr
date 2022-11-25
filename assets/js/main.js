@@ -86,90 +86,182 @@ if (areas) {
 
 }
 
+
+{
+
+  const mobileWidth = window.matchMedia('(max-width: 1000px)').matches;
+
+  let mySwiper;
+
+  const swiperList = document.querySelectorAll('.employment-swiper');
+
+  if (swiperList && mobileWidth) {
+    swiperList.forEach(swiper => {
+
+      mySwiper = new Swiper(swiper, {
+        // pagination: {
+        //   el: '.swiper-pagination',
+        //   clickable: true,
+        // },
+        navigation: {
+          nextEl: '.slider-nav__next',
+          prevEl: '.slider-nav__prev',
+        },
+
+        // scrollbar: {
+        //   el: '.swiper-scrollbar',
+        //   draggable: true,
+        // },
+
+        createElements: true,
+        slideClass: 'employment__image-item',
+
+        uniqueNavElements: true,
+
+        slidesPerView: 1,
+
+        // Бесконечная прокрутка
+        //loop: true,
+
+        // Откл функционала, если слайдов меньше, чем нужно
+        watchOverflow: true,
+
+        //centeredSlides: true,
+
+        // Отступ между слайдами
+        spaceBetween: 20,
+
+        // Стартовый слайд
+        initialSlide: 0,
+
+        // Брейк поинты (адаптив)
+        // Ширина экрана
+        breakpoints: {
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 16,
+          },
+
+          480: {
+            slidesPerView: 1.5,
+            spaceBetween: 20,
+          },
+
+          768: {
+            slidesPerView: 1.5
+          },
+
+          // 1100: {
+          //   slidesPerView: 2.2
+          // },
+
+        }
+      });
+
+    })
+  }
+
+
+
+
+
+
+
+}
+
 let previousPosition = window.scrollTop || document.documentElement.scrollTop;
 
 const employment = document.querySelector('.employment');
 
-const widthDesktop = window.matchMedia('(min-width: 0.1px)').matches;
-
-if (employment) {
-  if (widthDesktop) lineAnimation(employment)
-    window.addEventListener('resize', () => {
-      if (widthDesktop) lineAnimation(employment);
-    });
-}
+const widthDesktop = window.matchMedia('(min-width: 1000.1px)').matches;
 
 
-
-function lineAnimation (employment) {
-  const stepNumbers = employment.querySelectorAll('.employment-steps-item__number');
-  const line = employment.querySelector('.employment-steps__line--change');
-  const images = employment.querySelectorAll('.employment__image img');
-
-
-  const options = {
-    rootMargin: '100% 0px -20%',
-    threshold: 1,
-  };
-
-
-
-  function inActiveAllImages () {
-    images.forEach(image => image.classList.remove('js-photo-active'));
-  };
-
-  function addClassPhotoActive (el) {
-    el.classList.add('js-photo-active');
-  };
-
-
-  function callbackStep (entries) {
-    entries.forEach((entry) => {
-      let currentPosition = window.scrollTop || document.documentElement.scrollTop;
-      const el = entry.target;
-      const number = el.dataset.number - 1;
-      if (entry.isIntersecting) {
-        el.classList.add('js-scroll-animate');
-
-        if ( previousPosition < currentPosition) {
-          inActiveAllImages();
-          addClassPhotoActive(images[number]);
-        }
-      }
-      else {
-        el.classList.remove('js-scroll-animate');
-        inActiveAllImages();
-        (number-1 >=0) ? addClassPhotoActive( images[number-1] ) : addClassPhotoActive( images[0] );
-      }
-    })
-  };
-
-
-  function callbackLine (entries) {
-    entries.forEach((entry) => {
-      const el = entry.target;
-      if (entry.isIntersecting) {
-        const startPosition = window.scrollY;
-
-        function setHeightLine () {
-          let heightValue = window.scrollY - startPosition;
-          el.style.height = `${heightValue}px`;
-        };
-        window.addEventListener('scroll', setHeightLine);
-      }
-    })
-  };
-
-  const observerStep = new IntersectionObserver(callbackStep, options);
-  const observerLine = new IntersectionObserver(callbackLine, options);
-
-  stepNumbers.forEach(stepNum => observerStep.observe(stepNum));
-  observerLine.observe(line);
-
+function activeAllImages (images) {
+  images.forEach(image => image.classList.add('js-photo-active'));
 };
 
+function inActiveAllImages (images) {
+  images.forEach(image => image.classList.remove('js-photo-active'));
+};
+
+function addClassPhotoActive (el) {
+  el.classList.add('js-photo-active');
+};
+
+if (employment) {
+
+  const stepNumbers = employment.querySelectorAll('.employment-steps-item__number');
+  const line = employment.querySelector('.employment-steps__line--change');
+  const images = employment.querySelectorAll('.employment__images img');
 
 
+  if (widthDesktop) {
+    images[0].classList.remove('js-photo-active');
+    lineAnimation(employment)
+  } else {
+    //activeAllImages(images)
+  }
+
+
+  window.addEventListener('resize', () => {
+    if (widthDesktop) lineAnimation(employment);
+  });
+
+
+  function lineAnimation() {
+
+    const options = {
+      rootMargin: '100% 0px -30%',
+      threshold: 1,
+    };
+
+
+    function callbackStep(entries) {
+      entries.forEach((entry) => {
+        let currentPosition = window.scrollTop || document.documentElement.scrollTop;
+        const el = entry.target;
+        const number = el.dataset.number - 1;
+        if (entry.isIntersecting) {
+          el.classList.add('js-scroll-animate');
+
+          if (previousPosition < currentPosition) {
+            inActiveAllImages(images);
+            addClassPhotoActive(images[number]);
+          }
+        } else {
+          el.classList.remove('js-scroll-animate');
+          inActiveAllImages(images);
+          (number - 1 >= 0) ? addClassPhotoActive(images[number - 1]) : addClassPhotoActive(images[0]);
+        }
+      })
+    };
+
+
+    function callbackLine(entries) {
+      entries.forEach((entry) => {
+        const el = entry.target;
+        if (entry.isIntersecting) {
+          const startPosition = window.scrollY;
+
+          function setHeightLine() {
+            let heightValue = window.scrollY - startPosition;
+            el.style.height = `${heightValue}px`;
+          };
+          window.addEventListener('scroll', setHeightLine);
+        }
+      })
+    };
+
+    const observerStep = new IntersectionObserver(callbackStep, options);
+    const observerLine = new IntersectionObserver(callbackLine, options);
+
+    stepNumbers.forEach(stepNum => observerStep.observe(stepNum));
+    observerLine.observe(line);
+
+  };
+
+
+}
 
 {
   // все кнопки, по нажатию на которые появляется поп-ап
@@ -910,7 +1002,7 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
        const duration = videoActive.duration;
        runInterval(duration, 1);
      } else {
-       runInterval(3, 1);
+       runInterval(6, 1);
      }
    };
 
@@ -1250,7 +1342,10 @@ if (vacancies) {
           mainCheckbox.checked = true;
           addTagFilter(mainCheckbox);
         }
-        if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = true);
+        if (checkboxesInner) checkboxesInner.forEach(checkbox => {
+          checkbox.checked = true
+          addTagFilter(checkbox);
+        });
 
       } else {
         checkedItems.forEach(checkedItem => {
