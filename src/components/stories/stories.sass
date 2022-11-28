@@ -20,16 +20,15 @@
 
   &__body
     position: relative
-    width: 100%
-    max-height: calc(100vh - 60px)
+    width: calc(100% - 20px)
+    //height: 100%
+    max-height: 95vh
     min-height: 480px
     min-width: 280px
-    max-width: 550px
-    aspect-ratio: 32 / 51
-    border-radius: 8px
-    overflow: hidden
+    max-width: 530px
+    //aspect-ratio: 32 / 51
     @media (max-width: 768px)
-      aspect-ratio: initial
+      //aspect-ratio: initial
 
   &__close
     position: absolute
@@ -68,41 +67,18 @@
     height: 100%
 
   &-content
-    height: 100%
+    overflow: hidden
+    border-radius: 8px
+    //height: 100%
 
-    &__switcher
-      position: absolute
-      height: 100%
-      width: 30%
-      z-index: 10
-      cursor: pointer
-      user-select: none
-      box-shadow: inset 0 -5px 5px -5px #333
-      &::before
-        position: absolute
-        content: ""
-        height: 100%
-        width: 30%
-        top: 0
-        filter: blur(100px)
-      &:hover::before
-        background-color: rgba(#fff, 0.5)
-
-      &--prev
-        left: 0
-        &::before
-          left: 0
-
-      &--next
-        right: 0
-        &::before
-          right: 0
 
 
   // ---КОНТЕНТ---
   &-content-item
+    width: 100%
     display: none
-    height: 100%
+    //height: 100%
+    max-height: 95vh
     position: relative
     aspect-ratio: 32 / 51
     &.js-stories-content-active
@@ -135,12 +111,12 @@
       &__video
         position: absolute
         width: 100%
-        height: 100%
+        height: auto
         min-height: 514px
-        aspect-ratio: 32 / 51
         left: 0
         top: 0
         object-fit: cover
+
 
       &__name
         font-size: 20px
@@ -150,6 +126,7 @@
       &__post
         font-size: 18px
         color: rgba(#fff, 0.8)
+        text-align: center
 
       &__button
         @include fontSize(13, 16)
@@ -171,11 +148,17 @@
         padding: 115px 64px 40px
         z-index: 1
         color: #fff
+        display: flex
+        flex-direction: column
+
+        height: fit-content // test
+
         @media (max-width: 768px)
           padding: 64px 32px 32px
       &__image
         position: relative
         width: 70%
+        flex: 0 0 auto
         aspect-ratio: 1 / 1
         border-radius: 50%
         border-bottom-left-radius: 0
@@ -195,7 +178,6 @@
         font-weight: 300
         @media (max-width: 768px)
           margin: 16px 0
-
 
       &__quote
         position: relative
@@ -217,6 +199,9 @@
             height: 8px
         @media (max-width: 768px)
           padding: 0 20px
+
+      &__button
+        margin: 20px auto 0
 
 
 

@@ -32,7 +32,7 @@
     close.addEventListener('click', () => closeFormPopup(popup));
 
     InputDrop();
-    addFileInput()
+    addFileInput();
   };
 
   function onDocumentClick (item) {

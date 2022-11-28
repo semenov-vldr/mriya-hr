@@ -6,6 +6,18 @@ mixin iconPlus
   </svg>
 
 
+// Стрелки влево/вправо у сториса
+mixin storiesContentSwitchers
+  .stories-content__switchers
+    button.stories-content__switcher.stories-content__switcher--prev
+      svg(width="8" height="12" stroke="#121212")
+        use(href='./assets/img/sprite.svg#arrow-left')
+    button.stories-content__switcher.stories-content__switcher--next
+      svg(width="8" height="12" stroke="#121212")
+        use(href='./assets/img/sprite.svg#arrow-left')
+
+
+
 // ---- Form ----------
 
 // Name

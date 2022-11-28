@@ -6,9 +6,12 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
  function storiesActive (stories) {
 
   const dataStories = stories.dataset.stories; // Значение 'data-stories' у блока stories
-  const openStoriesBtn = document.querySelector(`[data-open-stories="${dataStories}"]`);
+  const openStoriesBtnList = document.querySelectorAll(`[data-open-stories="${dataStories}"]`);
 
-  openStoriesBtn.addEventListener('click', openStories);
+   openStoriesBtnList.forEach(openStoriesBtn => openStoriesBtn.addEventListener('click', openStories));
+
+   const close = stories.querySelector('.stories__close');
+   close.addEventListener('click', closeStories);
 
 
    // Timeline
@@ -27,13 +30,14 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
    };
    createTimeline();
 
+   // Установка длительности слайда и timeline
    function setIntervalContent() {
      const videoActive = stories.querySelector('.js-stories-content-active video');
      if (videoActive) {
        const duration = videoActive.duration;
        runInterval(duration, 1);
      } else {
-       runInterval(3, 1);
+       runInterval(6, 1);
      }
    };
 
@@ -47,8 +51,6 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
      setIntervalContent();
    };
 
-   const close = stories.querySelector('.stories__close');
-   close.addEventListener('click', closeStories);
 
    function closeStories () {
      const videoList = stories.querySelectorAll('.stories-content-item__video');
@@ -93,13 +95,10 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
      const activeEl = stories.querySelector('.' + activeClass);
      const switchEl = activeEl[method];
 
-     // Воспроизведение видео на активном слайде
-     let videoActive = switchEl.querySelector('.stories-content-item__video');
-     if (videoActive) videoActive.play();
      setIntervalContent();
 
      // Остановка предыдущего видео
-     let videoPrev = activeEl.querySelector('.stories-content-item__video');
+     const videoPrev = activeEl.querySelector('.stories-content-item__video');
      if (videoPrev) {
        videoPrev.pause();
        videoPrev.currentTime = 0;
@@ -108,11 +107,21 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
      if ( predicate && !predicate(activeEl) ) return null;
 
      if (switchEl) {
+       // Воспроизведение видео на переключенном слайде
+       const videoActive = switchEl.querySelector('.stories-content-item__video');
+       if (videoActive) videoActive.play();
+
        activeEl.classList.remove(activeClass);
        switchEl.classList.add(activeClass);
        setIntervalContent();
        return activeEl;
+     } else {
+
+       if (method === 'nextElementSibling') {
+         closeStories()
+       }
      }
+
      return null;
    };
 
@@ -121,13 +130,13 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
      const prev = moveClass('js-timeline-active', 'previousElementSibling', (el) => {
        const inner = el.querySelector('.stories-timeline__item-inner');
        const width = parseFloat(inner.style.width) || 0;
-
-       el.querySelector('.stories-timeline__item-inner').style.width = '';
+       inner.style.width = '';
 
        const videoPrev = stories.querySelector('.js-stories-content-active video');
        if (videoPrev) videoPrev.currentTime = 0;
        return width <= 20;
      });
+
      if (prev) moveClass( 'js-stories-content-active', 'previousElementSibling');
    };
 

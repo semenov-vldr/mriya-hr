@@ -1,13 +1,14 @@
-
 {
-
-  //const mobileWidth = window.matchMedia('(max-width: 768px)').matches;
 
   let mySwiper;
 
-  const swiperList = document.querySelectorAll('.swiper');
+  const swiperList = document.querySelectorAll('.popular-vacancies__slider, .success__slider');
 
-if (swiperList) {
+if (swiperList) createSwiper(swiperList);
+
+
+
+function createSwiper (swiperList) {
   swiperList.forEach(swiper => {
 
     mySwiper = new Swiper(swiper, {
@@ -68,7 +69,10 @@ if (swiperList) {
     });
 
   })
-}
+};
+
+
+
 
 
 

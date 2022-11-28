@@ -29,7 +29,7 @@
       slidesPerView: 4,
 
       // Бесконечная прокрутка
-      loop: true,
+      //loop: true,
 
       // Откл функционала, если слайдов меньше, чем нужно
       watchOverflow: true,
