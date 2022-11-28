@@ -5,7 +5,6 @@ const employment = document.querySelector('.employment');
 const widthDesktop = window.matchMedia('(min-width: 1000.1px)').matches;
 
 
-<<<<<<< HEAD
 // function activeAllImages (images) {
 //   images.forEach(image => image.classList.add('js-photo-active'));
 // };
@@ -14,16 +13,6 @@ function inActiveAllImages (images) {
   images.forEach(image => image.classList.remove('js-photo-active'));
 };
 
-=======
-function activeAllImages (images) {
-  images.forEach(image => image.classList.add('js-photo-active'));
-};
-
-function inActiveAllImages (images) {
-  images.forEach(image => image.classList.remove('js-photo-active'));
-};
-
->>>>>>> 33674a9a9c0f56e4181cfdb075f7cb547249f402
 function addClassPhotoActive (el) {
   el.classList.add('js-photo-active');
 };
@@ -38,11 +27,6 @@ if (employment) {
   if (widthDesktop) {
     images[0].classList.remove('js-photo-active');
     lineAnimation(employment)
-<<<<<<< HEAD
-=======
-  } else {
-    //activeAllImages(images)
->>>>>>> 33674a9a9c0f56e4181cfdb075f7cb547249f402
   }
 
 
