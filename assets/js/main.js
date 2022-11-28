@@ -89,13 +89,13 @@ if (areas) {
 
 {
 
-  const mobileWidth = window.matchMedia('(max-width: 1000px)').matches;
+  //const mobileWidth = window.matchMedia('(max-width: 1000px)').matches;
 
   let mySwiper;
 
   const swiperList = document.querySelectorAll('.employment-swiper');
 
-  if (swiperList && mobileWidth) {
+  if (swiperList) {
     swiperList.forEach(swiper => {
 
       mySwiper = new Swiper(swiper, {
@@ -113,7 +113,7 @@ if (areas) {
         //   draggable: true,
         // },
 
-        createElements: true,
+        //createElements: true,
         slideClass: 'employment__image-item',
 
         uniqueNavElements: true,
@@ -155,6 +155,10 @@ if (areas) {
           //   slidesPerView: 2.2
           // },
 
+          1000: {
+            enable: false,
+          }
+
         }
       });
 
@@ -176,9 +180,9 @@ const employment = document.querySelector('.employment');
 const widthDesktop = window.matchMedia('(min-width: 1000.1px)').matches;
 
 
-function activeAllImages (images) {
-  images.forEach(image => image.classList.add('js-photo-active'));
-};
+// function activeAllImages (images) {
+//   images.forEach(image => image.classList.add('js-photo-active'));
+// };
 
 function inActiveAllImages (images) {
   images.forEach(image => image.classList.remove('js-photo-active'));
@@ -198,8 +202,6 @@ if (employment) {
   if (widthDesktop) {
     images[0].classList.remove('js-photo-active');
     lineAnimation(employment)
-  } else {
-    //activeAllImages(images)
   }
 
 
@@ -297,7 +299,7 @@ if (employment) {
     close.addEventListener('click', () => closeFormPopup(popup));
 
     InputDrop();
-    addFileInput()
+    addFileInput();
   };
 
   function onDocumentClick (item) {
@@ -887,16 +889,17 @@ if (plus) {
 
 }
 
-
 {
-
-  //const mobileWidth = window.matchMedia('(max-width: 768px)').matches;
 
   let mySwiper;
 
-  const swiperList = document.querySelectorAll('.swiper');
+  const swiperList = document.querySelectorAll('.popular-vacancies__slider, .success__slider');
 
-if (swiperList) {
+if (swiperList) createSwiper(swiperList);
+
+
+
+function createSwiper (swiperList) {
   swiperList.forEach(swiper => {
 
     mySwiper = new Swiper(swiper, {
@@ -957,7 +960,10 @@ if (swiperList) {
     });
 
   })
-}
+};
+
+
+
 
 
 
@@ -975,9 +981,12 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
  function storiesActive (stories) {
 
   const dataStories = stories.dataset.stories; // Значение 'data-stories' у блока stories
-  const openStoriesBtn = document.querySelector(`[data-open-stories="${dataStories}"]`);
+  const openStoriesBtnList = document.querySelectorAll(`[data-open-stories="${dataStories}"]`);
 
-  openStoriesBtn.addEventListener('click', openStories);
+   openStoriesBtnList.forEach(openStoriesBtn => openStoriesBtn.addEventListener('click', openStories));
+
+   const close = stories.querySelector('.stories__close');
+   close.addEventListener('click', closeStories);
 
 
    // Timeline
@@ -996,6 +1005,7 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
    };
    createTimeline();
 
+   // Установка длительности слайда и timeline
    function setIntervalContent() {
      const videoActive = stories.querySelector('.js-stories-content-active video');
      if (videoActive) {
@@ -1016,8 +1026,6 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
      setIntervalContent();
    };
 
-   const close = stories.querySelector('.stories__close');
-   close.addEventListener('click', closeStories);
 
    function closeStories () {
      const videoList = stories.querySelectorAll('.stories-content-item__video');
@@ -1062,13 +1070,10 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
      const activeEl = stories.querySelector('.' + activeClass);
      const switchEl = activeEl[method];
 
-     // Воспроизведение видео на активном слайде
-     let videoActive = switchEl.querySelector('.stories-content-item__video');
-     if (videoActive) videoActive.play();
      setIntervalContent();
 
      // Остановка предыдущего видео
-     let videoPrev = activeEl.querySelector('.stories-content-item__video');
+     const videoPrev = activeEl.querySelector('.stories-content-item__video');
      if (videoPrev) {
        videoPrev.pause();
        videoPrev.currentTime = 0;
@@ -1077,11 +1082,21 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
      if ( predicate && !predicate(activeEl) ) return null;
 
      if (switchEl) {
+       // Воспроизведение видео на переключенном слайде
+       const videoActive = switchEl.querySelector('.stories-content-item__video');
+       if (videoActive) videoActive.play();
+
        activeEl.classList.remove(activeClass);
        switchEl.classList.add(activeClass);
        setIntervalContent();
        return activeEl;
+     } else {
+
+       if (method === 'nextElementSibling') {
+         closeStories()
+       }
      }
+
      return null;
    };
 
@@ -1090,13 +1105,13 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
      const prev = moveClass('js-timeline-active', 'previousElementSibling', (el) => {
        const inner = el.querySelector('.stories-timeline__item-inner');
        const width = parseFloat(inner.style.width) || 0;
-
-       el.querySelector('.stories-timeline__item-inner').style.width = '';
+       inner.style.width = '';
 
        const videoPrev = stories.querySelector('.js-stories-content-active video');
        if (videoPrev) videoPrev.currentTime = 0;
        return width <= 20;
      });
+
      if (prev) moveClass( 'js-stories-content-active', 'previousElementSibling');
    };
 
@@ -1180,7 +1195,7 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
       slidesPerView: 4,
 
       // Бесконечная прокрутка
-      loop: true,
+      //loop: true,
 
       // Откл функционала, если слайдов меньше, чем нужно
       watchOverflow: true,
