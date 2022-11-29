@@ -72,6 +72,7 @@
             </ul>
           </nav>
         </div>
+        <div class="button button--accent button-popup button-scroll fill-form white">Заполнить анкету</div>
       </header>
       <main>
         <section class="section-column">
@@ -389,7 +390,7 @@
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div><a class="button button--accent employment__button" href="vacancies.html">Перейти к вакансиям</a>
             </div>
           </div>
           <div class="success">
@@ -502,7 +503,7 @@
           </div>
           <div class="faq">
             <div class="faq__container container">
-              <h2 class="title-section">Ответы на часто-задаваемые вопросы</h2>
+              <h2 class="title-section faq__title">Ответы на часто-задаваемые вопросы</h2>
               <div class="accordion">
                 <ul class="accordion__list">
                   <li class="accordion__item">
@@ -625,7 +626,7 @@
                 <div class="feedback__text"><b>Не можете найти ответ на свой вопрос?</b>
                   <p>Пожалуйста напишите нам, ответим как можно быстрее</p>
                 </div>
-                <button class="button button--accent feedback__button button-popup">Задать вопрос</button>
+                <button class="button button--accent feedback__button button-popup-ask">Задать вопрос</button>
               </div>
             </div>
           </div>
@@ -681,7 +682,7 @@
                     <div class="stories-content-item__wrapper">
                       <div class="stories-content-item__image"><img src="./assets/img/stories/03.jpg" alt="photo"></div><span class="stories-content-item__name">Чалая Екатерина</span>
                       <p class="stories-content-item__info">От аниматора до директора департамента номерного фонда и транспорта</p>
-                      <blockquote class="stories-content-item__quote">В Мрии я прошла колоссальный путь развития не только как сотрудник, но и как личность! Огромная гордость осознавать, что являешься частью такой команды — большой семьи!</blockquote>
+                      <blockquote class="stories-content-item__quote">В Мрии я прошла колоссальный путь развития не только как сотрудник, но и как личность! Огромная гордость осознавать, что являешься частью такой команды — большой семьи!</blockquote><a class="button button--accent stories-content-item__button" href="vacancies.html">Вакансии</a>
                     </div>
                   </div>
                   <div class="stories-content__item stories-content-item stories-content-item--video">
@@ -719,7 +720,7 @@
                     <div class="stories-content-item__wrapper">
                       <div class="stories-content-item__image"><img src="./assets/img/stories/03.jpg" alt="photo"></div><span class="stories-content-item__name">Чалая Екатерина</span>
                       <p class="stories-content-item__info">От аниматора до директора департамента номерного фонда и транспорта</p>
-                      <blockquote class="stories-content-item__quote">В Мрии я прошла колоссальный путь развития не только как сотрудник, но и как личность! Огромная гордость осознавать, что являешься частью такой команды — большой семьи!</blockquote>
+                      <blockquote class="stories-content-item__quote">В Мрии я прошла колоссальный путь развития не только как сотрудник, но и как личность! Огромная гордость осознавать, что являешься частью такой команды — большой семьи!</blockquote><a class="button button--accent stories-content-item__button" href="vacancies.html">Вакансии</a>
                     </div>
                   </div>
                   <div class="stories-content__item stories-content-item stories-content-item--video">
@@ -731,7 +732,7 @@
                     <div class="stories-content-item__wrapper">
                       <div class="stories-content-item__image"><img src="./assets/img/stories/03.jpg" alt="photo"></div><span class="stories-content-item__name">Чалая Екатерина</span>
                       <p class="stories-content-item__info">От аниматора до директора департамента номерного фонда и транспорта</p>
-                      <blockquote class="stories-content-item__quote">В Мрии я прошла колоссальный путь развития не только как сотрудник, но и как личность! Огромная гордость осознавать, что являешься частью такой команды — большой семьи!</blockquote>
+                      <blockquote class="stories-content-item__quote">В Мрии я прошла колоссальный путь развития не только как сотрудник, но и как личность! Огромная гордость осознавать, что являешься частью такой команды — большой семьи!</blockquote><a class="button button--accent stories-content-item__button" href="vacancies.html">Вакансии</a>
                     </div>
                   </div>
                   <div class="stories-content__item stories-content-item stories-content-item--video">
@@ -841,6 +842,40 @@
             </div>
           </div>
         </template>
+        <template id="form-popup--ask">
+          <div class="form-popup form-popup--ask">
+            <div class="form-popup__content"><span class="form-popup__close">
+                <svg width="14" height="14" fill="#000">
+                  <use href="./assets/img/sprite.svg#close-menu"></use>
+                </svg></span>
+              <header class="form-popup__header">
+                <h2 class="form-popup__title">Задайте вопрос</h2>
+                <p class="form-popup__subtitle">Менеджер свяжется с вами в ближайшее время</p>
+              </header>
+              <form class="form-popup__item" method="POST" action="" enctype="multipart/form-data" autocomplete="off" data-popup="small">
+                <div class="form__input-container">
+                  <label>Имя
+                    <input placeholder="Константин" name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" required="required"/><span class="form__error form__error--inputName">Ошибка</span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Почта
+                    <input type="email" name="email" maxlength="40" placeholder="example@email.ru*" pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"/><span class="form__error form__error--inputEmail"></span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Комментарий
+                    <textarea placeholder="Введите ваше сообщение..." name="message" maxlength="200" rows="4"></textarea><span class="form__error form__error--inputText"></span>
+                  </label>
+                </div>
+                <div class="form-popup__sending form-popup-sending">
+                  <p class="form-popup-sending__agreement">Нажимая кнопку, вы соглашаетесь с<a href="">&#160; политикой конфиденциальности</a></p>
+                  <button class="button button--accent" type="submit">Отправить</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </template>
         <template id="success">
           <div class="reply-popup">
             <div class="reply-popup__body">
@@ -874,7 +909,7 @@
               <li class="footer__contact-item"><a class="footer__contact-email" href="mailoto:job@mriyaresort.com">job@mriyaresort.com</a></li>
               <li class="footer__contact-item"><a class="footer__contact-tel" href="tel:88005008964">8 800 500-89-64</a></li>
               <li class="footer__contact-item">
-                <button class="ask button-popup">Задать вопрос</button>
+                <button class="ask button-popup-ask">Задать вопрос</button>
               </li>
             </ul>
           </div>
