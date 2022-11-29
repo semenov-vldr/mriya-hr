@@ -9,16 +9,17 @@
       grid-template-columns: 1fr
       gap: 48px
 
-
     .accordion
-
       &__item.js-accordion-active .accordion__icon
         fill: $black
         transform: rotate(45deg)
       &__item.js-accordion-active .accordion__icon path
         fill: #fff
 
-
+  &__title
+    text-align: left
+    @media (max-width: 1000px)
+      text-align: center
 
   &-feedback
     padding: 64px

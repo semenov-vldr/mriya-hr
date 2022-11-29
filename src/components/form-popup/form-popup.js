@@ -1,9 +1,9 @@
 {
   // все кнопки, по нажатию на которые появляется поп-ап
-  const callToActionButtons = document.querySelectorAll('.button-popup');
+  const callToActionButtons = document.querySelectorAll('.button-popup, .button-popup-ask');
 
 
-  const API_URL = 'https://httpbin.org/post!';
+  const API_URL = 'https://httpbin.org/post';
 
   let replyPopup;
   let formPopup;
@@ -26,7 +26,6 @@
     document.body.append(popup);
     blockScrollBody();
     onDocumentClick(popup);
-
     // close
     const close = popup.querySelector('.form-popup__close');
     close.addEventListener('click', () => closeFormPopup(popup));
@@ -34,6 +33,23 @@
     InputDrop();
     addFileInput();
   };
+
+  function openFormPopup__Ask (popup) {
+    const template = document.querySelector('#form-popup--ask').content.cloneNode(true);
+    popup = template.querySelector('.form-popup')
+    document.body.append(popup);
+    blockScrollBody();
+    onDocumentClick(popup);
+    // close
+    const close = popup.querySelector('.form-popup__close');
+    close.addEventListener('click', () => closeFormPopup(popup));
+
+    InputDrop();
+    addFileInput();
+  };
+
+
+
 
   function onDocumentClick (item) {
     document.body.addEventListener('click', (evt) => {
@@ -45,7 +61,10 @@
 
     callToActionButtons.forEach(btn => {
       btn.addEventListener('click', () => {
-        openFormPopup(formPopup);
+        //openFormPopup(formPopup);
+
+        (btn.classList.contains('button-popup-ask')) ? openFormPopup__Ask(formPopup) : openFormPopup(formPopup);
+
         const phoneInputs = document.querySelectorAll('input[data-tel-input]');
         const forms = document.querySelectorAll('.form-popup__item');
 
@@ -64,22 +83,26 @@
 
 
           // Сделать активной изначально сокращенную форму
-          function formSmallActive () {
-            activeForm(smallForm);
-            inActiveForm(fullForm);
-            tabsForm.forEach(tab => tab.classList.remove('js-type-active'));
-            tabsForm[0].classList.add('js-type-active');
-          };
+          // function formSmallActive () {
+          //   activeForm(smallForm);
+          //   inActiveForm(fullForm);
+          //   tabsForm.forEach(tab => tab.classList.remove('js-type-active'));
+          //   tabsForm[0].classList.add('js-type-active');
+          // };
 
           // Сделать активной изначально полую форму
           function formFullActive () {
-            activeForm(fullForm);
-            inActiveForm(smallForm);
-            tabsForm.forEach(tab => tab.classList.remove('js-type-active'));
-            tabsForm[1].classList.add('js-type-active');
+            if (fullForm && smallForm) {
+              activeForm(fullForm);
+              inActiveForm(smallForm);
+              tabsForm.forEach(tab => tab.classList.remove('js-type-active'));
+              tabsForm[1].classList.add('js-type-active');
+            }
           };
 
-          formSmallActive();
+          //formSmallActive();
+
+          formFullActive()
 
 
           function switchTypeForm (evt) {

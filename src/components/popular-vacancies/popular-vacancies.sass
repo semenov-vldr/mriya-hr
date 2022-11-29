@@ -34,16 +34,23 @@
 
   &__slider
     overflow: hidden
+    padding-bottom: 40px
+
+    .swiper-scrollbar
+      bottom: 0
 
   &__item
     position: relative
-    overflow: hidden
+    //overflow: hidden
     aspect-ratio: 5 / 8
-    width: clamp(250px, calc(250px + (300 - 250) * ((100vw - 768px) / (1920 - 768))), 300px)
-    border-radius: 2px
+    @include changeSize(width, 250, 300)
+    border-radius: 8px
+    border: 2px solid $orange
     padding: 25px
     display: flex
     align-items: flex-end
+    &:hover
+      box-shadow: 0px 20px 48px -8px rgba(18, 18, 18, 0.15)
 
     &::after
       content: ""

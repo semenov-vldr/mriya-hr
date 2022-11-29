@@ -71,6 +71,12 @@ h1
   overflow: hidden
 
 
+section > *:first-child:not(.hero-student)
+  margin-top: 85px
+  @media (max-width: 768px)
+    margin-top: 45px
+
+
 .section-column
   display: flex
   flex-direction: column
@@ -90,7 +96,7 @@ h1
   padding: 12px 20px
   width: fit-content
   color: #fff
-  @include fontSize(16, 14)
+  @include fontSize(14, 16)
   border-radius: 4px
   border: 1px solid #fff
   cursor: pointer
@@ -148,10 +154,18 @@ h1
   width: 20px
   height: 20px
 
+.fill-form.white::before
+  background-image: url('../img/icons/fill-form-white.svg')
+  width: 20px
+  height: 20px
+
+
+
 .ask::before
   background-image: url('../img/icons/ask.svg')
   width: 13px
   height: 13px
+
 
 .flex-center
   display: flex

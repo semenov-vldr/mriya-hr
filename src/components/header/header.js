@@ -1,5 +1,7 @@
 const desktopWidth = window.matchMedia('(min-width: 1000.1px)');
 
+//let previousPosition = window.scrollTop || document.documentElement.scrollTop;
+
 const header = document.querySelector('.header');
 const burger = header.querySelector('.header__burger');
 const headerNav = header.querySelector('.header__nav');
@@ -21,7 +23,7 @@ if (headerNav) {
   });
 
 
-  const headerLinks = headerNav.querySelectorAll('.header-nav__link');
+  const headerLinks = header.querySelectorAll('.header-nav__link, .header__logo');
   headerLinks.forEach(link => {
     const location = window.location.href;
     if (location === link.href) {
@@ -33,11 +35,38 @@ if (headerNav) {
             header.classList.toggle('js-student-page');
         });
 
-      } else header.classList.remove('js-student-page');
+        window.addEventListener("scroll", () => {
+          let currentPosition = window.scrollTop || document.documentElement.scrollTop;
+          if ( previousPosition < currentPosition) {
+            header.classList.add('js-scroll');
+            header.classList.remove('js-student-page');
+          }
+          else {
+            header.classList.remove('js-scroll');
+            header.classList.add('js-student-page');
+          }
+        });
 
+      }
+      else {
+        header.classList.remove('js-student-page');
+
+        window.addEventListener("scroll", () => {
+          let currentPosition = window.scrollTop || document.documentElement.scrollTop;
+          if ( previousPosition < currentPosition) {
+            header.classList.add('js-scroll');
+          }
+          else {
+            header.classList.remove('js-scroll');
+          }
+        });
+      }
     }
-
   })
+
+
+
+
 }
 
 
