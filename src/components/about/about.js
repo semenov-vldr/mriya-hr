@@ -2,9 +2,9 @@
 
   let mySwiper;
 
-  const swiperList = document.querySelectorAll('.about__swiper');
+  //const swiperList = document.querySelectorAll('.about__swiper');
 
-  if (swiperList) createSwiper(swiperList);
+  //if (swiperList) createSwiper(swiperList);
 
 
 
@@ -43,6 +43,7 @@
 
     })
   };
+
 
 
 

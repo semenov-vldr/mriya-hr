@@ -76,7 +76,6 @@ section > *:first-child:not(.hero-student)
   @media (max-width: 768px)
     margin-top: 45px
 
-
 .section-column
   display: flex
   flex-direction: column
@@ -133,8 +132,6 @@ section > *:first-child:not(.hero-student)
       border-color: #d0d0d0
 
 
-
-
 .fill-form,
 .ask
   position: relative
@@ -158,8 +155,6 @@ section > *:first-child:not(.hero-student)
   background-image: url('../img/icons/fill-form-white.svg')
   width: 20px
   height: 20px
-
-
 
 .ask::before
   background-image: url('../img/icons/ask.svg')
@@ -185,6 +180,27 @@ section > *:first-child:not(.hero-student)
     background: linear-gradient(180deg, transparent 75%, rgba(18,18,18,1) 100%)
     opacity: 0.7
 
+
+
+// Кнопка "Назад"
+.breadcrumbs__item
+  position: relative
+  display: flex
+  gap: 12px
+  align-items: center
+  margin-top: 30px
+  margin-bottom: 40px
+  &::before
+    content: ""
+    display: inline-block
+    background-image: url('../img/icons/arrow-bc.svg')
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center
+    width: 12px
+    height: 12px
+  @media (max-width: 1000px)
+    margin-bottom: 20px
 
 
 // -------- Swiper -----------

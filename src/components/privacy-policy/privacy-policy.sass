@@ -1,0 +1,45 @@
+.privacy-policy
+
+  &__container
+    margin: 0
+    width: 50%
+    @media (max-width: 1300px)
+      width: 70%
+    @media (max-width: 1000px)
+      width: auto
+
+  &__title
+    margin-bottom: 50px
+    @include fontSize(36, 52)
+    font-weight: 500
+
+  ol
+    list-style: none
+    counter-reset: li
+    display: flex
+    flex-direction: column
+    row-gap: 30px
+
+  ol ol
+    margin-top: 30px
+
+  li .privacy-policy__item-text:first-child
+    margin-top: 20px
+
+
+  li:before
+    counter-increment: li
+    content: counters(li, ".") ". "
+
+
+  &__item
+    @include fontSize(16, 20)
+    color: #6B6B6B
+    font-weight: 400
+
+    &--title
+      font-weight: 500
+      @include fontSize(18, 24)
+      color: #121212
+
+

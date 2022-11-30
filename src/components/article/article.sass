@@ -1,0 +1,37 @@
+.article
+
+  &__container
+    margin: 0
+    width: 50%
+    @media (max-width: 1300px)
+      width: 70%
+    @media (max-width: 1000px)
+      width: auto
+
+  &__title
+    margin-bottom: 50px
+    @include fontSize(36, 52)
+    font-weight: 500
+    @media (max-width: 400px)
+      font-size: 30px
+
+  &__content
+    display: flex
+    flex-direction: column
+    gap: 30px
+
+
+  p, span, ul
+    color: #6B6B6B
+    @include fontSize(16, 20)
+
+  img
+    width: 70%
+    height: auto
+    max-height: 500px
+    object-fit: cover
+    border-radius: 8px
+    aspect-ratio: 1 / 1
+    @media (max-width: 1000px)
+      width: auto
+
