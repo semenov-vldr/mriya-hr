@@ -12,7 +12,7 @@
 <html lang="ru-RU">
   <head>
     <meta charset="utf-8">
-    <title>Вакансия</title><!--[if IE]>
+    <title>Политика конфиденциальности</title><!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE = edge"><![endif]-->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="keywords" content=""><!--favicon-->
@@ -27,65 +27,102 @@
   </head>
   <body>
     <div class="page">
-      <header class="header header--simple">
+      <header class="header">
         <div class="header__container container"><a class="header__logo" href="index.html">
             <svg width="212" height="16" fill="#393737">
               <use href="./assets/img/sprite.svg#logo"></use>
-            </svg></a></div>
+            </svg></a>
+          <div class="header__burger">
+            <svg class="burger" width="24" height="24">
+              <use href="./assets/img/sprite.svg#burger"></use>
+            </svg>
+            <svg class="close" width="14" height="14">
+              <use href="./assets/img/sprite.svg#close-menu"></use>
+            </svg>
+          </div>
+          <nav class="header__nav header-nav">
+            <ul class="header-nav__list">
+              <li class="header-nav__item"><a class="header-nav__link" href="about.html">
+                  <svg width="18" height="18" fill="#393737">
+                    <use href="./assets/img/sprite.svg#icon-about"></use>
+                  </svg>О нас</a></li>
+              <li class="header-nav__item"><a class="header-nav__link student-link" href="student.html">
+                  <svg width="20" height="17" fill="#393737">
+                    <use href="./assets/img/sprite.svg#icon-student"></use>
+                  </svg>Студентам</a></li>
+              <li class="header-nav__item"><a class="header-nav__link" href="vacancies.html">
+                  <svg width="16" height="16" fill="#393737">
+                    <use href="./assets/img/sprite.svg#header-vacansy"></use>
+                  </svg>Вакансии</a></li>
+              <li class="header-nav__item">
+                <button class="header-nav__link button-popup">
+                  <svg width="16" height="16" fill="#393737">
+                    <use href="./assets/img/sprite.svg#form"></use>
+                  </svg>Заполнить анкету
+                </button>
+              </li>
+            </ul>
+            <ul class="header-nav__bottom header-bottom">
+              <li class="header-bottom__item">
+                <button class="fill-form">Задать вопрос</button>
+              </li>
+              <li class="header-bottom__item"><a class="header-bottom__email" href="mailoto:job@mriyaresort.com">job@mriyaresort.com</a></li>
+              <li class="header-bottom__item"><a class="header-bottom__tel" href="tel:88005008964">8 800 500-89-64</a></li>
+              <li class="header-bottom__item"><a class="header-bottom__politics" href="">Политика конфиденциальности</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="button button--accent button-popup button-scroll fill-form white">Заполнить анкету</div>
       </header>
       <main>
         <section class="section-column">
-          <div class="vacancy"><a class="breadcrumbs__item container" href="vacancies.html">Назад</a>
-            <div class="vacancy__container container">
-              <div class="vacancy__data">
-                <h1 class="vacancy__title">Водитель клаб-кара (на сезон)</h1>
-                <div class="vacancy__advantages"><span class="vacancy__advantages-item">Достойная зарплата</span><span class="vacancy__advantages-item">Сменный график</span></div>
-                <div class="vacancy__section vacancy-section">
-                  <h2 class="vacancy-section__title">Требования</h2>
-                  <ul class="vacancy-section__list">
-                    <li class="vacancy-section__item">Водительский стаж от 1 года</li>
-                    <li class="vacancy-section__item">Грамотная речь, клиентоориентированность</li>
-                  </ul>
-                </div>
-                <div class="vacancy__section vacancy-section">
-                  <h2 class="vacancy-section__title">Обязанности</h2>
-                  <ul class="vacancy-section__list">
-                    <li class="vacancy-section__item">Перевозка гостей по территории комплекса на клаб-каре (электромобиле)</li>
-                    <li class="vacancy-section__item">Обслуживание клаб-кара, поддержание клаб-кара в чистоте</li>
-                    <li class="vacancy-section__item">Водительское удостоверение (категория В)</li>
-                  </ul>
-                </div>
-                <div class="vacancy__section vacancy-section">
-                  <h2 class="vacancy-section__title">Условия</h2>
-                  <ul class="vacancy-section__list">
-                    <li class="vacancy-section__item">Сменный график работы</li>
-                    <li class="vacancy-section__item">Жилье или компенсация съемной квартиры</li>
-                    <li class="vacancy-section__item">Питание на территории отеля</li>
-                    <li class="vacancy-section__item">Трансфер до места работы</li>
-                    <li class="vacancy-section__item">Компенсация переезда в Ялту</li>
-                    <li class="vacancy-section__item">Официальное трудоустройство</li>
-                    <li class="vacancy-section__item">Достойная зарплата</li>
-                    <li class="vacancy-section__item">Возможность карьерного и профессионального роста</li>
-                    <li class="vacancy-section__item">Регистрация для иностранных граждан</li>
-                    <li class="vacancy-section__item">Компенсация 50% стоимости занятий на Skyeng</li>
-                    <li class="vacancy-section__item">Большой и дружный коллектив</li>
-                    <li class="vacancy-section__item">Клубы и секции по интересам</li>
-                    <li class="vacancy-section__item">Помощь на всех этапах прибытия в Крым</li>
-                    <li class="vacancy-section__item">Тренинги, семинары и вебинары от Академии Гостеприимства</li>
-                    <li class="vacancy-section__item">Бонусы и скидки на услуги курорта</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="vacancy__hr vacancy-hr">
-                <h2 class="vacancy-hr__title">Контакты HR</h2>
-                <div class="vacancy-hr__data">
-                  <div class="vacancy-hr__person vacancy-hr-person">
-                    <div class="vacancy-hr-person__image"><img src="./assets/img/contacts/01.jpg"></div><b class="vacancy-hr-person__name">Константинопольский Константин</b><span class="vacancy-hr-person__post">Сотрудник отдела кадров</span>
-                  </div>
-                  <div class="vacancy-hr__contacts vacancy-hr-contacts"><a class="vacancy-hr-contacts__item" href="tel:88005505271">8 800 550-52-71</a><a class="vacancy-hr-contacts__item" href="mailto:job@mriyaresort.com">job@mriyaresort.com</a></div>
-                </div>
-                <div class="button button--accent vacancy-hr__button button-popup">Откликнуться на вакансию</div>
-              </div>
+          <div class="privacy-policy"><a class="breadcrumbs__item container" href="index.html">Назад</a>
+            <div class="privacy-policy__container container">
+              <h1 class="privacy-policy__title">Политика в отношении обработки персональных данных в ООО «ГАРАНТ-СВ»</h1>
+              <ol class="privacy-policy__list">
+                <li class="privacy-policy__item privacy-policy__item--title">Общие положения
+                  <ol>
+                    <li class="privacy-policy__item">Настоящий документ (далее - Политика) определяет политику в отношении обработки персональных данных Общества с ограниченной ответственностью «ГАРАНТ-СВ», расположенного по адресу 298688, Россия, Республика Крым, Ялта, с. Оползневое, улица Генерала Острякова, 9 (далее – Оператор).</li>
+                    <li class="privacy-policy__item">Настоящая Политика разработана во исполнение требований п. 2 ч. 1 ст. 18.1 Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных» (далее – Закон о персональных данных).</li>
+                    <li class="privacy-policy__item">Понятия, содержащиеся в ст. 3 Закона о персональных данных, используются в настоящей Политике с аналогичным значением.</li>
+                    <li class="privacy-policy__item">Действие настоящей Политики распространяется на все операции, совершаемые Оператором с персональными данными с использованием средств автоматизации или без их использования.</li>
+                    <li class="privacy-policy__item">Основные права и обязанности Оператора.
+                      <ol>
+                        <li class="privacy-policy__item">Оператор имеет право:
+                          <p class="privacy-policy__item-text">- получать от субъекта персональных данных достоверные информацию и/или документы, содержащие персональные данные;</p>
+                          <p class="privacy-policy__item-text">- требовать от субъекта персональных данных своевременного уточнения предоставленных персональных данных.</p>
+                        </li>
+                        <li class="privacy-policy__item">Оператор обязан:
+                          <p class="privacy-policy__item-text">- обрабатывать персональные данные в порядке, установленном действующим законодательством РФ;</p>
+                          <p class="privacy-policy__item-text">- рассматривать обращения субъекта персональных данных (его законного представителя) по вопросам обработки персональных данных и давать мотивированные ответы;</p>
+                          <p class="privacy-policy__item-text">- предоставлять субъекту персональных данных (его законному представителю) возможность безвозмездного доступа к его персональным данным;</p>
+                          <p class="privacy-policy__item-text">- принимать меры по уточнению, уничтожению персональных данных субъекта персональных данных в связи с его (его законного представителя) обращением с законными и обоснованными требованиями;</p>
+                          <p class="privacy-policy__item-text">- организовывать защиту персональных данных в соответствии с требованиями законодательства РФ.</p>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="privacy-policy__item">Основные права и обязанности субъектов персональных данных:
+                      <ol>
+                        <li class="privacy-policy__item">Субъекты персональных данных имеют право:
+                          <p class="privacy-policy__item-text">- на полную информацию об их персональных данных, обрабатываемых Оператором;</p>
+                          <p class="privacy-policy__item-text">- на доступ к их персональным данным, включая право на получение копии любой записи, содержащей их персональные данные, за исключением случаев, предусмотренных федеральным законом;</p>
+                          <p class="privacy-policy__item-text">- на уточнение их персональных данных, их блокирование или уничтожение в случаях, если персональные данные являются неполными, устаревшими, неточными, незаконно полученными или не являются необходимыми для заявленной цели обработки;</p>
+                          <p class="privacy-policy__item-text">- на отзыв согласия на обработку персональных данных;</p>
+                          <p class="privacy-policy__item-text">- на принятие предусмотренных законом мер по защите своих прав;</p>
+                          <p class="privacy-policy__item-text">- на осуществление иных прав, предусмотренных законодательством РФ.</p>
+                        </li>
+                        <li class="privacy-policy__item">Субъекты персональных данных обязаны:
+                          <p class="privacy-policy__item-text">- предоставлять Оператору только достоверные данные о себе;</p>
+                          <p class="privacy-policy__item-text">- предоставлять документы, содержащие персональные данные в объеме, необходимом для цели обработки;</p>
+                          <p class="privacy-policy__item-text">- сообщать Оператору об уточнении (обновлении, изменении) своих персональных данных.</p>
+                        </li>
+                        <li class="privacy-policy__item">Лица, передавшие Оператору недостоверные сведения о себе, либо сведения о другом субъекте персональных данных без согласия последнего, несут ответственность в соответствии с законодательством РФ.</li>
+                      </ol>
+                    </li>
+                  </ol>
+                </li>
+                <li class="privacy-policy__item privacy-policy__item--title">Объем и категории обрабатывае</li>
+              </ol>
             </div>
           </div>
         </section>
