@@ -197,9 +197,6 @@ if (areas) {
 
 
 {
-
-  //const mobileWidth = window.matchMedia('(max-width: 1000px)').matches;
-
   let mySwiper;
 
   const swiperList = document.querySelectorAll('.employment-swiper');
@@ -208,32 +205,21 @@ if (areas) {
     swiperList.forEach(swiper => {
 
       mySwiper = new Swiper(swiper, {
-        // pagination: {
-        //   el: '.swiper-pagination',
-        //   clickable: true,
-        // },
+
         navigation: {
           nextEl: '.slider-nav__next',
           prevEl: '.slider-nav__prev',
         },
 
-        // scrollbar: {
-        //   el: '.swiper-scrollbar',
-        //   draggable: true,
-        // },
-
-        //createElements: true,
-        slideClass: 'employment__image-item',
-
         uniqueNavElements: true,
-
-        slidesPerView: 1,
 
         // Бесконечная прокрутка
         //loop: true,
 
         // Откл функционала, если слайдов меньше, чем нужно
         watchOverflow: true,
+
+        slidesPerView: 1,
 
         //centeredSlides: true,
 
@@ -260,19 +246,42 @@ if (areas) {
             slidesPerView: 1.5
           },
 
-          // 1100: {
-          //   slidesPerView: 2.2
-          // },
-
           1000: {
-            enable: false,
+            autoplay: {
+              delay: 1000,
+            },
+
+            loop: true,
+            slidesPerView: 1,
+
+            direction: "vertical",
+            effect: "fade",
+
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+
+              renderBullet: function (index, className) {
+                return '<span class="' + className + '">' + ++index + '</span>';
+              }
+            },
+
+
           }
 
         }
       });
 
+
+
+
+
     })
+
+
+
   }
+
 
 
 
@@ -284,95 +293,91 @@ if (areas) {
 
 let previousPosition = window.scrollTop || document.documentElement.scrollTop;
 
-const employment = document.querySelector('.employment');
-
-const widthDesktop = window.matchMedia('(min-width: 1000.1px)').matches;
-
-
-// function activeAllImages (images) {
-//   images.forEach(image => image.classList.add('js-photo-active'));
+// const employment = document.querySelector('.employment');
+//
+// const widthDesktop = window.matchMedia('(min-width: 1000.1px)').matches;
+//
+//
+// function inActiveAllImages (images) {
+//   images.forEach(image => image.classList.remove('js-photo-active'));
 // };
-
-function inActiveAllImages (images) {
-  images.forEach(image => image.classList.remove('js-photo-active'));
-};
-
-function addClassPhotoActive (el) {
-  el.classList.add('js-photo-active');
-};
-
-if (employment) {
-
-  const stepNumbers = employment.querySelectorAll('.employment-steps-item__number');
-  const line = employment.querySelector('.employment-steps__line--change');
-  const images = employment.querySelectorAll('.employment__images img');
-
-
-  if (widthDesktop) {
-    images[0].classList.remove('js-photo-active');
-    lineAnimation(employment)
-  }
-
-
-  window.addEventListener('resize', () => {
-    if (widthDesktop) lineAnimation(employment);
-  });
-
-
-  function lineAnimation() {
-
-    const options = {
-      rootMargin: '100% 0px -30%',
-      threshold: 1,
-    };
-
-
-    function callbackStep(entries) {
-      entries.forEach((entry) => {
-        let currentPosition = window.scrollTop || document.documentElement.scrollTop;
-        const el = entry.target;
-        const number = el.dataset.number - 1;
-        if (entry.isIntersecting) {
-          el.classList.add('js-scroll-animate');
-
-          if (previousPosition < currentPosition) {
-            inActiveAllImages(images);
-            addClassPhotoActive(images[number]);
-          }
-        } else {
-          el.classList.remove('js-scroll-animate');
-          inActiveAllImages(images);
-          (number - 1 >= 0) ? addClassPhotoActive(images[number - 1]) : addClassPhotoActive(images[0]);
-        }
-      })
-    };
-
-
-    function callbackLine(entries) {
-      entries.forEach((entry) => {
-        const el = entry.target;
-        if (entry.isIntersecting) {
-          const startPosition = window.scrollY;
-
-          function setHeightLine() {
-            let heightValue = window.scrollY - startPosition;
-            el.style.height = `${heightValue}px`;
-          };
-          window.addEventListener('scroll', setHeightLine);
-        }
-      })
-    };
-
-    const observerStep = new IntersectionObserver(callbackStep, options);
-    const observerLine = new IntersectionObserver(callbackLine, options);
-
-    stepNumbers.forEach(stepNum => observerStep.observe(stepNum));
-    observerLine.observe(line);
-
-  };
-
-
-}
+//
+// function addClassPhotoActive (el) {
+//   el.classList.add('js-photo-active');
+// };
+//
+// if (employment) {
+//
+//   const stepNumbers = employment.querySelectorAll('.employment-steps-item__number');
+//   const line = employment.querySelector('.employment-steps__line--change');
+//   const images = employment.querySelectorAll('.employment__images img');
+//
+//
+//   if (widthDesktop) {
+//     images[0].classList.remove('js-photo-active');
+//     lineAnimation(employment)
+//   }
+//
+//
+//   window.addEventListener('resize', () => {
+//     if (widthDesktop) lineAnimation(employment);
+//   });
+//
+//
+//   function lineAnimation() {
+//
+//     const options = {
+//       rootMargin: '100% 0px -30%',
+//       threshold: 1,
+//     };
+//
+//
+//     function callbackStep(entries) {
+//       entries.forEach((entry) => {
+//         let currentPosition = window.scrollTop || document.documentElement.scrollTop;
+//         const el = entry.target;
+//         const number = el.dataset.number - 1;
+//         if (entry.isIntersecting) {
+//           el.classList.add('js-scroll-animate');
+//
+//           if (previousPosition < currentPosition) {
+//             inActiveAllImages(images);
+//             addClassPhotoActive(images[number]);
+//           }
+//         } else {
+//           el.classList.remove('js-scroll-animate');
+//           inActiveAllImages(images);
+//           (number - 1 >= 0) ? addClassPhotoActive(images[number - 1]) : addClassPhotoActive(images[0]);
+//         }
+//       })
+//     };
+//
+//
+//     function callbackLine(entries) {
+//       entries.forEach((entry) => {
+//         const el = entry.target;
+//         if (entry.isIntersecting) {
+//           const startPosition = window.scrollY;
+//
+//           function setHeightLine() {
+//             let heightValue = window.scrollY - startPosition;
+//             el.style.height = `${heightValue}px`;
+//           };
+//           window.addEventListener('scroll', setHeightLine);
+//         }
+//       })
+//     };
+//
+//     const observerStep = new IntersectionObserver(callbackStep, options);
+//     const observerLine = new IntersectionObserver(callbackLine, options);
+//
+//     stepNumbers.forEach(stepNum => observerStep.observe(stepNum));
+//     observerLine.observe(line);
+//
+//   };
+//
+//
+// }
 
 {
   // все кнопки, по нажатию на которые появляется поп-ап
@@ -437,84 +442,23 @@ if (employment) {
 
     callToActionButtons.forEach(btn => {
       btn.addEventListener('click', () => {
-        //openFormPopup(formPopup);
 
         (btn.classList.contains('button-popup-ask')) ? openFormPopup__Ask(formPopup) : openFormPopup(formPopup);
 
         const phoneInputs = document.querySelectorAll('input[data-tel-input]');
+        const dateInputs = document.querySelectorAll('input[name="date"]');
         const forms = document.querySelectorAll('.form-popup__item');
 
         if (phoneInputs) validInputTel(phoneInputs);
+        //if (dateInputs) dataMask();
         if (forms) validForm(forms);
         userFormSubmit();
 
-
         if (forms) {
-          const tabsForm = document.querySelectorAll('.form-popup__button-change')
-          const smallForm = document.querySelector('.form-popup__item--small');
           const fullForm = document.querySelector('.form-popup__item--full');
-
-          const activeForm = (form) => form.classList.add('js-active-form');
-          const inActiveForm = (form) => form.classList.remove('js-active-form');
-
-
-          // Сделать активной изначально сокращенную форму
-          // function formSmallActive () {
-          //   activeForm(smallForm);
-          //   inActiveForm(fullForm);
-          //   tabsForm.forEach(tab => tab.classList.remove('js-type-active'));
-          //   tabsForm[0].classList.add('js-type-active');
-          // };
-
-          // Сделать активной изначально полую форму
-          function formFullActive () {
-            if (fullForm && smallForm) {
-              activeForm(fullForm);
-              inActiveForm(smallForm);
-              tabsForm.forEach(tab => tab.classList.remove('js-type-active'));
-              tabsForm[1].classList.add('js-type-active');
-            }
-          };
-
-          //formSmallActive();
-
-          formFullActive()
-
-
-          function switchTypeForm (evt) {
-            inActiveForm(smallForm);
-            inActiveForm(fullForm);
-
-            const dataType = evt.target.dataset.type;
-            if (dataType === 'small') {
-              activeForm(smallForm);
-              inActiveForm(fullForm);
-            }
-            if (dataType === 'full') {
-              activeForm(fullForm);
-              inActiveForm(smallForm);
-            }
-          };
-
-
-          tabsForm.forEach(tab => {
-
-            const forms = tab.closest('.form-popup__content').querySelectorAll('.form-popup__item');
-            forms.forEach( (form) => {
-              if (form.dataset.popup === tab.dataset.popup) tab.classList.add('js-type-active');
-            });
-
-            tab.addEventListener('click', (evt) => {
-              tabsForm.forEach(item => item.classList.remove('js-type-active'));
-              evt.target.classList.add('js-type-active');
-              switchTypeForm(evt);
-            } );
-          });
-
 
           // Функция выбора вакансии в поп-апе при клике на вакансию
           function selectedVacancy (titleVacancy) {
-            formFullActive();
             const vacancyListForm = fullForm.querySelectorAll('.form__input-vacancy option');
             vacancyListForm.forEach(vacancyItem => {
               if (vacancyItem.textContent === titleVacancy) {
@@ -525,6 +469,7 @@ if (employment) {
               }
             });
           };
+
           // Выбор вакансии в поп-апе на странице вакансий
           if (btn.classList.contains('vacancies-button')) {
             const titleVacancy = btn.closest('.vacancies-item')
@@ -538,13 +483,11 @@ if (employment) {
             const titleVacancy = document.querySelector('.vacancy__title').textContent;
             selectedVacancy(titleVacancy);
           };
-
         }
 
       });
     });
   }
-
 
 
 
@@ -628,6 +571,19 @@ if (employment) {
 
 }
 
+//
+// const dataMask = IMask(
+//   document.querySelectorAll('input[name="date"]'),
+//   {
+//     mask: Date,
+//     min: new Date(1990, 0, 1),
+//     lazy: false,
+//   });
+//
+//
+//
+//
+
 const phoneInputs = document.querySelectorAll('input[data-tel-input]');
 
 function validInputTel (phoneInputs) {
@@ -654,7 +610,8 @@ function validInputTel (phoneInputs) {
     if ( ["7", "8", "9"].indexOf(inputNumbersValue[0]) > -1 ) {
       // Российские номера
       if (inputNumbersValue[0] === "9") inputNumbersValue = "7" + inputNumbersValue;
-      let firstSymbols = (inputNumbersValue[0] === "8") ? "8" : "+7";
+      //let firstSymbols = (inputNumbersValue[0] === "8") ? "8" : "+7";
+      let firstSymbols = (inputNumbersValue[0] === "8") ? "+7" : "+7";
       formattedInputValue = firstSymbols + " ";
 
       {
@@ -1410,7 +1367,7 @@ if (vacancies) {
   function addClassFilterActive (items) {
     items.forEach(item => {
       item.addEventListener('click', () => {
-        item.classList.toggle('js-filter-active')
+        item.classList.toggle('js-filter-active');
       })
     })
   };
@@ -1442,8 +1399,14 @@ if (vacancies) {
   const filters = vacancies.querySelector('.vacancies__filters');
   const filtersClose = filters.querySelector('.filters__close');
 
-  const addClassFilterOpen = () => filters.classList.add('js-filter-open');
-  const removeClassFilterOpen = () => filters.classList.remove('js-filter-open');
+  const addClassFilterOpen = () => {
+    filters.classList.add('js-filter-open');
+    blockScrollBody();
+  }
+  const removeClassFilterOpen = () => {
+    filters.classList.remove('js-filter-open');
+    unblockScrollBody();
+  }
 
   filterSettingBtn.addEventListener('click', addClassFilterOpen);
   filtersClose.addEventListener('click', removeClassFilterOpen);
@@ -1458,7 +1421,11 @@ if (vacancies) {
   const vacanciesFilterContentList = vacanciesFilterContent.querySelector('.vacancies-filter-content__list');
 
   const addClassFilterVisible = () => vacanciesFilterContent.classList.add('js-filter-visible');
-  const removeClassFilterVisible = () => vacanciesFilterContent.classList.remove('js-filter-visible');
+  const removeClassFilterVisible = () => {
+    vacanciesFilterContent.classList.remove('js-filter-visible');
+    vacanciesFilterContent.querySelector('.vacancies-filter-content__list').replaceChildren();
+  };
+
 
   function addTagFilter (checkbox) {
     const li = document.createElement('li');
@@ -1473,7 +1440,7 @@ if (vacancies) {
       li.remove();
       checkbox.checked = false;
 
-      const isEmptyFilter = vacanciesFilterContent.querySelector('.vacancies-filter-content__list').children.length === 0;
+      const isEmptyFilter = vacanciesFilterContentList.children.length === 0;
       if (isEmptyFilter) removeClassFilterVisible();
     });
   };
@@ -1490,7 +1457,6 @@ if (vacancies) {
         btn.addEventListener('click', () => {
           checkboxList.forEach(checkbox => checkbox.checked = false);
           removeClassFilterVisible();
-          vacanciesFilterContent.querySelector('.vacancies-filter-content__list').replaceChildren();
         })
       });
     };
@@ -1507,7 +1473,9 @@ if (vacancies) {
 
       if (isSomeChecked && mobileWidth.matches) {
         filtersActions.classList.add('js-filter-active');
-      } else filtersActions.classList.remove('js-filter-active');
+      } else {
+        filtersActions.classList.remove('js-filter-active');
+      }
 
       const mainCheckbox =  checkbox.closest('.filter__item-inner')?.closest('.filter__item').querySelector('input[type="checkbox"]')
       const checkboxesInner = checkbox.parentNode.querySelectorAll('.filter__item-inner input[type="checkbox"]');
@@ -1529,6 +1497,7 @@ if (vacancies) {
         })
         if (mainCheckbox && !isCheckedInner) mainCheckbox.checked = false;
         if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = false);
+
       }
       isSomeChecked ? addClassFilterVisible() : removeClassFilterVisible();
 

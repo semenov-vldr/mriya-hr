@@ -50,6 +50,10 @@
                   <svg width="20" height="17" fill="#393737">
                     <use href="./assets/img/sprite.svg#icon-student"></use>
                   </svg>Студентам</a></li>
+              <li class="header-nav__item"><a class="header-nav__link" href="faq.html">
+                  <svg width="18" height="18" fill="#393737">
+                    <use href="./assets/img/sprite.svg#icon-about"></use>
+                  </svg>FAQ</a></li>
               <li class="header-nav__item"><a class="header-nav__link" href="vacancies.html">
                   <svg width="16" height="16" fill="#393737">
                     <use href="./assets/img/sprite.svg#header-vacansy"></use>
@@ -75,6 +79,9 @@
         <div class="button button--accent button-popup button-scroll fill-form white">Заполнить анкету</div>
       </header>
       <main>
+        <div class="breadcrumbs">
+          <div class="breadcrumbs__container container"><a class="breadcrumbs__item" href="/">Главная</a><a class="breadcrumbs__item" href="">Студентам</a></div>
+        </div>
         <section class="section-column">
           <div class="hero-student">
             <div class="hero-student__container container">
@@ -367,7 +374,7 @@
                 </div>
                 <div class="employment__steps employment-steps">
                   <ul class="employment-steps__list"><span class="employment-steps__line employment-steps__line--static"></span><span class="employment-steps__line employment-steps__line--change"></span>
-                    <li class="employment-steps__item employment-steps-item"><span class="employment-steps-item__number" data-number="1">1</span><b class="employment-steps-item__title">Найти подходящую заявку и откликнуться</b>
+                    <li class="employment-steps__item employment-steps-item"><span class="employment-steps-item__number" data-number="1">1</span><b class="employment-steps-item__title">Найти подходящую вакансию и откликнуться</b>
                       <p class="employment-steps-item__text">Мы рассматрим заявку (не волнуйтесь, это не долго) и пригласим вас на следующий этап</p>
                     </li>
                     <li class="employment-steps__item employment-steps-item"><span class="employment-steps-item__number" data-number="2">2</span><b class="employment-steps-item__title">Собеседование со специалистом по подбору</b>
@@ -747,11 +754,7 @@
         </section>
         <template id="form-popup">
           <div class="form-popup">
-            <div class="form-popup__content">
-              <div class="form-popup__buttons-change">
-                <button class="form-popup__button-change" data-type="small">Сокращенная форма</button>
-                <button class="form-popup__button-change" data-type="full">Полная форма</button>
-              </div><span class="form-popup__close">
+            <div class="form-popup__content"><span class="form-popup__close">
                 <svg width="14" height="14" fill="#000">
                   <use href="./assets/img/sprite.svg#close-menu"></use>
                 </svg></span>
@@ -759,27 +762,6 @@
                 <h2 class="form-popup__title">Оставьте заявку</h2>
                 <p class="form-popup__subtitle">Менеджер свяжется с вами в ближайшее время</p>
               </header>
-              <form class="form-popup__item form-popup__item--small" method="POST" action="" enctype="multipart/form-data" autocomplete="off" data-popup="small">
-                <div class="form__input-container">
-                  <label>Имя
-                    <input placeholder="Константин" name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" required="required"/><span class="form__error form__error--inputName">Ошибка</span>
-                  </label>
-                </div>
-                <div class="form__input-container">
-                  <label>Телефон
-                    <input type="tel" name="phone" placeholder="+0 000 000 00 00" data-tel-input="" pattern=".{18,}" maxlength="18" autocomplete="off" required="required"/><span class="form__error form__error--inputTel"></span>
-                  </label>
-                </div>
-                <div class="form__input-container">
-                  <label>Комментарий
-                    <textarea placeholder="Введите ваше сообщение..." name="message" maxlength="200" rows="4"></textarea><span class="form__error form__error--inputText"></span>
-                  </label>
-                </div>
-                <div class="form-popup__sending form-popup-sending">
-                  <p class="form-popup-sending__agreement">Нажимая кнопку, вы соглашаетесь с<a href="">&#160; политикой конфиденциальности</a></p>
-                  <button class="button button--accent" type="submit">Отправить</button>
-                </div>
-              </form>
               <form class="form-popup__item form-popup__item--full" method="POST" action="" enctype="multipart/form-data" autocomplete="off" data-popup="full">
                 <div class="form__input-container">
                   <label>Фамилия
@@ -798,7 +780,7 @@
                 </div>
                 <div class="form__input-container">
                   <label>Дата рождения
-                    <input placeholder="дд.мм.гггг" name="name" pattern="\d{2}\.\d{2}\.\d{4}" autocomplete="off" maxlength="10"/><span class="form__error form__error--inputDate"></span>
+                    <input type="number" placeholder="дд.мм.гггг" name="date" autocomplete="off" maxlength="10"/><span class="form__error form__error--inputDate"></span>
                   </label>
                 </div>
                 <div class="form__input-container">
@@ -811,7 +793,7 @@
                     <input placeholder="Москва" name="city" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off"/><span class="form__error form__error--inputCity"></span>
                   </label>
                 </div>
-                <div class="form__input-container">
+                <div class="form__input-container form__input-container--select">
                   <label>Желаемая вакансия</label>
                   <select class="form__input-vacancy">
                     <option selected value="">Выберите вакансию из списка</option>
