@@ -24,7 +24,8 @@ function validInputTel (phoneInputs) {
     if ( ["7", "8", "9"].indexOf(inputNumbersValue[0]) > -1 ) {
       // Российские номера
       if (inputNumbersValue[0] === "9") inputNumbersValue = "7" + inputNumbersValue;
-      let firstSymbols = (inputNumbersValue[0] === "8") ? "8" : "+7";
+      //let firstSymbols = (inputNumbersValue[0] === "8") ? "8" : "+7";
+      let firstSymbols = (inputNumbersValue[0] === "8") ? "+7" : "+7";
       formattedInputValue = firstSymbols + " ";
 
       {

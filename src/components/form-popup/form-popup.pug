@@ -2,27 +2,13 @@ template#form-popup
   .form-popup
 
     .form-popup__content
-      .form-popup__buttons-change
-        button.form-popup__button-change(data-type="small") Сокращенная форма
-        button.form-popup__button-change(data-type="full") Полная форма
+
       span.form-popup__close
         svg(width="14" height="14" fill="#000")
           use(href='./assets/img/sprite.svg#close-menu')
       header.form-popup__header
         h2.form-popup__title Оставьте заявку
         p.form-popup__subtitle Менеджер свяжется с вами в ближайшее время
-
-      form.form-popup__item.form-popup__item--small(method='POST' action='' enctype="multipart/form-data" autocomplete="off" data-popup="small")
-
-        +inputName
-        +inputTel
-        +inputText
-
-        .form-popup__sending.form-popup-sending
-          p.form-popup-sending__agreement Нажимая кнопку, вы соглашаетесь с
-            a(href="") &#160; политикой конфиденциальности
-
-          button.button.button--accent(type='submit') Отправить
 
       form.form-popup__item.form-popup__item--full(method='POST' action='' enctype="multipart/form-data" autocomplete="off" data-popup="full")
 
@@ -33,7 +19,7 @@ template#form-popup
         +inputTel
         +inputCity
 
-        .form__input-container
+        .form__input-container.form__input-container--select
           label Желаемая вакансия
           select.form__input-vacancy
             option(selected value="") Выберите вакансию из списка

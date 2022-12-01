@@ -44,11 +44,11 @@
 
   &-advantages
     margin: 0 auto
+    margin-bottom: 96px
     background-color: #fff
     justify-content: center
     display: grid
     grid-template-columns: repeat(4, 1fr)
-    margin-bottom: 96px
     @media (max-width: 1300px)
       grid-template-columns: repeat(2, 1fr)
     @media (max-width: 768px)
@@ -65,19 +65,21 @@
         padding: 20px
 
   &__content
-    display: grid
-    grid-template-columns: 45% auto
+    overflow: hidden
+    display: flex
     gap: 48px 128px
     @media (max-width: 1000px)
       gap: 48px
       display: flex
       flex-direction: column
 
-  .swiper-wrapper
-    @media (min-width: 1000.1px)
-      display: block
+  &-swiper
+    position: relative
+    flex: 0 0 45%
+    max-height: 750px
 
   &__images
+    display: flex
     position: relative
     width: 100%
     img
@@ -86,16 +88,14 @@
       object-fit: cover
       display: block
       @media (min-width: 1000px)
-        display: none
-        position: absolute
         &.js-photo-active
           display: block
       @media (max-width: 1000px)
         aspect-ratio: 1 / 1
 
-    @media (max-width: 1000px)
-      //aspect-ratio: 1 / 1
-      //aspect-ratio: 5 / 6
+  .employment__image-item-wrapper
+    box-shadow: none
+
 
   &-steps
 
@@ -147,12 +147,15 @@
         transform: translateX(-100%)
         transition: $transition
         user-select: none
-        &.js-scroll-animate
+        &.js-scroll-animate,
+        &.js-step-active
           background-color: $black
           border-color: $black
           color: #fff
         @media (max-width: 1000px)
           left: 20px
+        @media (min-width: 1000px)
+          display: none
 
       &__title
         @include fontSize(16, 20)
@@ -175,5 +178,44 @@
     margin: 120px auto 0
     @media (max-width: 1000px)
       margin-top: 60px
+
+
+
+  .swiper-pagination
+    position: absolute
+    display: flex
+    flex-direction: column
+    bottom: -350px
+    right: -78px
+    //gap: 50px
+
+
+  .swiper-pagination-bullet
+    color: $black
+    font-weight: 600
+    background-color: #fff
+    width: 28px
+    height: 28px
+    border-radius: 50%
+    border: 1px solid #39373726
+    @extend .flex-center
+    opacity: 1
+
+
+    &:nth-child(2)
+      margin-top: 95px
+    &:nth-child(3)
+      margin-top: 148px
+    &:nth-child(4)
+      margin-top: 150px
+    &:nth-child(5)
+      margin-top: 90px
+
+
+
+  .swiper-pagination-bullet-active
+    background-color: $black
+    border-color: $black
+    color: #fff
 
 

@@ -45,7 +45,7 @@ mixin inputPatronymic
 mixin inputDate
   .form__input-container
     label Дата рождения
-      input(placeholder="дд.мм.гггг" name="name" pattern="\\d{2}\\.\\d{2}\\.\\d{4}" autocomplete='off' maxlength='10'  )
+      input(type="number" placeholder="дд.мм.гггг" name="date" autocomplete='off' maxlength='10'  )
       span.form__error.form__error--inputDate
 
 // Tel

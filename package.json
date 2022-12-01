@@ -25,6 +25,7 @@
   "author": "Semenov Vladimir",
   "license": "ISC",
   "dependencies": {
-    "@fancyapps/ui": "^4.0.31"
+    "@fancyapps/ui": "^4.0.31",
+    "imask": "^6.4.3"
   }
 }

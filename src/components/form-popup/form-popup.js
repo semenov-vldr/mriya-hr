@@ -61,84 +61,23 @@
 
     callToActionButtons.forEach(btn => {
       btn.addEventListener('click', () => {
-        //openFormPopup(formPopup);
 
         (btn.classList.contains('button-popup-ask')) ? openFormPopup__Ask(formPopup) : openFormPopup(formPopup);
 
         const phoneInputs = document.querySelectorAll('input[data-tel-input]');
+        const dateInputs = document.querySelectorAll('input[name="date"]');
         const forms = document.querySelectorAll('.form-popup__item');
 
         if (phoneInputs) validInputTel(phoneInputs);
+        //if (dateInputs) dataMask();
         if (forms) validForm(forms);
         userFormSubmit();
 
-
         if (forms) {
-          const tabsForm = document.querySelectorAll('.form-popup__button-change')
-          const smallForm = document.querySelector('.form-popup__item--small');
           const fullForm = document.querySelector('.form-popup__item--full');
-
-          const activeForm = (form) => form.classList.add('js-active-form');
-          const inActiveForm = (form) => form.classList.remove('js-active-form');
-
-
-          // Сделать активной изначально сокращенную форму
-          // function formSmallActive () {
-          //   activeForm(smallForm);
-          //   inActiveForm(fullForm);
-          //   tabsForm.forEach(tab => tab.classList.remove('js-type-active'));
-          //   tabsForm[0].classList.add('js-type-active');
-          // };
-
-          // Сделать активной изначально полую форму
-          function formFullActive () {
-            if (fullForm && smallForm) {
-              activeForm(fullForm);
-              inActiveForm(smallForm);
-              tabsForm.forEach(tab => tab.classList.remove('js-type-active'));
-              tabsForm[1].classList.add('js-type-active');
-            }
-          };
-
-          //formSmallActive();
-
-          formFullActive()
-
-
-          function switchTypeForm (evt) {
-            inActiveForm(smallForm);
-            inActiveForm(fullForm);
-
-            const dataType = evt.target.dataset.type;
-            if (dataType === 'small') {
-              activeForm(smallForm);
-              inActiveForm(fullForm);
-            }
-            if (dataType === 'full') {
-              activeForm(fullForm);
-              inActiveForm(smallForm);
-            }
-          };
-
-
-          tabsForm.forEach(tab => {
-
-            const forms = tab.closest('.form-popup__content').querySelectorAll('.form-popup__item');
-            forms.forEach( (form) => {
-              if (form.dataset.popup === tab.dataset.popup) tab.classList.add('js-type-active');
-            });
-
-            tab.addEventListener('click', (evt) => {
-              tabsForm.forEach(item => item.classList.remove('js-type-active'));
-              evt.target.classList.add('js-type-active');
-              switchTypeForm(evt);
-            } );
-          });
-
 
           // Функция выбора вакансии в поп-апе при клике на вакансию
           function selectedVacancy (titleVacancy) {
-            formFullActive();
             const vacancyListForm = fullForm.querySelectorAll('.form__input-vacancy option');
             vacancyListForm.forEach(vacancyItem => {
               if (vacancyItem.textContent === titleVacancy) {
@@ -149,6 +88,7 @@
               }
             });
           };
+
           // Выбор вакансии в поп-апе на странице вакансий
           if (btn.classList.contains('vacancies-button')) {
             const titleVacancy = btn.closest('.vacancies-item')
@@ -162,13 +102,11 @@
             const titleVacancy = document.querySelector('.vacancy__title').textContent;
             selectedVacancy(titleVacancy);
           };
-
         }
 
       });
     });
   }
-
 
 
 

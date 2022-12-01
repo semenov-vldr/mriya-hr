@@ -1,8 +1,5 @@
 
 {
-
-  //const mobileWidth = window.matchMedia('(max-width: 1000px)').matches;
-
   let mySwiper;
 
   const swiperList = document.querySelectorAll('.employment-swiper');
@@ -11,32 +8,21 @@
     swiperList.forEach(swiper => {
 
       mySwiper = new Swiper(swiper, {
-        // pagination: {
-        //   el: '.swiper-pagination',
-        //   clickable: true,
-        // },
+
         navigation: {
           nextEl: '.slider-nav__next',
           prevEl: '.slider-nav__prev',
         },
 
-        // scrollbar: {
-        //   el: '.swiper-scrollbar',
-        //   draggable: true,
-        // },
-
-        //createElements: true,
-        slideClass: 'employment__image-item',
-
         uniqueNavElements: true,
-
-        slidesPerView: 1,
 
         // Бесконечная прокрутка
         //loop: true,
 
         // Откл функционала, если слайдов меньше, чем нужно
         watchOverflow: true,
+
+        slidesPerView: 1,
 
         //centeredSlides: true,
 
@@ -63,19 +49,42 @@
             slidesPerView: 1.5
           },
 
-          // 1100: {
-          //   slidesPerView: 2.2
-          // },
-
           1000: {
-            enable: false,
+            autoplay: {
+              delay: 1000,
+            },
+
+            loop: true,
+            slidesPerView: 1,
+
+            direction: "vertical",
+            effect: "fade",
+
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+
+              renderBullet: function (index, className) {
+                return '<span class="' + className + '">' + ++index + '</span>';
+              }
+            },
+
+
           }
 
         }
       });
 
+
+
+
+
     })
+
+
+
   }
+
 
 
 

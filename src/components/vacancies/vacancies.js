@@ -5,7 +5,7 @@ if (vacancies) {
   function addClassFilterActive (items) {
     items.forEach(item => {
       item.addEventListener('click', () => {
-        item.classList.toggle('js-filter-active')
+        item.classList.toggle('js-filter-active');
       })
     })
   };
@@ -37,8 +37,14 @@ if (vacancies) {
   const filters = vacancies.querySelector('.vacancies__filters');
   const filtersClose = filters.querySelector('.filters__close');
 
-  const addClassFilterOpen = () => filters.classList.add('js-filter-open');
-  const removeClassFilterOpen = () => filters.classList.remove('js-filter-open');
+  const addClassFilterOpen = () => {
+    filters.classList.add('js-filter-open');
+    blockScrollBody();
+  }
+  const removeClassFilterOpen = () => {
+    filters.classList.remove('js-filter-open');
+    unblockScrollBody();
+  }
 
   filterSettingBtn.addEventListener('click', addClassFilterOpen);
   filtersClose.addEventListener('click', removeClassFilterOpen);
@@ -53,7 +59,11 @@ if (vacancies) {
   const vacanciesFilterContentList = vacanciesFilterContent.querySelector('.vacancies-filter-content__list');
 
   const addClassFilterVisible = () => vacanciesFilterContent.classList.add('js-filter-visible');
-  const removeClassFilterVisible = () => vacanciesFilterContent.classList.remove('js-filter-visible');
+  const removeClassFilterVisible = () => {
+    vacanciesFilterContent.classList.remove('js-filter-visible');
+    vacanciesFilterContent.querySelector('.vacancies-filter-content__list').replaceChildren();
+  };
+
 
   function addTagFilter (checkbox) {
     const li = document.createElement('li');
@@ -68,7 +78,7 @@ if (vacancies) {
       li.remove();
       checkbox.checked = false;
 
-      const isEmptyFilter = vacanciesFilterContent.querySelector('.vacancies-filter-content__list').children.length === 0;
+      const isEmptyFilter = vacanciesFilterContentList.children.length === 0;
       if (isEmptyFilter) removeClassFilterVisible();
     });
   };
@@ -85,7 +95,6 @@ if (vacancies) {
         btn.addEventListener('click', () => {
           checkboxList.forEach(checkbox => checkbox.checked = false);
           removeClassFilterVisible();
-          vacanciesFilterContent.querySelector('.vacancies-filter-content__list').replaceChildren();
         })
       });
     };
@@ -102,7 +111,9 @@ if (vacancies) {
 
       if (isSomeChecked && mobileWidth.matches) {
         filtersActions.classList.add('js-filter-active');
-      } else filtersActions.classList.remove('js-filter-active');
+      } else {
+        filtersActions.classList.remove('js-filter-active');
+      }
 
       const mainCheckbox =  checkbox.closest('.filter__item-inner')?.closest('.filter__item').querySelector('input[type="checkbox"]')
       const checkboxesInner = checkbox.parentNode.querySelectorAll('.filter__item-inner input[type="checkbox"]');
@@ -124,6 +135,7 @@ if (vacancies) {
         })
         if (mainCheckbox && !isCheckedInner) mainCheckbox.checked = false;
         if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = false);
+
       }
       isSomeChecked ? addClassFilterVisible() : removeClassFilterVisible();
 

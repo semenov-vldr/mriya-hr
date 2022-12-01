@@ -11,11 +11,18 @@
 
       .employment-swiper.swiper
         .employment__images.swiper-wrapper
-          img.employment__image-item(src="./assets/img/employment/01.jpg")
-          img.employment__image-item(src="./assets/img/employment/02.jpg")
-          img.employment__image-item(src="./assets/img/employment/03.jpg")
-          img.employment__image-item(src="./assets/img/employment/04.jpg")
-          img.employment__image-item(src="./assets/img/employment/05.jpg")
+          .swiper-slide.employment__image-item-wrapper
+            img.employment__image-item(src="./assets/img/employment/01.jpg")
+          .swiper-slide.employment__image-item-wrapper
+            img.employment__image-item(src="./assets/img/employment/02.jpg")
+          .swiper-slide.employment__image-item-wrapper
+            img.employment__image-item(src="./assets/img/employment/03.jpg")
+          .swiper-slide.employment__image-item-wrapper
+            img.employment__image-item(src="./assets/img/employment/04.jpg")
+          .swiper-slide.employment__image-item-wrapper
+            img.employment__image-item(src="./assets/img/employment/05.jpg")
+
+        .swiper-pagination
 
 
       .employment__steps.employment-steps
@@ -26,7 +33,7 @@
 
           li.employment-steps__item.employment-steps-item
             span.employment-steps-item__number(data-number="1") 1
-            b.employment-steps-item__title Найти подходящую заявку и откликнуться
+            b.employment-steps-item__title Найти подходящую вакансию и откликнуться
             p.employment-steps-item__text Мы рассматрим заявку (не волнуйтесь, это не долго) и пригласим вас на следующий этап
 
           li.employment-steps__item.employment-steps-item

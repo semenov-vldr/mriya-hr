@@ -1,7 +1,7 @@
 extends ../layouts/main
 
 block variables
-  - var title = "Статья"
+  - var title = "FAQ"
   - var pageClass = ''
   - var activePage = 'index'
 
@@ -10,13 +10,12 @@ block content
   .breadcrumbs
     .breadcrumbs__container.container
       a.breadcrumbs__item(href="/") Главная
-      a.breadcrumbs__item(href="") Блог
-      a.breadcrumbs__item(href="") Статья
+      a.breadcrumbs__item(href="") FAQ
 
   section.section-column
 
-    include ../components/article/article
-
+    include ../components/faq/faq
+    include ../components/feedback/feedback
 
 
 
