@@ -450,7 +450,9 @@ let previousPosition = window.scrollTop || document.documentElement.scrollTop;
         const forms = document.querySelectorAll('.form-popup__item');
 
         if (phoneInputs) validInputTel(phoneInputs);
-        //if (dateInputs) dataMask();
+
+        //if (dateInputs) dateMask(); // test
+
         if (forms) validForm(forms);
         userFormSubmit();
 
@@ -571,18 +573,22 @@ let previousPosition = window.scrollTop || document.documentElement.scrollTop;
 
 }
 
-//
-// const dataMask = IMask(
-//   document.querySelectorAll('input[name="date"]'),
+
+// let dateMask = IMask(
+//   document.querySelector('input[name="date"]'),
 //   {
 //     mask: Date,
 //     min: new Date(1990, 0, 1),
-//     lazy: false,
 //   });
-//
-//
-//
-//
+
+
+
+
+
+
+
+const dateInputList = document.querySelectorAll('input[name="date"]');
+
 
 const phoneInputs = document.querySelectorAll('input[data-tel-input]');
 
@@ -623,7 +629,6 @@ function validInputTel (phoneInputs) {
       }
 
 
-
       if (inputNumbersValue.length > 1) {
         formattedInputValue += "(" + inputNumbersValue.slice(1, 4);
       }
@@ -640,7 +645,7 @@ function validInputTel (phoneInputs) {
         formattedInputValue += "-" + inputNumbersValue.slice(9, 11);
       }
 
-// Не российские номера
+      // Не российские номера
     } else formattedInputValue = "+" + inputNumbersValue;
 
     input.value = formattedInputValue;
@@ -1497,7 +1502,6 @@ if (vacancies) {
         })
         if (mainCheckbox && !isCheckedInner) mainCheckbox.checked = false;
         if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = false);
-
       }
       isSomeChecked ? addClassFilterVisible() : removeClassFilterVisible();
 
