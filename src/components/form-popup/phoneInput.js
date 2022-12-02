@@ -37,7 +37,6 @@ function validInputTel (phoneInputs) {
       }
 
 
-
       if (inputNumbersValue.length > 1) {
         formattedInputValue += "(" + inputNumbersValue.slice(1, 4);
       }
@@ -54,7 +53,7 @@ function validInputTel (phoneInputs) {
         formattedInputValue += "-" + inputNumbersValue.slice(9, 11);
       }
 
-// Не российские номера
+      // Не российские номера
     } else formattedInputValue = "+" + inputNumbersValue;
 
     input.value = formattedInputValue;

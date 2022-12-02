@@ -69,7 +69,9 @@
         const forms = document.querySelectorAll('.form-popup__item');
 
         if (phoneInputs) validInputTel(phoneInputs);
-        //if (dateInputs) dataMask();
+
+        //if (dateInputs) dateMask(); // test
+
         if (forms) validForm(forms);
         userFormSubmit();
 

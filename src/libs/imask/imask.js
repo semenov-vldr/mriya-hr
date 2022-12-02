@@ -1,7 +1,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-    typeof define === 'function' && define.amd ? define(['exports'], factory) :
-      (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.IMask = {}));
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.IMask = {}));
 })(this, (function (exports) { 'use strict';
 
   function _typeof(obj) {
@@ -159,7 +159,7 @@
 
     return function _createSuperInternal() {
       var Super = _getPrototypeOf(Derived),
-        result;
+          result;
 
       if (hasNativeReflectConstruct) {
         var NewTarget = _getPrototypeOf(this).constructor;
@@ -329,13 +329,13 @@
   }
 
   /**
-   Provides details of changing model value
-   @param {Object} [details]
-   @param {string} [details.inserted] - Inserted symbols
-   @param {boolean} [details.skip] - Can skip chars
-   @param {number} [details.removeCount] - Removed symbols count
-   @param {number} [details.tailShift] - Additional offset if any changes occurred before tail
-   */
+    Provides details of changing model value
+    @param {Object} [details]
+    @param {string} [details.inserted] - Inserted symbols
+    @param {boolean} [details.skip] - Can skip chars
+    @param {number} [details.removeCount] - Removed symbols count
+    @param {number} [details.tailShift] - Additional offset if any changes occurred before tail
+  */
   var ChangeDetails = /*#__PURE__*/function () {
     /** Inserted symbols */
 
@@ -355,9 +355,9 @@
       }, details);
     }
     /**
-     Aggregate changes
-     @returns {ChangeDetails} `this`
-     */
+      Aggregate changes
+      @returns {ChangeDetails} `this`
+    */
 
 
     _createClass(ChangeDetails, [{
@@ -387,13 +387,13 @@
     return typeof str === 'string' || str instanceof String;
   }
   /**
-   Direction
-   @prop {string} NONE
-   @prop {string} LEFT
-   @prop {string} FORCE_LEFT
-   @prop {string} RIGHT
-   @prop {string} FORCE_RIGHT
-   */
+    Direction
+    @prop {string} NONE
+    @prop {string} LEFT
+    @prop {string} FORCE_LEFT
+    @prop {string} RIGHT
+    @prop {string} FORCE_RIGHT
+  */
 
   var DIRECTION = {
     NONE: 'NONE',
@@ -428,8 +428,8 @@
   function objectIncludes(b, a) {
     if (a === b) return true;
     var arrA = Array.isArray(a),
-      arrB = Array.isArray(b),
-      i;
+        arrB = Array.isArray(b),
+        i;
 
     if (arrA && arrB) {
       if (a.length != b.length) return false;
@@ -445,11 +445,11 @@
 
     if (a && b && _typeof(a) === 'object' && _typeof(b) === 'object') {
       var dateA = a instanceof Date,
-        dateB = b instanceof Date;
+          dateB = b instanceof Date;
       if (dateA && dateB) return a.getTime() == b.getTime();
       if (dateA != dateB) return false;
       var regexpA = a instanceof RegExp,
-        regexpB = b instanceof RegExp;
+          regexpB = b instanceof RegExp;
       if (regexpA && regexpB) return a.toString() == b.toString();
       if (regexpA != regexpB) return false;
       var keys = Object.keys(a); // if (keys.length !== Object.keys(b).length) return false;
@@ -495,9 +495,9 @@
       }
     }
     /**
-     Start changing position
-     @readonly
-     */
+      Start changing position
+      @readonly
+    */
 
 
     _createClass(ActionDetails, [{
@@ -506,9 +506,9 @@
         return Math.min(this.cursorPos, this.oldSelection.start);
       }
       /**
-       Inserted symbols count
-       @readonly
-       */
+        Inserted symbols count
+        @readonly
+      */
 
     }, {
       key: "insertedCount",
@@ -516,9 +516,9 @@
         return this.cursorPos - this.startChangePos;
       }
       /**
-       Inserted symbols
-       @readonly
-       */
+        Inserted symbols
+        @readonly
+      */
 
     }, {
       key: "inserted",
@@ -526,21 +526,21 @@
         return this.value.substr(this.startChangePos, this.insertedCount);
       }
       /**
-       Removed symbols count
-       @readonly
-       */
+        Removed symbols count
+        @readonly
+      */
 
     }, {
       key: "removedCount",
       get: function get() {
         // Math.max for opposite operation
         return Math.max(this.oldSelection.end - this.startChangePos || // for Delete
-          this.oldValue.length - this.value.length, 0);
+        this.oldValue.length - this.value.length, 0);
       }
       /**
-       Removed symbols
-       @readonly
-       */
+        Removed symbols
+        @readonly
+      */
 
     }, {
       key: "removed",
@@ -548,9 +548,9 @@
         return this.oldValue.substr(this.startChangePos, this.removedCount);
       }
       /**
-       Unchanged head symbols
-       @readonly
-       */
+        Unchanged head symbols
+        @readonly
+      */
 
     }, {
       key: "head",
@@ -558,9 +558,9 @@
         return this.value.substring(0, this.startChangePos);
       }
       /**
-       Unchanged tail symbols
-       @readonly
-       */
+        Unchanged tail symbols
+        @readonly
+      */
 
     }, {
       key: "tail",
@@ -568,9 +568,9 @@
         return this.value.substring(this.startChangePos + this.insertedCount);
       }
       /**
-       Remove direction
-       @readonly
-       */
+        Remove direction
+        @readonly
+      */
 
     }, {
       key: "removeDirection",
@@ -713,9 +713,9 @@
         this.withValueRefresh(this._update.bind(this, opts));
       }
       /**
-       Sets new options
-       @protected
-       */
+        Sets new options
+        @protected
+      */
 
     }, {
       key: "_update",
@@ -1002,9 +1002,9 @@
         return ret;
       }
       /**
-       Prepares string before mask processing
-       @protected
-       */
+        Prepares string before mask processing
+        @protected
+      */
 
     }, {
       key: "doPrepare",
@@ -1013,9 +1013,9 @@
         return this.prepare ? this.prepare(str, this, flags) : str;
       }
       /**
-       Validates if value is acceptable
-       @protected
-       */
+        Validates if value is acceptable
+        @protected
+      */
 
     }, {
       key: "doValidate",
@@ -1023,9 +1023,9 @@
         return (!this.validate || this.validate(this.value, this, flags)) && (!this.parent || this.parent.doValidate(flags));
       }
       /**
-       Does additional processing in the end of editing
-       @protected
-       */
+        Does additional processing in the end of editing
+        @protected
+      */
 
     }, {
       key: "doCommit",
@@ -1183,7 +1183,7 @@
       _classCallCheck(this, PatternInputDefinition);
 
       var mask = opts.mask,
-        blockOpts = _objectWithoutProperties(opts, _excluded$4);
+          blockOpts = _objectWithoutProperties(opts, _excluded$4);
 
       this.masked = createMask({
         mask: mask
@@ -1522,8 +1522,8 @@
         if (isString(tailChunk)) tailChunk = new ContinuousTailDetails(String(tailChunk));
         var lastChunk = this.chunks[this.chunks.length - 1];
         var extendLast = lastChunk && ( // if stops are same or tail has no stop
-            lastChunk.stop === tailChunk.stop || tailChunk.stop == null) && // if tail chunk goes just after last chunk
-          tailChunk.from === lastChunk.from + lastChunk.toString().length;
+        lastChunk.stop === tailChunk.stop || tailChunk.stop == null) && // if tail chunk goes just after last chunk
+        tailChunk.from === lastChunk.from + lastChunk.toString().length;
 
         if (tailChunk instanceof ContinuousTailDetails) {
           // check the ability to extend previous chunk
@@ -1574,9 +1574,9 @@
           var chunkBlock = void 0;
 
           if (stop != null && ( // if block not found or stop is behind lastBlock
-            !lastBlockIter || lastBlockIter.index <= stop)) {
+          !lastBlockIter || lastBlockIter.index <= stop)) {
             if (chunk instanceof ChunksTailDetails || // for continuous block also check if stop is exist
-              masked._stops.indexOf(stop) >= 0) {
+            masked._stops.indexOf(stop) >= 0) {
               details.aggregate(masked._appendPlaceholder(stop));
             }
 
@@ -1616,7 +1616,7 @@
       },
       set: function set(state) {
         var chunks = state.chunks,
-          props = _objectWithoutProperties(state, _excluded$3);
+            props = _objectWithoutProperties(state, _excluded$3);
 
         Object.assign(this, props);
         this.chunks = chunks.map(function (cstate) {
@@ -1690,16 +1690,16 @@
       this._log = [];
 
       var _ref = masked._mapPosToBlock(pos) || (pos < 0 ? // first
-          {
-            index: 0,
-            offset: 0
-          } : // last
-          {
-            index: this.masked._blocks.length,
-            offset: 0
-          }),
-        offset = _ref.offset,
-        index = _ref.index;
+      {
+        index: 0,
+        offset: 0
+      } : // last
+      {
+        index: this.masked._blocks.length,
+        offset: 0
+      }),
+          offset = _ref.offset,
+          index = _ref.index;
 
       this.offset = offset;
       this.index = index;
@@ -1877,17 +1877,17 @@
     _createClass(MaskedRegExp, [{
       key: "_update",
       value:
-        /**
-         @override
-         @param {Object} opts
-         */
-        function _update(opts) {
-          if (opts.mask) opts.validate = function (value) {
-            return value.search(opts.mask) >= 0;
-          };
+      /**
+        @override
+        @param {Object} opts
+      */
+      function _update(opts) {
+        if (opts.mask) opts.validate = function (value) {
+          return value.search(opts.mask) >= 0;
+        };
 
-          _get(_getPrototypeOf(MaskedRegExp.prototype), "_update", this).call(this, opts);
-        }
+        _get(_getPrototypeOf(MaskedRegExp.prototype), "_update", this).call(this, opts);
+      }
     }]);
 
     return MaskedRegExp;
@@ -1897,13 +1897,13 @@
   var _excluded$2 = ["_blocks"];
 
   /**
-   Pattern mask
-   @param {Object} opts
-   @param {Object} opts.blocks
-   @param {Object} opts.definitions
-   @param {string} opts.placeholderChar
-   @param {boolean} opts.lazy
-   */
+    Pattern mask
+    @param {Object} opts
+    @param {Object} opts.blocks
+    @param {Object} opts.definitions
+    @param {string} opts.placeholderChar
+    @param {boolean} opts.lazy
+  */
   var MaskedPattern = /*#__PURE__*/function (_Masked) {
     _inherits(MaskedPattern, _Masked);
 
@@ -1926,9 +1926,9 @@
       return _super.call(this, Object.assign({}, MaskedPattern.DEFAULTS, opts));
     }
     /**
-     @override
-     @param {Object} opts
-     */
+      @override
+      @param {Object} opts
+    */
 
 
     _createClass(MaskedPattern, [{
@@ -2041,8 +2041,8 @@
         }
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "state",
@@ -2055,7 +2055,7 @@
       },
       set: function set(state) {
         var _blocks = state._blocks,
-          maskedState = _objectWithoutProperties(state, _excluded$2);
+            maskedState = _objectWithoutProperties(state, _excluded$2);
 
         this._blocks.forEach(function (b, bi) {
           return b.state = _blocks[bi];
@@ -2064,8 +2064,8 @@
         _set(_getPrototypeOf(MaskedPattern.prototype), "state", maskedState, this, true);
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "reset",
@@ -2077,8 +2077,8 @@
         });
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "isComplete",
@@ -2088,8 +2088,8 @@
         });
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "isFilled",
@@ -2113,8 +2113,8 @@
         });
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "doCommit",
@@ -2126,8 +2126,8 @@
         _get(_getPrototypeOf(MaskedPattern.prototype), "doCommit", this).call(this);
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "unmaskedValue",
@@ -2140,8 +2140,8 @@
         _set(_getPrototypeOf(MaskedPattern.prototype), "unmaskedValue", unmaskedValue, this, true);
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "value",
@@ -2155,8 +2155,8 @@
         _set(_getPrototypeOf(MaskedPattern.prototype), "value", value, this, true);
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "appendTail",
@@ -2164,8 +2164,8 @@
         return _get(_getPrototypeOf(MaskedPattern.prototype), "appendTail", this).call(this, tail).aggregate(this._appendPlaceholder());
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "_appendEager",
@@ -2188,8 +2188,8 @@
         return details;
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "_appendCharRaw",
@@ -2219,8 +2219,8 @@
         return details;
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "extractTail",
@@ -2243,8 +2243,8 @@
         return chunkTail;
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "extractInput",
@@ -2363,8 +2363,8 @@
         }
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "remove",
@@ -2381,8 +2381,8 @@
         return removeDetails;
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "nearestInputPos",
@@ -2506,21 +2506,21 @@
       key: "_matchFrom",
       get:
       /**
-       Optionally sets max length of pattern.
-       Used when pattern length is longer then `to` param length. Pads zeros at start in this case.
-       */
+        Optionally sets max length of pattern.
+        Used when pattern length is longer then `to` param length. Pads zeros at start in this case.
+      */
 
       /** Min bound */
 
       /** Max bound */
 
-        /** */
-        function get() {
-          return this.maxLength - String(this.from).length;
-        }
+      /** */
+      function get() {
+        return this.maxLength - String(this.from).length;
+      }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "_update",
@@ -2547,8 +2547,8 @@
         _get(_getPrototypeOf(MaskedRange.prototype), "_update", this).call(this, opts);
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "isComplete",
@@ -2562,9 +2562,9 @@
         var maxstr = '';
 
         var _ref = str.match(/^(\D*)(\d*)(\D*)/) || [],
-          _ref2 = _slicedToArray(_ref, 3),
-          placeholder = _ref2[1],
-          num = _ref2[2];
+            _ref2 = _slicedToArray(_ref, 3),
+            placeholder = _ref2[1],
+            num = _ref2[2];
 
         if (num) {
           minstr = '0'.repeat(placeholder.length) + num;
@@ -2577,8 +2577,8 @@
       } // TODO str is a single char everytime
 
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "doPrepare",
@@ -2599,9 +2599,9 @@
         if (nextVal.length > this.maxLength) return '';
 
         var _this$boundaries = this.boundaries(nextVal),
-          _this$boundaries2 = _slicedToArray(_this$boundaries, 2),
-          minstr = _this$boundaries2[0],
-          maxstr = _this$boundaries2[1];
+            _this$boundaries2 = _slicedToArray(_this$boundaries, 2),
+            minstr = _this$boundaries2[0],
+            maxstr = _this$boundaries2[1];
 
         if (Number(maxstr) < this.from) return fromStr[nextVal.length - 1];
 
@@ -2616,8 +2616,8 @@
         return ch;
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "doValidate",
@@ -2629,9 +2629,9 @@
         if (firstNonZero === -1 && str.length <= this._matchFrom) return true;
 
         var _this$boundaries3 = this.boundaries(str),
-          _this$boundaries4 = _slicedToArray(_this$boundaries3, 2),
-          minstr = _this$boundaries4[0],
-          maxstr = _this$boundaries4[1];
+            _this$boundaries4 = _slicedToArray(_this$boundaries3, 2),
+            minstr = _this$boundaries4[0],
+            maxstr = _this$boundaries4[1];
 
         for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
           args[_key] = arguments[_key];
@@ -2661,16 +2661,16 @@
     /** */
 
     /**
-     @param {Object} opts
-     */
+      @param {Object} opts
+    */
     function MaskedDate(opts) {
       _classCallCheck(this, MaskedDate);
 
       return _super.call(this, Object.assign({}, MaskedDate.DEFAULTS, opts));
     }
     /**
-     @override
-     */
+      @override
+    */
 
 
     _createClass(MaskedDate, [{
@@ -2704,8 +2704,8 @@
         _get(_getPrototypeOf(MaskedDate.prototype), "_update", this).call(this, opts);
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "doValidate",
@@ -2738,8 +2738,8 @@
         this.typedValue = date;
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "typedValue",
@@ -2750,8 +2750,8 @@
         _set(_getPrototypeOf(MaskedDate.prototype), "typedValue", value, this, true);
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "maskEquals",
@@ -2773,10 +2773,10 @@
     },
     parse: function parse(str) {
       var _str$split = str.split('.'),
-        _str$split2 = _slicedToArray(_str$split, 3),
-        day = _str$split2[0],
-        month = _str$split2[1],
-        year = _str$split2[2];
+          _str$split2 = _slicedToArray(_str$split, 3),
+          day = _str$split2[0],
+          month = _str$split2[1],
+          year = _str$split2[2];
 
       return new Date(year, month - 1, day);
     }
@@ -2807,9 +2807,9 @@
   IMask.MaskedDate = MaskedDate;
 
   /**
-   Generic element API to use with mask
-   @interface
-   */
+    Generic element API to use with mask
+    @interface
+  */
   var MaskElement = /*#__PURE__*/function () {
     function MaskElement() {
       _classCallCheck(this, MaskElement);
@@ -2824,16 +2824,16 @@
 
       /** */
 
-        /** Safely returns selection start */
-        function get() {
-          var start;
+      /** Safely returns selection start */
+      function get() {
+        var start;
 
-          try {
-            start = this._unsafeSelectionStart;
-          } catch (e) {}
+        try {
+          start = this._unsafeSelectionStart;
+        } catch (e) {}
 
-          return start != null ? start : this.value.length;
-        }
+        return start != null ? start : this.value.length;
+      }
       /** Safely returns selection end */
 
     }, {
@@ -2898,8 +2898,8 @@
     /** HTMLElement to use mask on */
 
     /**
-     @param {HTMLInputElement|HTMLTextAreaElement} input
-     */
+      @param {HTMLInputElement|HTMLTextAreaElement} input
+    */
     function HTMLMaskElement(input) {
       var _this;
 
@@ -2922,9 +2922,9 @@
         return (_this$input$getRootNo = (_this$input$getRootNo2 = (_this$input = this.input).getRootNode) === null || _this$input$getRootNo2 === void 0 ? void 0 : _this$input$getRootNo2.call(_this$input)) !== null && _this$input$getRootNo !== void 0 ? _this$input$getRootNo : document;
       }
       /**
-       Is element in focus
-       @readonly
-       */
+        Is element in focus
+        @readonly
+      */
 
     }, {
       key: "isActive",
@@ -2933,9 +2933,9 @@
         return this.input === this.rootElement.activeElement;
       }
       /**
-       Returns HTMLElement selection start
-       @override
-       */
+        Returns HTMLElement selection start
+        @override
+      */
 
     }, {
       key: "_unsafeSelectionStart",
@@ -2943,9 +2943,9 @@
         return this.input.selectionStart;
       }
       /**
-       Returns HTMLElement selection end
-       @override
-       */
+        Returns HTMLElement selection end
+        @override
+      */
 
     }, {
       key: "_unsafeSelectionEnd",
@@ -2953,9 +2953,9 @@
         return this.input.selectionEnd;
       }
       /**
-       Sets HTMLElement selection
-       @override
-       */
+        Sets HTMLElement selection
+        @override
+      */
 
     }, {
       key: "_unsafeSelect",
@@ -2963,9 +2963,9 @@
         this.input.setSelectionRange(start, end);
       }
       /**
-       HTMLElement value
-       @override
-       */
+        HTMLElement value
+        @override
+      */
 
     }, {
       key: "value",
@@ -2976,9 +2976,9 @@
         this.input.value = value;
       }
       /**
-       Binds HTMLElement events to mask internal events
-       @override
-       */
+        Binds HTMLElement events to mask internal events
+        @override
+      */
 
     }, {
       key: "bindEvents",
@@ -2990,9 +2990,9 @@
         });
       }
       /**
-       Unbinds HTMLElement events to mask internal events
-       @override
-       */
+        Unbinds HTMLElement events to mask internal events
+        @override
+      */
 
     }, {
       key: "unbindEvents",
@@ -3046,26 +3046,26 @@
     _createClass(HTMLContenteditableMaskElement, [{
       key: "_unsafeSelectionStart",
       get:
-        /**
-         Returns HTMLElement selection start
-         @override
-         */
-        function get() {
-          var root = this.rootElement;
-          var selection = root.getSelection && root.getSelection();
-          var anchorOffset = selection && selection.anchorOffset;
-          var focusOffset = selection && selection.focusOffset;
-
-          if (focusOffset == null || anchorOffset == null || anchorOffset < focusOffset) {
-            return anchorOffset;
-          }
-
-          return focusOffset;
-        }
       /**
-       Returns HTMLElement selection end
-       @override
-       */
+        Returns HTMLElement selection start
+        @override
+      */
+      function get() {
+        var root = this.rootElement;
+        var selection = root.getSelection && root.getSelection();
+        var anchorOffset = selection && selection.anchorOffset;
+        var focusOffset = selection && selection.focusOffset;
+
+        if (focusOffset == null || anchorOffset == null || anchorOffset < focusOffset) {
+          return anchorOffset;
+        }
+
+        return focusOffset;
+      }
+      /**
+        Returns HTMLElement selection end
+        @override
+      */
 
     }, {
       key: "_unsafeSelectionEnd",
@@ -3082,9 +3082,9 @@
         return focusOffset;
       }
       /**
-       Sets HTMLElement selection
-       @override
-       */
+        Sets HTMLElement selection
+        @override
+      */
 
     }, {
       key: "_unsafeSelect",
@@ -3102,9 +3102,9 @@
         }
       }
       /**
-       HTMLElement value
-       @override
-       */
+        HTMLElement value
+        @override
+      */
 
     }, {
       key: "value",
@@ -3126,19 +3126,19 @@
 
   var InputMask = /*#__PURE__*/function () {
     /**
-     View element
-     @readonly
-     */
+      View element
+      @readonly
+    */
 
     /**
-     Internal {@link Masked} model
-     @readonly
-     */
+      Internal {@link Masked} model
+      @readonly
+    */
 
     /**
-     @param {MaskElement|HTMLInputElement|HTMLTextAreaElement} el
-     @param {Object} opts
-     */
+      @param {MaskElement|HTMLInputElement|HTMLTextAreaElement} el
+      @param {Object} opts
+    */
     function InputMask(el, opts) {
       _classCallCheck(this, InputMask);
 
@@ -3234,9 +3234,9 @@
         this.alignCursor();
       }
       /**
-       Starts listening to element events
-       @protected
-       */
+        Starts listening to element events
+        @protected
+      */
 
     }, {
       key: "_bindEvents",
@@ -3251,8 +3251,8 @@
         });
       }
       /**
-       Stops listening to element events
-       @protected
+        Stops listening to element events
+        @protected
        */
 
     }, {
@@ -3261,8 +3261,8 @@
         if (this.el) this.el.unbindEvents();
       }
       /**
-       Fires custom event
-       @protected
+        Fires custom event
+        @protected
        */
 
     }, {
@@ -3279,9 +3279,9 @@
         });
       }
       /**
-       Current selection start
-       @readonly
-       */
+        Current selection start
+        @readonly
+      */
 
     }, {
       key: "selectionStart",
@@ -3302,15 +3302,15 @@
         this._saveSelection();
       }
       /**
-       Stores current selection
-       @protected
-       */
+        Stores current selection
+        @protected
+      */
 
     }, {
       key: "_saveSelection",
       value: function
         /* ev */
-        _saveSelection() {
+      _saveSelection() {
         if (this.value !== this.el.value) {
           console.warn('Element value was changed outside of mask. Syncronize mask using `mask.updateValue()` to work properly.'); // eslint-disable-line no-console
         }
@@ -3347,7 +3347,7 @@
       key: "updateOptions",
       value: function updateOptions(opts) {
         var mask = opts.mask,
-          restOpts = _objectWithoutProperties(opts, _excluded$1);
+            restOpts = _objectWithoutProperties(opts, _excluded$1);
 
         var updateMask = !this.maskEquals(mask);
         var updateOpts = !objectIncludes(this.masked, restOpts);
@@ -3366,9 +3366,9 @@
         this._delayUpdateCursor(cursorPos);
       }
       /**
-       Delays cursor update to support mobile browsers
-       @private
-       */
+        Delays cursor update to support mobile browsers
+        @private
+      */
 
     }, {
       key: "_delayUpdateCursor",
@@ -3387,9 +3387,9 @@
         }, 10);
       }
       /**
-       Fires custom events
-       @protected
-       */
+        Fires custom events
+        @protected
+      */
 
     }, {
       key: "_fireChangeEvents",
@@ -3399,9 +3399,9 @@
         if (this.masked.isComplete) this._fireEvent('complete', this._inputEvent);
       }
       /**
-       Aborts delayed cursor update
-       @private
-       */
+        Aborts delayed cursor update
+        @private
+      */
 
     }, {
       key: "_abortUpdateCursor",
@@ -3467,8 +3467,8 @@
 
         if (!this._selection) return this.updateValue();
         var details = new ActionDetails( // new state
-          this.el.value, this.cursorPos, // old state
-          this.value, this._selection);
+        this.el.value, this.cursorPos, // old state
+        this.value, this._selection);
         var oldRawValue = this.masked.rawInputValue;
         var offset = this.masked.splice(details.startChangePos, details.removed.length, details.inserted, details.removeDirection, {
           input: true,
@@ -3553,25 +3553,25 @@
     _createClass(MaskedEnum, [{
       key: "_update",
       value:
-        /**
-         @override
-         @param {Object} opts
-         */
-        function _update(opts) {
-          // TODO type
-          if (opts.enum) opts.mask = '*'.repeat(opts.enum[0].length);
-
-          _get(_getPrototypeOf(MaskedEnum.prototype), "_update", this).call(this, opts);
-        }
       /**
-       @override
-       */
+        @override
+        @param {Object} opts
+      */
+      function _update(opts) {
+        // TODO type
+        if (opts.enum) opts.mask = '*'.repeat(opts.enum[0].length);
+
+        _get(_getPrototypeOf(MaskedEnum.prototype), "_update", this).call(this, opts);
+      }
+      /**
+        @override
+      */
 
     }, {
       key: "doValidate",
       value: function doValidate() {
         var _this = this,
-          _get2;
+            _get2;
 
         for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
           args[_key] = arguments[_key];
@@ -3588,18 +3588,18 @@
   IMask.MaskedEnum = MaskedEnum;
 
   /**
-   Number mask
-   @param {Object} opts
-   @param {string} opts.radix - Single char
-   @param {string} opts.thousandsSeparator - Single char
-   @param {Array<string>} opts.mapToRadix - Array of single chars
-   @param {number} opts.min
-   @param {number} opts.max
-   @param {number} opts.scale - Digits after point
-   @param {boolean} opts.signed - Allow negative
-   @param {boolean} opts.normalizeZeros - Flag to remove leading and trailing zeros in the end of editing
-   @param {boolean} opts.padFractionalZeros - Flag to pad trailing zeros after point in the end of editing
-   */
+    Number mask
+    @param {Object} opts
+    @param {string} opts.radix - Single char
+    @param {string} opts.thousandsSeparator - Single char
+    @param {Array<string>} opts.mapToRadix - Array of single chars
+    @param {number} opts.min
+    @param {number} opts.max
+    @param {number} opts.scale - Digits after point
+    @param {boolean} opts.signed - Allow negative
+    @param {boolean} opts.normalizeZeros - Flag to remove leading and trailing zeros in the end of editing
+    @param {boolean} opts.padFractionalZeros - Flag to pad trailing zeros after point in the end of editing
+  */
   var MaskedNumber = /*#__PURE__*/function (_Masked) {
     _inherits(MaskedNumber, _Masked);
 
@@ -3628,8 +3628,8 @@
       return _super.call(this, Object.assign({}, MaskedNumber.DEFAULTS, opts));
     }
     /**
-     @override
-     */
+      @override
+    */
 
 
     _createClass(MaskedNumber, [{
@@ -3672,8 +3672,8 @@
         return parts.join(this.radix);
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "doPrepare",
@@ -3689,9 +3689,9 @@
         }
 
         var _normalizePrepare = normalizePrepare((_get2 = _get(_getPrototypeOf(MaskedNumber.prototype), "doPrepare", this)).call.apply(_get2, [this, noSepCh].concat(args))),
-          _normalizePrepare2 = _slicedToArray(_normalizePrepare, 2),
-          prepCh = _normalizePrepare2[0],
-          details = _normalizePrepare2[1];
+            _normalizePrepare2 = _slicedToArray(_normalizePrepare, 2),
+            prepCh = _normalizePrepare2[0],
+            details = _normalizePrepare2[1];
 
         if (ch && !noSepCh) details.skip = true;
         return [prepCh, details];
@@ -3722,8 +3722,8 @@
         return this._separatorsCount(this._removeThousandsSeparators(slice).length, true);
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "extractInput",
@@ -3741,8 +3741,8 @@
         return this._removeThousandsSeparators(_get(_getPrototypeOf(MaskedNumber.prototype), "extractInput", this).call(this, fromPos, toPos, flags));
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "_appendCharRaw",
@@ -3792,8 +3792,8 @@
         return [from, to];
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "remove",
@@ -3821,8 +3821,8 @@
         });
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "nearestInputPos",
@@ -3833,36 +3833,36 @@
           case DIRECTION.NONE:
           case DIRECTION.LEFT:
           case DIRECTION.FORCE_LEFT:
-          {
-            var separatorAtLeftPos = this._findSeparatorAround(cursorPos - 1);
+            {
+              var separatorAtLeftPos = this._findSeparatorAround(cursorPos - 1);
 
-            if (separatorAtLeftPos >= 0) {
-              var separatorAtLeftEndPos = separatorAtLeftPos + this.thousandsSeparator.length;
+              if (separatorAtLeftPos >= 0) {
+                var separatorAtLeftEndPos = separatorAtLeftPos + this.thousandsSeparator.length;
 
-              if (cursorPos < separatorAtLeftEndPos || this.value.length <= separatorAtLeftEndPos || direction === DIRECTION.FORCE_LEFT) {
-                return separatorAtLeftPos;
+                if (cursorPos < separatorAtLeftEndPos || this.value.length <= separatorAtLeftEndPos || direction === DIRECTION.FORCE_LEFT) {
+                  return separatorAtLeftPos;
+                }
               }
-            }
 
-            break;
-          }
+              break;
+            }
 
           case DIRECTION.RIGHT:
           case DIRECTION.FORCE_RIGHT:
-          {
-            var separatorAtRightPos = this._findSeparatorAround(cursorPos);
+            {
+              var separatorAtRightPos = this._findSeparatorAround(cursorPos);
 
-            if (separatorAtRightPos >= 0) {
-              return separatorAtRightPos + this.thousandsSeparator.length;
+              if (separatorAtRightPos >= 0) {
+                return separatorAtRightPos + this.thousandsSeparator.length;
+              }
             }
-          }
         }
 
         return cursorPos;
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "doValidate",
@@ -3875,15 +3875,15 @@
           // validate as number
           var number = this.number;
           valid = valid && !isNaN(number) && ( // check min bound for negative values
-            this.min == null || this.min >= 0 || this.min <= this.number) && ( // check max bound for positive values
-            this.max == null || this.max <= 0 || this.number <= this.max);
+          this.min == null || this.min >= 0 || this.min <= this.number) && ( // check max bound for positive values
+          this.max == null || this.max <= 0 || this.number <= this.max);
         }
 
         return valid && _get(_getPrototypeOf(MaskedNumber.prototype), "doValidate", this).call(this, flags);
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "doCommit",
@@ -3937,8 +3937,8 @@
         return parts.join(this.radix);
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "unmaskedValue",
@@ -3949,8 +3949,8 @@
         _set(_getPrototypeOf(MaskedNumber.prototype), "unmaskedValue", unmaskedValue.replace('.', this.radix), this, true);
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "typedValue",
@@ -3971,9 +3971,9 @@
         this.typedValue = number;
       }
       /**
-       Is negative allowed
-       @readonly
-       */
+        Is negative allowed
+        @readonly
+      */
 
     }, {
       key: "allowNegative",
@@ -3981,8 +3981,8 @@
         return this.signed || this.min != null && this.min < 0 || this.max != null && this.max < 0;
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "typedValueEquals",
@@ -4023,15 +4023,15 @@
     _createClass(MaskedFunction, [{
       key: "_update",
       value:
-        /**
-         @override
-         @param {Object} opts
-         */
-        function _update(opts) {
-          if (opts.mask) opts.validate = opts.mask;
+      /**
+        @override
+        @param {Object} opts
+      */
+      function _update(opts) {
+        if (opts.mask) opts.validate = opts.mask;
 
-          _get(_getPrototypeOf(MaskedFunction.prototype), "_update", this).call(this, opts);
-        }
+        _get(_getPrototypeOf(MaskedFunction.prototype), "_update", this).call(this, opts);
+      }
     }]);
 
     return MaskedFunction;
@@ -4053,8 +4053,8 @@
     /** Chooses {@link Masked} depending on input value */
 
     /**
-     @param {Object} opts
-     */
+      @param {Object} opts
+    */
     function MaskedDynamic(opts) {
       var _this;
 
@@ -4065,8 +4065,8 @@
       return _this;
     }
     /**
-     @override
-     */
+      @override
+    */
 
 
     _createClass(MaskedDynamic, [{
@@ -4082,8 +4082,8 @@
         }
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "_appendCharRaw",
@@ -4106,7 +4106,7 @@
         var prevValueBeforeTail = flags.tail && flags._beforeTailState != null ? flags._beforeTailState._value : this.value;
         var inputValue = this.rawInputValue;
         var insertValue = flags.tail && flags._beforeTailState != null ? // $FlowFixMe - tired to fight with type system
-          flags._beforeTailState._rawInputValue : inputValue;
+        flags._beforeTailState._rawInputValue : inputValue;
         var tailValue = inputValue.slice(insertValue.length);
         var prevMask = this.currentMask;
         var details = new ChangeDetails();
@@ -4156,7 +4156,7 @@
       }
       /**
        @override
-       */
+      */
 
     }, {
       key: "_appendEager",
@@ -4179,8 +4179,8 @@
         });
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "doDispatch",
@@ -4189,8 +4189,8 @@
         return this.dispatch(appended, this, flags);
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "doValidate",
@@ -4198,8 +4198,8 @@
         return _get(_getPrototypeOf(MaskedDynamic.prototype), "doValidate", this).call(this, flags) && (!this.currentMask || this.currentMask.doValidate(this.currentMaskFlags(flags)));
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "doPrepare",
@@ -4207,9 +4207,9 @@
         var flags = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
         var _normalizePrepare = normalizePrepare(_get(_getPrototypeOf(MaskedDynamic.prototype), "doPrepare", this).call(this, str, flags)),
-          _normalizePrepare2 = _slicedToArray(_normalizePrepare, 2),
-          s = _normalizePrepare2[0],
-          details = _normalizePrepare2[1];
+            _normalizePrepare2 = _slicedToArray(_normalizePrepare, 2),
+            s = _normalizePrepare2[0],
+            details = _normalizePrepare2[1];
 
         if (this.currentMask) {
           var currentDetails;
@@ -4226,8 +4226,8 @@
         return [s, details];
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "reset",
@@ -4240,8 +4240,8 @@
         });
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "value",
@@ -4252,8 +4252,8 @@
         _set(_getPrototypeOf(MaskedDynamic.prototype), "value", value, this, true);
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "unmaskedValue",
@@ -4264,8 +4264,8 @@
         _set(_getPrototypeOf(MaskedDynamic.prototype), "unmaskedValue", unmaskedValue, this, true);
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "typedValue",
@@ -4284,8 +4284,8 @@
         this.unmaskedValue = unmaskedValue;
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "isComplete",
@@ -4295,8 +4295,8 @@
         return Boolean((_this$currentMask2 = this.currentMask) === null || _this$currentMask2 === void 0 ? void 0 : _this$currentMask2.isComplete);
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "isFilled",
@@ -4306,8 +4306,8 @@
         return Boolean((_this$currentMask3 = this.currentMask) === null || _this$currentMask3 === void 0 ? void 0 : _this$currentMask3.isFilled);
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "remove",
@@ -4318,14 +4318,14 @@
           var _this$currentMask4;
 
           details.aggregate((_this$currentMask4 = this.currentMask).remove.apply(_this$currentMask4, arguments)) // update with dispatch
-            .aggregate(this._applyDispatch());
+          .aggregate(this._applyDispatch());
         }
 
         return details;
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "state",
@@ -4343,9 +4343,9 @@
       },
       set: function set(state) {
         var compiledMasks = state.compiledMasks,
-          currentMaskRef = state.currentMaskRef,
-          currentMask = state.currentMask,
-          maskedState = _objectWithoutProperties(state, _excluded);
+            currentMaskRef = state.currentMaskRef,
+            currentMask = state.currentMask,
+            maskedState = _objectWithoutProperties(state, _excluded);
 
         this.compiledMasks.forEach(function (m, mi) {
           return m.state = compiledMasks[mi];
@@ -4359,8 +4359,8 @@
         _set(_getPrototypeOf(MaskedDynamic.prototype), "state", maskedState, this, true);
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "extractInput",
@@ -4370,8 +4370,8 @@
         return this.currentMask ? (_this$currentMask6 = this.currentMask).extractInput.apply(_this$currentMask6, arguments) : '';
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "extractTail",
@@ -4385,8 +4385,8 @@
         return this.currentMask ? (_this$currentMask7 = this.currentMask).extractTail.apply(_this$currentMask7, args) : (_get2 = _get(_getPrototypeOf(MaskedDynamic.prototype), "extractTail", this)).call.apply(_get2, [this].concat(args));
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "doCommit",
@@ -4396,8 +4396,8 @@
         _get(_getPrototypeOf(MaskedDynamic.prototype), "doCommit", this).call(this);
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "nearestInputPos",
@@ -4427,8 +4427,8 @@
         console.warn('"eager" option is not available in dynamic mask, use this option in siblings');
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "maskEquals",
@@ -4440,8 +4440,8 @@
         });
       }
       /**
-       @override
-       */
+        @override
+      */
 
     }, {
       key: "typedValueEquals",

@@ -45,7 +45,7 @@ mixin inputPatronymic
 mixin inputDate
   .form__input-container
     label Дата рождения
-      input(type="number" placeholder="дд.мм.гггг" name="date" autocomplete='off' maxlength='10'  )
+      input(placeholder="дд.мм.гггг" name="date" autocomplete='off' maxlength='10' data-inputmask="'mask': '+7 (999) 999-9999'" )
       span.form__error.form__error--inputDate
 
 // Tel

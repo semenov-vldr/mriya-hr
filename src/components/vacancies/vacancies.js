@@ -135,7 +135,6 @@ if (vacancies) {
         })
         if (mainCheckbox && !isCheckedInner) mainCheckbox.checked = false;
         if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = false);
-
       }
       isSomeChecked ? addClassFilterVisible() : removeClassFilterVisible();
 
