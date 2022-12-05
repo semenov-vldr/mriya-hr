@@ -1498,7 +1498,7 @@ if (vacancies) {
       }
 
       const mainCheckbox =  checkbox.closest('.filter__item-inner')?.closest('.filter__item').querySelector('input[type="checkbox"]')
-        //const checkboxesInner = checkbox.parentNode.querySelectorAll('.filter__item-inner input[type="checkbox"]');
+        const checkboxesInner = checkbox.parentNode.querySelectorAll('.filter__item-inner input[type="checkbox"]');
 
       if (checkbox.checked) {
         addTagFilter(checkbox);
@@ -1507,18 +1507,25 @@ if (vacancies) {
           addTagFilter(mainCheckbox);
         }
 
-        // if (checkboxesInner) checkboxesInner.forEach(checkbox => {
-        //   checkbox.checked = true
-        //   addTagFilter(checkbox);
-        // });
-
-      } else {
+        if (checkboxesInner) checkboxesInner.forEach(checkbox => {
+          checkbox.checked = true;
+          addTagFilter(checkbox);
+        });
+      }
+      else {
         const checkedItems = vacanciesFilterContentList.querySelectorAll('li');
         checkedItems.forEach(checkedItem => {
           if (checkedItem.textContent === checkbox.value) checkedItem.remove();
         })
         if (mainCheckbox && !isCheckedInner) mainCheckbox.checked = false;
         //if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = false);
+
+        if (checkboxesInner) checkboxesInner.forEach(checkbox => {
+          checkbox.checked = false;
+          vacanciesFilterContentList.querySelectorAll('li').forEach(tag => {
+              if (tag.textContent === checkbox.value) tag.remove();
+          })
+        });
 
         if (!checkboxList.some(checkbox => checkbox.checked)) removeClassFilterVisible();
 
