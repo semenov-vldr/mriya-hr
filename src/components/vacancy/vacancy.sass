@@ -9,13 +9,13 @@
       grid-template-columns: auto 40%
     @media (max-width: 1000px)
       grid-template-columns: 1fr
+      gap: 32px
 
-  &__title
+  h1
     font-weight: 600
     @include fontSize(36, 52)
     @media (min-width: 1000.1px)
       max-width: 70%
-
 
   &__data
     display: flex
@@ -32,24 +32,37 @@
     flex-direction: column
     gap: 24px
 
-    &__title
-      font-weight: 500
-      @include fontSize(18, 24)
+  h2
+    font-weight: 500
+    @include fontSize(18, 24)
 
-    &__list
-      list-style-type: disc
-      display: flex
-      flex-direction: column
-      gap: 12px
-      padding-left: 30px
+  ul
+    list-style-type: disc
+    padding-left: 30px
+    display: flex
+    flex-direction: column
+    gap: 12px
 
-    &__item
-      @include fontSize(16, 20)
-      color: #6B6B6B
+
+  ul, ol, span, p
+    @include fontSize(16, 20)
+    color: #6B6B6B
+
+  img
+    width: 70%
+    height: auto
+    max-height: 400px
+    object-fit: cover
+    border-radius: 8px
+    aspect-ratio: 1 / 1
+    @media (max-width: 768px)
+      width: auto
+      max-height: 250px
+
 
   &-hr
     position: sticky
-    top: 50px
+    top: 90px
     background-color: #FAFAFA
     border-radius: 4px
     padding: 32px
@@ -64,47 +77,44 @@
       gap: 24px
 
 
-    &__title
-      font-weight: 500
-      @include fontSize(18, 24)
+  &-hr__title
+    font-weight: 500
+    @include fontSize(18, 24)
 
-    &__data
-      display: flex
-      flex-direction: column
-      gap: 24px
+  &-hr__data
+    display: flex
+    flex-direction: column
+    gap: 24px
 
-    &-person
-      display: grid
-      grid-template-columns: auto auto
-      gap: 4px 20px
+  &-hr-person
+    display: grid
+    grid-template-columns: auto auto
+    gap: 4px 20px
 
-      &__image
-        border-radius: 50%
-        width: 56px
-        aspect-ratio: 1 / 1
-        overflow: hidden
-        grid-row: span 2
-        img
-          width: 100%
-          height: 100%
-          object-fit: cover
+  &-hr-person__image
+    border-radius: 50%
+    width: 56px
+    aspect-ratio: 1 / 1
+    overflow: hidden
+    grid-row: span 2
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
 
-      &__name
-        grid-column: 2 / span 1
-        @include fontSize(14, 18)
+  &-hr-person__name
+    grid-column: 2 / span 1
+    @include fontSize(14, 18)
 
-      &__post
-        grid-column: 2 / span 1
-        @include fontSize(13, 16)
-        color: #686868
+  &-hr-person__post
+    grid-column: 2 / span 1
+    @include fontSize(13, 16)
+    color: #686868
 
-    &__contacts
-      display: flex
-      gap: 12px 24px
-      flex-wrap: wrap
-
-    &__button
-      border-radius: 4px
+  &-hr__contacts
+    display: flex
+    gap: 12px 24px
+    flex-wrap: wrap
 
 
 

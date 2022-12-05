@@ -1,16 +1,11 @@
-
-// let dateMask = IMask(
-//   document.querySelector('input[name="date"]'),
-//   {
-//     mask: Date,
-//     min: new Date(1990, 0, 1),
-//   });
-
-
-
-
-
-
-
 const dateInputList = document.querySelectorAll('input[name="date"]');
 
+if (dateInputList) maskDate(dateInputList)
+
+function maskDate (dateInputList) {
+
+  dateInputList.forEach(dateInput => {
+    Inputmask({"mask": "99.99.9999"}).mask(dateInput);
+  })
+
+}

@@ -50,7 +50,6 @@
 
 
 
-
   function onDocumentClick (item) {
     document.body.addEventListener('click', (evt) => {
       if (evt.target.classList.contains('form-popup')) closeFormPopup(item);
@@ -58,6 +57,7 @@
   };
 
   if (callToActionButtons) {
+
 
     callToActionButtons.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -70,7 +70,7 @@
 
         if (phoneInputs) validInputTel(phoneInputs);
 
-        //if (dateInputs) dateMask(); // test
+        if (dateInputs) maskDate(dateInputs);
 
         if (forms) validForm(forms);
         userFormSubmit();
@@ -105,7 +105,6 @@
             selectedVacancy(titleVacancy);
           };
         }
-
       });
     });
   }

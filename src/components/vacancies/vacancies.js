@@ -53,10 +53,10 @@ if (vacancies) {
   // Отображение тегов фильтра
   const mobileWidth = window.matchMedia('(max-width: 1000px)');
 
-  const checkboxList = Array.from(filters.querySelectorAll('input[type="checkbox"]'));
-  const filtersActions = filters.querySelector('.filters__actions');
-  const vacanciesFilterContent = vacancies.querySelector('.vacancies-filter-content');
-  const vacanciesFilterContentList = vacanciesFilterContent.querySelector('.vacancies-filter-content__list');
+  const checkboxList = Array.from(filters.querySelectorAll('input[type="checkbox"]')); // Все чекбоксы
+  const filtersActions = filters.querySelector('.filters__actions'); // Блок кнопок "Сбросить" и "Применить"
+  const vacanciesFilterContent = vacancies.querySelector('.vacancies-filter-content'); // Блок списка тегов фильтра и кнопки "Сбросить"
+  const vacanciesFilterContentList = vacanciesFilterContent.querySelector('.vacancies-filter-content__list'); // ul для тегов фильтра
 
   const addClassFilterVisible = () => vacanciesFilterContent.classList.add('js-filter-visible');
   const removeClassFilterVisible = () => {
@@ -72,6 +72,7 @@ if (vacancies) {
     li.textContent = checkbox.value;
     filterDelete.classList.add('vacancies-filter-content__delete');
     li.appendChild(filterDelete);
+
     vacanciesFilterContentList.appendChild(li);
 
     filterDelete.addEventListener('click', () => {
@@ -105,7 +106,6 @@ if (vacancies) {
 
       // Отмечен ли хотя бы один чекбокс
       const isSomeChecked = checkboxList.some(item => item.checked);
-      const checkedItems = vacanciesFilterContentList.querySelectorAll('li');
 
       const isCheckedInner = Array.from(checkboxInnerList).some(checkboxInner => checkboxInner.checked === true);
 
@@ -116,7 +116,7 @@ if (vacancies) {
       }
 
       const mainCheckbox =  checkbox.closest('.filter__item-inner')?.closest('.filter__item').querySelector('input[type="checkbox"]')
-      const checkboxesInner = checkbox.parentNode.querySelectorAll('.filter__item-inner input[type="checkbox"]');
+        //const checkboxesInner = checkbox.parentNode.querySelectorAll('.filter__item-inner input[type="checkbox"]');
 
       if (checkbox.checked) {
         addTagFilter(checkbox);
@@ -124,18 +124,24 @@ if (vacancies) {
           mainCheckbox.checked = true;
           addTagFilter(mainCheckbox);
         }
-        if (checkboxesInner) checkboxesInner.forEach(checkbox => {
-          checkbox.checked = true
-          addTagFilter(checkbox);
-        });
+
+        // if (checkboxesInner) checkboxesInner.forEach(checkbox => {
+        //   checkbox.checked = true
+        //   addTagFilter(checkbox);
+        // });
 
       } else {
+        const checkedItems = vacanciesFilterContentList.querySelectorAll('li');
         checkedItems.forEach(checkedItem => {
           if (checkedItem.textContent === checkbox.value) checkedItem.remove();
         })
         if (mainCheckbox && !isCheckedInner) mainCheckbox.checked = false;
-        if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = false);
+        //if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = false);
+
+        if (!checkboxList.some(checkbox => checkbox.checked)) removeClassFilterVisible();
+
       }
+
       isSomeChecked ? addClassFilterVisible() : removeClassFilterVisible();
 
       doResetFilter();

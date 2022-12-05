@@ -1,0 +1,85 @@
+.blog
+  margin-bottom: 40px
+
+  &__container
+    display: flex
+    flex-direction: column
+    gap: 40px
+
+  &__title
+    font-weight: 600
+
+  &__theme-list
+    display: flex
+    flex-wrap: wrap
+    gap: 10px 8px
+
+  &__theme-item,
+  &__theme-item--more
+    border: 1px solid #EBEBEB
+    padding: 6px 16px
+    cursor: pointer
+    @include fontSize(13, 16)
+    @media (max-width: 1000px)
+      padding: 10px 16px
+    &:hover,
+    &.js-area-active
+      background-color: $black
+      border-color: $black
+      color: #fff
+
+  &__theme-item
+    &:nth-child(n+9)
+      display: none
+
+  &__theme-item.js-visible
+    display: block
+
+  &__list
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    gap: 40px 24px
+    @media (max-width: 768px)
+      grid-template-columns: repeat(2, 1fr)
+    @media (max-width: 420px)
+      grid-template-columns: 1fr
+
+  &__article
+    overflow: hidden
+    display: flex
+    flex-direction: column
+    gap: 12px
+    &:hover
+      img
+        scale: 1.1
+      .blog__article-title
+        text-decoration: underline
+
+  &__article-header
+    overflow: hidden
+    height: auto
+    max-height: 320px
+    aspect-ratio: 13 / 10
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+      transition: 0.5s
+
+  &__article-heading
+    text-transform: uppercase
+    @include fontSize(12, 14)
+
+  &__article-title
+    @include fontSize(18, 22)
+    font-weight: 500
+    line-height: 1.3
+
+  &__article-date
+    color: #18181B5C
+    @include fontSize(14, 16)
+
+  &__more
+    grid-column: 1 / -1
+    margin: 60px auto 0
+

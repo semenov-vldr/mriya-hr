@@ -1,37 +1,123 @@
 .article
+  margin-bottom: 40px
 
   &__container
-    margin: 0
-    width: 50%
-    @media (max-width: 1300px)
-      width: 70%
-    @media (max-width: 1000px)
-      width: auto
-
-  &__title
-    margin-bottom: 50px
-    @include fontSize(36, 52)
-    font-weight: 500
-    @media (max-width: 400px)
-      font-size: 30px
-
-  &__content
     display: flex
     flex-direction: column
-    gap: 30px
+    align-items: center
 
+  h1
+    width: 80%
+    text-align: center
+    margin: 0 auto
+    margin-bottom: 50px
+    @include fontSize(26, 52)
+    font-weight: 600
+    @media (max-width: 1000px)
+      margin-bottom: 26px
+    @media (max-width: 768px)
+      width: auto
 
-  p, span, ul
-    color: #6B6B6B
-    @include fontSize(16, 20)
 
   img
+    display: block
     width: 70%
-    height: auto
-    max-height: 500px
+    max-width: 860px
+    max-height: 420px
+    aspect-ratio: 50 / 27
+    margin: 0 auto
+    margin-bottom: 70px
     object-fit: cover
-    border-radius: 8px
-    aspect-ratio: 1 / 1
     @media (max-width: 1000px)
+      margin-bottom: 48px
+      width: 100%
+
+  h1 + img
+    width: 85%
+    max-height: 540px
+    max-width: 1080px
+    @media (max-width: 768px)
+      width: 95%
+
+  figure img
+    width: 100%
+    margin: 0 auto
+
+  figcaption
+    @include fontSize(12, 16)
+    color: #6B6B6B
+    margin-top: 16px
+    margin-bottom: 48px
+    @media (max-width: 1000px)
+      max-width: 1080px
+      width: 95%
+
+
+  p, span, ul, ol
+    width: 70%
+    max-width: 860px
+    @include fontSize(16, 20)
+    color: #6B6B6B
+    @media (max-width: 768px)
       width: auto
+
+  p
+    margin-bottom: 24px
+
+  ul
+    list-style-type: disc
+    padding-left: 30px
+    display: flex
+    flex-direction: column
+    gap: 12px
+    margin-bottom: 48px
+    @media (max-width: 768px)
+      padding-left: 20px
+
+  ol
+    padding-left: 15px
+    margin-bottom: 48px
+
+  h2
+    width: 70%
+    max-width: 860px
+    @include fontSize(24, 36)
+    margin-bottom: 24px
+    @media (max-width: 768px)
+      width: auto
+      align-self: flex-start
+
+  h3
+    width: 70%
+    max-width: 860px
+    @include fontSize(18, 24)
+    margin-bottom: 24px
+    @media (max-width: 768px)
+      width: auto
+      align-self: flex-start
+
+  blockquote
+    position: relative
+    @include fontSize(16, 24)
+    line-height: 1.5
+    margin: 0 auto
+    &::before
+      position: absolute
+      content: ""
+      background-image: url('../img/icons/blockquote-quotes.svg')
+      width: 20px
+      height: 16px
+      background-size: cover
+      background-repeat: no-repeat
+      background-position: center
+      left: 3%
+      @media (max-width: 480px)
+        left: 0
+
+
+  blockquote > *
+    margin: 0 auto
+    width: fit-content
+    padding: 0 10%
+    color: #121212
 
