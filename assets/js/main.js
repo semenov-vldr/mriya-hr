@@ -195,6 +195,27 @@ if (areas) {
 
 }
 
+const blog = document.querySelector('.blog');
+
+if (blog) {
+  const showMore = blog.querySelector('.blog__theme-item--more');
+
+  const startItems = 8;
+
+  const blogItems = blog.querySelectorAll('.blog__theme-item');
+  const blogItemsLength = blogItems.length;
+
+  showMore.textContent = `+ ${blogItemsLength - startItems}`;
+
+  showMore.addEventListener('click', () => {
+    blogItems.forEach(el => el.classList.add('js-visible'));
+    showMore.classList.add('hidden');
+  })
+
+  if (blogItemsLength < startItems + 1) showMore.classList.add('hidden');
+
+}
+
 
 {
   let mySwiper;
@@ -431,7 +452,6 @@ let previousPosition = window.scrollTop || document.documentElement.scrollTop;
 
 
 
-
   function onDocumentClick (item) {
     document.body.addEventListener('click', (evt) => {
       if (evt.target.classList.contains('form-popup')) closeFormPopup(item);
@@ -439,6 +459,7 @@ let previousPosition = window.scrollTop || document.documentElement.scrollTop;
   };
 
   if (callToActionButtons) {
+
 
     callToActionButtons.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -451,7 +472,7 @@ let previousPosition = window.scrollTop || document.documentElement.scrollTop;
 
         if (phoneInputs) validInputTel(phoneInputs);
 
-        //if (dateInputs) dateMask(); // test
+        if (dateInputs) maskDate(dateInputs);
 
         if (forms) validForm(forms);
         userFormSubmit();
@@ -486,7 +507,6 @@ let previousPosition = window.scrollTop || document.documentElement.scrollTop;
             selectedVacancy(titleVacancy);
           };
         }
-
       });
     });
   }
@@ -573,22 +593,17 @@ let previousPosition = window.scrollTop || document.documentElement.scrollTop;
 
 }
 
-
-// let dateMask = IMask(
-//   document.querySelector('input[name="date"]'),
-//   {
-//     mask: Date,
-//     min: new Date(1990, 0, 1),
-//   });
-
-
-
-
-
-
-
 const dateInputList = document.querySelectorAll('input[name="date"]');
 
+if (dateInputList) maskDate(dateInputList)
+
+function maskDate (dateInputList) {
+
+  dateInputList.forEach(dateInput => {
+    Inputmask({"mask": "99.99.9999"}).mask(dateInput);
+  })
+
+}
 
 const phoneInputs = document.querySelectorAll('input[data-tel-input]');
 
@@ -1420,10 +1435,10 @@ if (vacancies) {
   // Отображение тегов фильтра
   const mobileWidth = window.matchMedia('(max-width: 1000px)');
 
-  const checkboxList = Array.from(filters.querySelectorAll('input[type="checkbox"]'));
-  const filtersActions = filters.querySelector('.filters__actions');
-  const vacanciesFilterContent = vacancies.querySelector('.vacancies-filter-content');
-  const vacanciesFilterContentList = vacanciesFilterContent.querySelector('.vacancies-filter-content__list');
+  const checkboxList = Array.from(filters.querySelectorAll('input[type="checkbox"]')); // Все чекбоксы
+  const filtersActions = filters.querySelector('.filters__actions'); // Блок кнопок "Сбросить" и "Применить"
+  const vacanciesFilterContent = vacancies.querySelector('.vacancies-filter-content'); // Блок списка тегов фильтра и кнопки "Сбросить"
+  const vacanciesFilterContentList = vacanciesFilterContent.querySelector('.vacancies-filter-content__list'); // ul для тегов фильтра
 
   const addClassFilterVisible = () => vacanciesFilterContent.classList.add('js-filter-visible');
   const removeClassFilterVisible = () => {
@@ -1439,6 +1454,7 @@ if (vacancies) {
     li.textContent = checkbox.value;
     filterDelete.classList.add('vacancies-filter-content__delete');
     li.appendChild(filterDelete);
+
     vacanciesFilterContentList.appendChild(li);
 
     filterDelete.addEventListener('click', () => {
@@ -1472,7 +1488,6 @@ if (vacancies) {
 
       // Отмечен ли хотя бы один чекбокс
       const isSomeChecked = checkboxList.some(item => item.checked);
-      const checkedItems = vacanciesFilterContentList.querySelectorAll('li');
 
       const isCheckedInner = Array.from(checkboxInnerList).some(checkboxInner => checkboxInner.checked === true);
 
@@ -1483,7 +1498,7 @@ if (vacancies) {
       }
 
       const mainCheckbox =  checkbox.closest('.filter__item-inner')?.closest('.filter__item').querySelector('input[type="checkbox"]')
-      const checkboxesInner = checkbox.parentNode.querySelectorAll('.filter__item-inner input[type="checkbox"]');
+        //const checkboxesInner = checkbox.parentNode.querySelectorAll('.filter__item-inner input[type="checkbox"]');
 
       if (checkbox.checked) {
         addTagFilter(checkbox);
@@ -1491,18 +1506,24 @@ if (vacancies) {
           mainCheckbox.checked = true;
           addTagFilter(mainCheckbox);
         }
-        if (checkboxesInner) checkboxesInner.forEach(checkbox => {
-          checkbox.checked = true
-          addTagFilter(checkbox);
-        });
+
+        // if (checkboxesInner) checkboxesInner.forEach(checkbox => {
+        //   checkbox.checked = true
+        //   addTagFilter(checkbox);
+        // });
 
       } else {
+        const checkedItems = vacanciesFilterContentList.querySelectorAll('li');
         checkedItems.forEach(checkedItem => {
           if (checkedItem.textContent === checkbox.value) checkedItem.remove();
         })
         if (mainCheckbox && !isCheckedInner) mainCheckbox.checked = false;
-        if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = false);
+        //if (checkboxesInner) checkboxesInner.forEach(checkbox => checkbox.checked = false);
+
+        if (!checkboxList.some(checkbox => checkbox.checked)) removeClassFilterVisible();
+
       }
+
       isSomeChecked ? addClassFilterVisible() : removeClassFilterVisible();
 
       doResetFilter();

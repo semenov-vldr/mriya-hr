@@ -12,7 +12,7 @@
 <html lang="ru-RU">
   <head>
     <meta charset="utf-8">
-    <title>Вакансия</title><!--[if IE]>
+    <title>Блог</title><!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE = edge"><![endif]-->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="keywords" content=""><!--favicon-->
@@ -27,69 +27,94 @@
   </head>
   <body>
     <div class="page">
-      <header class="header header--simple">
+      <header class="header">
         <div class="header__container container"><a class="header__logo" href="index.html">
             <svg width="212" height="16" fill="#393737">
               <use href="./assets/img/sprite.svg#logo"></use>
-            </svg></a></div>
+            </svg></a>
+          <div class="header__burger">
+            <svg class="burger" width="24" height="24">
+              <use href="./assets/img/sprite.svg#burger"></use>
+            </svg>
+            <svg class="close" width="14" height="14">
+              <use href="./assets/img/sprite.svg#close-menu"></use>
+            </svg>
+          </div>
+          <nav class="header__nav header-nav">
+            <ul class="header-nav__list">
+              <li class="header-nav__item"><a class="header-nav__link" href="about.html">
+                  <svg width="18" height="18" fill="#393737">
+                    <use href="./assets/img/sprite.svg#icon-about"></use>
+                  </svg>О нас</a></li>
+              <li class="header-nav__item"><a class="header-nav__link student-link" href="student.html">
+                  <svg width="20" height="17" fill="#393737">
+                    <use href="./assets/img/sprite.svg#icon-student"></use>
+                  </svg>Студентам</a></li>
+              <li class="header-nav__item"><a class="header-nav__link" href="faq.html">
+                  <svg width="18" height="18" fill="#393737">
+                    <use href="./assets/img/sprite.svg#icon-about"></use>
+                  </svg>FAQ</a></li>
+              <li class="header-nav__item"><a class="header-nav__link" href="vacancies.html">
+                  <svg width="16" height="16" fill="#393737">
+                    <use href="./assets/img/sprite.svg#header-vacansy"></use>
+                  </svg>Вакансии</a></li>
+              <li class="header-nav__item">
+                <button class="header-nav__link button-popup">
+                  <svg width="16" height="16" fill="#393737">
+                    <use href="./assets/img/sprite.svg#form"></use>
+                  </svg>Заполнить анкету
+                </button>
+              </li>
+            </ul>
+            <ul class="header-nav__bottom header-bottom">
+              <li class="header-bottom__item">
+                <button class="fill-form">Задать вопрос</button>
+              </li>
+              <li class="header-bottom__item"><a class="header-bottom__email" href="mailoto:job@mriyaresort.com">job@mriyaresort.com</a></li>
+              <li class="header-bottom__item"><a class="header-bottom__tel" href="tel:88005008964">8 800 500-89-64</a></li>
+              <li class="header-bottom__item"><a class="header-bottom__politics" href="">Политика конфиденциальности</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="button button--accent button-popup button-scroll fill-form white">Заполнить анкету</div>
       </header>
       <main>
         <div class="breadcrumbs">
-          <div class="breadcrumbs__container container"><a class="breadcrumbs__item back" href="vacancies.html">Вернуться к вакансиям</a></div>
+          <div class="breadcrumbs__container container"><a class="breadcrumbs__item" href="/">Главная</a><a class="breadcrumbs__item" href="">Блог</a></div>
         </div>
         <section class="section-column">
-          <div class="vacancy">
-            <div class="vacancy__container container">
-              <div class="vacancy__data">
-                <h1>Водитель клаб-кара (на сезон)</h1>
-                <div class="vacancy__advantages"><span>Достойная зарплата</span><span>Сменный график</span></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dicta ea esse excepturi necessitatibus odio officiis possimus quidem reprehenderit sed? Aut dolores eum ipsa officiis praesentium, quis tempora tempore totam.</p>
-                <div class="vacancy__section vacancy-section">
-                  <h2>Требования</h2>
-                  <ul>
-                    <li>Водительский стаж от 1 года</li>
-                    <li>Грамотная речь, клиентоориентированность</li>
-                  </ul>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dicta ea esse excepturi necessitatibus odio officiis possimus quidem reprehenderit sed? Aut dolores eum ipsa officiis praesentium, quis tempora tempore totam.</p>
-                <div class="vacancy__section vacancy-section">
-                  <h2>Обязанности</h2>
-                  <ul>
-                    <li>Перевозка гостей по территории комплекса на клаб-каре (электромобиле)</li>
-                    <li>Обслуживание клаб-кара, поддержание клаб-кара в чистоте</li>
-                    <li>Водительское удостоверение (категория В)</li>
-                  </ul>
-                </div><img src="./assets/img/advantages/03.jpg">
-                <div class="vacancy__section vacancy-section">
-                  <h2>Условия</h2>
-                  <ul>
-                    <li>Сменный график работы</li>
-                    <li>Жилье или компенсация съемной квартиры</li>
-                    <li>Питание на территории отеля</li>
-                    <li>Трансфер до места работы</li>
-                    <li>Компенсация переезда в Ялту</li>
-                    <li>Официальное трудоустройство</li>
-                    <li>Достойная зарплата</li>
-                    <li>Возможность карьерного и профессионального роста</li>
-                    <li>Регистрация для иностранных граждан</li>
-                    <li>Компенсация 50% стоимости занятий на Skyeng</li>
-                    <li>Большой и дружный коллектив</li>
-                    <li>Клубы и секции по интересам</li>
-                    <li>Помощь на всех этапах прибытия в Крым</li>
-                    <li>Тренинги, семинары и вебинары от Академии Гостеприимства</li>
-                    <li>Бонусы и скидки на услуги курорта</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="vacancy__hr vacancy-hr">
-                <h2 class="vacancy-hr__title">Контакты HR</h2>
-                <div class="vacancy-hr__data">
-                  <div class="vacancy-hr__person vacancy-hr-person">
-                    <div class="vacancy-hr-person__image"><img src="./assets/img/contacts/01.jpg"></div><b class="vacancy-hr-person__name">Константинопольский Константин</b><span class="vacancy-hr-person__post">Сотрудник отдела кадров</span>
-                  </div>
-                  <div class="vacancy-hr__contacts vacancy-hr-contacts"><a class="vacancy-hr-contacts__item" href="tel:88005505271">8 800 550-52-71</a><a class="vacancy-hr-contacts__item" href="mailto:job@mriyaresort.com">job@mriyaresort.com</a></div>
-                </div>
-                <div class="button button--accent vacancy-hr__button button-popup">Откликнуться на вакансию</div>
+          <div class="blog">
+            <div class="blog__container container">
+              <h1 class="blog__title title-section">Блог</h1>
+              <ul class="blog__theme-list">
+                <li class="blog__theme-item">Благоустройство</li>
+                <li class="blog__theme-item">Дримвуд</li>
+                <li class="blog__theme-item">Инженерно-технические объекты</li>
+                <li class="blog__theme-item">Медицина</li>
+                <li class="blog__theme-item">Отель</li>
+                <li class="blog__theme-item">Офис</li>
+                <li class="blog__theme-item">Пляж</li>
+                <li class="blog__theme-item">Рестораны</li>
+                <li class="blog__theme-item">Theme 1</li>
+                <li class="blog__theme-item">Theme 2</li>
+                <li class="blog__theme-item">Theme 3</li>
+                <li class="blog__theme-item">Theme 4</li>
+                <li class="blog__theme-item--more"></li>
+              </ul>
+              <div class="blog__list"><a class="blog__article" href="article.html">
+                  <div class="blog__article-header"><img src="./assets/img/blog/01.jpg"></div><span class="blog__article-heading">рубрика</span>
+                  <h2 class="blog__article-title">Lorem ornare euismod fermentum eu massa commodo. Proin.</h2><span class="blog__article-date">30 декабря 2022</span></a><a class="blog__article" href="article.html">
+                  <div class="blog__article-header"><img src="./assets/img/blog/02.jpg"></div><span class="blog__article-heading">рубрика</span>
+                  <h2 class="blog__article-title">Quis sit lacus commodo placerat neque id. Diam purus dictumst risus.</h2><span class="blog__article-date">30 декабря 2022</span></a><a class="blog__article" href="article.html">
+                  <div class="blog__article-header"><img src="./assets/img/blog/03.jpg"></div><span class="blog__article-heading">рубрика</span>
+                  <h2 class="blog__article-title">Urna id mauris a quis id montes. Fusce lacus aliquam et sed massa.</h2><span class="blog__article-date">30 декабря 2022</span></a><a class="blog__article" href="article.html">
+                  <div class="blog__article-header"><img src="./assets/img/blog/04.jpg"></div><span class="blog__article-heading">рубрика</span>
+                  <h2 class="blog__article-title">Euismod faucibus turpis sapien sed ultrices sed massa rutrum. Lectus.</h2><span class="blog__article-date">30 декабря 2022</span></a><a class="blog__article" href="article.html">
+                  <div class="blog__article-header"><img src="./assets/img/blog/05.jpg"></div><span class="blog__article-heading">рубрика</span>
+                  <h2 class="blog__article-title">Nunc enim nisl commodo libero. Egestas orci lobortis sed non.</h2><span class="blog__article-date">30 декабря 2022</span></a><a class="blog__article" href="article.html">
+                  <div class="blog__article-header"><img src="./assets/img/blog/06.jpg"></div><span class="blog__article-heading">рубрика</span>
+                  <h2 class="blog__article-title">Enim at sed aliquam vel mauris amet quis. Porta risus orci id pulvinar eget.</h2><span class="blog__article-date">30 декабря 2022</span></a>
+                <button class="vacancies-button vacancies-button--black blog__more">Загрузить ещё</button>
               </div>
             </div>
           </div>
