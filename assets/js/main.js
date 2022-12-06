@@ -1502,14 +1502,12 @@ if (vacancies) {
         });
       }
 
-
-
-
-
       const isEmptyFilter = vacanciesFilterContentList.children.length === 0;
       if (isEmptyFilter) removeClassFilterVisible();
     });
   };
+
+
 
   const checkboxInnerWrappers = vacancies.querySelectorAll('.filter__item-inner');
   checkboxInnerWrappers.forEach(checkboxInnerWrapper => {
