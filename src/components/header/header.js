@@ -28,7 +28,7 @@ if (headerNav) {
     const location = window.location.href;
     if (location === link.href) {
       link.classList.add('js-link-active');
-      if (link.classList.contains('student-link')) {
+      if (link.classList.contains('js-student-link')) {
         header.classList.add('js-student-page');
 
         burger.addEventListener('click', () => {
