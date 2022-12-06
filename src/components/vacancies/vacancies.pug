@@ -24,41 +24,41 @@
                   label.filter__item
                     span Винный Парк
                     input.filter__item-checkbox(type="checkbox" name="Объекты" value="Винный Парк")
-                    .filter__item-checkbox
+                    span.filter__item-checkbox
                   label.filter__item
                     span Японский Сад
                     input.filter__item-checkbox(type="checkbox" name="Объекты" value="Японский Сад")
-                    .filter__item-checkbox
+                    span.filter__item-checkbox
                   label.filter__item
                     span Дримвуд
                     input.filter__item-checkbox(type="checkbox" name="Объекты" value="Дримвуд")
-                    .filter__item-checkbox
+                    span.filter__item-checkbox
                   label.filter__item
                     span Пляж и бассейн
                     input.filter__item-checkbox(type="checkbox" name="Объекты" value="Пляж и бассейн")
-                    .filter__item-checkbox
+                    span.filter__item-checkbox
                   label.filter__item
                     span Рестораны
-                    input.filter__item-checkbox(type="checkbox" name="Объекты" value="Рестораны")
-                    .filter__item-checkbox
+                    input.filter__item-checkbox(type="checkbox" name="Объекты" value="Рестораны" data-type="main")
+                    span.filter__item-checkbox
                     .filter__item-inner
                       label.filter__item
                         span Кухня
                         input.filter__item-checkbox(type="checkbox" name="Объекты" value="Кухня")
-                        .filter__item-checkbox
+                        span.filter__item-checkbox
                       label.filter__item
                         span Зал
                         input.filter__item-checkbox(type="checkbox" name="Объекты" value="Зал")
-                        .filter__item-checkbox
+                        span.filter__item-checkbox
 
                   label.filter__item
                     span Test hidden 1
                     input.filter__item-checkbox(type="checkbox" name="Объекты" value="Test hidden 1")
-                    .filter__item-checkbox
+                    span.filter__item-checkbox
                   label.filter__item
                     span Test hidden 2
                     input.filter__item-checkbox(type="checkbox" name="Объекты" value="Test hidden 2")
-                    .filter__item-checkbox
+                    span.filter__item-checkbox
                 button.filter__button-more Показать ещё
 
 
@@ -69,23 +69,27 @@
                 fieldset.filter__list
 
                   label.filter__item Бухгалтерия
-                    input.filter__item-checkbox(type="checkbox" name="activity" value="Accounting")
-                    .filter__item-checkbox
+                    input.filter__item-checkbox(type="checkbox" name="Деятельность" value="Бухгалтерия")
+                    span.filter__item-checkbox
                   label.filter__item Административно-хозяйственное направление
-                    input.filter__item-checkbox(type="checkbox" name="activity" value="Administrative direction")
-                    .filter__item-checkbox
+                    input.filter__item-checkbox(type="checkbox" name="Деятельность" value="Административно-хозяйственное направление")
+                    span.filter__item-checkbox
                   label.filter__item Уборка помещений, объектов и территории
-                    input.filter__item-checkbox(type="checkbox" name="activity" value="Cleaning")
-                    .filter__item-checkbox
+                    input.filter__item-checkbox(type="checkbox" name="Деятельность" value="Уборка помещений, объектов и территории")
+                    span.filter__item-checkbox
                   label.filter__item Информационные технологии
-                    input.filter__item-checkbox(type="checkbox" name="activity" value="IT")
-                    .filter__item-checkbox
+                    input.filter__item-checkbox(type="checkbox" name="Деятельность" value="Информационные технологии")
+                    span.filter__item-checkbox
                   label.filter__item Благоустройство и озеленение
-                    input.filter__item-checkbox(type="checkbox" name="activity" value="landscaping")
-                    .filter__item-checkbox
+                    input.filter__item-checkbox(type="checkbox" name="Деятельность" value="Благоустройство и озеленение")
+                    span.filter__item-checkbox
                   label.filter__item Test hidden
-                    input.filter__item-checkbox(type="checkbox" name="activity" value="Test")
-                    .filter__item-checkbox
+                    input.filter__item-checkbox(type="checkbox" name="Деятельность" value="Test hidden")
+                    span.filter__item-checkbox
+                  label.filter__item Test hidden
+                    input.filter__item-checkbox(type="checkbox" name="Деятельность" value="Test hidden")
+                    span.filter__item-checkbox
+
                 button.filter__button-more Показать ещё
 
             //График
@@ -95,11 +99,11 @@
                 fieldset.filter__list
 
                   label.filter__item Сменный
-                    input.filter__item-checkbox(type="checkbox" name="schedule" value="shift work")
-                    .filter__item-checkbox
+                    input.filter__item-checkbox(type="checkbox" name="График" value="Сменный")
+                    span.filter__item-checkbox
                   label.filter__item 5/2
-                    input.filter__item-checkbox(type="checkbox" name="schedule" value="5/2")
-                    .filter__item-checkbox
+                    input.filter__item-checkbox(type="checkbox" name="График" value="5/2")
+                    span.filter__item-checkbox
 
             // Сезонность
             li.filters__item.filter
@@ -108,11 +112,11 @@
                 fieldset.filter__list
 
                   label.filter__item Постоянные вакансии
-                    input.filter__item-checkbox(type="checkbox" name="seasonality" value="permanent vacancies")
-                    .filter__item-checkbox
+                    input.filter__item-checkbox(type="checkbox" name="Сезонность" value="Постоянные вакансии")
+                    span.filter__item-checkbox
                   label.filter__item Сезонные вакансии
-                    input.filter__item-checkbox(type="checkbox" name="seasonality" value="Seasonal vacancies")
-                    .filter__item-checkbox
+                    input.filter__item-checkbox(type="checkbox" name="Сезонность" value="Сезонные вакансии")
+                    span.filter__item-checkbox
 
             // Резюме
             li.filters__item.filter
@@ -121,11 +125,11 @@
                 fieldset.filter__list
 
                   label.filter__item Необходимо резюме
-                    input.filter__item-checkbox(type="checkbox" name="resume" value="Resume needed")
-                    .filter__item-checkbox
+                    input.filter__item-checkbox(type="checkbox" name="Резюме" value="Необходимо резюме")
+                    span.filter__item-checkbox
                   label.filter__item Без резюме
-                    input.filter__item-checkbox(type="checkbox" name="resume" value="No resume")
-                    .filter__item-checkbox
+                    input.filter__item-checkbox(type="checkbox" name="Резюме" value="Без резюме")
+                    span.filter__item-checkbox
 
           .filters__actions
             button.vacancies-button.vacancies-button--white.filters__actions-reset Сбросить
