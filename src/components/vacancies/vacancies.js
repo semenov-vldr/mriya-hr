@@ -35,11 +35,11 @@ if (vacancies) {
   const addClassFilterOpen = () => {
     filters.classList.add('js-filter-open');
     blockScrollBody();
-  }
+  };
   const removeClassFilterOpen = () => {
     filters.classList.remove('js-filter-open');
     unblockScrollBody();
-  }
+  };
 
   filterSettingBtn.addEventListener('click', addClassFilterOpen);
   filtersClose.addEventListener('click', removeClassFilterOpen);
@@ -57,7 +57,7 @@ if (vacancies) {
     if (!vacanciesFilterContent.classList.contains('js-filter-visible')) {
       vacanciesFilterContent.classList.add('js-filter-visible');
     }
-  }
+  };
   // Скрытие блока тегов фильтра
   const removeClassFilterVisible = () => {
     vacanciesFilterContent.classList.remove('js-filter-visible');
@@ -91,18 +91,15 @@ if (vacancies) {
     }
 
     if (li.dataset.type === "main" && checkboxesInner) {
-
       checkboxesInner.forEach(checkboxInner => {
         checkboxInner.checked = false;
-        checkedCheckboxes = checkedCheckboxes.filter(el => el !== checkboxInner.value);
-
-        removeSelectedTag(checkboxInner)
+        tagFiltering(checkboxInner);
+        removeSelectedTag(checkboxInner);
       });
     };
 
     const checkboxInnerList = checkbox.closest('.filter__item-inner')?.querySelectorAll('input[type="checkbox"]:checked') ;
     if (checkboxInnerList && checkboxInnerList.length === 0) {
-
       const mainCheckbox =  checkbox.closest('.filter__item-inner')?.closest('.filter__item').querySelector('input[type="checkbox"]');
       mainCheckbox.checked = false;
       removeSelectedTag(mainCheckbox);

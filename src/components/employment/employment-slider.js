@@ -24,6 +24,8 @@
 
         slidesPerView: 1,
 
+        effect: "fade",
+
         //centeredSlides: true,
 
         // Отступ между слайдами
@@ -58,7 +60,6 @@
             slidesPerView: 1,
 
             direction: "vertical",
-            effect: "fade",
 
             pagination: {
               el: ".swiper-pagination",
@@ -68,8 +69,6 @@
                 return '<span class="' + className + '">' + ++index + '</span>';
               }
             },
-
-
           }
 
         }
