@@ -244,6 +244,11 @@ if (blog) {
 
         effect: "fade",
 
+        autoplay: {
+          // delay: 5000,
+          // disableOnInteraction: false,
+        },
+
         //centeredSlides: true,
 
         // Отступ между слайдами
@@ -270,9 +275,6 @@ if (blog) {
           },
 
           1000: {
-            autoplay: {
-              delay: 1000,
-            },
 
             loop: true,
             slidesPerView: 1,
@@ -458,7 +460,6 @@ let previousPosition = window.scrollTop || document.documentElement.scrollTop;
   };
 
   if (callToActionButtons) {
-
 
     callToActionButtons.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -1676,20 +1677,27 @@ const html = document.querySelector('html');
 
 
 function blockScrollBody () {
-  html.classList.add('js-block-scroll');
-  body.classList.add('js-block-scroll');
-}
+
+  if ( !html.classList.contains('js-block-scroll') && !body.classList.contains('js-block-scroll') ) {
+    html.classList.add('js-block-scroll');
+    body.classList.add('js-block-scroll');
+  }
+};
 
 function unblockScrollBody () {
-  html.classList.remove('js-block-scroll');
-  body.classList.remove('js-block-scroll');
 
-}
+  if ( html.classList.contains('js-block-scroll') && body.classList.contains('js-block-scroll') ) {
+    console.log(html.classList.contains('js-block-scroll'))
+    html.classList.remove('js-block-scroll');
+    body.classList.remove('js-block-scroll');
+  }
+};
 
 function toggleScrollBody () {
   html.classList.toggle('js-block-scroll');
   body.classList.toggle('js-block-scroll');
-}
+
+};
 
 const images = document.querySelectorAll('img');
 
