@@ -198,7 +198,7 @@ if (areas) {
 const blog = document.querySelector('.blog');
 
 if (blog) {
-  const showMore = blog.querySelector('.blog__theme-item--more');
+  const showMore = blog.querySelector('.blog__theme-item--btn-more');
 
   const startItems = 8;
 
@@ -244,10 +244,10 @@ if (blog) {
 
         effect: "fade",
 
-        autoplay: {
-          // delay: 5000,
-          // disableOnInteraction: false,
-        },
+        // autoplay: {
+        //   delay: 5000,
+        //   disableOnInteraction: false,
+        // },
 
         //centeredSlides: true,
 
@@ -263,15 +263,18 @@ if (blog) {
           320: {
             slidesPerView: 1,
             spaceBetween: 16,
+            effect: "slide",
           },
 
           480: {
             slidesPerView: 1.5,
             spaceBetween: 20,
+            effect: "slide",
           },
 
           768: {
-            slidesPerView: 1.5
+            slidesPerView: 1.5,
+            effect: "slide",
           },
 
           1000: {
@@ -313,7 +316,44 @@ if (blog) {
 
 }
 
-let previousPosition = window.scrollTop || document.documentElement.scrollTop;
+{
+
+  const employment = document.querySelector('.employment');
+
+  const desktopWidth = window.matchMedia('(min-width: 1000px)');
+
+  if (employment) calcMarginForSteps()
+
+// Добавление margin-top для каждой номера шага из рассчета высоты блока employment-steps-item + gap списка
+  function calcMarginForSteps () {
+
+    const stepsList = employment.querySelector('.employment-steps__list');
+    const employmentStepsItems = employment.querySelectorAll('.employment-steps__item');
+    const swiperPaginationBullets = employment.querySelectorAll('.swiper-pagination-bullet');
+
+    if (desktopWidth.matches) {
+
+      const gapList = +getComputedStyle(stepsList).gap.replace(/\D/g,'');
+
+      swiperPaginationBullets[0].style.marginBottom = '0';
+      swiperPaginationBullets.forEach((bullet, indexBullet) => {
+
+        const heightBullet = bullet.offsetHeight;
+
+        if (indexBullet > 0) {
+          const heightBlock = employmentStepsItems[indexBullet-1].offsetHeight;
+          bullet.style.margin = '0';
+          bullet.style.marginTop = `${heightBlock + gapList - heightBullet}px`;
+        }
+      })
+    }
+  };
+
+
+}
+
+
+//let previousPosition = window.scrollTop || document.documentElement.scrollTop;
 
 // const employment = document.querySelector('.employment');
 //
@@ -494,9 +534,9 @@ let previousPosition = window.scrollTop || document.documentElement.scrollTop;
           };
 
           // Выбор вакансии в поп-апе на странице вакансий
-          if (btn.classList.contains('vacancies-button')) {
-            const titleVacancy = btn.closest('.vacancies-item')
-              .querySelector('.vacancies-item__title').textContent;
+          if (btn.classList.contains('vacanciesFilter-button')) {
+            const titleVacancy = btn.closest('.vacanciesFilter-item')
+              .querySelector('.vacanciesFilter-item__title').textContent;
             selectedVacancy(titleVacancy);
           };
 
@@ -895,7 +935,7 @@ if (forms) validForm(forms)
 
 const desktopWidth = window.matchMedia('(min-width: 1000.1px)');
 
-//let previousPosition = window.scrollTop || document.documentElement.scrollTop;
+let previousPosition = window.scrollTop || document.documentElement.scrollTop;
 
 const header = document.querySelector('.header');
 const burger = header.querySelector('.header__burger');
@@ -1380,6 +1420,31 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
 
 }
 
+{
+
+  const vacanciesList = document.querySelector('.vacancies__list');
+
+  if (vacanciesList) {
+
+    const countVacancies = document.querySelector('.filters__count-value');
+    const amountVacancies = vacanciesList.querySelectorAll('.vacancies__item').length;
+
+    if (amountVacancies < 10) {
+      countVacancies.textContent = `00${amountVacancies}`;
+    }
+
+    if (amountVacancies >= 10 && amountVacancies < 100) {
+      countVacancies.textContent = `0${amountVacancies}`;
+    }
+
+    if (amountVacancies > 100) {
+      countVacancies.textContent = `${amountVacancies}`;
+    }
+
+  }
+
+}
+
 const vacancies = document.querySelector('.vacancies');
 
 if (vacancies) {
@@ -1627,6 +1692,37 @@ if (vacancies) {
 
 
 
+{
+  const vacancies = document.querySelector('.vacancies');
+
+  if (vacancies) {
+
+    const vacanciesSearch = vacancies.querySelector('.vacancies-search__input');
+
+    vacanciesSearch.addEventListener('keyup', searchJob);
+
+    function searchJob () {
+
+      const inputValue = vacanciesSearch.value.toLowerCase();
+      const vacanciesItems = vacancies.querySelectorAll('.vacancies__item');
+
+      vacanciesItems.forEach(vacancy => {
+        const vacancyTitle = vacancy.querySelector('.vacancies-item__title').textContent
+
+        if(vacancyTitle.toLowerCase().indexOf(inputValue) > -1) {
+          vacancy.style.display = '';
+        } else {
+          vacancy.style.display = 'none';
+        }
+      })
+    }
+
+  }
+
+
+
+
+}
 
 const accordionList = document.querySelectorAll('.accordion');
 
@@ -1677,7 +1773,6 @@ const html = document.querySelector('html');
 
 
 function blockScrollBody () {
-
   if ( !html.classList.contains('js-block-scroll') && !body.classList.contains('js-block-scroll') ) {
     html.classList.add('js-block-scroll');
     body.classList.add('js-block-scroll');
@@ -1685,9 +1780,7 @@ function blockScrollBody () {
 };
 
 function unblockScrollBody () {
-
   if ( html.classList.contains('js-block-scroll') && body.classList.contains('js-block-scroll') ) {
-    console.log(html.classList.contains('js-block-scroll'))
     html.classList.remove('js-block-scroll');
     body.classList.remove('js-block-scroll');
   }
