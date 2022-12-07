@@ -58,7 +58,6 @@
 
   if (callToActionButtons) {
 
-
     callToActionButtons.forEach(btn => {
       btn.addEventListener('click', () => {
 

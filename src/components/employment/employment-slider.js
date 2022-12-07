@@ -26,6 +26,11 @@
 
         effect: "fade",
 
+        autoplay: {
+          // delay: 5000,
+          // disableOnInteraction: false,
+        },
+
         //centeredSlides: true,
 
         // Отступ между слайдами
@@ -52,9 +57,6 @@
           },
 
           1000: {
-            autoplay: {
-              delay: 1000,
-            },
 
             loop: true,
             slidesPerView: 1,
