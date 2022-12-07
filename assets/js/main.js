@@ -1499,6 +1499,10 @@ if (vacancies) {
   const vacanciesFilterContent = vacancies.querySelector('.vacancies-filter-content'); // Блок списка тегов фильтра и кнопки "Сбросить"
   const vacanciesFilterContentList = vacanciesFilterContent.querySelector('.vacancies-filter-content__list'); // ul для тегов фильтра
 
+
+  let checkedCheckboxes = []; // Изменяемый массив, куда мы добавляем значения тегов фильтра без повторных элементов
+
+
   // Отображение блока тегов фильтра
   const addClassFilterVisible = () => {
     if (!vacanciesFilterContent.classList.contains('js-filter-visible')) {
@@ -1508,7 +1512,9 @@ if (vacancies) {
   // Скрытие блока тегов фильтра
   const removeClassFilterVisible = () => {
     vacanciesFilterContent.classList.remove('js-filter-visible');
+    filtersActions.classList.remove('js-filter-active');
     vacanciesFilterContent.querySelector('.vacancies-filter-content__list').replaceChildren();
+    checkedCheckboxes = [];
   };
 
   function removeSelectedTag (disabledCheckbox) {
@@ -1521,7 +1527,6 @@ if (vacancies) {
   };
 
 
-  let checkedCheckboxes = []; // Изменяемый массив, куда мы добавляем значения тегов фильтра без повторных элементов
 
   function tagFiltering (removedElement) {
     checkedCheckboxes = checkedCheckboxes.filter(el => el !== removedElement.value);
