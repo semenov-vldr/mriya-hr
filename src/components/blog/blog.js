@@ -1,7 +1,7 @@
 const blog = document.querySelector('.blog');
 
 if (blog) {
-  const showMore = blog.querySelector('.blog__theme-item--more');
+  const showMore = blog.querySelector('.blog__theme-item--btn-more');
 
   const startItems = 8;
 

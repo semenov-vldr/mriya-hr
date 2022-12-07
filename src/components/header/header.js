@@ -1,6 +1,6 @@
 const desktopWidth = window.matchMedia('(min-width: 1000.1px)');
 
-//let previousPosition = window.scrollTop || document.documentElement.scrollTop;
+let previousPosition = window.scrollTop || document.documentElement.scrollTop;
 
 const header = document.querySelector('.header');
 const burger = header.querySelector('.header__burger');

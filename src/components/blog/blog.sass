@@ -17,7 +17,7 @@
       gap: 7px
 
   &__theme-item,
-  &__theme-item--more
+  &__theme-item--btn-more
     border: 1px solid #EBEBEB
     padding: 6px 16px
     cursor: pointer
@@ -49,10 +49,12 @@
       grid-template-columns: 1fr
 
   &__article
-    overflow: hidden
     display: flex
     flex-direction: column
     gap: 12px
+    min-height: 340px
+    @media (min-width: 1000px)
+      min-height: 420px
     &:hover
       img
         scale: 1.1

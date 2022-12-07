@@ -1,4 +1,41 @@
-let previousPosition = window.scrollTop || document.documentElement.scrollTop;
+{
+
+  const employment = document.querySelector('.employment');
+
+  const desktopWidth = window.matchMedia('(min-width: 1000px)');
+
+  if (employment) calcMarginForSteps()
+
+// Добавление margin-top для каждой номера шага из рассчета высоты блока employment-steps-item + gap списка
+  function calcMarginForSteps () {
+
+    const stepsList = employment.querySelector('.employment-steps__list');
+    const employmentStepsItems = employment.querySelectorAll('.employment-steps__item');
+    const swiperPaginationBullets = employment.querySelectorAll('.swiper-pagination-bullet');
+
+    if (desktopWidth.matches) {
+
+      const gapList = +getComputedStyle(stepsList).gap.replace(/\D/g,'');
+
+      swiperPaginationBullets[0].style.marginBottom = '0';
+      swiperPaginationBullets.forEach((bullet, indexBullet) => {
+
+        const heightBullet = bullet.offsetHeight;
+
+        if (indexBullet > 0) {
+          const heightBlock = employmentStepsItems[indexBullet-1].offsetHeight;
+          bullet.style.margin = '0';
+          bullet.style.marginTop = `${heightBlock + gapList - heightBullet}px`;
+        }
+      })
+    }
+  };
+
+
+}
+
+
+//let previousPosition = window.scrollTop || document.documentElement.scrollTop;
 
 // const employment = document.querySelector('.employment');
 //

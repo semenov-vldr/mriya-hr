@@ -21,7 +21,6 @@ const html = document.querySelector('html');
 
 
 function blockScrollBody () {
-
   if ( !html.classList.contains('js-block-scroll') && !body.classList.contains('js-block-scroll') ) {
     html.classList.add('js-block-scroll');
     body.classList.add('js-block-scroll');
@@ -29,9 +28,7 @@ function blockScrollBody () {
 };
 
 function unblockScrollBody () {
-
   if ( html.classList.contains('js-block-scroll') && body.classList.contains('js-block-scroll') ) {
-    console.log(html.classList.contains('js-block-scroll'))
     html.classList.remove('js-block-scroll');
     body.classList.remove('js-block-scroll');
   }

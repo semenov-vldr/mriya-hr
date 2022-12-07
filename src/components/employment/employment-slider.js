@@ -26,10 +26,10 @@
 
         effect: "fade",
 
-        autoplay: {
-          // delay: 5000,
-          // disableOnInteraction: false,
-        },
+        // autoplay: {
+        //   delay: 5000,
+        //   disableOnInteraction: false,
+        // },
 
         //centeredSlides: true,
 
@@ -45,15 +45,18 @@
           320: {
             slidesPerView: 1,
             spaceBetween: 16,
+            effect: "slide",
           },
 
           480: {
             slidesPerView: 1.5,
             spaceBetween: 20,
+            effect: "slide",
           },
 
           768: {
-            slidesPerView: 1.5
+            slidesPerView: 1.5,
+            effect: "slide",
           },
 
           1000: {
