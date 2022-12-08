@@ -532,16 +532,16 @@ if (blog) {
           };
 
           // Выбор вакансии в поп-апе на странице вакансий
-          if (btn.classList.contains('vacanciesFilter-button')) {
-            const titleVacancy = btn.closest('.vacanciesFilter-item')
-              .querySelector('.vacanciesFilter-item__title').textContent;
+          if (btn.classList.contains('vacancies-button')) {
+            const titleVacancy = btn.closest('.vacancies__item')
+              .querySelector('.vacancies-item__title').textContent;
             selectedVacancy(titleVacancy);
           };
 
 
           // Выбор вакансии в поп-апе на внутренней странице вакансии
           if (btn.classList.contains('vacancy-hr__button')) {
-            const titleVacancy = document.querySelector('.vacancy__title').textContent;
+            const titleVacancy = document.querySelector('h1').textContent;
             selectedVacancy(titleVacancy);
           };
         }
@@ -937,7 +937,7 @@ let previousPosition = window.scrollTop || document.documentElement.scrollTop;
 const header = document.querySelector('.header');
 const burger = header.querySelector('.header__burger');
 
-if (header) {
+if (header && burger) {
   burger.addEventListener('click', () => {
     header.classList.toggle('js-active-menu');
     toggleScrollBody();
@@ -987,9 +987,6 @@ if (header) {
       }
     }
   })
-
-
-
 
 }
 
