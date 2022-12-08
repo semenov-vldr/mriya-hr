@@ -41,20 +41,21 @@
 
   &__list
     display: grid
-    grid-template-columns: repeat(3, 1fr)
+    //grid-template-columns: repeat(3, 1fr)
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr))
+    grid-template-rows: 1fr
     gap: 40px 24px
     @media (max-width: 768px)
-      grid-template-columns: repeat(2, 1fr)
-    @media (max-width: 420px)
-      grid-template-columns: 1fr
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr))
+    //  grid-template-columns: repeat(2, 1fr)
+    //@media (max-width: 420px)
+    //  grid-template-columns: 1fr
 
   &__article
     display: flex
     flex-direction: column
     gap: 12px
-    min-height: 340px
     @media (min-width: 1000px)
-      min-height: 420px
     &:hover
       img
         scale: 1.1

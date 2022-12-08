@@ -13,28 +13,32 @@
     align-items: center
     @media (max-width: 1000px)
       grid-template-columns: 1fr
+    @media (max-width: 768px)
+      gap: 24px
 
   &__title
     text-align: left
-    margin-bottom: clamp(16px, calc(16px + (32 - 16) * ((100vw - 768px) / (1920 - 768))), 32px)
+    @include changeSize(margin-bottom, 16, 32)
 
   &__description
     display: none
     @include fontSize(14, 18)
-    margin-bottom: clamp(32px, calc(32px + (48 - 32) * ((100vw - 768px) / (1920 - 768))), 48px)
+    @include changeSize(margin-bottom, 24, 48)
     &.js-area-active
       display: block
 
   &__subtitle
     display: inline-block
     font-size: 20px
-    margin-bottom: clamp(16px, calc(16px + (32 - 16) * ((100vw - 768px) / (1920 - 768))), 32px)
+    @include changeSize(margin-bottom, 16, 32)
 
 
   &__list
     display: flex
     flex-wrap: wrap
     gap: 16px 8px
+    @media (max-width: 1000px)
+      gap: 8px
 
   &__item,
   .areas__item--more
@@ -43,7 +47,7 @@
     cursor: pointer
     @include fontSize(13, 16)
     @media (max-width: 1000px)
-      padding: 10px 16px
+      padding: 8px
     &:hover,
     &.js-area-active
       background-color: $black
@@ -62,6 +66,7 @@
     @media (max-width: 1000px)
       order: -1
       height: auto
+      min-height: 200px
       aspect-ratio: 11 / 9
     img
       display: none

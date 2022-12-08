@@ -1,97 +1,90 @@
 
 {
+
+  const widthMobile = window.matchMedia('(max-width: 1000px)');
+
   let mySwiper;
 
   const swiperList = document.querySelectorAll('.employment-swiper');
 
-  if (swiperList) {
-    swiperList.forEach(swiper => {
+  if (swiperList) createSwiper('fade');
 
-      mySwiper = new Swiper(swiper, {
+    function createSwiper (effect) {
 
-        navigation: {
-          nextEl: '.slider-nav__next',
-          prevEl: '.slider-nav__prev',
-        },
+      swiperList.forEach(swiper => {
 
-        uniqueNavElements: true,
+        mySwiper = new Swiper(swiper, {
 
-        // Бесконечная прокрутка
-        //loop: true,
-
-        // Откл функционала, если слайдов меньше, чем нужно
-        watchOverflow: true,
-
-        slidesPerView: 1,
-
-        effect: "fade",
-
-        // autoplay: {
-        //   delay: 5000,
-        //   disableOnInteraction: false,
-        // },
-
-        //centeredSlides: true,
-
-        // Отступ между слайдами
-        spaceBetween: 20,
-
-        // Стартовый слайд
-        initialSlide: 0,
-
-        // Брейк поинты (адаптив)
-        // Ширина экрана
-        breakpoints: {
-          320: {
-            slidesPerView: 1,
-            spaceBetween: 16,
-            effect: "slide",
+          navigation: {
+            nextEl: '.slider-nav__next',
+            prevEl: '.slider-nav__prev',
           },
 
-          480: {
-            slidesPerView: 1.5,
-            spaceBetween: 20,
-            effect: "slide",
-          },
+          uniqueNavElements: true,
 
-          768: {
-            slidesPerView: 1.5,
-            effect: "slide",
-          },
+          // Бесконечная прокрутка
+          //loop: true,
 
-          1000: {
+          // Откл функционала, если слайдов меньше, чем нужно
+          watchOverflow: true,
 
-            loop: true,
-            slidesPerView: 1,
+          slidesPerView: 1,
 
-            direction: "vertical",
+          effect: effect,
 
-            pagination: {
-              el: ".swiper-pagination",
-              clickable: true,
+          // autoplay: {
+          //   delay: 5000,
+          //   disableOnInteraction: false,
+          // },
 
-              renderBullet: function (index, className) {
-                return '<span class="' + className + '">' + ++index + '</span>';
-              }
+          //centeredSlides: true,
+
+          // Отступ между слайдами
+          spaceBetween: 20,
+
+          // Стартовый слайд
+          initialSlide: 0,
+
+          // Брейк поинты (адаптив)
+          // Ширина экрана
+          breakpoints: {
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 16,
             },
+
+            480: {
+              slidesPerView: 1.5,
+              spaceBetween: 20,
+            },
+
+            768: {
+              slidesPerView: 1.5,
+            },
+
+            1000: {
+              loop: true,
+              slidesPerView: 1,
+              direction: "vertical",
+              pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+
+                renderBullet: function (index, className) {
+                  return '<span class="' + className + '">' + ++index + '</span>';
+                }
+              },
+            }
           }
-
-        }
-      });
-
-
+        });
+      })
+    }
 
 
-
-    })
-
-
-
-  }
-
-
-
-
+    if (widthMobile.matches && swiperList) {
+      mySwiper.destroy(true, true);
+      createSwiper('slide');
+    }
 
 
 
