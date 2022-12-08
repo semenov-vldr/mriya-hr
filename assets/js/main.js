@@ -225,7 +225,7 @@ if (blog) {
 
   const swiperList = document.querySelectorAll('.employment-swiper');
 
-  if (swiperList) createSwiper('fade');
+  if (swiperList.length) createSwiper('fade');
 
     function createSwiper (effect) {
 
@@ -299,7 +299,7 @@ if (blog) {
     }
 
 
-    if (widthMobile.matches && swiperList) {
+    if (widthMobile.matches && swiperList.length) {
       mySwiper.destroy(true, true);
       createSwiper('slide');
     }
@@ -454,6 +454,11 @@ if (blog) {
     popup.remove();
     unblockScrollBody();
     popup.querySelector('form').reset();
+
+    const header = document.querySelector('.header');
+    if (header.classList.contains('js-active-menu')) {
+      header.classList.remove('js-active-menu');
+    }
   };
 
   function openFormPopup (popup) {
@@ -543,7 +548,6 @@ if (blog) {
       });
     });
   }
-
 
 
 
@@ -926,26 +930,23 @@ function validForm (forms) {
 if (forms) validForm(forms)
 
 
-const desktopWidth = window.matchMedia('(min-width: 1000.1px)');
+const desktopWidth = window.matchMedia('(min-width: 1001px)');
 
 let previousPosition = window.scrollTop || document.documentElement.scrollTop;
 
 const header = document.querySelector('.header');
 const burger = header.querySelector('.header__burger');
-const headerNav = header.querySelector('.header__nav');
 
-if (headerNav) {
+if (header) {
   burger.addEventListener('click', () => {
-    headerNav.classList.toggle('js-active-menu');
-    burger.classList.toggle('js-active-menu');
+    header.classList.toggle('js-active-menu');
     toggleScrollBody();
   });
 
 
   window.addEventListener('resize', () => {
     if (desktopWidth.matches) {
-      headerNav.classList.remove('js-active-menu');
-      burger.classList.remove('js-active-menu');
+      header.classList.remove('js-active-menu');
       unblockScrollBody();
     }
   });
@@ -964,7 +965,7 @@ if (headerNav) {
         });
 
         window.addEventListener("scroll", () => {
-          let currentPosition = window.scrollTop || document.documentElement.scrollTop;
+          const currentPosition = window.scrollTop || document.documentElement.scrollTop;
           if ( previousPosition < currentPosition) {
             header.classList.add('js-scroll');
             header.classList.remove('js-student-page');
@@ -980,13 +981,8 @@ if (headerNav) {
         header.classList.remove('js-student-page');
 
         window.addEventListener("scroll", () => {
-          let currentPosition = window.scrollTop || document.documentElement.scrollTop;
-          if ( previousPosition < currentPosition) {
-            header.classList.add('js-scroll');
-          }
-          else {
-            header.classList.remove('js-scroll');
-          }
+          const currentPosition = window.scrollTop || document.documentElement.scrollTop;
+          ( previousPosition < currentPosition) ? header.classList.add('js-scroll') : header.classList.remove('js-scroll');
         });
       }
     }
@@ -1748,45 +1744,24 @@ if (accordionList) {
 
 
 
-const body = document.querySelector('body');
+
 const html = document.querySelector('html');
-
-// function preventScroll(evt) {
-//   evt.stopPropagation();
-//   evt.preventDefault();
-//
-//   return false;
-// }
-//
-// function disableScroll () {
-//   body.addEventListener('wheel', preventScroll)
-//   console.log('disableScroll')
-// };
-//
-// function enableScroll () {
-//   body.removeEventListener('wheel', preventScroll)
-//   console.log('enableScroll')
-// }
-
 
 
 function blockScrollBody () {
-  if ( !html.classList.contains('js-block-scroll') && !body.classList.contains('js-block-scroll') ) {
+  if ( !html.classList.contains('js-block-scroll') ) {
     html.classList.add('js-block-scroll');
-    body.classList.add('js-block-scroll');
   }
 };
 
 function unblockScrollBody () {
-  if ( html.classList.contains('js-block-scroll') && body.classList.contains('js-block-scroll') ) {
+  if ( html.classList.contains('js-block-scroll') ) {
     html.classList.remove('js-block-scroll');
-    body.classList.remove('js-block-scroll');
   }
 };
 
 function toggleScrollBody () {
   html.classList.toggle('js-block-scroll');
-  body.classList.toggle('js-block-scroll');
 
 };
 
