@@ -1,23 +1,20 @@
-const desktopWidth = window.matchMedia('(min-width: 1000.1px)');
+const desktopWidth = window.matchMedia('(min-width: 1001px)');
 
 let previousPosition = window.scrollTop || document.documentElement.scrollTop;
 
 const header = document.querySelector('.header');
 const burger = header.querySelector('.header__burger');
-const headerNav = header.querySelector('.header__nav');
 
-if (headerNav) {
+if (header) {
   burger.addEventListener('click', () => {
-    headerNav.classList.toggle('js-active-menu');
-    burger.classList.toggle('js-active-menu');
+    header.classList.toggle('js-active-menu');
     toggleScrollBody();
   });
 
 
   window.addEventListener('resize', () => {
     if (desktopWidth.matches) {
-      headerNav.classList.remove('js-active-menu');
-      burger.classList.remove('js-active-menu');
+      header.classList.remove('js-active-menu');
       unblockScrollBody();
     }
   });
@@ -36,7 +33,7 @@ if (headerNav) {
         });
 
         window.addEventListener("scroll", () => {
-          let currentPosition = window.scrollTop || document.documentElement.scrollTop;
+          const currentPosition = window.scrollTop || document.documentElement.scrollTop;
           if ( previousPosition < currentPosition) {
             header.classList.add('js-scroll');
             header.classList.remove('js-student-page');
@@ -52,13 +49,8 @@ if (headerNav) {
         header.classList.remove('js-student-page');
 
         window.addEventListener("scroll", () => {
-          let currentPosition = window.scrollTop || document.documentElement.scrollTop;
-          if ( previousPosition < currentPosition) {
-            header.classList.add('js-scroll');
-          }
-          else {
-            header.classList.remove('js-scroll');
-          }
+          const currentPosition = window.scrollTop || document.documentElement.scrollTop;
+          ( previousPosition < currentPosition) ? header.classList.add('js-scroll') : header.classList.remove('js-scroll');
         });
       }
     }

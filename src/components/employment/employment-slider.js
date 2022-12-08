@@ -7,7 +7,7 @@
 
   const swiperList = document.querySelectorAll('.employment-swiper');
 
-  if (swiperList) createSwiper('fade');
+  if (swiperList.length) createSwiper('fade');
 
     function createSwiper (effect) {
 
@@ -81,7 +81,7 @@
     }
 
 
-    if (widthMobile.matches && swiperList) {
+    if (widthMobile.matches && swiperList.length) {
       mySwiper.destroy(true, true);
       createSwiper('slide');
     }

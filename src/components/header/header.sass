@@ -17,21 +17,30 @@
     width: 100%
     z-index: 1
     background-color: transparent
+    &.js-scroll
+      position: fixed
+      z-index: 100
+      top: 0
+      background-color: #fff
 
-  &.js-student-page.js-scroll
-    position: fixed
-    z-index: 100
-    top: 0
-    background-color: #fff
+  &.js-active-menu
+    .header__nav
+      display: flex
+    .burger
+      display: none
+    .close
+      display: block
 
 
   &.js-scroll
     border-bottom: 1px solid #EBEBEB
 
+
   &__container
     display: flex
     justify-content: space-between
     align-items: center
+    gap: 30px
 
   &__logo svg
     @media (max-width: 1000px)
@@ -39,6 +48,9 @@
 
   &-nav
     padding: 8px 0
+    overflow: auto
+    &::-webkit-scrollbar
+      width: 0
     @media (max-width: 1000px)
       position: fixed
       display: none
@@ -54,10 +66,6 @@
       z-index: 60
       flex-direction: column
       gap: 50px
-      &::-webkit-scrollbar
-        width: 0
-    &.js-active-menu
-      display: flex
 
 
     &__list
@@ -83,6 +91,7 @@
       margin: 0 auto
       padding: 8px 0
       line-height: 1.5
+      white-space: nowrap
       &::after
         position: absolute
         content: ""
@@ -108,10 +117,6 @@
       cursor: pointer
     .close
       display: none
-    &.js-active-menu .burger
-      display: none
-    &.js-active-menu .close
-      display: block
 
 
   &-bottom

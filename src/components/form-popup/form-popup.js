@@ -18,6 +18,11 @@
     popup.remove();
     unblockScrollBody();
     popup.querySelector('form').reset();
+
+    const header = document.querySelector('.header');
+    if (header.classList.contains('js-active-menu')) {
+      header.classList.remove('js-active-menu');
+    }
   };
 
   function openFormPopup (popup) {
@@ -107,7 +112,6 @@
       });
     });
   }
-
 
 
 
