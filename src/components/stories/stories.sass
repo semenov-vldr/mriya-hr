@@ -12,7 +12,6 @@
   transition: all 0.5s ease 0s
   overscroll-behavior: contain
   display: none
-  //display: flex
   align-items: center
   justify-content: center
   &.js-stories-active
@@ -21,14 +20,11 @@
   &__body
     position: relative
     width: calc(100% - 20px)
-    //height: 100%
     max-height: 95vh
     min-height: 480px
     min-width: 280px
     max-width: 530px
-    //aspect-ratio: 32 / 51
     @media (max-width: 768px)
-      //aspect-ratio: initial
 
   &__close
     position: absolute
@@ -69,18 +65,16 @@
   &-content
     overflow: hidden
     border-radius: 8px
-    //height: 100%
-
 
 
   // ---КОНТЕНТ---
   &-content-item
     width: 100%
     display: none
-    //height: 100%
     max-height: 95vh
     position: relative
     aspect-ratio: 32 / 51
+    border-radius: 8px
     &.js-stories-content-active
       display: flex
     & > *:not(img)
@@ -112,18 +106,20 @@
         position: absolute
         width: 100%
         height: auto
-        min-height: 514px
+        //min-height: 514px
         left: 0
         top: 0
         object-fit: cover
-
+        border-radius: 8px
 
       &__name
+        padding: 0 20px
         font-size: 20px
         font-weight: 600
         color: #fff
 
       &__post
+        padding: 0 20px
         font-size: 18px
         color: rgba(#fff, 0.8)
         text-align: center

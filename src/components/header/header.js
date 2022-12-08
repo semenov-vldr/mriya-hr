@@ -5,7 +5,7 @@ let previousPosition = window.scrollTop || document.documentElement.scrollTop;
 const header = document.querySelector('.header');
 const burger = header.querySelector('.header__burger');
 
-if (header) {
+if (header && burger) {
   burger.addEventListener('click', () => {
     header.classList.toggle('js-active-menu');
     toggleScrollBody();
@@ -55,9 +55,6 @@ if (header) {
       }
     }
   })
-
-
-
 
 }
 
