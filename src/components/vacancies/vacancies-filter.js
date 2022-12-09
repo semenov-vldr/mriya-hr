@@ -47,8 +47,10 @@ if (vacancies) {
 
   const mobileWidth = window.matchMedia('(max-width: 1000px)');
 
+  const filtersBody = vacancies.querySelector('.filters__body');
+
   const checkboxList = Array.from(filters.querySelectorAll('input[type="checkbox"]')); // Все чекбоксы
-  const filtersActions = filters.querySelector('.filters__actions'); // Блок кнопок "Сбросить" и "Применить"
+  const filtersActions = filters.querySelector('.filters__actions'); // Блок кнопок "Сбросить" и "Применить на моб.версии"
   const vacanciesFilterContent = vacancies.querySelector('.vacancies-filter-content'); // Блок списка тегов фильтра и кнопки "Сбросить"
   const vacanciesFilterContentList = vacanciesFilterContent.querySelector('.vacancies-filter-content__list'); // ul для тегов фильтра
 
@@ -146,6 +148,7 @@ if (vacancies) {
         btn.addEventListener('click', () => {
           checkboxList.forEach(checkbox => checkbox.checked = false);
           removeClassFilterVisible();
+          if (btn.classList.contains('filters__actions-reset')) filtersBody.style.paddingBottom = '';
         })
       });
     };
@@ -166,8 +169,11 @@ if (vacancies) {
 
       if (isSomeChecked && mobileWidth.matches) {
         filtersActions.classList.add('js-filter-active');
+        filtersBody.style.paddingBottom = '160px';
+
       } else {
         filtersActions.classList.remove('js-filter-active');
+        filtersBody.style.paddingBottom = '';
       }
 
       const mainCheckbox =  checkbox.closest('.filter__item-inner')?.closest('.filter__item').querySelector('input[type="checkbox"]');

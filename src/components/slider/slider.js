@@ -48,7 +48,7 @@ function createSwiper (swiperList) {
       // Ширина экрана
       breakpoints: {
         320: {
-          slidesPerView: 1.4,
+          slidesPerView: 1.5,
           spaceBetween: 16,
         },
 
