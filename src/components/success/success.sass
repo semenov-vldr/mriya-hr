@@ -9,7 +9,6 @@
     text-align: center
     @include changeSize(margin-bottom, 48, 96)
 
-
   &__content
     position: relative
 
@@ -21,25 +20,20 @@
     overflow: hidden
     aspect-ratio: 5 / 8
     @include changeSize(width, 250, 300)
+    min-height: 350px
 
+  .stories-card
+    &__info
+      @include fontSize(13, 16)
 
-  .swiper-slide
-    min-height: 300px
+    &__stories-play
+      @include changeSize(width, 40, 53)
 
-    .stories-card
-      min-height: 300px
+    &__stories-title
+      @include fontSize(13, 16)
 
-      &__info
-        @include fontSize(13, 16)
-
-      &__stories-play
-        @include changeSize(width, 40, 53)
-
-      &__stories-title
-        @include fontSize(13, 16)
-
-      &__stories-info
-        @include fontSize(12, 14)
+    &__stories-info
+      @include fontSize(12, 14)
 
 
 
