@@ -336,7 +336,7 @@ if (blog) {
         if (indexBullet > 0) {
           const heightBlock = employmentStepsItems[indexBullet-1].offsetHeight;
           bullet.style.margin = '0';
-          bullet.style.marginTop = `${heightBlock + gapList - heightBullet}px`;
+          bullet.style.marginTop = `${heightBlock + gapList - heightBullet + 1}px`;
         }
       })
     }
@@ -1172,7 +1172,7 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
    // Установка длительности слайда и timeline
    function setIntervalContent() {
      const videoActive = stories.querySelector('.js-stories-content-active video');
-     if (videoActive) {
+     if (videoActive && videoActive.readyState) {
        const duration = videoActive.duration;
        runInterval(duration, 1);
      } else {
@@ -1287,13 +1287,6 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
      if (el) {
        el.querySelector('.stories-timeline__item-inner').style.width = '';
      }
-
-     // const lastContentItem = stories.querySelector('.js-stories-content-active');
-     // console.log(lastContentItem.nextSibling)
-     // if (lastContentItem.nextSibling === 'undefined') {
-     //   console.log('последний элемент')
-     // }
-
    };
 
    const storiesPrev = stories.querySelector('.stories-content__switcher--prev');
@@ -1313,6 +1306,7 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
        const width = parseFloat(activeEl.style.width) || 0; // преобразование строки в число
 
        if(width === 100 ) {storiesSwitchNext(); return;}
+
        activeEl.style.width = String(width + step) + '%';
        if (!stories.classList.contains('js-stories-active')) clearInterval(timer);
 
