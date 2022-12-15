@@ -1,0 +1,19 @@
+extends ../layouts/template-vacancy
+
+block variables
+  - var title = "Вакансия"
+  - var pageClass = ''
+  - var activePage = 'index'
+
+
+block content
+
+  .breadcrumbs
+    .breadcrumbs__container.container
+      a.breadcrumbs__item.back(href="vacancies.html") Вернуться к вакансиям
+
+  section.section-column
+
+    include ../components/vacancy/attraction-operator
+
+

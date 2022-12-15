@@ -28,12 +28,21 @@
 
   &__close
     position: absolute
-    top: 10%
+    top: 8%
     right: 8%
     z-index: 12
     cursor: pointer
+    &::after
+      content: "✕"
+      display: inline-block
+      color: #fff
+      font-weight: 600
+      font-size: 30px
+      @media (max-width: 1000px)
+        font-size: 25px
     &:hover
       opacity: 0.9
+
 
   &-timeline
     position: absolute

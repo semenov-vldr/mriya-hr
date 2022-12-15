@@ -25,7 +25,7 @@
         if (indexBullet > 0) {
           const heightBlock = employmentStepsItems[indexBullet-1].offsetHeight;
           bullet.style.margin = '0';
-          bullet.style.marginTop = `${heightBlock + gapList - heightBullet}px`;
+          bullet.style.marginTop = `${heightBlock + gapList - heightBullet + 1}px`;
         }
       })
     }

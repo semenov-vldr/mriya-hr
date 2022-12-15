@@ -14,7 +14,6 @@
     flex: 0 1 50%
     max-width: 600px
 
-
   &__images
     position: relative
     display: grid
@@ -36,7 +35,6 @@
         margin-top: -60%
         @media (max-width: 1000px)
           max-width: 250px
-
 
       img
         position: absolute
@@ -69,31 +67,31 @@
 
     &__item
       position: relative
-      cursor: pointer
       &:hover .about-rewards__item-prompt
         opacity: 1
+        top: 0
+        visibility: visible
     &__item-prompt
       opacity: 0
+      visibility: hidden
       display: block
       z-index: 1
       position: absolute
       width: max-content
-      max-width: 250px
+      max-width: 180px
       height: fit-content
       background-color: #333333
-      box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05)
       color: #fff
-      top: 0
+      top: -10%
       left: 50%
       right: 0
       transform: translate(-50%, -100%)
       border-radius: 4px
       padding: 10px
       text-align: center
-      font-size: 12px
-      transition: opacity 0.5s ease
+      font-size: 10px
+      transition: 0.3s ease-out
       @media (max-width: 480px)
-        font-size: 10px
         max-width: 120px
       &::after
         content: ""
