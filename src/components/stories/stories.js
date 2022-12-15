@@ -33,7 +33,7 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
    // Установка длительности слайда и timeline
    function setIntervalContent() {
      const videoActive = stories.querySelector('.js-stories-content-active video');
-     if (videoActive && videoActive.readyState) {
+     if (videoActive && videoActive.readyState === 4) {
        const duration = videoActive.duration;
        runInterval(duration, 1);
      } else {
@@ -47,7 +47,7 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
      blockScrollBody();
 
      const videoActive = stories.querySelector('.js-stories-content-active video');
-     if (videoActive) videoActive.play();
+     if (videoActive && videoActive.readyState === 4) videoActive.play();
      setIntervalContent();
    };
 
