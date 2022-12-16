@@ -216,223 +216,44 @@ if (blog) {
 
 }
 
-
-{
-
-  const widthMobile = window.matchMedia('(max-width: 1000px)');
-
-  let mySwiper;
-
-  const swiperList = document.querySelectorAll('.employment-swiper');
-
-  if (swiperList.length) createSwiper('fade');
-
-    function createSwiper (effect) {
-
-      swiperList.forEach(swiper => {
-
-        mySwiper = new Swiper(swiper, {
-
-          navigation: {
-            nextEl: '.slider-nav__next',
-            prevEl: '.slider-nav__prev',
-          },
-
-          uniqueNavElements: true,
-
-          // Бесконечная прокрутка
-          //loop: true,
-
-          // Откл функционала, если слайдов меньше, чем нужно
-          watchOverflow: true,
-
-          slidesPerView: 1,
-
-          effect: effect,
-
-          // autoplay: {
-          //   delay: 5000,
-          //   disableOnInteraction: false,
-          // },
-
-          //centeredSlides: true,
-
-          // Отступ между слайдами
-          spaceBetween: 20,
-
-          // Стартовый слайд
-          initialSlide: 0,
-
-          // Брейк поинты (адаптив)
-          // Ширина экрана
-          breakpoints: {
-            320: {
-              slidesPerView: 1,
-              spaceBetween: 16,
-            },
-
-            480: {
-              slidesPerView: 1.5,
-              spaceBetween: 20,
-            },
-
-            768: {
-              slidesPerView: 1.5,
-            },
-
-            1000: {
-              loop: true,
-              slidesPerView: 1,
-              direction: "vertical",
-              pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-
-                renderBullet: function (index, className) {
-                  return '<span class="' + className + '">' + ++index + '</span>';
-                }
-              },
-            }
-          }
-        });
-      })
-    }
-
-
-    if (widthMobile.matches && swiperList.length) {
-      mySwiper.destroy(true, true);
-      createSwiper('slide');
-    }
-
-
-
-
-}
-
 {
 
   const employment = document.querySelector('.employment');
 
   const desktopWidth = window.matchMedia('(min-width: 1000px)');
 
-  if (employment) calcMarginForSteps()
 
-// Добавление margin-top для каждой номера шага из рассчета высоты блока employment-steps-item + gap списка
-  function calcMarginForSteps () {
+  if (employment) ImagesChangeFade ()
 
-    const stepsList = employment.querySelector('.employment-steps__list');
-    const employmentStepsItems = employment.querySelectorAll('.employment-steps__item');
-    const swiperPaginationBullets = employment.querySelectorAll('.swiper-pagination-bullet');
 
-    if (desktopWidth.matches) {
+  function ImagesChangeFade () {
 
-      const gapList = +getComputedStyle(stepsList).gap.replace(/\D/g,'');
+    const employmentSteps = document.querySelectorAll('.employment-steps__item');
+    const images = employment.querySelectorAll('.employment__images img');
 
-      swiperPaginationBullets[0].style.marginBottom = '0';
-      swiperPaginationBullets.forEach((bullet, indexBullet) => {
+    images.forEach(img => img.classList.add('js-hidden'));
+    employmentSteps.forEach(step => step.classList.remove('js-step-active'));
 
-        const heightBullet = bullet.offsetHeight;
+    images[0].classList.remove('js-hidden');
+    employmentSteps[0].classList.add('js-step-active');
 
-        if (indexBullet > 0) {
-          const heightBlock = employmentStepsItems[indexBullet-1].offsetHeight;
-          bullet.style.margin = '0';
-          bullet.style.marginTop = `${heightBlock + gapList - heightBullet + 1}px`;
-        }
+    employmentSteps.forEach((step, indexStep) => {
+      step.addEventListener('click', () => {
+        images.forEach(img => img.classList.add('js-hidden'));
+        employmentSteps.forEach(step => step.classList.remove('js-step-active'));
+
+        step.classList.add('js-step-active');
+        images[indexStep].classList.remove('js-hidden');
       })
-    }
-  };
+    })
+
+
+
+  }
+
 
 
 }
-
-
-//let previousPosition = window.scrollTop || document.documentElement.scrollTop;
-
-// const employment = document.querySelector('.employment');
-//
-// const widthDesktop = window.matchMedia('(min-width: 1000.1px)').matches;
-//
-//
-// function inActiveAllImages (images) {
-//   images.forEach(image => image.classList.remove('js-photo-active'));
-// };
-//
-// function addClassPhotoActive (el) {
-//   el.classList.add('js-photo-active');
-// };
-//
-// if (employment) {
-//
-//   const stepNumbers = employment.querySelectorAll('.employment-steps-item__number');
-//   const line = employment.querySelector('.employment-steps__line--change');
-//   const images = employment.querySelectorAll('.employment__images img');
-//
-//
-//   if (widthDesktop) {
-//     images[0].classList.remove('js-photo-active');
-//     lineAnimation(employment)
-//   }
-//
-//
-//   window.addEventListener('resize', () => {
-//     if (widthDesktop) lineAnimation(employment);
-//   });
-//
-//
-//   function lineAnimation() {
-//
-//     const options = {
-//       rootMargin: '100% 0px -30%',
-//       threshold: 1,
-//     };
-//
-//
-//     function callbackStep(entries) {
-//       entries.forEach((entry) => {
-//         let currentPosition = window.scrollTop || document.documentElement.scrollTop;
-//         const el = entry.target;
-//         const number = el.dataset.number - 1;
-//         if (entry.isIntersecting) {
-//           el.classList.add('js-scroll-animate');
-//
-//           if (previousPosition < currentPosition) {
-//             inActiveAllImages(images);
-//             addClassPhotoActive(images[number]);
-//           }
-//         } else {
-//           el.classList.remove('js-scroll-animate');
-//           inActiveAllImages(images);
-//           (number - 1 >= 0) ? addClassPhotoActive(images[number - 1]) : addClassPhotoActive(images[0]);
-//         }
-//       })
-//     };
-//
-//
-//     function callbackLine(entries) {
-//       entries.forEach((entry) => {
-//         const el = entry.target;
-//         if (entry.isIntersecting) {
-//           const startPosition = window.scrollY;
-//
-//           function setHeightLine() {
-//             let heightValue = window.scrollY - startPosition;
-//             el.style.height = `${heightValue}px`;
-//           };
-//           window.addEventListener('scroll', setHeightLine);
-//         }
-//       })
-//     };
-//
-//     const observerStep = new IntersectionObserver(callbackStep, options);
-//     const observerLine = new IntersectionObserver(callbackLine, options);
-//
-//     stepNumbers.forEach(stepNum => observerStep.observe(stepNum));
-//     observerLine.observe(line);
-//
-//   };
-//
-//
-// }
 
 {
   // все кнопки, по нажатию на которые появляется поп-ап
@@ -1144,6 +965,9 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
 
  function storiesActive (stories) {
 
+   const videoStoriesList = stories.querySelectorAll('video');
+   videoStoriesList.forEach(video => video.setAttribute('playsinline', '') );
+
   const dataStories = stories.dataset.stories; // Значение 'data-stories' у блока stories
   const openStoriesBtnList = document.querySelectorAll(`[data-open-stories="${dataStories}"]`);
 
@@ -1172,10 +996,12 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
    // Установка длительности слайда и timeline
    function setIntervalContent() {
      const videoActive = stories.querySelector('.js-stories-content-active video');
-     if (videoActive && videoActive.readyState === 4) {
+     const imageSlideActive = stories.querySelector('.js-stories-content-active.stories-content-item--image-text');
+     if (videoActive) {
        const duration = videoActive.duration;
        runInterval(duration, 1);
-     } else {
+     }
+     if (imageSlideActive){
        runInterval(6, 1);
      }
    };
@@ -1184,15 +1010,16 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
    function openStories () {
      stories.classList.add('js-stories-active');
      blockScrollBody();
-
      const videoActive = stories.querySelector('.js-stories-content-active video');
-     if (videoActive && videoActive.readyState === 4) videoActive.play();
-     setIntervalContent();
+     if (videoActive) {
+       videoActive.play();
+     }
+       setIntervalContent();
    };
 
 
    function closeStories () {
-     const videoList = stories.querySelectorAll('.stories-content-item__video');
+     const videoList = stories.querySelectorAll('.stories-content__item video');
      videoList.forEach(video => {
        video.pause();
        video.currentTime = 0;
@@ -1761,11 +1588,6 @@ function toggleScrollBody () {
   html.classList.toggle('js-block-scroll');
 
 };
-
-const images = document.querySelectorAll('img');
-
-if (images) images.forEach(image => image.setAttribute("loading", "lazy"));
-
 
 function tabsSlides ( { classWrapper, classSlide, classNav, activeClass,  dataNameNav, dataNameSlide} ) {
 
