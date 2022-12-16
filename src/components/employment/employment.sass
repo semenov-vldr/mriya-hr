@@ -58,7 +58,6 @@
         padding: 20px
 
   &__content
-    overflow: hidden
     display: flex
     gap: 48px 128px
     @media (max-width: 1000px)
@@ -68,7 +67,8 @@
 
 
   &__images
-    position: relative
+    position: sticky
+    top: 100px
     width: 100%
     flex: 0 0 45%
     height: auto
