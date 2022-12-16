@@ -5,6 +5,9 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
 
  function storiesActive (stories) {
 
+   const videoStoriesList = stories.querySelectorAll('video');
+   videoStoriesList.forEach(video => video.setAttribute('playsinline', '') );
+
   const dataStories = stories.dataset.stories; // Значение 'data-stories' у блока stories
   const openStoriesBtnList = document.querySelectorAll(`[data-open-stories="${dataStories}"]`);
 
@@ -33,10 +36,12 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
    // Установка длительности слайда и timeline
    function setIntervalContent() {
      const videoActive = stories.querySelector('.js-stories-content-active video');
-     if (videoActive && videoActive.readyState === 4) {
+     const imageSlideActive = stories.querySelector('.js-stories-content-active.stories-content-item--image-text');
+     if (videoActive) {
        const duration = videoActive.duration;
        runInterval(duration, 1);
-     } else {
+     }
+     if (imageSlideActive){
        runInterval(6, 1);
      }
    };
@@ -45,15 +50,16 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
    function openStories () {
      stories.classList.add('js-stories-active');
      blockScrollBody();
-
      const videoActive = stories.querySelector('.js-stories-content-active video');
-     if (videoActive && videoActive.readyState === 4) videoActive.play();
-     setIntervalContent();
+     if (videoActive) {
+       videoActive.play();
+     }
+       setIntervalContent();
    };
 
 
    function closeStories () {
-     const videoList = stories.querySelectorAll('.stories-content-item__video');
+     const videoList = stories.querySelectorAll('.stories-content__item video');
      videoList.forEach(video => {
        video.pause();
        video.currentTime = 0;

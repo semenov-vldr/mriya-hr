@@ -84,6 +84,7 @@
     position: relative
     aspect-ratio: 32 / 51
     border-radius: 8px
+    background-color: #333333
     &.js-stories-content-active
       display: flex
     & > *:not(img)
@@ -114,7 +115,8 @@
       &__video
         position: absolute
         width: 100%
-        height: auto
+        //height: auto
+        height: 100%
         //min-height: 514px
         left: 0
         top: 0
@@ -140,7 +142,6 @@
           margin-bottom: 24px
 
   &-content-item.stories-content-item--image-text
-    background-color: #333333
     background-image: url('../img/index-hero/stories-decor.svg')
     background-repeat: no-repeat
     background-position: center -70px
