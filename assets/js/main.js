@@ -220,10 +220,7 @@ if (blog) {
 
   const employment = document.querySelector('.employment');
 
-  const desktopWidth = window.matchMedia('(min-width: 1000px)');
-
-
-  if (employment) ImagesChangeFade ()
+  if (employment) ImagesChangeFade ();
 
 
   function ImagesChangeFade () {
