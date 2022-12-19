@@ -5,6 +5,9 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
 
  function storiesActive (stories) {
 
+   const getVideoActive = () => stories.querySelector('.js-stories-content-active video');
+   const getImageSlideActive = () => stories.querySelector('.js-stories-content-active.stories-content-item--image-text');
+
    const videoStoriesList = stories.querySelectorAll('video');
    videoStoriesList.forEach(video => video.setAttribute('playsinline', '') );
 
@@ -35,14 +38,14 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
 
    // Установка длительности слайда и timeline
    function setIntervalContent() {
-     const videoActive = stories.querySelector('.js-stories-content-active video');
-     const imageSlideActive = stories.querySelector('.js-stories-content-active.stories-content-item--image-text');
+     const videoActive = getVideoActive();
+     const imageSlideActive = getImageSlideActive();
      if (videoActive) {
        const duration = videoActive.duration;
-       runInterval(duration, 1);
+       runInterval(duration);
      }
      if (imageSlideActive){
-       runInterval(6, 1);
+       runInterval(6);
      }
    };
 
@@ -50,7 +53,7 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
    function openStories () {
      stories.classList.add('js-stories-active');
      blockScrollBody();
-     const videoActive = stories.querySelector('.js-stories-content-active video');
+     const videoActive = getVideoActive();
      if (videoActive) {
        videoActive.play();
      }
@@ -165,19 +168,38 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
    // анимированная временная линия
    let timer;
 
-   function runInterval (time, step) {
+   function runInterval (time) {
      clearInterval(timer);
 
      timer = setInterval(() => {
        const activeEl = stories.querySelector('.js-timeline-active .stories-timeline__item-inner');
        const width = parseFloat(activeEl.style.width) || 0; // преобразование строки в число
 
+       const videoActive = getVideoActive();
+       const imageSlideActive = getImageSlideActive();
+
+      if (imageSlideActive || !videoActive.paused) {
+        activeEl.style.width = String(width + 1) + '%';
+
+        if (videoActive) {
+
+          console.log(videoActive.networkState)
+        }
+      }
+
+
+
+
+
+
        if(width === 100 ) {storiesSwitchNext(); return;}
 
-       activeEl.style.width = String(width + step) + '%';
+       //activeEl.style.width = String(width + step) + '%';
+
+
        if (!stories.classList.contains('js-stories-active')) clearInterval(timer);
 
-     }, time * 1000 * step / 100);
+     }, time * 1000 * 0.01);
    };
 
  };

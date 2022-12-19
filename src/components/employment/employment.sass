@@ -31,20 +31,21 @@
       color: #fff
 
     .employment-steps-item
-      &.js-step-active,
-      &:hover
+      &.js-step-active
         background-color: #fff
         color: $black
+        border-color: currentColor
+        .employment-steps-item__number
+          background-color: #fff
+          color: $black
         .employment-connection__list svg
           fill: $black
         .employment-connection__list svg path
           fill: $black
-        .employment-steps-item__number
-          background-color: #fff
-          border-color: #fff
-          color: $black
       .employment-connection__list svg path
         fill: #fff
+      &:hover
+        border-color: currentColor
 
 
   &__title
@@ -142,18 +143,11 @@
       padding: 15px
       border-radius: 10px
       cursor: pointer
+      border: 2px solid transparent
+      transition: $transition
       &:hover
-        background-color: rgba($black, 0.7)
-        color: #fff
-        .employment-connection__list svg
-          fill: $black
-        .employment-connection__list svg path
-          fill: #fff
+        border-color: $black
 
-      &:hover &__number
-        background-color: rgba($black, 0.7)
-        border-color: rgba($black, 0.7)
-        color: #fff
       &.js-step-active
         background-color: $black
         color: #fff
