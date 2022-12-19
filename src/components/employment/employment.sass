@@ -22,7 +22,6 @@
       bottom: -2px
       transform: scale(-1)
 
-
     .employment-advantages
       color: #252424
     .employment-steps__line
@@ -30,6 +29,22 @@
     .employment-steps-item__number
       background-color: $black
       color: #fff
+
+    .employment-steps-item
+      &.js-step-active,
+      &:hover
+        background-color: #fff
+        color: $black
+        .employment-connection__list svg
+          fill: $black
+        .employment-connection__list svg path
+          fill: $black
+        .employment-steps-item__number
+          background-color: #fff
+          border-color: #fff
+          color: $black
+      .employment-connection__list svg path
+        fill: #fff
 
 
   &__title
