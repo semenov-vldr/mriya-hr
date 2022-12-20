@@ -77,8 +77,9 @@
     display: flex
     gap: 48px 128px
     @media (max-width: 1000px)
+      display: none
       gap: 24px
-      display: flex
+      //display: flex
       flex-direction: column
       overflow-x: scroll
       -ms-overflow-style: none
@@ -219,3 +220,19 @@
     margin: 120px auto 0
     @media (max-width: 1000px)
       margin-top: 60px
+
+
+  &__content-swiper
+    position: relative
+    .employment__image
+      height: 300px
+      img
+        width: 100%
+        height: 100%
+        object-fit: cover
+    .swiper-scrollbar
+      bottom: -10px
+    .swiper-slide:hover
+      box-shadow: none
+    @media (min-width: 1000px)
+      display: none

@@ -27,10 +27,10 @@
         images[indexStep].classList.remove('js-hidden');
       })
     })
-
-
-
   }
+
+
+
 
 
 

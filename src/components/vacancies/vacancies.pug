@@ -15,84 +15,115 @@
               | найдено
 
           ul.filters__list
-            //---Объекты---
+
+            // -- Профобласти--
             li.filters__item.filter
-              span.filter__title.js-filter-active Объекты
+              span.filter__title.js-filter-active Профобласти
               .filter__content
                 fieldset.filter__list
 
-                  label.filter__item
-                    span Отель
-                    input(type="checkbox" name="Объекты" value="Отель")
+                  label.filter__item Инженерно-техническое направление
+                    input(type="checkbox" name="Профобласти" value="Инженерно-техническое направление")
                     span.filter__item-checkbox
-                  label.filter__item
-                    span Винный Парк
+                  label.filter__item Медицинское направление
+                    input(type="checkbox" name="Профобласти" value="Медицинское направление")
+                    span.filter__item-checkbox
+                  label.filter__item Благоустройство и озеленение
+                    input(type="checkbox" name="Профобласти" value="Благоустройство и озеленение")
+                    span.filter__item-checkbox
+                  label.filter__item Бухгалтерия
+                    input(type="checkbox" name="Профобласти" value="Бухгалтерия")
+                    span.filter__item-checkbox
+                  label.filter__item Финансы и аудит
+                    input(type="checkbox" name="Профобласти" value="Финансы и аудит")
+                    span.filter__item-checkbox
+                  label.filter__item Информационные технологии
+                    input(type="checkbox" name="Профобласти" value="Информационные технологии")
+                    span.filter__item-checkbox
+                  label.filter__item Маркетинг и PR
+                    input(type="checkbox" name="Профобласти" value="Маркетинг и PR")
+                    span.filter__item-checkbox
+                  label.filter__item Юриспруденция
+                    input(type="checkbox" name="Профобласти" value="Юриспруденция")
+                    span.filter__item-checkbox
+                  label.filter__item Работа с персоналом
+                    input(type="checkbox" name="Профобласти" value="Работа с персоналом")
+                    span.filter__item-checkbox
+                  label.filter__item Организация общественного питания
+                    input(type="checkbox" name="Профобласти" value="Организация общественного питания")
+                    span.filter__item-checkbox
+                  label.filter__item Управление номерным фондом
+                    input(type="checkbox" name="Профобласти" value="Управление номерным фондом")
+                    span.filter__item-checkbox
+                  label.filter__item Складкое хозяйство
+                    input(type="checkbox" name="Профобласти" value="Складкое хозяйство")
+                    span.filter__item-checkbox
+                  label.filter__item Безопасность
+                    input(type="checkbox" name="Профобласти" value="Безопасность")
+                    span.filter__item-checkbox
+                  label.filter__item Анимация и организация досуга
+                    input(type="checkbox" name="Профобласти" value="Анимация и организация досуга")
+                    span.filter__item-checkbox
+                  label.filter__item Транспорт и логистика
+                    input(type="checkbox" name="Профобласти" value="Транспорт и логистика")
+                    span.filter__item-checkbox
+                  label.filter__item Рабочие специальности
+                    input(type="checkbox" name="Профобласти" value="Рабочие специальности")
+                    span.filter__item-checkbox
+                  label.filter__item Пищевое производство
+                    input(type="checkbox" name="Профобласти" value="Пищевое производство")
+                    span.filter__item-checkbox
+                  label.filter__item Химчистка и прачечная
+                    input(type="checkbox" name="Профобласти" value="Химчистка и прачечная")
+                    span.filter__item-checkbox
+                  label.filter__item Снабжение и закупки
+                    input(type="checkbox" name="Профобласти" value="Снабжение и закупки")
+                    span.filter__item-checkbox
+                  button.filter__button-more Показать ещё
+
+            //---Объекты---
+            li.filters__item.filter
+              span.filter__title Объекты
+              .filter__content
+                fieldset.filter__list
+
+                  label.filter__item Винный Парк
                     input(type="checkbox" name="Объекты" value="Винный Парк")
                     span.filter__item-checkbox
-                  label.filter__item
-                    span Японский Сад
-                    input(type="checkbox" name="Объекты" value="Японский Сад")
-                    span.filter__item-checkbox
-                  label.filter__item
-                    span Дримвуд
+                  label.filter__item Дримвуд
                     input(type="checkbox" name="Объекты" value="Дримвуд")
                     span.filter__item-checkbox
-                  label.filter__item
-                    span Пляж и бассейн
-                    input(type="checkbox" name="Объекты" value="Пляж и бассейн")
+                  label.filter__item Медицинский центр и Институт активного долголетия
+                    input(type="checkbox" name="Объекты" value="Медицинский центр и Институт активного долголетия")
                     span.filter__item-checkbox
-                  label.filter__item
-                    span Рестораны
+                  label.filter__item Отель
+                    input(type="checkbox" name="Объекты" value="Отель")
+                    span.filter__item-checkbox
+                  label.filter__item Офис
+                    input(type="checkbox" name="Объекты" value="Офис")
+                    span.filter__item-checkbox
+                  label.filter__item Пляж
+                    input(type="checkbox" name="Объекты" value="Пляж")
+                    span.filter__item-checkbox
+
+                  label.filter__item Рестораны
                     input(type="checkbox" name="Объекты" value="Рестораны" data-type="main")
                     span.filter__item-checkbox
                     .filter__item-inner
-                      label.filter__item
-                        span Кухня
+                      label.filter__item Сервис
+                        input(type="checkbox" name="Объекты" value="Сервис")
+                        span.filter__item-checkbox
+                      label.filter__item Кухня
                         input(type="checkbox" name="Объекты" value="Кухня")
                         span.filter__item-checkbox
-                      label.filter__item
-                        span Зал
-                        input(type="checkbox" name="Объекты" value="Зал")
-                        span.filter__item-checkbox
 
-                  label.filter__item
-                    span Test hidden 1
-                    input(type="checkbox" name="Объекты" value="Test hidden 1")
+                  label.filter__item Японский Сад
+                    input(type="checkbox" name="Объекты" value="Японский Сад")
                     span.filter__item-checkbox
-                  label.filter__item
-                    span Test hidden 2
-                    input(type="checkbox" name="Объекты" value="Test hidden 2")
+                  label.filter__item Академия гостеприимства
+                    input(type="checkbox" name="Объекты" value="Академия гостеприимства")
                     span.filter__item-checkbox
-                button.filter__button-more Показать ещё
 
-
-            //Деятельность
-            li.filters__item.filter
-              span.filter__title Деятельность
-              .filter__content
-                fieldset.filter__list
-
-                  label.filter__item Бухгалтерия
-                    input(type="checkbox" name="Деятельность" value="Бухгалтерия")
-                    span.filter__item-checkbox
-                  label.filter__item Административно-хозяйственное направление
-                    input(type="checkbox" name="Деятельность" value="Административно-хозяйственное направление")
-                    span.filter__item-checkbox
-                  label.filter__item Уборка помещений, объектов и территории
-                    input(type="checkbox" name="Деятельность" value="Уборка помещений, объектов и территории")
-                    span.filter__item-checkbox
-                  label.filter__item Информационные технологии
-                    input(type="checkbox" name="Деятельность" value="Информационные технологии")
-                    span.filter__item-checkbox
-                  label.filter__item Благоустройство и озеленение
-                    input(type="checkbox" name="Деятельность" value="Благоустройство и озеленение")
-                    span.filter__item-checkbox
-                  label.filter__item Test hidden
-                    input(type="checkbox" name="Деятельность" value="Test hidden")
-                    span.filter__item-checkbox
-                  label.filter__item Test hidden
-                    input(type="checkbox" name="Деятельность" value="Test hidden")
-                    span.filter__item-checkbox
 
                 button.filter__button-more Показать ещё
 
@@ -102,11 +133,11 @@
               .filter__content
                 fieldset.filter__list
 
-                  label.filter__item Сменный
-                    input(type="checkbox" name="График" value="Сменный")
+                  label.filter__item Пятидневная рабочая неделя
+                    input(type="checkbox" name="График" value="Пятидневная рабочая неделя")
                     span.filter__item-checkbox
-                  label.filter__item 5/2
-                    input(type="checkbox" name="График" value="5/2")
+                  label.filter__item Сменный график
+                    input(type="checkbox" name="График" value="Сменный график")
                     span.filter__item-checkbox
 
             // Сезонность
@@ -115,24 +146,24 @@
               .filter__content
                 fieldset.filter__list
 
-                  label.filter__item Постоянные вакансии
-                    input(type="checkbox" name="Сезонность" value="Постоянные вакансии")
+                  label.filter__item Постоянная работа
+                    input(type="checkbox" name="Сезонность" value="Постоянная работа")
                     span.filter__item-checkbox
-                  label.filter__item Сезонные вакансии
-                    input(type="checkbox" name="Сезонность" value="Сезонные вакансии")
+                  label.filter__item Сезонная работа
+                    input(type="checkbox" name="Сезонность" value="Сезонная работа")
                     span.filter__item-checkbox
 
             // Резюме
             li.filters__item.filter
-              span.filter__title Резюме
+              span.filter__title Наличие резюме
               .filter__content
                 fieldset.filter__list
 
-                  label.filter__item Необходимо резюме
-                    input(type="checkbox" name="Резюме" value="Необходимо резюме")
+                  label.filter__item Обязательно
+                    input(type="checkbox" name="Наличие резюме" value="Обязательно")
                     span.filter__item-checkbox
-                  label.filter__item Без резюме
-                    input(type="checkbox" name="Резюме" value="Без резюме")
+                  label.filter__item Не обязательно
+                    input(type="checkbox" name="Наличие резюме" value="Не обязательно")
                     span.filter__item-checkbox
 
           .filters__actions
@@ -166,7 +197,7 @@
             a.vacancies-button.vacancies-button--white(href="hotel-maid.html") Подробнее
           ul.vacancies-item__tags.vacancies-item-tags
             li.vacancies-item-tags__item Отель
-            li.vacancies-item-tags__item Постоянные вакансии
+            li.vacancies-item-tags__item Постоянная работа
 
 
         li.vacancies__item.vacancies-item
@@ -174,13 +205,13 @@
             a.vacancies-item__title(href="floor-supervisor.html") Супервайзер этажа
             .vacancies-item__info.vacancies-item-info
               span.vacancies-item-info__item от 40 000 ₽
-              span.vacancies-item-info__item Сменный график работы
+              span.vacancies-item-info__item Сменный график
           .vacancies-item__actions
             button.vacancies-button.vacancies-button--black.button-popup Откликнуться
             a.vacancies-button.vacancies-button--white(href="floor-supervisor.html") Подробнее
           ul.vacancies-item__tags.vacancies-item-tags
             li.vacancies-item-tags__item Отель
-            li.vacancies-item-tags__item Постоянные вакансии
+            li.vacancies-item-tags__item Постоянная работа
 
 
         li.vacancies__item.vacancies-item
@@ -188,13 +219,13 @@
             a.vacancies-item__title(href="houseman.html") Специалист по клинингу общественных территорий/хаусмен
             .vacancies-item__info.vacancies-item-info
               span.vacancies-item-info__item от  30 000 ₽
-              span.vacancies-item-info__item Сменный график работы
+              span.vacancies-item-info__item Сменный график
           .vacancies-item__actions
             button.vacancies-button.vacancies-button--black.button-popup Откликнуться
             a.vacancies-button.vacancies-button--white(href="houseman.html") Подробнее
           ul.vacancies-item__tags.vacancies-item-tags
             li.vacancies-item-tags__item Отель
-            li.vacancies-item-tags__item Постоянные вакансии
+            li.vacancies-item-tags__item Постоянная работа
 
 
         li.vacancies__item.vacancies-item
@@ -202,13 +233,13 @@
             a.vacancies-item__title(href="cleaner-wine-park.html") Уборщик в Винный парк
             .vacancies-item__info.vacancies-item-info
               span.vacancies-item-info__item 25 000 ₽
-              span.vacancies-item-info__item Сменный график работы
+              span.vacancies-item-info__item Сменный график
           .vacancies-item__actions
             button.vacancies-button.vacancies-button--black.button-popup Откликнуться
             a.vacancies-button.vacancies-button--white(href="cleaner-wine-park.html") Подробнее
           ul.vacancies-item__tags.vacancies-item-tags
             li.vacancies-item-tags__item Винный парк
-            li.vacancies-item-tags__item Постоянные вакансии
+            li.vacancies-item-tags__item Постоянная работа
 
 
         li.vacancies__item.vacancies-item
@@ -216,13 +247,13 @@
             a.vacancies-item__title(href="office-cleaner.html") Уборщик производственных и служебных помещений (дневная и ночная смены)
             .vacancies-item__info.vacancies-item-info
               span.vacancies-item-info__item 25 000 ₽
-              span.vacancies-item-info__item Сменный график работы
+              span.vacancies-item-info__item Сменный график
           .vacancies-item__actions
             button.vacancies-button.vacancies-button--black.button-popup Откликнуться
             a.vacancies-button.vacancies-button--white(href="office-cleaner.html") Подробнее
           ul.vacancies-item__tags.vacancies-item-tags
             li.vacancies-item-tags__item Отель
-            li.vacancies-item-tags__item Постоянные вакансии
+            li.vacancies-item-tags__item Постоянная работа
 
 
         li.vacancies__item.vacancies-item
@@ -230,13 +261,13 @@
             a.vacancies-item__title(href="rest-area-specialist.html") Специалист по подготовке зон отдыха
             .vacancies-item__info.vacancies-item-info
               span.vacancies-item-info__item от 25 000 ₽
-              span.vacancies-item-info__item Сменный график работы
+              span.vacancies-item-info__item Сменный график
           .vacancies-item__actions
             button.vacancies-button.vacancies-button--black.button-popup Откликнуться
             a.vacancies-button.vacancies-button--white(href="rest-area-specialist.html") Подробнее
           ul.vacancies-item__tags.vacancies-item-tags
             li.vacancies-item-tags__item Отель
-            li.vacancies-item-tags__item Постоянные вакансии
+            li.vacancies-item-tags__item Постоянная работа
 
 
         li.vacancies__item.vacancies-item
@@ -244,13 +275,13 @@
             a.vacancies-item__title(href="loader.html") Грузчик/Группа управления складами
             .vacancies-item__info.vacancies-item-info
               span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Сменный график работы
+              span.vacancies-item-info__item Сменный график
           .vacancies-item__actions
             button.vacancies-button.vacancies-button--black.button-popup Откликнуться
             a.vacancies-button.vacancies-button--white(href="loader.html") Подробнее
           ul.vacancies-item__tags.vacancies-item-tags
             li.vacancies-item-tags__item Отель
-            li.vacancies-item-tags__item Постоянные вакансии
+            li.vacancies-item-tags__item Постоянная работа
 
 
         li.vacancies__item.vacancies-item
@@ -258,13 +289,13 @@
             a.vacancies-item__title(href="attraction-operator.html") Специалист по работе с гостями – оператор аттракционов
             .vacancies-item__info.vacancies-item-info
               span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item 5/2
+              span.vacancies-item-info__item Пятидневная рабочая неделя
           .vacancies-item__actions
             button.vacancies-button.vacancies-button--black.button-popup Откликнуться
             a.vacancies-button.vacancies-button--white(href="attraction-operator.html") Подробнее
           ul.vacancies-item__tags.vacancies-item-tags
             li.vacancies-item-tags__item Дримвуд
-            li.vacancies-item-tags__item Постоянные вакансии
+            li.vacancies-item-tags__item Постоянная работа
 
 
         button.vacancies-button.vacancies-button--black.vacancies__more Загрузить ещё
