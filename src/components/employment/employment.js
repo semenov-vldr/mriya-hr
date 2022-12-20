@@ -2,7 +2,9 @@
 
   const employment = document.querySelector('.employment');
 
-  if (employment) ImagesChangeFade ();
+  const desktopWidth = window.matchMedia('(min-width: 1001px)').matches;
+
+  if (employment && desktopWidth) ImagesChangeFade ();
 
 
   function ImagesChangeFade () {
