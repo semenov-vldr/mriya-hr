@@ -31,7 +31,7 @@
     document.body.append(popup);
     blockScrollBody();
     onDocumentClick(popup);
-    // close
+
     const close = popup.querySelector('.form-popup__close');
     close.addEventListener('click', () => closeFormPopup(popup));
 
@@ -45,7 +45,7 @@
     document.body.append(popup);
     blockScrollBody();
     onDocumentClick(popup);
-    // close
+
     const close = popup.querySelector('.form-popup__close');
     close.addEventListener('click', () => closeFormPopup(popup));
 
