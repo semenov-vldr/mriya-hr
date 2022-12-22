@@ -60,10 +60,12 @@
       gap: 10px
     img
       width: 90px
+      height: 90px
       aspect-ratio: 1 / 1
       object-fit: cover
       @media (max-width: 768px)
         width: 60px
+        height: 60px
 
     &__item
       position: relative
@@ -109,8 +111,6 @@
         margin: 0 auto
 
 
-
-
   &__title
     text-align: left
 
@@ -123,16 +123,14 @@
     display: flex
     gap: 12px
 
-  &__social-item
+
+  &__social-link
+    @include fontSize(14, 18)
     padding: 12px 20px
     border: 1px solid #393737
     &:hover
       background-color: #393737
       color: #fff
-
-
-  &__social-link
-    @include fontSize(14, 18)
 
 
 

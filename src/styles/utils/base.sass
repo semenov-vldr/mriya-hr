@@ -233,14 +233,21 @@ section > *:first-child:not(.hero-student, .hero-about, .hero-index)
     background-color: $black
   &:hover svg
     stroke: #fff
+  @media (max-width: 768px)
+    display: none
 
 .slider-nav__prev
   left: -32px
   transform: translateX(-100%)
+  @media (max-width: 1200px)
+    left: -5px
+
 
 .slider-nav__next
   transform: rotate(180deg) translateX(-100%)
   right: -32px
+  @media (max-width: 1200px)
+    right: -5px
 
 .swiper-container-horizontal > .swiper-scrollbar
   display: block
