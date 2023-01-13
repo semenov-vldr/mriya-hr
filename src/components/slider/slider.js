@@ -12,10 +12,7 @@ function createSwiper (swiperList) {
   swiperList.forEach(swiper => {
 
     mySwiper = new Swiper(swiper, {
-      // pagination: {
-      //   el: '.swiper-pagination',
-      //   clickable: true,
-      // },
+
       navigation: {
         nextEl: '.slider-nav__next',
         prevEl: '.slider-nav__prev',
@@ -67,7 +64,6 @@ function createSwiper (swiperList) {
 
       }
     });
-
   })
 };
 

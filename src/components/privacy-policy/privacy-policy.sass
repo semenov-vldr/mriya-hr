@@ -8,10 +8,21 @@
     @media (max-width: 1000px)
       width: auto
 
-  &__title
+  h1
     margin-bottom: 50px
     @include fontSize(36, 52)
     font-weight: 500
+
+  &__container > ol > li
+    font-weight: 500
+    @include fontSize(18, 24)
+    color: #121212
+
+  &__container > ol > li *
+    @include fontSize(16, 20)
+    color: #6B6B6B
+    font-weight: 400
+
 
   ol
     list-style: none
@@ -23,23 +34,13 @@
   ol ol
     margin-top: 30px
 
-  li .privacy-policy__item-text:first-child
-    margin-top: 20px
 
+  li p:first-child
+    margin-top: 20px
 
   li:before
     counter-increment: li
     content: counters(li, ".") ". "
 
-
-  &__item
-    @include fontSize(16, 20)
-    color: #6B6B6B
-    font-weight: 400
-
-    &--title
-      font-weight: 500
-      @include fontSize(18, 24)
-      color: #121212
 
 

@@ -4,6 +4,8 @@
 
 const forms = document.querySelectorAll('.form-popup__item');
 
+if (forms) validForm(forms)
+
 
 function validForm (forms) {
 
@@ -58,7 +60,6 @@ function validForm (forms) {
               error.textContent = textError__date;
             }
 
-
           }
         })
       }
@@ -66,5 +67,5 @@ function validForm (forms) {
   })
 };
 
-if (forms) validForm(forms)
+
 

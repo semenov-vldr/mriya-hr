@@ -1,8 +1,6 @@
 
 {
 
-  //const mobileWidth = window.matchMedia('(max-width: 768px)').matches;
-
   let mySwiper;
 
   const swiperList = document.querySelectorAll('.student-career-images__container');
@@ -10,19 +8,6 @@
   swiperList.forEach(swiper => {
 
     mySwiper = new Swiper(swiper, {
-      // pagination: {
-      //   el: '.swiper-pagination',
-      //   clickable: true,
-      // },
-      // navigation: {
-      //   nextEl: '.slider-nav__next',
-      //   prevEl: '.slider-nav__prev',
-      // },
-
-      // scrollbar: {
-      //   el: '.swiper-scrollbar',
-      //   draggable: true,
-      // },
 
       uniqueNavElements: true,
 

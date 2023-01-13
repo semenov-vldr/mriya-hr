@@ -10,7 +10,7 @@
     grid-template-columns: auto 40%
     gap: 50px
     justify-content: space-between
-    align-items: center
+    //align-items: center
     @media (max-width: 1000px)
       grid-template-columns: 1fr
     @media (max-width: 768px)
@@ -18,19 +18,54 @@
 
   &__title
     text-align: left
-    @include changeSize(margin-bottom, 16, 32)
+    margin-bottom: 32px
+    @media (max-width: 1000px)
+      margin-bottom: 16px
 
   &__description
     display: none
+    flex-direction: column
+    gap: 12px
     @include fontSize(14, 18)
-    @include changeSize(margin-bottom, 24, 48)
+    margin-bottom: 48px
+    max-height: 500px
+    overflow-y: auto
+    padding-right: 20px
+    &::-webkit-scrollbar
+      width: 8px
+      height: 8px
+    &::-webkit-scrollbar-track
+      background-color: $black
+      border-radius: 8px
+      height: 5px
+    &::-webkit-scrollbar-thumb
+      background-color: $orange
+      border-radius: 8px
+    @media (max-width: 1000px)
+      &::-webkit-scrollbar
+        width: 4px
+        height: 4px
+      margin-bottom: 24px
+      max-height: 300px
     &.js-area-active
-      display: block
+      display: flex
+    ul
+      display: flex
+      flex-direction: column
+      gap: 8px
+      list-style-type: disc
+      padding-left: 30px
+    ul > li > ul
+      list-style-type: square
+      margin-top: 8px
+
 
   &__subtitle
     display: inline-block
     font-size: 20px
-    @include changeSize(margin-bottom, 16, 32)
+    margin-bottom: 32px
+    @media (max-width: 1000px)
+      margin-bottom: 16px
 
 
   &__list
