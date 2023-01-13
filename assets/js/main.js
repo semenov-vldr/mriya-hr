@@ -50,65 +50,31 @@ if (blockAbout) {
 
 }
 
-{
-
-  let mySwiper;
-
-  //const swiperList = document.querySelectorAll('.about__swiper');
-
-  //if (swiperList) createSwiper(swiperList);
+const accordionList = document.querySelectorAll('.accordion');
 
 
+if (accordionList) {
+  accordionList.forEach(accordion => {
 
-  function createSwiper (swiperList) {
-    swiperList.forEach(swiper => {
+    const accordionItems = accordion.querySelectorAll('.accordion__item'); // список элементов аккордиона
 
-      mySwiper = new Swiper(swiper, {
+    const toggleClass = (item) => item.classList.toggle('js-accordion-active');
+    const removeClass = (item) => item.classList.remove('js-accordion-active');
 
-        uniqueNavElements: true,
-
-        slidesPerView: 1,
-
-        autoplay: {
-          delay: 2000,
-          disableOnInteraction: false,
-        },
-
-        effect: "fade",
-
-        // Бесконечная прокрутка
-        //loop: true,
-
-        // Откл функционала, если слайдов меньше, чем нужно
-        //watchOverflow: true,
-
-        //centeredSlides: true,
-
-        // Отступ между слайдами
-        spaceBetween: 24,
-
-        // Стартовый слайд
-        initialSlide: 0,
-
-
+    accordionItems.forEach(accordionItem => {
+      accordionItem.addEventListener('click', function ()  {
+        accordionItems.forEach(item => (item !== this) ? removeClass(item) : false);
+        toggleClass(this);
       });
+    });
 
-    })
-  };
-
-
-
-
-
-
-
-
-
-
-
+  })
 }
 
 {
+
+  // Переключение табов
+
   const data = {
     // класс для всего блока, в котором мы работаем
     classWrapper: '.areas',
@@ -163,35 +129,36 @@ if (blockAbout) {
             const numberImg = text.getAttribute(dataNameText);
             if (numberTab === numberImg) addClassActive(text);
           });
-
         });
       });
-
     }
-
   };
 
 
-}
 
-const areas = document.querySelector('.areas');
+  // Показать больше
+  const areas = document.querySelector('.areas');
 
-if (areas) {
-  const showMore = areas.querySelector('.areas__item--more');
+  if (areas) {
+    const showMore = areas.querySelector('.areas__item--more');
 
-  const startItems = 8;
+    const startItems = 8;
 
-  const areasItems = areas.querySelectorAll('.areas__item');
-  const areasItemsLength = areasItems.length;
+    const areasItems = areas.querySelectorAll('.areas__item');
+    const areasItemsLength = areasItems.length;
 
-  showMore.textContent = `+${areasItemsLength - startItems}`;
+    showMore.textContent = `+${areasItemsLength - startItems}`;
 
-  showMore.addEventListener('click', () => {
-    areasItems.forEach(el => el.classList.add('js-visible'));
-    showMore.classList.add('hidden');
-  })
+    showMore.addEventListener('click', () => {
+      areasItems.forEach(el => el.classList.add('js-visible'));
+      showMore.classList.add('hidden');
+    })
 
-  if (areasItemsLength < startItems + 1) showMore.classList.add('hidden');
+    if (areasItemsLength < startItems + 1) showMore.classList.add('hidden');
+
+  }
+
+
 
 }
 
@@ -218,15 +185,48 @@ if (blog) {
 
 {
 
+  const employment = document.querySelector('.employment');
+
   const desktopWidth = window.matchMedia('(min-width: 1001px)').matches;
 
+  if (employment && desktopWidth) ImagesChangeFade();
+
+
+  function ImagesChangeFade () {
+
+    const employmentSteps = document.querySelectorAll('.employment-steps__item');
+    const images = employment.querySelectorAll('.employment__images img');
+
+    images.forEach(img => img.classList.add('js-hidden'));
+    employmentSteps.forEach(step => step.classList.remove('js-step-active'));
+
+    images[0].classList.remove('js-hidden');
+    employmentSteps[0].classList.add('js-step-active');
+
+    employmentSteps.forEach((step, indexStep) => {
+      step.addEventListener('click', () => {
+        images.forEach(img => img.classList.add('js-hidden'));
+        employmentSteps.forEach(step => step.classList.remove('js-step-active'));
+
+        step.classList.add('js-step-active');
+        images[indexStep].classList.remove('js-hidden');
+      })
+    })
+  }
+
+
+
+  // Swiper
   let mySwiper;
 
   const swiperList = document.querySelectorAll('.employment__content-swiper');
 
-  if (swiperList) createSwiper(swiperList);
+  if (swiperList) {
+    createSwiper(swiperList);
+    window.addEventListener('resize', () => createSwiper(swiperList))
+  }
 
-  window.addEventListener('resize', () => createSwiper(swiperList))
+
 
   function createSwiper (swiperList) {
     swiperList.forEach(swiper => {
@@ -272,61 +272,14 @@ if (blog) {
           768: {
             slidesPerView: 3
           },
-
-          1000: {
-
-          },
-
         }
       });
 
-      if (desktopWidth) mySwiper.destroy()
+      if (desktopWidth) mySwiper.destroy();
 
     })
 
   };
-
-
-
-
-
-
-
-
-
-
-}
-
-{
-
-  const employment = document.querySelector('.employment');
-
-  const desktopWidth = window.matchMedia('(min-width: 1001px)').matches;
-
-  if (employment && desktopWidth) ImagesChangeFade ();
-
-
-  function ImagesChangeFade () {
-
-    const employmentSteps = document.querySelectorAll('.employment-steps__item');
-    const images = employment.querySelectorAll('.employment__images img');
-
-    images.forEach(img => img.classList.add('js-hidden'));
-    employmentSteps.forEach(step => step.classList.remove('js-step-active'));
-
-    images[0].classList.remove('js-hidden');
-    employmentSteps[0].classList.add('js-step-active');
-
-    employmentSteps.forEach((step, indexStep) => {
-      step.addEventListener('click', () => {
-        images.forEach(img => img.classList.add('js-hidden'));
-        employmentSteps.forEach(step => step.classList.remove('js-step-active'));
-
-        step.classList.add('js-step-active');
-        images[indexStep].classList.remove('js-hidden');
-      })
-    })
-  }
 
 
 
@@ -766,6 +719,8 @@ function addFileInput () {
 
 const forms = document.querySelectorAll('.form-popup__item');
 
+if (forms) validForm(forms)
+
 
 function validForm (forms) {
 
@@ -820,7 +775,6 @@ function validForm (forms) {
               error.textContent = textError__date;
             }
 
-
           }
         })
       }
@@ -828,7 +782,7 @@ function validForm (forms) {
   })
 };
 
-if (forms) validForm(forms)
+
 
 
 const desktopWidth = window.matchMedia('(min-width: 1001px)');
@@ -968,10 +922,7 @@ function createSwiper (swiperList) {
   swiperList.forEach(swiper => {
 
     mySwiper = new Swiper(swiper, {
-      // pagination: {
-      //   el: '.swiper-pagination',
-      //   clickable: true,
-      // },
+
       navigation: {
         nextEl: '.slider-nav__next',
         prevEl: '.slider-nav__prev',
@@ -1023,7 +974,6 @@ function createSwiper (swiperList) {
 
       }
     });
-
   })
 };
 
@@ -1254,8 +1204,6 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
 
 {
 
-  //const mobileWidth = window.matchMedia('(max-width: 768px)').matches;
-
   let mySwiper;
 
   const swiperList = document.querySelectorAll('.student-career-images__container');
@@ -1263,19 +1211,6 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
   swiperList.forEach(swiper => {
 
     mySwiper = new Swiper(swiper, {
-      // pagination: {
-      //   el: '.swiper-pagination',
-      //   clickable: true,
-      // },
-      // navigation: {
-      //   nextEl: '.slider-nav__next',
-      //   prevEl: '.slider-nav__prev',
-      // },
-
-      // scrollbar: {
-      //   el: '.swiper-scrollbar',
-      //   draggable: true,
-      // },
 
       uniqueNavElements: true,
 
@@ -1326,31 +1261,6 @@ if (storiesList) storiesList.forEach(stories => storiesActive (stories));
 
 
 
-
-}
-
-{
-
-  const vacanciesList = document.querySelector('.vacancies__list');
-
-  if (vacanciesList) {
-
-    const countVacancies = document.querySelector('.filters__count-value');
-    const amountVacancies = vacanciesList.querySelectorAll('.vacancies__item').length;
-
-    if (amountVacancies < 10) {
-      countVacancies.textContent = `00${amountVacancies}`;
-    }
-
-    if (amountVacancies >= 10 && amountVacancies < 100) {
-      countVacancies.textContent = `0${amountVacancies}`;
-    }
-
-    if (amountVacancies > 100) {
-      countVacancies.textContent = `${amountVacancies}`;
-    }
-
-  }
 
 }
 
@@ -1613,6 +1523,10 @@ if (vacancies) {
 
 
 {
+
+
+  // Поиск вакансий в поисковой строке
+
   const vacancies = document.querySelector('.vacancies');
 
   if (vacancies) {
@@ -1621,13 +1535,13 @@ if (vacancies) {
 
     vacanciesSearch.addEventListener('keyup', searchJob);
 
-    function searchJob () {
+    function searchJob() {
 
       const inputValue = vacanciesSearch.value.toLowerCase();
       const vacanciesItems = vacancies.querySelectorAll('.vacancies__item');
 
       vacanciesItems.forEach(vacancy => {
-        const vacancyTitle = vacancy.querySelector('.vacancies-item__title').textContent
+        const vacancyTitle = vacancy.querySelector('.vacancies-item__title').textContent;
 
         if(vacancyTitle.toLowerCase().indexOf(inputValue) > -1) {
           vacancy.style.display = '';
@@ -1636,39 +1550,36 @@ if (vacancies) {
         }
       })
     }
+  }
+
+
+  // Счётчик вакансий
+  const vacanciesList = document.querySelector('.vacancies__list');
+
+  if (vacanciesList) {
+
+    const countVacancies = document.querySelector('.filters__count-value');
+    const amountVacancies = vacanciesList.querySelectorAll('.vacancies__item').length;
+
+    if (amountVacancies < 10) {
+      countVacancies.textContent = `00${amountVacancies}`;
+    }
+
+    if (amountVacancies >= 10 && amountVacancies < 100) {
+      countVacancies.textContent = `0${amountVacancies}`;
+    }
+
+    if (amountVacancies > 100) {
+      countVacancies.textContent = `${amountVacancies}`;
+    }
 
   }
 
 
 
 
+
 }
-
-const accordionList = document.querySelectorAll('.accordion');
-
-
-if (accordionList) {
-  accordionList.forEach(accordion => {
-
-    const accordionItems = accordion.querySelectorAll('.accordion__item'); // список элементов аккордиона
-
-    const toggleClass = (item) => item.classList.toggle('js-accordion-active');
-    const removeClass = (item) => item.classList.remove('js-accordion-active');
-
-    accordionItems.forEach(accordionItem => {
-      accordionItem.addEventListener('click', function ()  {
-        accordionItems.forEach(item => (item !== this) ? removeClass(item) : false);
-        toggleClass(this);
-      });
-    });
-
-  })
-}
-
-
-
-
-
 
 
 const html = document.querySelector('html');

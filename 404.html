@@ -39,10 +39,179 @@
             <h1 class="page404__title">404</h1>
             <p class="page404__subtitle">Кажется что-то пошло не так…</p>
             <div class="page404__buttons"><a class="button button--accent" href="index.html">На главную</a>
-              <button class="fill-form">Сообщить об ошибке</button>
+              <button class="fill-form button-popup-ask">Сообщить об ошибке</button>
             </div>
           </div>
         </div>
+        <template id="form-popup">
+          <div class="form-popup">
+            <div class="form-popup__content"><span class="form-popup__close">
+                <svg width="14" height="14" fill="#000">
+                  <use href="./assets/img/sprite.svg#close-menu"></use>
+                </svg></span>
+              <header class="form-popup__header">
+                <h4 class="form-popup__title">Оставьте заявку</h4>
+                <p class="form-popup__subtitle">Менеджер свяжется с вами в ближайшее время</p>
+              </header>
+              <form class="form-popup__item form-popup__item--full" method="POST" action="" enctype="multipart/form-data" autocomplete="off" data-popup="full">
+                <div class="form__input-container">
+                  <label>Фамилия
+                    <input placeholder="Иванов" name="surname" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40"/><span class="form__error form__error--inputName"></span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Имя
+                    <input placeholder="Константин" name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" required="required"/><span class="form__error form__error--inputName">Ошибка</span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Отчество
+                    <input placeholder="Александрович" name="patronymic" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40"/><span class="form__error form__error--inputName"></span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Дата рождения
+                    <input class="date" placeholder="дд.мм.гггг" name="date" autocomplete="off" maxlength="10"/><span class="form__error form__error--inputDate"></span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Телефон
+                    <input type="tel" name="phone" placeholder="+0 000 000 00 00" data-tel-input="data-tel-input" pattern=".{18,}" maxlength="18" autocomplete="off" required="required"/><span class="form__error form__error--inputTel"></span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Город проживания
+                    <input placeholder="Москва" name="city" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off"/><span class="form__error form__error--inputCity"></span>
+                  </label>
+                </div>
+                <div class="form__input-container form__input-container--select">
+                  <label>Желаемая вакансия</label>
+                  <select class="form__input-vacancy">
+                    <option selected value="">Выберите вакансию из списка</option>
+                    <option>Горничная</option>
+                    <option>Супервайзер этажа</option>
+                    <option>Специалист по клинингу общественных территорий/хаусмен</option>
+                    <option>Уборщик в Винный парк</option>
+                    <option>Уборщик производственных и служебных помещений (дневная и ночная смены)</option>
+                    <option>Специалист по подготовке зон отдыха</option>
+                    <option>Грузчик/Группа управления складами</option>
+                    <option>Специалист по работе с гостями – оператор аттракционов</option>
+                    <option>Специалист по контролю</option>
+                    <option>Консьерж</option>
+                    <option>Специалист моечного комплекса (автомойщик/детейлер)</option>
+                    <option>Водитель автобуса категории D</option>
+                    <option>Врач-отоларинголог</option>
+                    <option>Медицинская сестра по физиотерапии</option>
+                    <option>Врач-гастроэнтеролог</option>
+                    <option>Дежурный врач</option>
+                    <option>Врач-кардиолог</option>
+                    <option>Врач функциональной диагностики</option>
+                    <option>Врач-терапевт</option>
+                    <option>Врач-физиотерапевт</option>
+                    <option>Врач-уролог</option>
+                    <option>Врач-психотерапевт</option>
+                    <option>Медсестра</option>
+                    <option>Бухгалтер по расчетам с поставщиками</option>
+                    <option>Специалист колл-центра</option>
+                    <option>Ведущий специалист по качеству и сертификации</option>
+                    <option>Бухгалтер по учету доходов</option>
+                    <option>Бухгалтер по учету ТМЦ</option>
+                    <option>Консультант-аналитик 1С</option>
+                    <option>Ведущий специалист по внедрению Битрикс 24</option>
+                    <option>Ведущий специалист по продажам делового туризма</option>
+                    <option>Ведущий специалист MICE</option>
+                    <option>Специалист по информационным технологиям</option>
+                    <option>Реставратор-отделочник</option>
+                    <option>Оператор видеонаблюдения</option>
+                    <option>Заведующий складом</option>
+                    <option>Техник по ремонту оборудования</option>
+                    <option>Техник КИПиА</option>
+                    <option>Специалист по системам беспроводной связи</option>
+                    <option>Специалист по IPTV</option>
+                    <option>Специалист по системам телефонной связи</option>
+                    <option>Слесарь по ремонту и обслуживанию автомобилей</option>
+                    <option>Специалист по работе с гостями</option>
+                    <option>Аниматор</option>
+                  </select>
+                </div>
+                <div class="form__input-container">
+                  <label>Комментарий
+                    <textarea placeholder="Введите ваше сообщение..." name="message" maxlength="200" rows="4"></textarea><span class="form__error form__error--inputText"></span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Добавить резюме</label>
+                  <div class="form__upload form-upload">
+                    <input class="form-upload__input visually-hidden" id="inputfilepopup" type="file" name="file" accept=".pdf, .doc, .docx, .txt">
+                    <label class="form-upload__label" for="inputfilepopup">Выберите файл</label><span>&#32; с резюме или перетащите его в поле (pdf, docx, txt до 15мб)</span><span class="form-upload__spinner"></span>
+                  </div>
+                </div>
+                <div class="form-popup__sending form-popup-sending">
+                  <p class="form-popup-sending__agreement">Нажимая кнопку, вы соглашаетесь с <a href="privacy-policy.html">политикой конфиденциальности</a></p>
+                  <button class="button button--accent" type="submit">Отправить</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </template>
+        <template id="form-popup--ask">
+          <div class="form-popup form-popup--ask">
+            <div class="form-popup__content"><span class="form-popup__close">
+                <svg width="14" height="14" fill="#000">
+                  <use href="./assets/img/sprite.svg#close-menu"></use>
+                </svg></span>
+              <header class="form-popup__header">
+                <h4 class="form-popup__title">Задайте вопрос</h4>
+                <p class="form-popup__subtitle">Менеджер свяжется с вами в ближайшее время</p>
+              </header>
+              <form class="form-popup__item" method="POST" action="" enctype="multipart/form-data" autocomplete="off" data-popup="small">
+                <div class="form__input-container">
+                  <label>Имя
+                    <input placeholder="Константин" name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" required="required"/><span class="form__error form__error--inputName">Ошибка</span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Почта
+                    <input type="email" name="email" maxlength="40" placeholder="example@email.ru*" pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"/><span class="form__error form__error--inputEmail"></span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Комментарий
+                    <textarea placeholder="Введите ваше сообщение..." name="message" maxlength="200" rows="4"></textarea><span class="form__error form__error--inputText"></span>
+                  </label>
+                </div>
+                <div class="form-popup__sending form-popup-sending">
+                  <p class="form-popup-sending__agreement">Нажимая кнопку, вы соглашаетесь с <a href="privacy-policy.html">политикой конфиденциальности</a></p>
+                  <button class="button button--accent" type="submit">Отправить</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </template>
+        <template id="success">
+          <div class="reply-popup">
+            <div class="reply-popup__body">
+              <svg class="reply-popup__close" width="14" height="14" fill="#000">
+                <use href="./assets/img/sprite.svg#close-menu"></use>
+              </svg>
+              <p class="reply-popup__title">Спасибо, ваша заявка принята</p>
+              <p class="reply-popup__text">Менеджер свяжется с вами в ближайшее время</p>
+              <button class="button button--accent reply-popup__button">Хорошо</button>
+            </div>
+          </div>
+        </template>
+        <template id="error">
+          <div class="reply-popup">
+            <div class="reply-popup__body">
+              <svg class="reply-popup__close" width="14" height="14" fill="#000">
+                <use href="./assets/img/sprite.svg#close-menu"></use>
+              </svg>
+              <p class="reply-popup__title">Ошибка!</p>
+              <p class="reply-popup__text">Во время обработки запроса что-то пошло не так! Пожалуйста, попытайтесь еще раз.</p>
+              <button class="button button--accent reply-popup__button">Хорошо</button>
+            </div>
+          </div>
+        </template>
       </main>
       <!--include ../components/footer/footer-->
     </div>
