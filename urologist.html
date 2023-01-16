@@ -1,0 +1,281 @@
+
+<!-- Стрелки влево/вправо у сториса-->
+<!-- ---- Form ------------>
+<!-- Name-->
+<!-- Surname-->
+<!-- Patronymic-->
+<!-- Date-->
+<!-- Tel-->
+<!-- City-->
+<!-- Email-->
+<!-- Text--><!DOCTYPE html>
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+    <title>Вакансия</title><!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE = edge"><![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content=""><!--favicon-->
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<!--favicon end-->
+    <link rel="stylesheet" type="text/css" href="assets/css/libs.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css"><!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script><![endif]-->
+<!-- Yandex map script -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=dad86943-dfef-45bd-9c5e-c404323cb093&amp;lang=ru_RU" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header header--simple">
+        <div class="header__container container"><a class="header__logo" href="index.html">
+            <svg width="212" height="16" fill="#393737">
+              <use href="./assets/img/sprite.svg#logo"></use>
+            </svg></a></div>
+      </header>
+      <main>
+        <div class="breadcrumbs">
+          <div class="breadcrumbs__container container"><a class="breadcrumbs__item back" href="vacancies.html">Вернуться к вакансиям</a></div>
+        </div>
+        <section class="section-column">
+          <div class="vacancy">
+            <div class="vacancy__container container">
+              <div class="vacancy__data">
+                <h1>Врач-уролог</h1>
+                <div class="vacancy__advantages"><span>Заработная плата: 25 000 ₽</span><span>Занятость: 2/2, дневные и ночные смены</span></div>
+                <div class="vacancy__section">
+                  <h2>Требования</h2>
+                  <ul>
+                    <li>Возможно без опыта работы</li>
+                    <li>Готовность к физическому труду</li>
+                    <li>Без ограничений по здоровью</li>
+                  </ul>
+                </div>
+                <div class="vacancy__section">
+                  <h2>Обязанности</h2>
+                  <ul>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                  </ul>
+                </div>
+                <div class="vacancy__section">
+                  <h2>Условия</h2>
+                  <ul>
+                    <li>Жилье или компенсация съемной квартиры</li>
+                    <li>Питание на территории отеля</li>
+                    <li>Трансфер до места работы</li>
+                    <li>Компенсация переезда в Ялту</li>
+                    <li>Официальное трудоустройство</li>
+                    <li>Достойная зарплата</li>
+                    <li>Возможность карьерного и профессионального роста</li>
+                    <li>Регистрация для иностранных граждан</li>
+                    <li>Компенсация 50% стоимости занятий на Skyeng</li>
+                    <li>Большой и дружный коллектив</li>
+                    <li>Клубы и секции по интересам</li>
+                    <li>Помощь на всех этапах прибытия в Крым</li>
+                    <li>Тренинги, семинары и вебинары от Академии Гостеприимства</li>
+                    <li>Бонусы и скидки на услуги курорта</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="vacancy__hr vacancy-hr">
+                <h2 class="vacancy-hr__title">Контакты HR</h2>
+                <div class="vacancy-hr__data">
+                  <div class="vacancy-hr__person vacancy-hr-person">
+                    <div class="vacancy-hr-person__image"><img src="./assets/img/contacts/01.jpg"></div><b class="vacancy-hr-person__name">Константинопольский Константин</b><span class="vacancy-hr-person__post">Сотрудник отдела кадров</span>
+                  </div>
+                  <div class="vacancy-hr__contacts vacancy-hr-contacts"><a class="vacancy-hr-contacts__item" href="tel:88005505271">8 800 550-52-71</a><a class="vacancy-hr-contacts__item" href="mailto:job@mriyaresort.com">job@mriyaresort.com</a></div>
+                </div>
+                <div class="button button--accent vacancy-hr__button button-popup">Откликнуться на вакансию</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <template id="form-popup">
+          <div class="form-popup">
+            <div class="form-popup__content"><span class="form-popup__close">
+                <svg width="14" height="14" fill="#000">
+                  <use href="./assets/img/sprite.svg#close-menu"></use>
+                </svg></span>
+              <header class="form-popup__header">
+                <h4 class="form-popup__title">Оставьте заявку</h4>
+                <p class="form-popup__subtitle">Менеджер свяжется с вами в ближайшее время</p>
+              </header>
+              <form class="form-popup__item form-popup__item--full" method="POST" action="" enctype="multipart/form-data" autocomplete="off" data-popup="full">
+                <div class="form__input-container">
+                  <label>Фамилия
+                    <input placeholder="Иванов" name="surname" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40"/><span class="form__error form__error--inputName"></span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Имя
+                    <input placeholder="Константин" name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" required="required"/><span class="form__error form__error--inputName">Ошибка</span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Отчество
+                    <input placeholder="Александрович" name="patronymic" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40"/><span class="form__error form__error--inputName"></span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Дата рождения
+                    <input class="date" placeholder="дд.мм.гггг" name="date" autocomplete="off" maxlength="10"/><span class="form__error form__error--inputDate"></span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Телефон
+                    <input type="tel" name="phone" placeholder="+0 000 000 00 00" data-tel-input="data-tel-input" pattern=".{18,}" maxlength="18" autocomplete="off" required="required"/><span class="form__error form__error--inputTel"></span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Город проживания
+                    <input placeholder="Москва" name="city" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off"/><span class="form__error form__error--inputCity"></span>
+                  </label>
+                </div>
+                <div class="form__input-container form__input-container--select">
+                  <label>Желаемая вакансия</label>
+                  <select class="form__input-vacancy">
+                    <option selected value="">Выберите вакансию из списка</option>
+                    <option>Горничная</option>
+                    <option>Супервайзер этажа</option>
+                    <option>Специалист по клинингу общественных территорий/хаусмен</option>
+                    <option>Уборщик в Винный парк</option>
+                    <option>Уборщик производственных и служебных помещений (дневная и ночная смены)</option>
+                    <option>Специалист по подготовке зон отдыха</option>
+                    <option>Грузчик/Группа управления складами</option>
+                    <option>Специалист по работе с гостями – оператор аттракционов</option>
+                    <option>Специалист по контролю</option>
+                    <option>Консьерж</option>
+                    <option>Специалист моечного комплекса (автомойщик/детейлер)</option>
+                    <option>Водитель автобуса категории D</option>
+                    <option>Врач-отоларинголог</option>
+                    <option>Медицинская сестра по физиотерапии</option>
+                    <option>Врач-гастроэнтеролог</option>
+                    <option>Дежурный врач</option>
+                    <option>Врач-кардиолог</option>
+                    <option>Врач функциональной диагностики</option>
+                    <option>Врач-терапевт</option>
+                    <option>Врач-физиотерапевт</option>
+                    <option>Врач-уролог</option>
+                    <option>Врач-психотерапевт</option>
+                    <option>Медсестра</option>
+                    <option>Бухгалтер по расчетам с поставщиками</option>
+                    <option>Специалист колл-центра</option>
+                    <option>Ведущий специалист по качеству и сертификации</option>
+                    <option>Бухгалтер по учету доходов</option>
+                    <option>Бухгалтер по учету ТМЦ</option>
+                    <option>Консультант-аналитик 1С</option>
+                    <option>Ведущий специалист по внедрению Битрикс 24</option>
+                    <option>Ведущий специалист по продажам делового туризма</option>
+                    <option>Ведущий специалист MICE</option>
+                    <option>Специалист по информационным технологиям</option>
+                    <option>Реставратор-отделочник</option>
+                    <option>Оператор видеонаблюдения</option>
+                    <option>Заведующий складом</option>
+                    <option>Техник по ремонту оборудования</option>
+                    <option>Техник КИПиА</option>
+                    <option>Специалист по системам беспроводной связи</option>
+                    <option>Специалист по IPTV</option>
+                    <option>Специалист по системам телефонной связи</option>
+                    <option>Слесарь по ремонту и обслуживанию автомобилей</option>
+                    <option>Специалист по работе с гостями</option>
+                    <option>Аниматор</option>
+                  </select>
+                </div>
+                <div class="form__input-container">
+                  <label>Комментарий
+                    <textarea placeholder="Введите ваше сообщение..." name="message" maxlength="200" rows="4"></textarea><span class="form__error form__error--inputText"></span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Добавить резюме</label>
+                  <div class="form__upload form-upload">
+                    <input class="form-upload__input visually-hidden" id="inputfilepopup" type="file" name="file" accept=".pdf, .doc, .docx, .txt">
+                    <label class="form-upload__label" for="inputfilepopup">Выберите файл</label><span>&#32; с резюме или перетащите его в поле (pdf, docx, txt до 15мб)</span><span class="form-upload__spinner"></span>
+                  </div>
+                </div>
+                <div class="form-popup__sending form-popup-sending">
+                  <p class="form-popup-sending__agreement">Нажимая кнопку, вы соглашаетесь с <a href="privacy-policy.html">политикой конфиденциальности</a></p>
+                  <button class="button button--accent" type="submit">Отправить</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </template>
+        <template id="form-popup--ask">
+          <div class="form-popup form-popup--ask">
+            <div class="form-popup__content"><span class="form-popup__close">
+                <svg width="14" height="14" fill="#000">
+                  <use href="./assets/img/sprite.svg#close-menu"></use>
+                </svg></span>
+              <header class="form-popup__header">
+                <h4 class="form-popup__title">Задайте вопрос</h4>
+                <p class="form-popup__subtitle">Менеджер свяжется с вами в ближайшее время</p>
+              </header>
+              <form class="form-popup__item" method="POST" action="" enctype="multipart/form-data" autocomplete="off" data-popup="small">
+                <div class="form__input-container">
+                  <label>Имя
+                    <input placeholder="Константин" name="name" pattern="^[A-Za-zА-Яа-яЁё\s]+$" autocomplete="off" maxlength="40" required="required"/><span class="form__error form__error--inputName">Ошибка</span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Почта
+                    <input type="email" name="email" maxlength="40" placeholder="example@email.ru*" pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"/><span class="form__error form__error--inputEmail"></span>
+                  </label>
+                </div>
+                <div class="form__input-container">
+                  <label>Комментарий
+                    <textarea placeholder="Введите ваше сообщение..." name="message" maxlength="200" rows="4"></textarea><span class="form__error form__error--inputText"></span>
+                  </label>
+                </div>
+                <div class="form-popup__sending form-popup-sending">
+                  <p class="form-popup-sending__agreement">Нажимая кнопку, вы соглашаетесь с <a href="privacy-policy.html">политикой конфиденциальности</a></p>
+                  <button class="button button--accent" type="submit">Отправить</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </template>
+        <template id="success">
+          <div class="reply-popup">
+            <div class="reply-popup__body">
+              <svg class="reply-popup__close" width="14" height="14" fill="#000">
+                <use href="./assets/img/sprite.svg#close-menu"></use>
+              </svg>
+              <p class="reply-popup__title">Спасибо, ваша заявка принята</p>
+              <p class="reply-popup__text">Менеджер свяжется с вами в ближайшее время</p>
+              <button class="button button--accent reply-popup__button">Хорошо</button>
+            </div>
+          </div>
+        </template>
+        <template id="error">
+          <div class="reply-popup">
+            <div class="reply-popup__body">
+              <svg class="reply-popup__close" width="14" height="14" fill="#000">
+                <use href="./assets/img/sprite.svg#close-menu"></use>
+              </svg>
+              <p class="reply-popup__title">Ошибка!</p>
+              <p class="reply-popup__text">Во время обработки запроса что-то пошло не так! Пожалуйста, попытайтесь еще раз.</p>
+              <button class="button button--accent reply-popup__button">Хорошо</button>
+            </div>
+          </div>
+        </template>
+      </main>
+      <footer class="footer">
+        <div class="footer__container container">
+          <div class="footer__inner">
+            <div class="footer__other-info"><span class="footer__copyright">© 2022 Mriya Resort & Spa</span><a class="footer__politics" href="privacy-policy.html">Политика конфиденциальности</a></div>
+            <ul class="footer__contact-list">
+              <li class="footer__contact-item"><a class="footer__contact-email" href="mailoto:job@mriyaresort.com">job@mriyaresort.com</a></li>
+              <li class="footer__contact-item"><a class="footer__contact-tel" href="tel:88005008964">8 800 500-89-64</a></li>
+              <li class="footer__contact-item">
+                <button class="ask button-popup-ask">Задать вопрос</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="assets/js/libs.min.js"></script>
+    <script src="assets/js/main.js" type="module"></script>
+  </body>
+</html>
