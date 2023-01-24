@@ -9,4 +9,6 @@ module.exports = [
   "./gulp/tasks/script.js",
   "./gulp/tasks/server.js",
   "./gulp/tasks/watch.js",
+
+  "./gulp/tasks/files.js",
 ];

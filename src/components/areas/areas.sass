@@ -2,15 +2,16 @@
   &.areas--student
     background-color: #D8FCDF
     .areas__container
-      @media (max-width: 1000px)
-        padding-bottom: 50px
+      padding: 50px 0
+    .areas__item,
+    .areas__item--more
+      border: 1px solid $black
 
   &__container
     display: grid
     grid-template-columns: auto 40%
     gap: 50px
     justify-content: space-between
-    //align-items: center
     @media (max-width: 1000px)
       grid-template-columns: 1fr
     @media (max-width: 768px)
@@ -80,6 +81,7 @@
     border: 1px solid #EBEBEB
     padding: 6px 16px
     cursor: pointer
+    border-radius: 4px
     @include fontSize(13, 16)
     @media (max-width: 1000px)
       padding: 8px

@@ -3,9 +3,10 @@ const desktopWidth = window.matchMedia('(min-width: 1001px)');
 let previousPosition = window.scrollTop || document.documentElement.scrollTop;
 
 const header = document.querySelector('.header');
-const burger = header.querySelector('.header__burger');
 
-if (header && burger) {
+
+if (header) {
+  const burger = header.querySelector('.header__burger');
   burger.addEventListener('click', () => {
     header.classList.toggle('js-active-menu');
     toggleScrollBody();

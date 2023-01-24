@@ -7,19 +7,22 @@
     align-items: center
     @media (max-width: 1000px)
       grid-template-columns: 1fr
-
-  &__swiper
-    width: 100%
-    height: 90%
-    flex: 0 1 50%
-    max-width: 600px
+    @media (max-width: 768px)
+      gap: 32px
 
   &__images
     position: relative
     display: grid
     grid-template-columns: repeat(6, 1fr)
+    width: 100%
+    height: 90%
+    flex: 0 1 50%
+    max-width: 600px
 
     .about__image
+      position: relative
+      height: auto
+      width: 100%
       overflow: hidden
       &:nth-child(1)
         aspect-ratio: 41 / 54
@@ -125,11 +128,13 @@
     flex-wrap: wrap
 
 
+
   &__social-link
     display: block
     @include fontSize(14, 18)
     padding: 12px 20px
     border: 1px solid #393737
+    border-radius: 4px
     &:hover
       background-color: #393737
       color: #fff
