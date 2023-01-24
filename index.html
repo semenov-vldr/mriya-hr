@@ -42,23 +42,23 @@
           </div>
           <nav class="header__nav header-nav">
             <ul class="header-nav__list">
-              <li class="header-nav__item"><a class="header-nav__link" href="about.html">
+              <li class="header-nav__item"><a class="header-nav__link" href="about.html" title="О нас">
                   <svg width="18" height="18" fill="#393737">
                     <use href="./assets/img/sprite.svg#icon-about"></use>
                   </svg>О нас</a></li>
-              <li class="header-nav__item"><a class="header-nav__link js-student-link" href="student.html">
+              <li class="header-nav__item"><a class="header-nav__link js-student-link" href="student.html" title="Студентам">
                   <svg width="20" height="17" fill="#393737">
                     <use href="./assets/img/sprite.svg#icon-student"></use>
                   </svg>Студентам</a></li>
-              <li class="header-nav__item"><a class="header-nav__link" href="faq.html">
+              <li class="header-nav__item"><a class="header-nav__link" href="faq.html" title="FAQ">
                   <svg width="18" height="18" fill="#393737">
                     <use href="./assets/img/sprite.svg#faq"></use>
                   </svg>FAQ</a></li>
-              <li class="header-nav__item"><a class="header-nav__link" href="blog.html">
+              <li class="header-nav__item"><a class="header-nav__link" href="blog.html" title="Блог">
                   <svg width="18" height="18" fill="#393737">
                     <use href="./assets/img/sprite.svg#blog"></use>
                   </svg>Блог</a></li>
-              <li class="header-nav__item"><a class="header-nav__link" href="vacancies.html">
+              <li class="header-nav__item"><a class="header-nav__link" href="vacancies.html" title="Вакансии">
                   <svg width="16" height="16" fill="#393737">
                     <use href="./assets/img/sprite.svg#header-vacansy"></use>
                   </svg>Вакансии</a></li>
@@ -76,11 +76,11 @@
               </li>
               <li class="header-bottom__item"><a class="header-bottom__email" href="mailoto:job@mriyaresort.com">job@mriyaresort.com</a></li>
               <li class="header-bottom__item"><a class="header-bottom__tel" href="tel:88005008964">8 800 500-89-64</a></li>
-              <li class="header-bottom__item"><a class="header-bottom__politics" href="">Политика конфиденциальности</a></li>
+              <li class="header-bottom__item"><a class="header-bottom__politics" href="./assets/files/policy-2022.pdf" target="_blank">Политика конфиденциальности</a></li>
             </ul>
           </nav>
         </div>
-        <div class="button button--accent button-popup button-scroll fill-form white">Заполнить анкету</div>
+        <button class="button button--accent button-popup button-scroll fill-form white">Заполнить анкету</button>
       </header>
       <main>
         <section class="section-column">
@@ -97,14 +97,16 @@
                 </div>
               </div>
               <div class="hero-index__stories hero-index-stories">
-                <div class="stories-card hero-index-stories__item" style="background-image: url('./assets/img/stories/01.jpg')" data-open-stories="1"><img class="stories-card__logo" src="./assets/img/icons/mriya-logo.svg">
+                <div class="stories-card hero-index-stories__item" style="background-image: url('./assets/img/stories/01.jpg')" data-open-stories="1">
+                  <!--img.stories-card__logo(src="./assets/img/icons/mriya-logo.svg")-->
                   <div class="stories-card__info">Супервайзер в отделе клининга в Мрии</div>
                   <div class="stories-card__stories">
                     <button class="stories-card__stories-play"></button>
                     <div class="stories-card__stories-data"><span class="stories-card__stories-title">Алина</span><span class="stories-card__stories-info">шеф-повар</span></div>
                   </div>
                 </div>
-                <div class="stories-card hero-index-stories__item" style="background-image: url('./assets/img/stories/02.jpg')" data-open-stories="2"><img class="stories-card__logo" src="./assets/img/icons/mriya-logo.svg">
+                <div class="stories-card hero-index-stories__item" style="background-image: url('./assets/img/stories/02.jpg')" data-open-stories="2">
+                  <!--img.stories-card__logo(src="./assets/img/icons/mriya-logo.svg")-->
                   <div class="stories-card__info">Супервайзер в отделе клининга в Мрии</div>
                   <div class="stories-card__stories">
                     <button class="stories-card__stories-play"></button>
@@ -728,11 +730,9 @@
           </div>
           <div class="about">
             <div class="about__container container">
-              <div class="about__swiper">
-                <div class="about__images swiper-wrapper">
-                  <div class="about__image swiper-slide"><img src="./assets/img/about/01.jpg"><img src="./assets/img/about/02.jpg"><img src="./assets/img/about/03.jpg"><img src="./assets/img/about/04.jpg"><img src="./assets/img/about/05.jpg"><img src="./assets/img/about/06.jpg"></div>
-                  <div class="about__image swiper-slide"><img src="./assets/img/about/07.jpg"><img src="./assets/img/about/08.jpg"><img src="./assets/img/about/09.jpg"><img src="./assets/img/about/10.jpg"><img src="./assets/img/about/11.jpg"><img src="./assets/img/about/12.jpg"></div>
-                </div>
+              <div class="about__images">
+                <div class="about__image"><img src="./assets/img/about/01.jpg"><img src="./assets/img/about/02.jpg"><img src="./assets/img/about/03.jpg"><img src="./assets/img/about/04.jpg"><img src="./assets/img/about/05.jpg"><img src="./assets/img/about/06.jpg"><img src="./assets/img/about/07.jpg"><img src="./assets/img/about/08.jpg"><img src="./assets/img/about/09.jpg"><img src="./assets/img/about/10.jpg"><img src="./assets/img/about/11.jpg"><img src="./assets/img/about/12.jpg"><img src="./assets/img/about/13.jpg"><img src="./assets/img/about/14.jpg"></div>
+                <div class="about__image"><img src="./assets/img/about/15.jpg"><img src="./assets/img/about/16.jpg"><img src="./assets/img/about/17.jpg"><img src="./assets/img/about/18.jpg"><img src="./assets/img/about/19.jpg"><img src="./assets/img/about/20.jpg"><img src="./assets/img/about/21.jpg"><img src="./assets/img/about/22.jpg"><img src="./assets/img/about/23.jpg"><img src="./assets/img/about/24.jpg"><img src="./assets/img/about/25.jpg"><img src="./assets/img/about/26.jpg"><img src="./assets/img/about/27.jpg"><img src="./assets/img/about/28.jpg"></div>
               </div>
               <div class="about__content">
                 <div class="about__rewards about-rewards">
@@ -749,7 +749,7 @@
                   <li><a class="about__social-link" href="https://vk.com/mriya_job" target="_blank">Вконтакте</a></li>
                   <li><a class="about__social-link" href="https://ok.ru/group/70000000819667" target="_blank">Одноклассники</a></li>
                   <li><a class="about__social-link" href="https://t.me/mriyacareer" target="_blank">Telegram</a></li>
-                  <li><a class="about__social-link" href="https://www.instagram.com/mriyajob/" target="_blank">Instagram</a></li>
+                  <li><a class="about__social-link" href="https://ok.ru/mriyahr" target="_blank">Одноклассники</a></li>
                 </ul>
               </div>
             </div>
@@ -764,7 +764,7 @@
                 <li class="employment-advantages__item">Если желаемая вакансия вам не подойдёт, предложим другой вариант</li>
               </ul>
               <div class="employment__content">
-                <div class="employment__images"><img src="./assets/img/employment/01.jpg"><img src="./assets/img/employment/02.jpg"><img src="./assets/img/employment/03.jpg"><img src="./assets/img/employment/04.jpg"><img src="./assets/img/employment/05.jpg"><img src="./assets/img/employment/03.jpg"><img src="./assets/img/employment/02.jpg"></div>
+                <div class="employment__images"><img src="./assets/img/employment/01.jpg"><img src="./assets/img/employment/02.jpg"><img src="./assets/img/employment/03.jpg"><img src="./assets/img/employment/04.jpg"><img src="./assets/img/advantages/moving.jpg"><img src="./assets/img/employment/06.jpg"><img src="./assets/img/employment/07.jpg"></div>
                 <div class="employment__steps employment-steps">
                   <ul class="employment-steps__list"><span class="employment-steps__line"></span>
                     <li class="employment-steps__item employment-steps-item"><span class="employment-steps-item__number">1</span><b class="employment-steps-item__title">Заявка</b>
@@ -1313,7 +1313,7 @@
                   </div>
                 </div>
                 <div class="form-popup__sending form-popup-sending">
-                  <p class="form-popup-sending__agreement">Нажимая кнопку, вы соглашаетесь с <a href="privacy-policy.html">политикой конфиденциальности</a></p>
+                  <p class="form-popup-sending__agreement">Нажимая кнопку, вы соглашаетесь с <a href="./assets/files/policy-2022.pdf" target="_blank">политикой конфиденциальности</a></p>
                   <button class="button button--accent" type="submit">Отправить</button>
                 </div>
               </form>
@@ -1347,7 +1347,7 @@
                   </label>
                 </div>
                 <div class="form-popup__sending form-popup-sending">
-                  <p class="form-popup-sending__agreement">Нажимая кнопку, вы соглашаетесь с <a href="privacy-policy.html">политикой конфиденциальности</a></p>
+                  <p class="form-popup-sending__agreement">Нажимая кнопку, вы соглашаетесь с <a href="./assets/files/policy-2022.pdf" target="_blank">политикой конфиденциальности</a></p>
                   <button class="button button--accent" type="submit">Отправить</button>
                 </div>
               </form>
@@ -1382,7 +1382,7 @@
       <footer class="footer">
         <div class="footer__container container">
           <div class="footer__inner">
-            <div class="footer__other-info"><span class="footer__copyright">© 2022 Mriya Resort & Spa</span><a class="footer__politics" href="privacy-policy.html">Политика конфиденциальности</a></div>
+            <div class="footer__other-info"><span class="footer__copyright">© <i class="footer__copyright-year">2023</i> Mriya Resort & Spa</span><a class="footer__politics" href="./assets/files/policy-2022.pdf" target="_blank">Политика конфиденциальности</a></div>
             <ul class="footer__contact-list">
               <li class="footer__contact-item"><a class="footer__contact-email" href="mailoto:job@mriyaresort.com">job@mriyaresort.com</a></li>
               <li class="footer__contact-item"><a class="footer__contact-tel" href="tel:88005008964">8 800 500-89-64</a></li>

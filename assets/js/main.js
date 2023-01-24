@@ -286,6 +286,13 @@ if (blog) {
 
 }
 
+const footer = document.querySelector('footer.footer');
+
+if (footer) {
+  const copyrightYear  = footer.querySelector('.footer__copyright-year');
+  copyrightYear .textContent = new Date().getFullYear();
+}
+
 {
   // все кнопки, по нажатию на которые появляется поп-ап
   const callToActionButtons = document.querySelectorAll('.button-popup, .button-popup-ask');
@@ -788,9 +795,10 @@ const desktopWidth = window.matchMedia('(min-width: 1001px)');
 let previousPosition = window.scrollTop || document.documentElement.scrollTop;
 
 const header = document.querySelector('.header');
-const burger = header.querySelector('.header__burger');
 
-if (header && burger) {
+
+if (header) {
+  const burger = header.querySelector('.header__burger');
   burger.addEventListener('click', () => {
     header.classList.toggle('js-active-menu');
     toggleScrollBody();
@@ -1523,31 +1531,44 @@ if (vacancies) {
 {
 
 
-  // Поиск вакансий в поисковой строке
+
 
   const vacancies = document.querySelector('.vacancies');
-
   if (vacancies) {
 
-    const vacanciesSearch = vacancies.querySelector('.vacancies-search__input');
+  const uploadVacanciesBtn = vacancies.querySelector('.vacancies__more');
 
-    vacanciesSearch.addEventListener('keyup', searchJob);
+    uploadVacanciesBtn.addEventListener('click', () => {
+      uploadVacanciesBtn.classList.add('js-upload');
+      uploadVacanciesBtn.disabled = true;
+    })
 
-    function searchJob() {
 
-      const inputValue = vacanciesSearch.value.toLowerCase();
-      const vacanciesItems = vacancies.querySelectorAll('.vacancies__item');
 
-      vacanciesItems.forEach(vacancy => {
-        const vacancyTitle = vacancy.querySelector('.vacancies-item__title').textContent;
 
-        if(vacancyTitle.toLowerCase().indexOf(inputValue) > -1) {
-          vacancy.style.display = '';
-        } else {
-          vacancy.style.display = 'none';
-        }
-      })
-    }
+    // Поиск вакансий в поисковой строке
+    // const vacanciesSearch = vacancies.querySelector('.vacancies-search__input');
+    //
+    // vacanciesSearch.addEventListener('keyup', searchJob);
+    //
+    // function searchJob() {
+    //
+    //   const inputValue = vacanciesSearch.value.toLowerCase();
+    //   const vacanciesItems = vacancies.querySelectorAll('.vacancies__item');
+    //
+    //   vacanciesItems.forEach(vacancy => {
+    //     const vacancyTitle = vacancy.querySelector('.vacancies-item__title').textContent;
+    //
+    //     if(vacancyTitle.toLowerCase().indexOf(inputValue) > -1) {
+    //       vacancy.style.display = '';
+    //     } else {
+    //       vacancy.style.display = 'none';
+    //     }
+    //   })
+    // }
+
+
+
   }
 
 
