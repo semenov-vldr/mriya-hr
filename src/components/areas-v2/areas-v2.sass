@@ -1,0 +1,103 @@
+.areas-v2
+
+  &.areas--student
+    background-color: #D8FCDF
+    .areas__container
+      padding: 50px 0
+    .areas__item,
+    .areas__item--more
+      border: 1px solid $black
+
+  &__container
+    display: grid
+    grid-template-columns: 1fr 1fr
+    gap: 50px
+    justify-content: space-between
+    @media (max-width: 1000px)
+      grid-template-columns: 1fr
+    @media (max-width: 768px)
+      gap: 24px
+
+  &__title
+    text-align: left
+    margin-bottom: 32px
+    @media (max-width: 1000px)
+      margin-bottom: 16px
+
+  &__description-content
+    scroll-margin-top: 90px
+
+  &__description
+    display: none
+    flex-direction: column
+    gap: 12px
+    @include fontSize(14, 18)
+    padding-right: 20px
+    @media (max-width: 1000px)
+      &::-webkit-scrollbar
+        width: 4px
+        height: 4px
+    &.js-area-active
+      display: flex
+    ul, ol
+      display: flex
+      flex-direction: column
+      gap: 8px
+      padding-left: 30px
+    ul > li > ul
+      list-style-type: square
+      margin-top: 8px
+    ul
+      list-style-type: disc
+
+
+
+
+  &__subtitle
+    display: inline-block
+    font-size: 20px
+    margin-bottom: 32px
+    @media (max-width: 1000px)
+      margin-bottom: 16px
+
+
+  &__list
+    position: sticky
+    top: 130px
+    display: flex
+    flex-wrap: wrap
+    gap: 16px 8px
+    //margin-bottom: 32px
+    @media (max-width: 1000px)
+      gap: 8px
+      position: initial
+
+  &__item,
+  .areas-v2__item--more
+    border: 1px solid #EBEBEB
+    padding: 6px 16px
+    cursor: pointer
+    border-radius: 4px
+    @include fontSize(13, 16)
+    @media (max-width: 1000px)
+      padding: 8px
+    &:hover,
+    &.js-area-active
+      background-color: $black
+      border-color: $black
+      color: #fff
+
+  &__item
+    &:nth-child(n+9)
+      display: none
+
+  &__item.js-visible
+    display: block
+
+  img
+    width: 100%
+    max-height: 500px
+    object-fit: cover
+    & + *
+      margin-top: 24px
+
