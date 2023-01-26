@@ -59,7 +59,7 @@
   if (areas) {
     const showMore = areas.querySelector('.areas-v2__item--more');
 
-    const startItems = 8;
+    const startItems = 12;
 
     const areasItems = areas.querySelectorAll('.areas-v2__item');
     const areasItemsLength = areasItems.length;
@@ -81,10 +81,10 @@
       areasItem.addEventListener('click', () => {
         descriptionContent.scrollIntoView({
           behavior: "smooth",
-          block: "start"
+          block: "start",
         })
       })
-    })
+    });
 
 
   }
