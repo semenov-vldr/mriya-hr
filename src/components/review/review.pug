@@ -1,10 +1,11 @@
-.review
-  video.review__video(preload='auto' autoplay muted loop)
-    source(src='./assets/video/review.mp4' type='video/mp4')
-  .review__container.container
-    h2.review__title MRIYA RESORT & SPA — ведущий курорт премиум-класса в Крыму <br> и один из лучших в мире
+.container.container-width-full
+  .review
+    video.review__video(preload='auto' autoplay muted loop)
+      source(src='./assets/video/review.mp4' type='video/mp4')
+    .review__container
+      h2.review__title MRIYA RESORT & SPA — ведущий курорт премиум-класса в Крыму <br> и один из лучших в мире
 
-    .review__buttons
-      a.button.button--accent(href="about.html") О нас
-      a.button(data-src="./assets/video/review.mp4" data-fancybox) Видео-обзор курорта
+      .review__buttons
+        a.button.button--accent(href="about.html") О нас
+        a.button.button--white(data-src="./assets/video/review.mp4" data-fancybox) Видео-обзор курорта
 

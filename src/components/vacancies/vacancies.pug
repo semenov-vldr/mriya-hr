@@ -1,796 +1,797 @@
-.vacancies
+.container
+  .vacancies
 
-  .vacancies__container.container
-    h1.vacancies__title Вакансии
+    .vacancies__container
+      h1.vacancies__title Вакансии
 
-    .vacancies__inner
-      // Фильтр
-      aside.vacancies__filters.filters
-        .filters__body
-          button.filters__close
-          .filters__header
-            span.filters__title Фильтры
-            .filters__count
-              span.filters__count-value 000
-              | найдено
+      .vacancies__inner
+        // Фильтр
+        aside.vacancies__filters.filters
+          .filters__body
+            button.filters__close
+            .filters__header
+              span.filters__title Фильтры
+              .filters__count
+                span.filters__count-value 000
+                | найдено
 
-          ul.filters__list
+            ul.filters__list
 
-            // -- Профобласти--
-            li.filters__item.filter
-              span.filter__title.js-filter-active Профобласти
-              .filter__content
-                fieldset.filter__list
+              // -- Профобласти--
+              li.filters__item.filter
+                span.filter__title.js-filter-active Профобласти
+                .filter__content
+                  fieldset.filter__list
 
-                  label.filter__item Инженерно-техническое направление
-                    input(type="checkbox" name="Профобласти" value="Инженерно-техническое направление")
-                    span.filter__item-checkbox
-                  label.filter__item Медицинское направление
-                    input(type="checkbox" name="Профобласти" value="Медицинское направление")
-                    span.filter__item-checkbox
-                  label.filter__item Благоустройство и озеленение
-                    input(type="checkbox" name="Профобласти" value="Благоустройство и озеленение")
-                    span.filter__item-checkbox
-                  label.filter__item Бухгалтерия
-                    input(type="checkbox" name="Профобласти" value="Бухгалтерия")
-                    span.filter__item-checkbox
-                  label.filter__item Финансы и аудит
-                    input(type="checkbox" name="Профобласти" value="Финансы и аудит")
-                    span.filter__item-checkbox
-                  label.filter__item Информационные технологии
-                    input(type="checkbox" name="Профобласти" value="Информационные технологии")
-                    span.filter__item-checkbox
-                  label.filter__item Маркетинг и PR
-                    input(type="checkbox" name="Профобласти" value="Маркетинг и PR")
-                    span.filter__item-checkbox
-                  label.filter__item Юриспруденция
-                    input(type="checkbox" name="Профобласти" value="Юриспруденция")
-                    span.filter__item-checkbox
-                  label.filter__item Работа с персоналом
-                    input(type="checkbox" name="Профобласти" value="Работа с персоналом")
-                    span.filter__item-checkbox
-                  label.filter__item Организация общественного питания
-                    input(type="checkbox" name="Профобласти" value="Организация общественного питания")
-                    span.filter__item-checkbox
-                  label.filter__item Управление номерным фондом
-                    input(type="checkbox" name="Профобласти" value="Управление номерным фондом")
-                    span.filter__item-checkbox
-                  label.filter__item Складкое хозяйство
-                    input(type="checkbox" name="Профобласти" value="Складкое хозяйство")
-                    span.filter__item-checkbox
-                  label.filter__item Безопасность
-                    input(type="checkbox" name="Профобласти" value="Безопасность")
-                    span.filter__item-checkbox
-                  label.filter__item Анимация и организация досуга
-                    input(type="checkbox" name="Профобласти" value="Анимация и организация досуга")
-                    span.filter__item-checkbox
-                  label.filter__item Транспорт и логистика
-                    input(type="checkbox" name="Профобласти" value="Транспорт и логистика")
-                    span.filter__item-checkbox
-                  label.filter__item Рабочие специальности
-                    input(type="checkbox" name="Профобласти" value="Рабочие специальности")
-                    span.filter__item-checkbox
-                  label.filter__item Пищевое производство
-                    input(type="checkbox" name="Профобласти" value="Пищевое производство")
-                    span.filter__item-checkbox
-                  label.filter__item Химчистка и прачечная
-                    input(type="checkbox" name="Профобласти" value="Химчистка и прачечная")
-                    span.filter__item-checkbox
-                  label.filter__item Снабжение и закупки
-                    input(type="checkbox" name="Профобласти" value="Снабжение и закупки")
-                    span.filter__item-checkbox
+                    label.filter__item Инженерно-техническое направление
+                      input(type="checkbox" name="Профобласти" value="Инженерно-техническое направление")
+                      span.filter__item-checkbox
+                    label.filter__item Медицинское направление
+                      input(type="checkbox" name="Профобласти" value="Медицинское направление")
+                      span.filter__item-checkbox
+                    label.filter__item Благоустройство и озеленение
+                      input(type="checkbox" name="Профобласти" value="Благоустройство и озеленение")
+                      span.filter__item-checkbox
+                    label.filter__item Бухгалтерия
+                      input(type="checkbox" name="Профобласти" value="Бухгалтерия")
+                      span.filter__item-checkbox
+                    label.filter__item Финансы и аудит
+                      input(type="checkbox" name="Профобласти" value="Финансы и аудит")
+                      span.filter__item-checkbox
+                    label.filter__item Информационные технологии
+                      input(type="checkbox" name="Профобласти" value="Информационные технологии")
+                      span.filter__item-checkbox
+                    label.filter__item Маркетинг и PR
+                      input(type="checkbox" name="Профобласти" value="Маркетинг и PR")
+                      span.filter__item-checkbox
+                    label.filter__item Юриспруденция
+                      input(type="checkbox" name="Профобласти" value="Юриспруденция")
+                      span.filter__item-checkbox
+                    label.filter__item Работа с персоналом
+                      input(type="checkbox" name="Профобласти" value="Работа с персоналом")
+                      span.filter__item-checkbox
+                    label.filter__item Организация общественного питания
+                      input(type="checkbox" name="Профобласти" value="Организация общественного питания")
+                      span.filter__item-checkbox
+                    label.filter__item Управление номерным фондом
+                      input(type="checkbox" name="Профобласти" value="Управление номерным фондом")
+                      span.filter__item-checkbox
+                    label.filter__item Складкое хозяйство
+                      input(type="checkbox" name="Профобласти" value="Складкое хозяйство")
+                      span.filter__item-checkbox
+                    label.filter__item Безопасность
+                      input(type="checkbox" name="Профобласти" value="Безопасность")
+                      span.filter__item-checkbox
+                    label.filter__item Анимация и организация досуга
+                      input(type="checkbox" name="Профобласти" value="Анимация и организация досуга")
+                      span.filter__item-checkbox
+                    label.filter__item Транспорт и логистика
+                      input(type="checkbox" name="Профобласти" value="Транспорт и логистика")
+                      span.filter__item-checkbox
+                    label.filter__item Рабочие специальности
+                      input(type="checkbox" name="Профобласти" value="Рабочие специальности")
+                      span.filter__item-checkbox
+                    label.filter__item Пищевое производство
+                      input(type="checkbox" name="Профобласти" value="Пищевое производство")
+                      span.filter__item-checkbox
+                    label.filter__item Химчистка и прачечная
+                      input(type="checkbox" name="Профобласти" value="Химчистка и прачечная")
+                      span.filter__item-checkbox
+                    label.filter__item Снабжение и закупки
+                      input(type="checkbox" name="Профобласти" value="Снабжение и закупки")
+                      span.filter__item-checkbox
+                    button.filter__button-more Показать ещё
+
+              //---Объекты---
+              li.filters__item.filter
+                span.filter__title Объекты
+                .filter__content
+                  fieldset.filter__list
+
+                    label.filter__item Винный Парк
+                      input(type="checkbox" name="Объекты" value="Винный Парк")
+                      span.filter__item-checkbox
+                    label.filter__item Дримвуд
+                      input(type="checkbox" name="Объекты" value="Дримвуд")
+                      span.filter__item-checkbox
+                    label.filter__item Медицинский центр и Институт активного долголетия
+                      input(type="checkbox" name="Объекты" value="Медицинский центр и Институт активного долголетия")
+                      span.filter__item-checkbox
+                    label.filter__item Отель
+                      input(type="checkbox" name="Объекты" value="Отель")
+                      span.filter__item-checkbox
+                    label.filter__item Офис
+                      input(type="checkbox" name="Объекты" value="Офис")
+                      span.filter__item-checkbox
+                    label.filter__item Пляж
+                      input(type="checkbox" name="Объекты" value="Пляж")
+                      span.filter__item-checkbox
+
+                    label.filter__item Рестораны
+                      input(type="checkbox" name="Объекты" value="Рестораны" data-type="main")
+                      span.filter__item-checkbox
+                      .filter__item-inner
+                        label.filter__item Сервис
+                          input(type="checkbox" name="Объекты" value="Сервис")
+                          span.filter__item-checkbox
+                        label.filter__item Кухня
+                          input(type="checkbox" name="Объекты" value="Кухня")
+                          span.filter__item-checkbox
+
+                    label.filter__item Японский Сад
+                      input(type="checkbox" name="Объекты" value="Японский Сад")
+                      span.filter__item-checkbox
+                    label.filter__item Академия гостеприимства
+                      input(type="checkbox" name="Объекты" value="Академия гостеприимства")
+                      span.filter__item-checkbox
+
+
                   button.filter__button-more Показать ещё
 
-            //---Объекты---
-            li.filters__item.filter
-              span.filter__title Объекты
-              .filter__content
-                fieldset.filter__list
-
-                  label.filter__item Винный Парк
-                    input(type="checkbox" name="Объекты" value="Винный Парк")
-                    span.filter__item-checkbox
-                  label.filter__item Дримвуд
-                    input(type="checkbox" name="Объекты" value="Дримвуд")
-                    span.filter__item-checkbox
-                  label.filter__item Медицинский центр и Институт активного долголетия
-                    input(type="checkbox" name="Объекты" value="Медицинский центр и Институт активного долголетия")
-                    span.filter__item-checkbox
-                  label.filter__item Отель
-                    input(type="checkbox" name="Объекты" value="Отель")
-                    span.filter__item-checkbox
-                  label.filter__item Офис
-                    input(type="checkbox" name="Объекты" value="Офис")
-                    span.filter__item-checkbox
-                  label.filter__item Пляж
-                    input(type="checkbox" name="Объекты" value="Пляж")
-                    span.filter__item-checkbox
-
-                  label.filter__item Рестораны
-                    input(type="checkbox" name="Объекты" value="Рестораны" data-type="main")
-                    span.filter__item-checkbox
-                    .filter__item-inner
-                      label.filter__item Сервис
-                        input(type="checkbox" name="Объекты" value="Сервис")
-                        span.filter__item-checkbox
-                      label.filter__item Кухня
-                        input(type="checkbox" name="Объекты" value="Кухня")
-                        span.filter__item-checkbox
-
-                  label.filter__item Японский Сад
-                    input(type="checkbox" name="Объекты" value="Японский Сад")
-                    span.filter__item-checkbox
-                  label.filter__item Академия гостеприимства
-                    input(type="checkbox" name="Объекты" value="Академия гостеприимства")
-                    span.filter__item-checkbox
-
-
-                button.filter__button-more Показать ещё
-
-            //График
-            li.filters__item.filter
-              span.filter__title График
-              .filter__content
-                fieldset.filter__list
-
-                  label.filter__item Пятидневная рабочая неделя
-                    input(type="checkbox" name="График" value="Пятидневная рабочая неделя")
-                    span.filter__item-checkbox
-                  label.filter__item Сменный график
-                    input(type="checkbox" name="График" value="Сменный график")
-                    span.filter__item-checkbox
-
-            // Сезонность
-            li.filters__item.filter
-              span.filter__title Сезонность
-              .filter__content
-                fieldset.filter__list
-
-                  label.filter__item Постоянная работа
-                    input(type="checkbox" name="Сезонность" value="Постоянная работа")
-                    span.filter__item-checkbox
-                  label.filter__item Сезонная работа
-                    input(type="checkbox" name="Сезонность" value="Сезонная работа")
-                    span.filter__item-checkbox
-
-            // Резюме
-            li.filters__item.filter
-              span.filter__title Наличие резюме
-              .filter__content
-                fieldset.filter__list
-
-                  label.filter__item Обязательно
-                    input(type="checkbox" name="Наличие резюме" value="Обязательно")
-                    span.filter__item-checkbox
-                  label.filter__item Не обязательно
-                    input(type="checkbox" name="Наличие резюме" value="Не обязательно")
-                    span.filter__item-checkbox
-
-          .filters__actions
-            button.vacancies-button.vacancies-button--white.filters__actions-reset Сбросить
-            button.vacancies-button.vacancies-button--black.filters__actions-apply Применить
-
-      // Строка поиска
-      .vacancies__search.vacancies-search
-        input.vacancies-search__input(type="search" placeholder="Поиск по вакансиям")
-        button.vacancies-button.vacancies-button--black.vacancies-search__button Найти
-        button.vacancies-button.vacancies__filter-setting
-
-      .vacancies__filter-content.vacancies-filter-content
-        button.vacancies-filter-content__reset Cбросить фильтр
-        ul.vacancies-filter-content__list
-
-
-      // Все вакансии
-      ul.vacancies__list
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="hotel-maid.html") Горничная
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Сменный график работы
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="hotel-maid.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Отель
-            li.vacancies-item-tags__item Постоянная работа
-
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="floor-supervisor.html") Супервайзер этажа
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 40 000 ₽
-              span.vacancies-item-info__item Сменный график
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="floor-supervisor.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Отель
-            li.vacancies-item-tags__item Постоянная работа
-
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="houseman.html") Специалист по клинингу общественных территорий/хаусмен
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от  30 000 ₽
-              span.vacancies-item-info__item Сменный график
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="houseman.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Отель
-            li.vacancies-item-tags__item Постоянная работа
-
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="cleaner-wine-park.html") Уборщик в Винный парк
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item 25 000 ₽
-              span.vacancies-item-info__item Сменный график
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="cleaner-wine-park.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Благоустройство и озеленение
-            li.vacancies-item-tags__item Постоянная работа
-
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="office-cleaner.html") Уборщик производственных и служебных помещений (дневная и ночная смены)
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item 25 000 ₽
-              span.vacancies-item-info__item Сменный график
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="office-cleaner.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Благоустройство и озеленение
-            li.vacancies-item-tags__item Постоянная работа
-
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="rest-area-specialist.html") Специалист по подготовке зон отдыха
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 25 000 ₽
-              span.vacancies-item-info__item Сменный график
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="rest-area-specialist.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Отель
-            li.vacancies-item-tags__item Постоянная работа
-
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="loader.html") Грузчик/Группа управления складами
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Сменный график
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="loader.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Отель
-            li.vacancies-item-tags__item Постоянная работа
-
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="attraction-operator.html") Специалист по работе с гостями – оператор аттракционов
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="attraction-operator.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Дримвуд
-            li.vacancies-item-tags__item Постоянная работа
-
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="control-specialist.html") Специалист по контролю
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="control-specialist.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Отель
-            li.vacancies-item-tags__item Постоянная работа
-
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="specialist-po-vhodnomu-kontrolyu.html") Специалист по входному контролю качества
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="specialist-po-vhodnomu-kontrolyu.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Отель
-            li.vacancies-item-tags__item Постоянная работа
-
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="concierge.html") Консьерж
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="concierge.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Отель
-            li.vacancies-item-tags__item Постоянная работа
-
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="avtomojshchik.html") Специалист моечного комплекса (автомойщик/детейлер)
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="avtomojshchik.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Отель
-            li.vacancies-item-tags__item Постоянная работа
-
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="bus-driver-d.html") Водитель автобуса категории D
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="bus-driver-d.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Отель
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="otolaryngologist.html") Врач-отоларинголог
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="otolaryngologist.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Медицинский центр
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="physiotherapy-nurse.html") Медицинская сестра по физиотерапии
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="physiotherapy-nurse.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Медицинский центр
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="gastroenterologist.html") Врач-гастроэнтеролог
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="gastroenterologist.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Медицинский центр
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="dezhurnyj-vrach.html") Дежурный врач
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="dezhurnyj-vrach.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Медицинский центр
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="сardiologist.html") Врач-кардиолог
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="сardiologist.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Медицинский центр
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="functional-diagnostics-doctor.html") Врач функциональной диагностики
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="functional-diagnostics-doctor.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Медицинский центр
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="therapist.html") Врач-терапевт
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="therapist.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Медицинский центр
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="physiotherapist.html") Врач-физиотерапевт
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="physiotherapist.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Медицинский центр
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="urologist.html") Врач-уролог
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="urologist.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Медицинский центр
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="psychotherapist.html") Врач-психотерапевт
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="psychotherapist.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Медицинский центр
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="nurse.html") Медсестра
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="nurse.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Медицинский центр
-            li.vacancies-item-tags__item Постоянная работа
-
-
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="supplier-accountant.html") Бухгалтер по расчетам с поставщиками
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="supplier-accountant.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Офис
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="call-center-specialist.html") Специалист колл-центра
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="call-center-specialist.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Офис
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="vedushchij-specialist-po-kachestvu-i-sertifikacii.html") Ведущий специалист по качеству и сертификации
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="vedushchij-specialist-po-kachestvu-i-sertifikacii.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Офис
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="income-accountant.html") Бухгалтер по учету доходов
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="income-accountant.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Офис
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="inventory-accountant.html") Бухгалтер по учету ТМЦ
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="inventory-accountant.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Офис
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="consultant-analyst-1c.html") Консультант-аналитик 1С
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="consultant-analyst-1c.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Офис
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="leading-bitrix-24-specialist.html") Ведущий специалист по внедрению Битрикс 24
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="leading-bitrix-24-specialist.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Офис
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="business-travel-sales-lead.html") Ведущий специалист по продажам делового туризма
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="business-travel-sales-lead.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Офис
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="mice-lead-specialist.html") Ведущий специалист MICE
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="mice-lead-specialist.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Офис
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="it-specialist.html") Специалист по информационным технологиям
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="it-specialist.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Офис
-            li.vacancies-item-tags__item Постоянная работа
-
-
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="restorer-finisher.html") Реставратор-отделочник
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="restorer-finisher.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Инженерно-техническая служба
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="operator-videonablyudeniya.html") Оператор видеонаблюдения
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="operator-videonablyudeniya.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Инженерно-техническая служба
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="warehouse-manager.html") Заведующий складом
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="warehouse-manager.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Инженерно-техническая служба
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="equipment-repair-technician.html") Техник по ремонту оборудования
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="equipment-repair-technician.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Инженерно-техническая служба
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="Instrumentation-technician.html") Техник КИПиА
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="Instrumentation-technician.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Инженерно-техническая служба
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="wireless-systems-specialist.html") Специалист по системам беспроводной связи
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="wireless-systems-specialist.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Инженерно-техническая служба
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="iptv-specialist.html") Специалист по IPTV
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="iptv-specialist.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Инженерно-техническая служба
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="telephone-systems-specialist.html") Специалист по системам телефонной связи
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="telephone-systems-specialist.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Инженерно-техническая служба
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="slesar-po-remontu-i-obsluzhivaniyu-avto.html") Слесарь по ремонту и обслуживанию автомобилей
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="slesar-po-remontu-i-obsluzhivaniyu-avto.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Инженерно-техническая служба
-            li.vacancies-item-tags__item Постоянная работа
-
-
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="guest-relations-specialist.html") Специалист по работе с гостями
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="guest-relations-specialist.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Дримвуд
-            li.vacancies-item-tags__item Постоянная работа
-
-        li.vacancies__item.vacancies-item
-          .vacancies-item__content
-            a.vacancies-item__title(href="animator.html") Аниматор
-            .vacancies-item__info.vacancies-item-info
-              span.vacancies-item-info__item от 30 000 ₽
-              span.vacancies-item-info__item Пятидневная рабочая неделя
-          .vacancies-item__actions
-            button.vacancies-button.vacancies-button--black.button-popup Откликнуться
-            a.vacancies-button.vacancies-button--white(href="animator.html") Подробнее
-          ul.vacancies-item__tags.vacancies-item-tags
-            li.vacancies-item-tags__item Дримвуд
-            li.vacancies-item-tags__item Постоянная работа
-
-
-
-
-        button.vacancies-button.vacancies-button--black.vacancies__more Загрузить ещё
+              //График
+              li.filters__item.filter
+                span.filter__title График
+                .filter__content
+                  fieldset.filter__list
+
+                    label.filter__item Пятидневная рабочая неделя
+                      input(type="checkbox" name="График" value="Пятидневная рабочая неделя")
+                      span.filter__item-checkbox
+                    label.filter__item Сменный график
+                      input(type="checkbox" name="График" value="Сменный график")
+                      span.filter__item-checkbox
+
+              // Сезонность
+              li.filters__item.filter
+                span.filter__title Сезонность
+                .filter__content
+                  fieldset.filter__list
+
+                    label.filter__item Постоянная работа
+                      input(type="checkbox" name="Сезонность" value="Постоянная работа")
+                      span.filter__item-checkbox
+                    label.filter__item Сезонная работа
+                      input(type="checkbox" name="Сезонность" value="Сезонная работа")
+                      span.filter__item-checkbox
+
+              // Резюме
+              li.filters__item.filter
+                span.filter__title Наличие резюме
+                .filter__content
+                  fieldset.filter__list
+
+                    label.filter__item Обязательно
+                      input(type="checkbox" name="Наличие резюме" value="Обязательно")
+                      span.filter__item-checkbox
+                    label.filter__item Не обязательно
+                      input(type="checkbox" name="Наличие резюме" value="Не обязательно")
+                      span.filter__item-checkbox
+
+            .filters__actions
+              button.button.filters__actions-reset Сбросить
+              button.button.button--black.filters__actions-apply Применить
+
+        // Строка поиска
+        .vacancies__search.vacancies-search
+          input.vacancies-search__input(type="search" placeholder="Поиск по вакансиям")
+          button.button.button--black.vacancies-search__button Найти
+          button.button.button--outline-black.vacancies__filter-setting
+
+        .vacancies__filter-content.vacancies-filter-content
+          button.vacancies-filter-content__reset Cбросить фильтр
+          ul.vacancies-filter-content__list
+
+
+        // Все вакансии
+        ul.vacancies__list
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="hotel-maid.html") Горничная
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Сменный график работы
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="hotel-maid.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Отель
+              li.vacancies-item-tags__item Постоянная работа
+
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="floor-supervisor.html") Супервайзер этажа
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 40 000 ₽
+                span.vacancies-item-info__item Сменный график
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="floor-supervisor.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Отель
+              li.vacancies-item-tags__item Постоянная работа
+
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="houseman.html") Специалист по клинингу общественных территорий/хаусмен
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от  30 000 ₽
+                span.vacancies-item-info__item Сменный график
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="houseman.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Отель
+              li.vacancies-item-tags__item Постоянная работа
+
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="cleaner-wine-park.html") Уборщик в Винный парк
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item 25 000 ₽
+                span.vacancies-item-info__item Сменный график
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="cleaner-wine-park.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Благоустройство и озеленение
+              li.vacancies-item-tags__item Постоянная работа
+
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="office-cleaner.html") Уборщик производственных и служебных помещений (дневная и ночная смены)
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item 25 000 ₽
+                span.vacancies-item-info__item Сменный график
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="office-cleaner.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Благоустройство и озеленение
+              li.vacancies-item-tags__item Постоянная работа
+
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="rest-area-specialist.html") Специалист по подготовке зон отдыха
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 25 000 ₽
+                span.vacancies-item-info__item Сменный график
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="rest-area-specialist.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Отель
+              li.vacancies-item-tags__item Постоянная работа
+
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="loader.html") Грузчик/Группа управления складами
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Сменный график
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="loader.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Отель
+              li.vacancies-item-tags__item Постоянная работа
+
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="attraction-operator.html") Специалист по работе с гостями – оператор аттракционов
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="attraction-operator.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Дримвуд
+              li.vacancies-item-tags__item Постоянная работа
+
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="control-specialist.html") Специалист по контролю
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="control-specialist.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Отель
+              li.vacancies-item-tags__item Постоянная работа
+
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="specialist-po-vhodnomu-kontrolyu.html") Специалист по входному контролю качества
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="specialist-po-vhodnomu-kontrolyu.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Отель
+              li.vacancies-item-tags__item Постоянная работа
+
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="concierge.html") Консьерж
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="concierge.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Отель
+              li.vacancies-item-tags__item Постоянная работа
+
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="avtomojshchik.html") Специалист моечного комплекса (автомойщик/детейлер)
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="avtomojshchik.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Отель
+              li.vacancies-item-tags__item Постоянная работа
+
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="bus-driver-d.html") Водитель автобуса категории D
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="bus-driver-d.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Отель
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="otolaryngologist.html") Врач-отоларинголог
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="otolaryngologist.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Медицинский центр
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="physiotherapy-nurse.html") Медицинская сестра по физиотерапии
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="physiotherapy-nurse.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Медицинский центр
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="gastroenterologist.html") Врач-гастроэнтеролог
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="gastroenterologist.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Медицинский центр
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="dezhurnyj-vrach.html") Дежурный врач
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="dezhurnyj-vrach.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Медицинский центр
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="сardiologist.html") Врач-кардиолог
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="сardiologist.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Медицинский центр
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="functional-diagnostics-doctor.html") Врач функциональной диагностики
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="functional-diagnostics-doctor.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Медицинский центр
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="therapist.html") Врач-терапевт
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="therapist.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Медицинский центр
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="physiotherapist.html") Врач-физиотерапевт
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="physiotherapist.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Медицинский центр
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="urologist.html") Врач-уролог
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="urologist.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Медицинский центр
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="psychotherapist.html") Врач-психотерапевт
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="psychotherapist.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Медицинский центр
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="nurse.html") Медсестра
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="nurse.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Медицинский центр
+              li.vacancies-item-tags__item Постоянная работа
+
+
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="supplier-accountant.html") Бухгалтер по расчетам с поставщиками
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="supplier-accountant.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Офис
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="call-center-specialist.html") Специалист колл-центра
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="call-center-specialist.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Офис
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="vedushchij-specialist-po-kachestvu-i-sertifikacii.html") Ведущий специалист по качеству и сертификации
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="vedushchij-specialist-po-kachestvu-i-sertifikacii.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Офис
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="income-accountant.html") Бухгалтер по учету доходов
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="income-accountant.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Офис
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="inventory-accountant.html") Бухгалтер по учету ТМЦ
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="inventory-accountant.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Офис
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="consultant-analyst-1c.html") Консультант-аналитик 1С
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="consultant-analyst-1c.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Офис
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="leading-bitrix-24-specialist.html") Ведущий специалист по внедрению Битрикс 24
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="leading-bitrix-24-specialist.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Офис
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="business-travel-sales-lead.html") Ведущий специалист по продажам делового туризма
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="business-travel-sales-lead.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Офис
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="mice-lead-specialist.html") Ведущий специалист MICE
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="mice-lead-specialist.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Офис
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="it-specialist.html") Специалист по информационным технологиям
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="it-specialist.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Офис
+              li.vacancies-item-tags__item Постоянная работа
+
+
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="restorer-finisher.html") Реставратор-отделочник
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="restorer-finisher.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Инженерно-техническая служба
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="operator-videonablyudeniya.html") Оператор видеонаблюдения
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="operator-videonablyudeniya.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Инженерно-техническая служба
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="warehouse-manager.html") Заведующий складом
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="warehouse-manager.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Инженерно-техническая служба
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="equipment-repair-technician.html") Техник по ремонту оборудования
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="equipment-repair-technician.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Инженерно-техническая служба
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="Instrumentation-technician.html") Техник КИПиА
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="Instrumentation-technician.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Инженерно-техническая служба
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="wireless-systems-specialist.html") Специалист по системам беспроводной связи
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="wireless-systems-specialist.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Инженерно-техническая служба
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="iptv-specialist.html") Специалист по IPTV
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="iptv-specialist.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Инженерно-техническая служба
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="telephone-systems-specialist.html") Специалист по системам телефонной связи
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="telephone-systems-specialist.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Инженерно-техническая служба
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="slesar-po-remontu-i-obsluzhivaniyu-avto.html") Слесарь по ремонту и обслуживанию автомобилей
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="slesar-po-remontu-i-obsluzhivaniyu-avto.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Инженерно-техническая служба
+              li.vacancies-item-tags__item Постоянная работа
+
+
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="guest-relations-specialist.html") Специалист по работе с гостями
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="guest-relations-specialist.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Дримвуд
+              li.vacancies-item-tags__item Постоянная работа
+
+          li.vacancies__item.vacancies-item
+            .vacancies-item__content
+              a.vacancies-item__title(href="animator.html") Аниматор
+              .vacancies-item__info.vacancies-item-info
+                span.vacancies-item-info__item от 30 000 ₽
+                span.vacancies-item-info__item Пятидневная рабочая неделя
+            .vacancies-item__actions
+              button.vacancies-button.button.button--black.button-popup Откликнуться
+              a.button(href="animator.html") Подробнее
+            ul.vacancies-item__tags.vacancies-item-tags
+              li.vacancies-item-tags__item Дримвуд
+              li.vacancies-item-tags__item Постоянная работа
+
+
+
+
+          button.vacancies-button.button.button--black.vacancies__more Загрузить ещё
 
 
 

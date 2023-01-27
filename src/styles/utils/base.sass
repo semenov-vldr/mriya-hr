@@ -31,20 +31,67 @@ main
   flex: 1 1 auto
   -webkit-box-flex: 1
   -ms-flex: 1 1 auto
+  //display: flex
+  //flex-direction: column
+  //gap: 100px
+  //@media (max-width: 768px)
+  //  gap: 50px
+
+
+//.container
+//  // ширина контента без padding
+//  max-width: 1300px
+//  min-width: 280px
+//  width: 100%
+//  padding: 0 300px
+//  margin: 0 auto
+//  box-sizing: content-box
+//  @media (max-width: 1500px)
+//    padding: 0 150px
+//  @media (max-width: 1200px)
+//    padding: 0 50px
+//  @media (max-width: 768px)
+//    padding: 0 20px
 
 .container
   // ширина контента без padding
   max-width: 1300px
   min-width: 280px
-  padding: 0 300px
+  width: 100%
   margin: 0 auto
   box-sizing: content-box
   @media (max-width: 1500px)
-    padding: 0 150px
+    width: calc(100vw - 300px)
   @media (max-width: 1200px)
-    padding: 0 50px
+    width: calc(100vw - 100px)
   @media (max-width: 768px)
-    padding: 0 20px
+    width: calc(100vw - 40px)
+  &.container-width-full
+    max-width: 100%
+    @media (max-width: 1500px)
+      width: 100%
+    @media (max-width: 1200px)
+      width: 100%
+    @media (max-width: 768px)
+      width: 100%
+    & > *
+      //padding: 0 300px
+      padding-left: 300px
+      padding-right: 300px
+      @media (max-width: 1500px)
+        padding-left: 150px
+        padding-right: 150px
+        //padding: 0 150px
+      @media (max-width: 1200px)
+        //padding: 0 50px
+        padding-left: 50px
+        padding-right: 50px
+      @media (max-width: 768px)
+        //padding: 0 20px
+        padding-left: 20px
+        padding-right: 20px
+
+
 
 h1
   @include fontSize(32, 56)
@@ -68,12 +115,12 @@ h1
   overflow: hidden
 
 
-section > *:first-child:not(.hero-student, .hero-about, .hero-index)
-  margin-top: 200px
-  @media (max-width: 1000px)
-    margin-top: 160px
-  @media (max-width: 768px)
-    margin-top: 140px
+//section > *:first-child:not(.hero-student, .hero-about, .hero-index)
+//  margin-top: 200px
+//  @media (max-width: 1000px)
+//    margin-top: 160px
+//  @media (max-width: 768px)
+//    margin-top: 140px
 
 .section-column
   display: flex
@@ -91,44 +138,70 @@ section > *:first-child:not(.hero-student, .hero-about, .hero-index)
 
 // Button
 .button
+  display: block
   padding: 12px 20px
   width: fit-content
-  color: #fff
+  color: $black
   @include fontSize(14, 16)
   border-radius: 4px
-  border: 1px solid #fff
+  border: 2px solid #EBEBEB
   cursor: pointer
   text-align: center
+  &:hover
+    border-color: #d0d0d0
   @media (max-width: 1000px)
     padding: 12px 16px
   &--accent
     background-color: $orange
     border: 1px solid $orange
+    color: #fff
     &:hover
       background-color: rgba($orange, 0.9)
       border-color: rgba($orange, 0.9)
+  &--outline-black
+    border: 1px solid $black
+    color: $black
+    &:hover
+      background-color: $black
+      color: #fff
+  &--black
+    background-color: $black
+    color: #fff
+    border: 2px solid $black
+    &:hover
+      background-color: transparent
+      color: $black
+  &--white
+    background-color: transparent
+    color: #fff
+    border: 1px solid #fff
+    &:hover
+      background-color: transparent
+      color: #fff
+
 
 .vacancies-button
-  @extend .flex-center
-  min-height: 45px
-  padding: 5px 16px
-  border-radius: 4px
-  cursor: pointer
-  border: 2px solid transparent
-  box-sizing: border-box
-  @include fontSize(13, 15)
-  &--black
-    background-color: #333333
-    border-color: #333333
-    color: #fff
-    &:hover
-      background-color: #414141
-  &--white
-    background-color: #fff
-    color: #333333
-    border-color: #EBEBEB
-    &:hover
-      border-color: #d0d0d0
+  //width: 100%
+  //@extend .flex-center
+  //min-height: 45px
+  //padding: 5px 16px
+  //border-radius: 4px
+  //cursor: pointer
+  //border: 2px solid transparent
+  //box-sizing: border-box
+  //@include fontSize(13, 15)
+  //&--black
+  //  background-color: #333333
+  //  border-color: #333333
+  //  color: #fff
+  //  &:hover
+  //    background-color: #414141
+  //&--white
+  //  background-color: #fff
+  //  color: #333333
+  //  border-color: #EBEBEB
+  //  &:hover
+  //    border-color: #d0d0d0
 
 
 .fill-form,
