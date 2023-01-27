@@ -892,7 +892,7 @@ let previousPosition = window.scrollTop || document.documentElement.scrollTop;
 const header = document.querySelector('.header');
 
 
-if (header) {
+if (header && !header.classList.contains('header--simple')) {
   const burger = header.querySelector('.header__burger');
   burger.addEventListener('click', () => {
     header.classList.toggle('js-active-menu');
